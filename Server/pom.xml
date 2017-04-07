@@ -12,7 +12,118 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+         <groupId>org.datanucleus</groupId>
+         <artifactId>datanucleus-core</artifactId>
+         <version>[5.0.7, 5.9)</version>
+     </dependency>
+     <dependency>
+         <groupId>org.datanucleus</groupId>
+         <artifactId>datanucleus-api-jdo</artifactId>
+         <version>[5.0.7, 5.9)</version>
+     </dependency>
+    <dependency>
+         <groupId>org.datanucleus</groupId>
+         <artifactId>datanucleus-rdbms</artifactId>
+         <version>[5.0.7, 5.9)</version>
+     </dependency>
+     <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>[1.2.17, )</version>
+     </dependency>
+    <dependency>
+         <groupId>org.datanucleus</groupId>
+         <artifactId>javax.jdo</artifactId>
+         <version>[3.2.0-m5, )</version>
+     </dependency>
+	<dependency>
+         <groupId>mysql</groupId>
+         <artifactId>mysql-connector-java</artifactId>
+         <version>5.1.41</version>
+     </dependency>
   </dependencies>
   <name>Server</name>
   <artifactId>Server</artifactId>
+  
+  <profiles> 
+	<!-- run as 'mvn exec:java -Pserver' -->
+	<profile>  
+		<id>server</id>  
+		<build>  
+			<resources>
+				<resource>
+					<directory>${config.files.dir}</directory>
+					<includes>
+						<include>**/*.jdo</include>
+						<include>**/*.orm</include>
+						<include>**/*.properties</include>
+					</includes>
+				</resource>
+			</resources>
+
+			<plugins>  
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.4.1</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>${basedir}</directory>
+								<includes>
+									<include>*.log</include>
+									<include>*.ods</include>
+								</includes>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
+
+				<plugin>  
+					<groupId>org.codehaus.mojo</groupId>  
+					<artifactId>exec-maven-plugin</artifactId>  
+					<version>1.2.1</version>  
+					<configuration>  
+						<mainClass>es.deusto.server.Server</mainClass>
+						<systemProperties>
+							
+							<systemProperty>
+								<key>java.security.manager</key>
+								<value>java.rmi.RMISecurityManager</value>
+							</systemProperty>
+							<systemProperty>
+								<key>java.rmi.server.codebase</key>
+								<value>file:${basedir}/target/classes/</value>
+							</systemProperty>
+							<systemProperty>
+								<key>java.security.policy</key>
+								<value>${policy.file}</value>
+							</systemProperty>
+						</systemProperties>
+						<arguments>  
+							<argument>${server.IP}</argument>  
+							<argument>${server.port}</argument>  
+							<argument>${server.Name}</argument>  
+						</arguments>  
+					</configuration>  
+				</plugin>  	
+			</plugins>  
+		</build>  
+	</profile> 
+  </profiles>
+  
+  <repositories>
+	    <repository>
+            <id>DN_M2_Repo</id>
+            <name>DataNucleus Repository</name>
+            <url>http://www.datanucleus.org/downloads/maven2</url>
+        </repository>
+    </repositories>
+	<pluginRepositories>
+        <pluginRepository>
+            <id>DataNucleus_2</id>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+  
 </project>

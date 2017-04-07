@@ -3,9 +3,8 @@ package lurrun.server;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ILurrunServer {
+public interface ILurrunServer extends Remote{
 	
-	String sayMessage(String login, String password, String message) throws RemoteException;
-	void registerUser(String login, String password) throws RemoteException;
+	String searchGame(String login, String password, String message) throws RemoteException;
 	
 }
