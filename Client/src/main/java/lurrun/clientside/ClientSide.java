@@ -1,8 +1,6 @@
 package lurrun.clientside;
 import java.util.ArrayList;
 
-import remote.RMIServiceLocator;
-
 public class ClientSide 
 {
 	public static void main(String[] args) {
@@ -17,13 +15,14 @@ public class ClientSide
 
 		try {
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
-			IServer objHello = (IServer) java.rmi.Naming.lookup(name);
-			// Register to be allowed to send messages
-			objHello.registerUser("dipina", "dipina");
-			System.out.println("* Message coming from the server: '" + objHello.sayMessage("dipina", "dipina", "This is a test!") + "'");
+			String user = "Gabe";
+			String pass = "Newell";
+//			ILurrunServer objHello = (ILurrunServer) java.rmi.Naming.lookup(name);
+//			objHello.registerUser("user", "pass");
+//			System.out.println("* Message from the Lurrun server: '" + objHello.sayMessage("user", "pass", "User logged") + "'");
 			
 		} catch (Exception e) {
-			System.err.println("RMI Example exception: " + e.getMessage());
+			System.err.println("RMI exception: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
