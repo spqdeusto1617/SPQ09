@@ -3,6 +3,7 @@ package es.deusto.server;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
@@ -11,7 +12,9 @@ import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 import es.deusto.server.jdo.User;
+import es.deusto.server.db.data.Game;
 import es.deusto.server.jdo.Message;
+import es.deusto.server.db.DbMethods;
 
 
 public class Server extends UnicastRemoteObject implements IServer {
@@ -106,13 +109,37 @@ public class Server extends UnicastRemoteObject implements IServer {
 	public String sayHello(){
 		return("Hello!");
 	}
+
+
+	@Override
+	public ArrayList<Game> showGamesInStore() throws RemoteException {
+		// call DB to retrieve full list of games
+		ArrayList<Game> games = new ArrayList<>();
+		games = DbMethods.getAllGames();
+		return games;
+	}
+
+	@Override
+	public ArrayList<Game> showOwnedGames(String username) throws RemoteException {
+		// call DB to retrieve specified users list of games
+		ArrayList<Game> games = new ArrayList<>();
+		games = DbMethods.getUserGames(username);
+		return games;
+	}
+
+	@Override
+	public boolean buyGame(String username, int gameId) throws RemoteException {
+		// call DB to make necessary changes for adding a new game to the users owned list
+		return DbMethods.buyGame(username, gameId);
+	}
 	
 	public static void main(String[] args) {
+		
 		if (args.length != 3) {
 			System.out.println("[S] How to invoke: java [policy] [codebase] Server.Server [host] [port] [server]");
 			System.exit(0);
 		}
-		System.out.println("[S] Server here =)");
+
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
@@ -128,7 +155,7 @@ public class Server extends UnicastRemoteObject implements IServer {
 			@SuppressWarnings("unused")
 			String line  = stdin.readLine();
 		} catch (Exception e) {
-			System.err.println("[S] Hello exception: " + e.getMessage());
+			System.err.println("[S] Server exception: " + e.getMessage());
 			e.printStackTrace();
 		}
 
