@@ -133,7 +133,7 @@ public class RMITest {
 	@Test public void registerNewUserTest() {
 		try{
 			System.out.println("Test 1 - Register new user");
-			messenger.registerUser("ipina", "ipina");
+			messenger.registerUser("ipina", "ipina",false);
 		}
 		catch (Exception re) {
 			System.err.println(" # Messenger RemoteException: " + re.getMessage());
@@ -147,9 +147,9 @@ public class RMITest {
 	@Test public void registerExistingUserTest() {
 		try{
 			System.out.println("Test 2 - Register existing user. Change password");
-			messenger.registerUser("smith", "smith");
+			messenger.registerUser("smith", "smith",false);
 			// Silly way of testing the password testing
-			messenger.registerUser("smith", "doe");
+			messenger.registerUser("smith", "doe",false);
 			
 		}
 		catch (Exception re) {
@@ -166,7 +166,7 @@ public class RMITest {
 		System.out.println("Test 3 - Sending message - Valid User");
 		String ret = null;
 		try{
-			messenger.registerUser("cortazar","cortazar");
+			messenger.registerUser("cortazar","cortazar",false);
 			ret = messenger.sayMessage("cortazar", "cortazar", "testing message");
 		} catch (RemoteException e){
 			

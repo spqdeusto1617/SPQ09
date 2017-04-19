@@ -51,7 +51,7 @@ public class DAOMockTest {
 	
 		// Stubbing - return a given value when a specific method is called
 		when( dao.retrieveUser("cortazar") ).thenReturn( null );
-		m.registerUser("cortazar", "cortazar");
+		m.registerUser("cortazar", "cortazar",false);
 		
 		//Use ArgumentCaptor to capture argument values for further assertions.
 		ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass( User.class );
@@ -71,7 +71,7 @@ public class DAOMockTest {
 		
 		when( dao.retrieveUser("cortazar") ).thenReturn(u);
 		// When the user exist, we update the password
-		m.registerUser("cortazar", "dipina");
+		m.registerUser("cortazar", "dipina",false);
 		
 		
 		ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass( User.class );

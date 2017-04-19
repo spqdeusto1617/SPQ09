@@ -32,29 +32,35 @@ public class Client {
 			// Register to be allowed to send messages
 		
 			System.out.println("Register a user for the first time: dipina");
-			objHello.registerUser("dipina", "dipina");
+			objHello.registerUser("dipina", "dipina",false);
 			System.out.println("Change the password as the user is already registered: cortazar");
-			objHello.registerUser("dipina", "cortazar");
+			objHello.registerUser("dipina", "cortazar",false);
 			
 			System.out.println("Register a user for the first time: dipina");
 			
-			objHello.registerUser("Javier", "qwerty");
+			objHello.registerUser("Javier", "qwerty",false);
 			
 		//Método a cambiar	
-			Game g =new Game("HL4",200,0.2);
-			Genre gg = new Genre ("FPS4");
-			Company c = new Company ("Valve4");
-			
+			Game g =new Game("HL6",200,0.2);
+			Genre gg = new Genre ("FPS6");
+			Company c = new Company ("Valve6");
+			License l = new License ("ABCDE");
+			User javier = objHello.getUserMessages("Javier");
 			
 		
-			System.out.println("1- Add Stuff AAA");
+			System.out.println("1- Add Stuff ");
 			objHello.addStufToDb( g, gg, c);
-	
 			
-		//	System.out.println("2- get stuff");
-		//	objHello.getStuf();
-		
+			System.out.println("1- Add license to game ");
+			objHello.addLicenseToGame(g, l);
+			System.out.println("1- Add license to  user");
+			objHello.addLicenseToUser(javier, l);
 			
+			
+			System.out.println("2- Show Game info");
+			objHello.showGameInfo("HL6", "Valve6", "FPS6");
+			System.out.println("3-Show License Info");
+			objHello.showLicenseInfo("Javier", "ABCDE", "HL6");
 		//	System.out.println("3- List of GAMES from DB");
 		//	objHello.getGamesFromDB();
 			

@@ -17,17 +17,32 @@ private double price;
 private double discount;
 
 Genre genre;
-
-
 Company company;
 
 
+@Persistent(defaultFetchGroup="true", mappedBy="game", dependentElement="true")
+@Join
+List<License> licenses = new ArrayList<License>();
 
 
-@Override
+
 public String toString() {
-	return "Game [name=" + name + ", price=" + price + ", discount=" + discount +  "]";
-}
+
+	 if (licenses.isEmpty()) {
+		 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +  "]";
+	 }else{
+	        
+				StringBuffer licensesStr = new StringBuffer();
+				for (License license: this.licenses) {
+					licensesStr.append(license.toString() + " - ");
+				}
+				 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";
+					        	
+	        }
+	        	
+	        	
+	 }
+
 public Genre getGenre() {
 	return genre;
 }
@@ -58,6 +73,23 @@ public double getDiscount() {
 public void setDiscount(double discount) {
 	this.discount = discount;
 }
+
+public void addLicense(License license) {
+	licenses.add(license);
+}
+
+public void removeLicense(License license) {
+	licenses.remove(license);
+}
+
+ public List<License> getLicenses() {
+	 return this.licenses;
+	 
+}
+
+
+
+
 
 
 public Game(String name, double price, double discount) {

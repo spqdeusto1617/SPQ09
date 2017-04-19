@@ -8,6 +8,10 @@ public interface IUserDAO {
 	User retrieveUser(String login);
 	void updateUser(User u);
 	
+	void storeLicense(License u);
+	License retrieveLicense(String gameKey);
+	void updateLicense(License u);
+	
 	void storeGame(Game g);
 	Game retrieveGame(String name);
 	void updateGame(Game g);
