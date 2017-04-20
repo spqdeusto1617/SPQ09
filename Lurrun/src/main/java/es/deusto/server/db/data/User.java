@@ -25,15 +25,13 @@ public class User implements Serializable {
 	}
 
 	boolean isSuperuser=false;
-	
+
 	@Persistent(defaultFetchGroup="true", mappedBy="user", dependentElement="true")
 	@Join
-	List<Message> messages = new ArrayList<Message>();
-
+	List<License> licenses = new ArrayList<License>();
 	
 	
-	
-
+	  
 
 	public boolean isSuperuser() {
 		return isSuperuser;
@@ -44,17 +42,24 @@ public class User implements Serializable {
 	}
 
 
+	
+
 	public User(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}
 	
-	public void addMessage(Message message) {
-		messages.add(message);
+	public void addLicense(License license) {
+		licenses.add(license);
 	}
 
-	public void removeMessage(Message message) {
-		messages.remove(message);
+	public void removeLicense(License license) {
+		licenses.remove(license);
+	}
+	
+	 public List<License> getLicenses() {
+		 return this.licenses;
+		 
 	}
 
 	public String getLogin() {
@@ -68,25 +73,35 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	 public List<Message> getMessages() {
-		 return this.messages;
-		 
-	}
 	 
-	 public String toString() {
-		 if (messages.isEmpty()) {
-			 return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser;
-			 
-		 } else {
-			 StringBuffer messagesStr = new StringBuffer();
-				for (Message message: this.messages) {
-					messagesStr.append(message.toString() + " - ");
-				}
-			
-		        return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser + ", messages --> [" + messagesStr + "]";
-	 
-		 }
+//	 public String toString() {
+//		 if (messages.isEmpty() && licenses.isEmpty()) {
+//			 return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser;
+//			 
+//		 } else if(licenses.isEmpty()) {
+//			 StringBuffer messagesStr = new StringBuffer();
+//				for (Message message: this.messages) {
+//					messagesStr.append(message.toString() + " - ");
+//				}
+//			
+//		        return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser + ", messages --> [" + messagesStr + "]";
+//		 }else{
+//		        	StringBuffer messagesStr = new StringBuffer();
+//					for (Message message: this.messages) {
+//						messagesStr.append(message.toString() + " - ");
+//					}
+//					StringBuffer licensesStr = new StringBuffer();
+//					for (License license: this.licenses) {
+//						licensesStr.append(license.toString() + " - ");
+//					}
+//		        	
+//					return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " 
+//					+ this.isSuperuser + ", messages --> [" + messagesStr + "]"+ ", game licenses --> [" + licensesStr + "]";
+//		        	
+//		        }
+//		        	
+//		        	
+//		 }
 	 }
-}
+
 

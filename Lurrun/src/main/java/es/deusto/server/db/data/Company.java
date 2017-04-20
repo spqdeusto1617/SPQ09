@@ -29,46 +29,64 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
 
-@PersistenceCapable
+@PersistenceCapable (detachable = "true")
 
 public class Company implements Serializable
 {
 	private static final long serialVersionUID = 1L;
     protected String name=null;
-
-
+    @Persistent(defaultFetchGroup="true", mappedBy="company", dependentElement="true")
+	@Join
+    List<Game> companyGames = new ArrayList<Game>();
     
-
-    protected Company()
-    {
+    protected Company(){
     }
+    
+    public List<Game> getCompanyGames() {
+		return this.companyGames;
+	}
+
+	public void setCompanyGames(List<Game> companyGames) {
+		this.companyGames = companyGames;
+	}
+
+	public void addGame(Game game) {
+    	companyGames.add(game);
+	}
+
+	public void removeGame(Game game) {
+		companyGames.remove(game);
+	}
 
     public Company(String name)
     {
         this.name = name;
       
     }
-
-  
-  
-	
 	
     public String getName()
     {
         return name;
     }
 
-   
-
     public void setName(String name)
     {
         this.name = name;
     }
 
-    
 
-    public String toString()
-    {
-        return "Company : " + name ;
-    }
+    public String toString() {
+		 if (companyGames.isEmpty()) {
+			 return "This company has no games Company: name --> " + this.name;
+			 
+		 } else {
+			StringBuffer gamesStr = new StringBuffer();
+			for (Game game: this.companyGames) {
+				gamesStr.append(game.toString() + " - ");
+			}
+		
+	        return "Company: name --> " + this.name +", games --> [" + gamesStr + "]";
+	 
+		 }
+	 }
 }
