@@ -1,0 +1,12 @@
+es\deusto\server\db\data\Genre.class
+es\deusto\server\db\dao\IDAO.class
+es\deusto\server\db\data\License.class
+es\deusto\server\db\data\User.class
+es\deusto\server\db\dao\DAO.class
+es\deusto\server\remote\Remote.class
+es\deusto\server\db\data\Company.class
+es\deusto\server\remote\IRemote.class
+es\deusto\server\db\DbMethods.class
+es\deusto\server\Server.class
+es\deusto\client\Client.class
+es\deusto\server\db\data\Game.class

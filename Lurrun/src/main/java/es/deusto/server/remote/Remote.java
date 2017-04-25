@@ -13,6 +13,8 @@ import javax.jdo.Transaction;
 
 import es.deusto.server.db.data.*;
 import es.deusto.server.db.DbMethods;
+import es.deusto.server.db.dao.DAO;
+import es.deusto.server.db.dao.IDAO;
 
 
 public class Remote extends UnicastRemoteObject implements IRemote {
@@ -82,8 +84,10 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	@Override
 	public ArrayList<Game> showGamesInStore() throws RemoteException {
 		// call DB to retrieve full list of games
+		System.out.println("Client asked for games on store");
 		ArrayList<Game> games = new ArrayList<>();
-		games = DbMethods.getAllGames();
+		IDAO dao = new DAO();
+		games = (ArrayList<Game>) dao.getAllGames();
 		return games;
 	}
 

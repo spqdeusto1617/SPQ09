@@ -38,7 +38,7 @@ public class DAO implements IDAO {
 		    }
 		}
 	
-public void storeLicense(License u) {
+	public void storeLicense(License u) {
 		
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -57,54 +57,54 @@ public void storeLicense(License u) {
 	    		pm.close();
 		    }
 		}
-@Override
-public License retrieveLicense(String gameKey) {
-	System.out.println("Get License from db "+gameKey);
-    PersistenceManager pm = pmf.getPersistenceManager();
-    Transaction tx = pm.currentTransaction();
-    pm.getFetchPlan().setMaxFetchDepth(3);
-    License u = null;
-    try {
-        tx.begin();
-        Extent<License> extentP = pm.getExtent(License.class);
-
-        for (License p : extentP) {
-            
-            if (p.getGameKey().equals(gameKey)) {
-                u = p;              
-            }
-        }
-        tx.commit();
-    } catch (Exception ex) {
-        System.out.println("# Error getting Extent: " + ex.getMessage());
-    } finally {
-        if (tx.isActive()) {
-            tx.rollback();
-        }
-        pm.close();
-    }
-    System.out.println(u);
-    return u;
-}	
+	@Override
+	public License retrieveLicense(String gameKey) {
+		System.out.println("Get License from db "+gameKey);
+	    PersistenceManager pm = pmf.getPersistenceManager();
+	    Transaction tx = pm.currentTransaction();
+	    pm.getFetchPlan().setMaxFetchDepth(3);
+	    License u = null;
+	    try {
+	        tx.begin();
+	        Extent<License> extentP = pm.getExtent(License.class);
 	
-public	void updateLicense(License g){
-	PersistenceManager pm = pmf.getPersistenceManager();
-    Transaction tx = pm.currentTransaction();
-    
-    try {
-    	tx.begin();
-    	pm.makePersistent(g);
-    	tx.commit();
-     } catch (Exception ex) {
-	   	System.out.println("Error updating a License: " + ex.getMessage());
-     } finally {
-	   	if (tx != null && tx.isActive()) {
-	   		tx.rollback();
-	   	}
-			
-   		pm.close();
-     }
-}	
+	        for (License p : extentP) {
+	            
+	            if (p.getGameKey().equals(gameKey)) {
+	                u = p;              
+	            }
+	        }
+	        tx.commit();
+	    } catch (Exception ex) {
+	        System.out.println("# Error getting Extent: " + ex.getMessage());
+	    } finally {
+	        if (tx.isActive()) {
+	            tx.rollback();
+	        }
+	        pm.close();
+	    }
+	    System.out.println(u);
+	    return u;
+	}	
+		
+	public	void updateLicense(License g){
+		PersistenceManager pm = pmf.getPersistenceManager();
+	    Transaction tx = pm.currentTransaction();
+	    
+	    try {
+	    	tx.begin();
+	    	pm.makePersistent(g);
+	    	tx.commit();
+	     } catch (Exception ex) {
+		   	System.out.println("Error updating a License: " + ex.getMessage());
+	     } finally {
+		   	if (tx != null && tx.isActive()) {
+		   		tx.rollback();
+		   	}
+				
+	   		pm.close();
+	     }
+	}	
 	
 	
 	
