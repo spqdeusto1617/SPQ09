@@ -111,7 +111,7 @@ public class Messenger extends UnicastRemoteObject implements IMessenger {
 
 			gg.getGenreGames().add(g);
 			c.getCompanyGames().add(g);
-
+//ESTE STORE GAME NO ES NECESASIRIO  SI LO QUITAS NO PASA NADA
 			dao.storeGame(g);				 
 			dao.storeGenre(gg);				 
 			dao.storeCompany(c);				 
@@ -158,7 +158,7 @@ public class Messenger extends UnicastRemoteObject implements IMessenger {
 			game.getLicenses().add(l);
 
 			System.out.println("Updating Game: " + g.getName());
-
+//ESTE STORE LICENSE NO ES NECESASIRIO  SI LO QUITAS NO PASA NADA
 			dao.storeLicense(l);	
 			dao.updateGame(game);
 
