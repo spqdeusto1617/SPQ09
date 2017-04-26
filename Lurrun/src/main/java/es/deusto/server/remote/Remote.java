@@ -4,6 +4,7 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
@@ -82,21 +83,29 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 
 	@Override
-	public ArrayList<Game> showGamesInStore() throws RemoteException {
+	public List<Game> showGamesInStore() throws RemoteException {
 		// call DB to retrieve full list of games
 		System.out.println("Client asked for games on store");
-		ArrayList<Game> games = new ArrayList<>();
-		IDAO dao = new DAO();
-		games = (ArrayList<Game>) dao.getAllGames();
-		return games;
+		List<Game> games = DbMethods.getAllGames();
+		if(games.isEmpty()){
+			throw new RemoteException("No games on store");
+		}
+		else{
+			return(games);
+		}
 	}
 
 	@Override
-	public ArrayList<Game> showOwnedGames(String username) throws RemoteException {
+	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games
-		ArrayList<Game> games = new ArrayList<>();
-		games = DbMethods.getUserGames(username);
-		return games;
+		System.out.println("Client asked for games owned");
+		List<Game> games = DbMethods.getUserGames(username);
+		if(games.isEmpty()){
+			throw new RemoteException("No games on store");
+		}
+		else{
+			return(games);
+		}
 	}
 
 	@Override

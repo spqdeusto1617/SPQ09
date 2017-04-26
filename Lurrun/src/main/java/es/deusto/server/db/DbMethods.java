@@ -1,17 +1,17 @@
 package es.deusto.server.db;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import es.deusto.server.db.data.Game;
 
 public class DbMethods{
 
-	public static ArrayList<Game> getAllGames() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<Game> getAllGames() {
+		IDB db = new DB();
+		return db.getGamesFromDB();
 	}
 
-	public static ArrayList<Game> getUserGames(String username) {
+	public static List<Game> getUserGames(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}

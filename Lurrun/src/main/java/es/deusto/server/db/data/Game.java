@@ -42,16 +42,13 @@ public class Game implements Serializable {
 			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +  "]";
 		 }else{
 		        
-					StringBuffer licensesStr = new StringBuffer();
-					for (License license: this.licenses) {
-						licensesStr.append(license.toString() + " - ");
-					}
-					 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";
-						        	
-		        }
-		        	
-		        	
+			StringBuffer licensesStr = new StringBuffer();
+			for (License license: this.licenses) {
+				licensesStr.append(license.toString() + " - ");
+			}
+			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";		        	
 		 }
+	}
 	
 	public Genre getGenre() {
 		return genre;

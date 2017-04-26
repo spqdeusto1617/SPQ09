@@ -1,7 +1,10 @@
 package es.deusto.client;
 
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
+import java.util.List;
+
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import es.deusto.server.db.data.Game;
 import es.deusto.server.remote.*;
@@ -14,6 +17,21 @@ public class Client {
 		System.out.println("Insert the option number to select an action. If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
 		for(int i = 0; i<options.length; i++){
 			System.out.println((i+1) + ".- " + options[i]);
+		}
+	}
+	
+	public static void showGames(IRemote server, String username){
+		List<Game> games = null;
+		try {
+			if(username!=null){
+				games = server.showOwnedGames(username);
+			}
+			games = server.showGamesInStore();
+		} catch (RemoteException e) {
+			System.out.println(e.getMessage());
+		}
+		for(Game g : games){
+			System.out.println("Game: " + g.getName() + "; Price: " + g.getPrice());
 		}
 	}
 
@@ -35,20 +53,31 @@ public class Client {
 			//System.out.println("* Message coming from the server: '" + objHello.sayMessage("dipina", "dipina", "This is a test!") + "'");
 //			System.out.println("[C] Sending salutations");
 //			System.out.println(objHello.sayHello());
+			String username = "";
+			
 			String input = "";
 			do{
 				displayMenu(mainMenu);
 				input = System.console().readLine();
 				switch(input){
 				case("1"):
-					ArrayList<Game> games = server.showGamesInStore();
-					for(Game g : games){
-						System.out.println("Game: " + g.getName() + "; Price: " + g.getPrice());
-					}
+					//Show games
+					showGames(server, null);
 					break;
 				case("2"):
+					showGames(server, username);
 					break;
 				case("3"):
+					//Buy game
+					System.out.println("Insert a games Id to select it; If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
+					showGames(server, null);
+					input = System.console().readLine();
+					
+					int gameId = 0;
+					
+					if(server.buyGame(username, gameId)){
+						System.out.println("Game bought successfully");
+					}
 					break;
 				case("b"):
 					break;
