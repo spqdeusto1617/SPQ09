@@ -16,8 +16,11 @@ public class DbMethods{
 		return null;
 	}
 
-	public static boolean buyGame(String username, int gameId) {
+	public static boolean buyGame(User u, Game game) {
 		// TODO Auto-generated method stub
+		
+		Game g = null;
+		License l = 
 		return false;
 	}
 

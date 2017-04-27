@@ -12,6 +12,7 @@ import javax.jdo.annotations.*;
 @PersistenceCapable 
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	private	String name;
 	private double price;
 	private double discount;
@@ -92,6 +93,12 @@ public class Game implements Serializable {
 	public List<License> getLicenses() {
 		 return this.licenses;
 		 
+	}
+	
+	public License getFirstFreeLicense(){
+		Licence license = this.licenses.get(1);
+		licenses.remove(1);
+		return license;		
 	}
 
 }

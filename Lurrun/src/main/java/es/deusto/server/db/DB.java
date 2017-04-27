@@ -24,6 +24,24 @@ public class DB implements IDB {
 		dao = udao;
 
 	}
+	
+	public static List<Game> getAllGames() {
+		IDB db = new DB();
+		return db.getGamesFromDB();
+	}
+
+	public static List<Game> getUserGames(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static boolean buyGame(User u, Game game) {
+		// TODO Auto-generated method stub
+		
+		Game g = null;
+		License l = 
+		return false;
+	}
 
 	public void registerUser(String login, String password,boolean isSuperUser) {
 
@@ -86,7 +104,7 @@ public class DB implements IDB {
 			System.out.println("Updating Genre: " + gg.getName());
 			System.out.println("Updating Company: " + c.getName());
 
-			dao.storeGame(g);
+//			dao.storeGame(g);
 			dao.updateGenre(genre);
 			dao.updateCompany(company);				 
 
@@ -112,7 +130,7 @@ public class DB implements IDB {
 			gg.getGenreGames().add(g);
 			c.getCompanyGames().add(g);
 
-			dao.storeGame(g);				 
+		//	dao.storeGame(g);				 
 			dao.storeGenre(gg);				 
 			dao.storeCompany(c);				 
 
@@ -160,7 +178,7 @@ public class DB implements IDB {
 
 			System.out.println("Updating Game: " + g.getName());
 
-			dao.storeLicense(l);	
+		//	dao.storeLicense(l);	
 			dao.updateGame(game);
 
 
