@@ -2,7 +2,9 @@ package es.deusto.server.db;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
+
 
 import es.deusto.server.db.dao.IDAO;
 import es.deusto.server.db.dao.DAO;
@@ -24,30 +26,38 @@ public class DB implements IDB {
 		dao = udao;
 
 	}
-	
-	public static List<Game> getAllGames() {
-		IDB db = new DB();
-		return db.getGamesFromDB();
+
+
+
+
+	public  List<Game> getUserGames(String username) {
+		User u= showUser(username);
+		List <Game> gameList = new ArrayList<>();
+				for (License l :u.getLicenses() ) {
+					gameList.add(l.getGame());
+
+	                }
+				return gameList;
+
 	}
 
-	public static List<Game> getUserGames(String username) {
-		
-	}
-
-	public static boolean buyGame(User u, Game game) {
+	public  boolean buyGame(String username, String name) {
 		// TODO Auto-generated method stub
-		
-		Game g = null;
-		License l = 
-		return false;
+		User u = showUser(username);
+		Game g = showGame(name);
+		License l=	g.getFirstFreeLicense();
+
+	return addLicenseToUser(u, l);
+
+
 	}
 
 	public boolean registerUser(String login, String password,boolean isSuperUser) {
 
-	
+
 		User user = null;
 		boolean ret=true;
-		
+
 		try {
 			user = dao.retrieveUser(login);
 		} catch (Exception  e) {
@@ -62,11 +72,11 @@ public class DB implements IDB {
 			System.out.println("Password set for User: " + login);
 			System.out.println("SuperUser set for User: " + login);
 			dao.updateUser(user);
-			
+
 		} else {
 			System.out.println("Creating user: " + login);
 			user = new User(login, password,isSuperUser);
-			dao.storeUser(user);				 
+			dao.storeUser(user);
 			System.out.println("User created: " + login);
 		}
 		return ret;
@@ -94,42 +104,41 @@ public class DB implements IDB {
 
 		if (game != null && genre != null && company != null  ) {
 
-		}else if (game == null && genre != null && company != null  ){	
+		}else if (game == null && genre != null && company != null  ){
 
 
 			g.setCompany(company);
 			g.setGenre(genre);
 
 
-			genre.getGenreGames().add(g);
-			company.getCompanyGames().add(g);
+			genre.addGame(g);
+			company.addGame(g);
 
-
-			dao.updateGenre(genre);
-			dao.updateCompany(company);				 
+			dao.storeGame(game);
+		//	dao.updateGenre(genre);
+		//	dao.updateCompany(company);
 
 
 
 		}
 		else {
 
-		
+
 			g.setCompany(c);
 			g.setGenre(gg);
 
-			gg.getGenreGames().add(g);
-			c.getCompanyGames().add(g);
+			gg.addGame(g);
+			c.addGame(g);
 
-			 
-			dao.storeGenre(gg);				 
-			dao.storeCompany(c);				 
+			dao.storeGame(g);
+		
 
 
 
 		}
 		return ret;
 	}
-	
+
 	public boolean addLicenseToGame(Game g, License l) {
 
 
@@ -147,14 +156,14 @@ public class DB implements IDB {
 		}
 
 		if (game != null && license != null  ) {
-		
 
 
-		}else if (game !=null && license == null){	
-	
+
+		}else if (game !=null && license == null){
+
 			l.setGame(game);
-			game.getLicenses().add(l);
-	
+			game.addLicense(l);
+
 			dao.updateGame(game);
 
 		}
@@ -163,8 +172,8 @@ public class DB implements IDB {
 
 		}
 		return ret;
-	}	
-	
+	}
+
 	public boolean addLicenseToUser(User u, License l) {
 		User user = null;
 		License license = null;
@@ -182,16 +191,16 @@ public class DB implements IDB {
 
 		if (user != null && license != null  ) {
 
-			license.setUser(user);			
+			license.setUser(user);
 			user.getLicenses().add(license);
 
 			dao.updateLicense(license);
 			dao.updateUser(user);
-		
-			
-		}else if ( license == null || user == null ){	
+
+
+		}else if ( license == null || user == null ){
 			System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
-			
+
 		}
 		return ret;
 	}
@@ -202,7 +211,7 @@ public class DB implements IDB {
 		Genre genre = null;
 		Company company = null;
 		try {
-			
+
 			game  = dao.retrieveGame(g);
 			genre = dao.retrieveGenre(gen);
 			company = dao.retrieveCompany(c);
@@ -210,7 +219,7 @@ public class DB implements IDB {
 			System.out.println("Exception launched: " + e.getMessage());
 		}
 		if ( game != null && genre != null && company != null) {
-		
+
 			System.out.println("GAME DATA: "+ game.toString());
 			System.out.println("GENRE DATA: "+ genre.toString());
 			System.out.println("COMPANY DATA: "+ company.toString());
@@ -221,75 +230,74 @@ public class DB implements IDB {
 		}
 
 	}
-	
+
 	public void showLicenseInfo(String u,String l,String g){
 		User user = null;
 		Game game = null;
 		License license = null;
-		
+
 		try {
 			user = dao.retrieveUser(u);
 			game  = dao.retrieveGame(g);
 			license = dao.retrieveLicense(l);
-			
+
 		} catch (Exception  e) {
 			System.out.println("Exception launched: " + e.getMessage());
 		}
 		if (user != null && game != null && license != null ) {
-			
+
 			System.out.println("USER DATA: "+ user.toString());
 			System.out.println("GAME DATA: "+ game.toString());
 			System.out.println("LICENSE DATA: "+ license.toString());
-			
+
 		} else {
 			System.out.println("There is no such this data on the database");
 		}
 	}
 
-	public List<Game> getGamesFromDB(){
-		List<Game> games = dao.getAllGames();
 
-//		if ( games.isEmpty()) {
-//			System.out.println("No games in the database");
-//
-//		} else {
-////			StringBuffer gamesStr = new StringBuffer();
-////			System.out.println("Game List: ");
-////			for (Game game: games) {
-////				gamesStr.append(game.toString() + " - ");
-////				System.out.println(gamesStr);
-////			}
-//		}
-		return games;
-	}
 
 public Game showGame(String name){
 	 Game g=dao.retrieveGame(name);
 	//dao.retrieveGameByName(name);
 	return g;
-	
+
 }
 public Genre showGenre(String name){
 	 Genre genr=dao.retrieveGenre(name);
 	//dao.retrieveGenreByName(name);
 	return genr;
-	
+
 }
 public Company showCompany(String name){
 	 Company c=dao.retrieveCompany(name);
 	// dao.retrieveCompanyyName(name);
 	return c;
-	
+
 }
 public License showLicense(String gameKey){
 	 License l=dao.retrieveLicense(gameKey);
 	// ao.retrieveLicenseByName(name);
 	return l;
-	
+
 }
-	
-	
-	
+
+public User showUser(String login){
+	 User u=dao.retrieveUser(login);
+	// ao.retrieveLicenseByName(name);
+	return u;
+
+}
+@Override
+public List<Game> getAllGames() {
+	return dao.getAllGames();
+
+}
+
+
+
+
+
 
 
 //	public String sayMessage(String login, String password, String message) {
@@ -309,7 +317,7 @@ public License showLicense(String gameKey){
 //			Message message1 = new Message(message);
 //			message1.setUser(user);
 //			user.getMessages().add(message1);
-//			dao.updateUser(user);					
+//			dao.updateUser(user);
 //			cont++;
 //			System.out.println(" * Client number: " + cont);
 //			return message;
@@ -318,7 +326,7 @@ public License showLicense(String gameKey){
 //			System.out.println("Login details supplied for message delivery are not correct");
 //			return null;
 ////			throw new RemoteException("Login details supplied for message delivery are not correct");
-//		} 
+//		}
 //	}
 //
 //	public User getUserMessages(String login) {

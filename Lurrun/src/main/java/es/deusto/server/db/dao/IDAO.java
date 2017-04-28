@@ -29,10 +29,10 @@ public interface IDAO {
 	
 	
 	
-	Genre retrieveGenreByName(String name);
-	Company retrieveCompanyByName(String name);
-	Game retrieveGameByName(String name);
-	License retrieveLicenseByName(String gameKey);
+	Genre retrieveGenreByParameter(String name);
+	Company retrieveCompanyByParameter(String name);
+	Game retrieveGameByParameter(String name);
+	License retrieveLicenseByParameter(String gameKey);
 	
 
 	//Get all games

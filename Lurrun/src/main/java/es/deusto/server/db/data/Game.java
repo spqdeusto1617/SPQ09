@@ -7,15 +7,20 @@ import java.util.List;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+
+import es.deusto.server.db.dao.DAO;
+import es.deusto.server.db.dao.IDAO;
+
 import javax.jdo.annotations.*;
 
 
-@PersistenceCapable
+@PersistenceCapable (detachable = "true")
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@PrimaryKey
 	private	String name;
+	
 	private double price;
 	private double discount;
 
@@ -101,6 +106,8 @@ public class Game implements Serializable {
 	public License getFirstFreeLicense(){
 		License license = this.licenses.get(1);
 		licenses.remove(1);
+		IDAO dao= new DAO();
+		dao.updateGame(this);
 		return license;
 	}
 

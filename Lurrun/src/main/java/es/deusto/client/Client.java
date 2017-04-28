@@ -6,8 +6,9 @@ import java.util.List;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
-import es.deusto.server.db.data.Game;
+import es.deusto.server.db.data.*;
 import es.deusto.server.remote.*;
+
 
 public class Client {
 	
@@ -48,14 +49,22 @@ public class Client {
 		try {
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 			IRemote server = (IRemote) java.rmi.Naming.lookup(name);
-			// Register to be allowed to send messages
-			//objHello.registerUser("dipina", "dipina");
-			//System.out.println("* Message coming from the server: '" + objHello.sayMessage("dipina", "dipina", "This is a test!") + "'");
-//			System.out.println("[C] Sending salutations");
-//			System.out.println(objHello.sayHello());
+			
+			server.registerUser("dipina", "dipina");
+			
+	
 			String username = "";
 			
 			String input = "";
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			do{
 				displayMenu(mainMenu);
 				input = System.console().readLine();
@@ -73,9 +82,9 @@ public class Client {
 					showGames(server, null);
 					input = System.console().readLine();
 					
-					int gameId = 0;
+					String n = "";
 					
-					if(server.buyGame(username, gameId)){
+					if(server.buyGame(username, name)){
 						System.out.println("Game bought successfully");
 					}
 					break;

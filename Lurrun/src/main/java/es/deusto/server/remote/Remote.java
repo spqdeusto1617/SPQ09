@@ -13,10 +13,8 @@ import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 import es.deusto.server.db.data.*;
-import es.deusto.server.db.DbMethods;
-import es.deusto.server.db.dao.DAO;
-import es.deusto.server.db.dao.IDAO;
-
+import es.deusto.server.db.*;
+import es.deusto.server.db.dao.*;
 
 public class Remote extends UnicastRemoteObject implements IRemote {
 
@@ -24,6 +22,41 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	private int cont = 0;
 	private PersistenceManager pm=null;
 	private Transaction tx=null;
+
+	
+	
+	
+	
+public static void addStuff(){
+		
+		Game g =new Game("HL1",200,0.2);
+		Game g1 =new Game("HL2",200,0.2);
+		Game g2 =new Game("Skyrim",200,0.2);
+		Game g3= new Game("Oblivion",200,0.2);
+		Genre gg = new Genre ("FPS6");
+		Genre gg1 = new Genre ("Rol");
+		Company c = new Company ("Valve");
+		Company c1 = new Company ("Bethesda");
+		License l = new License ("Hl1:ABCD");
+		License l1 = new License ("Sky:ABCDEF");
+		User javier =  new User ("Javier","qwerty",false);
+		
+		IDB db = new DB();
+		
+		db.addGameToDb( g, gg, c);
+		db.addGameToDb( g1, gg, c);
+		db.addGameToDb( g2, gg1, c1);
+		db.addGameToDb( g3, gg1, c1);
+	
+	
+		db.addLicenseToGame(g, l);
+		db.addLicenseToGame(g2, l1);
+		
+
+		db.addLicenseToUser(javier, l);
+		db.addLicenseToUser(javier, l1);
+
+	}
 
 	public Remote() throws RemoteException {
 		super();
@@ -39,7 +72,8 @@ public class Remote extends UnicastRemoteObject implements IRemote {
         pm.close();
 	}
 	
-	public void registerUser(String login, String password) {
+	public boolean registerUser(String login, String password) {
+	boolean r=true;
 		try
         {	
             tx.begin();
@@ -49,6 +83,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 				user = pm.getObjectById(User.class, login);
 			} catch (javax.jdo.JDOObjectNotFoundException jonfe) {
 				System.out.println("Exception launched: " + jonfe.getMessage());
+				r=false;
 			}
 			System.out.println("User: " + user);
 			if (user != null) {
@@ -70,6 +105,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
                 tx.rollback();
             }
         }
+		return r;
 	}
 
 	public Game sayHello(){
@@ -86,7 +122,8 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	public List<Game> showGamesInStore() throws RemoteException {
 		// call DB to retrieve full list of games
 		System.out.println("Client asked for games on store");
-		List<Game> games = DbMethods.getAllGames();
+		IDB db = new DB();
+		List<Game> games = db.getAllGames();
 		if(games.isEmpty()){
 			throw new RemoteException("No games on store");
 		}
@@ -99,9 +136,10 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games
 		System.out.println("Client asked for games owned");
-		List<Game> games = DbMethods.getUserGames(username);
+		IDB db = new DB();
+		List<Game> games = db.getUserGames(username);
 		if(games.isEmpty()){
-			throw new RemoteException("No games on store");
+			throw new RemoteException("No games owned");
 		}
 		else{
 			return(games);
@@ -109,9 +147,11 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	}
 
 	@Override
-	public boolean buyGame(String username, int gameId) throws RemoteException {
+	public boolean buyGame(String username, String name) throws RemoteException {
 		// call DB to make necessary changes for adding a new game to the users owned list
-		return DbMethods.buyGame(username, gameId);
+		IDB db = new DB();
+		
+		return db.buyGame(username, name);
 	}
 
 }

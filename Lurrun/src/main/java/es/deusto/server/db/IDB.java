@@ -8,7 +8,7 @@ public interface IDB {
 	
 	  List<Game> getAllGames();
 	  List<Game> getUserGames(String username);
-	  boolean buyGame(User u, Game game);
+	  boolean buyGame(String u, String game);
 	
 	//Make methods private 
 //	String sayMessage(String login, String password, String message);
@@ -22,13 +22,13 @@ public interface IDB {
 	Genre showGenre (String name);
 	Game showGame	(String name);
 	License showLicense	(String gameKey);
-	User	showUser	(String license);
+	Company	showCompany	(String name);
+	User	showUser	(String login);
 	
 	//void showGameInfo(String game,String company,String genre);
 	//void showLicenseInfo(String user,String license,String game);
 	
 	
 	
-	License getGameFreeLicense(Game g);
-	List<Game> getGamesFromDB();
+	
 }

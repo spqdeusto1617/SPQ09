@@ -29,13 +29,14 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.*;
 
-@PersistenceCapable (detachable = "true")
+@PersistenceCapable 
 
 public class Company implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	@PrimaryKey
     protected String name=null;
+	
     @Persistent(defaultFetchGroup="true", mappedBy="company", dependentElement="true")
 	@Join
     List<Game> companyGames = new ArrayList<Game>();

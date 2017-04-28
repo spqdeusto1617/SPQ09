@@ -11,6 +11,7 @@ public class License implements Serializable {
 
 	@PrimaryKey
 	private	String gameKey;
+	
 	Game game;
 	User user;
 

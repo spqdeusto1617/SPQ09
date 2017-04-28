@@ -65,7 +65,7 @@ public class DAO implements IDAO {
 	    return ret;
 		}
 	@Override
-	public License retrieveLicenseByName(String gameKey) {
+	public License retrieveLicenseByParameter(String gameKey) {
 	
 	    PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
@@ -158,13 +158,14 @@ public class DAO implements IDAO {
 	public boolean updateUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-
+	    boolean r =true;
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(u);
 	    	tx.commit();
 	     } catch (Exception ex) {
 		   	System.out.println("Error updating a user: " + ex.getMessage());
+		   	r=false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
@@ -172,7 +173,7 @@ public class DAO implements IDAO {
 
 	   		pm.close();
 	     }
-
+	    return r;
 	}
 
 
@@ -180,6 +181,7 @@ public class DAO implements IDAO {
 	public	boolean storeGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+		boolean r=true;
 	    try {
 	       tx.begin();
 	 
@@ -187,6 +189,7 @@ public class DAO implements IDAO {
 		       tx.commit();
 		    } catch (Exception ex) {
 		    	System.out.println("   $ Error storing an object: " + ex.getMessage());
+		    	r=false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
@@ -194,10 +197,11 @@ public class DAO implements IDAO {
 
 	    		pm.close();
 		    }
+	    return r;
 		}
 
 
-	public	Game retrieveGameByName(String name){
+	public	Game retrieveGameByParameter(String name){
 
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
@@ -230,13 +234,14 @@ public class DAO implements IDAO {
 	public	boolean updateGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-
+	    boolean r=true;
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(g);
 	    	tx.commit();
 	     } catch (Exception ex) {
 		   	System.out.println("Error updating a game: " + ex.getMessage());
+		   	r=false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
@@ -244,12 +249,14 @@ public class DAO implements IDAO {
 
 	   		pm.close();
 	     }
+	    return r;
 	}
 
 
-	public	void storeCompany(Company c){
+	public	boolean storeCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+		boolean r= true;
 	    try {
 	       tx.begin();
 	       System.out.println("   * Storing a Company: " + c.getName());
@@ -257,6 +264,7 @@ public class DAO implements IDAO {
 		       tx.commit();
 		    } catch (Exception ex) {
 		    	System.out.println("   $ Error storing an object: " + ex.getMessage());
+		    	r =false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
@@ -264,10 +272,11 @@ public class DAO implements IDAO {
 
 	    		pm.close();
 		    }
+	    return r;
 		}
 
 
-	public	Company retrieveCompanyByName(String name){
+	public	Company retrieveCompanyByParameter(String name){
 	
 	        PersistenceManager pm = pmf.getPersistenceManager();
 	        Transaction tx = pm.currentTransaction();
@@ -300,13 +309,14 @@ public class DAO implements IDAO {
 	public	boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-
+	    boolean r= true;
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(c);
 	    	tx.commit();
 	     } catch (Exception ex) {
 		   	System.out.println("Error updating a company: " + ex.getMessage());
+		   	r=false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
@@ -314,11 +324,13 @@ public class DAO implements IDAO {
 
 	   		pm.close();
 	     }
+	    return r;
 	}
 
-	public void storeGenre(Genre g){
+	public boolean storeGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+		boolean r= true;
 	    try {
 	       tx.begin();
 	       System.out.println("   * Storing a Genre: " + g.getName());
@@ -326,6 +338,7 @@ public class DAO implements IDAO {
 		       tx.commit();
 		    } catch (Exception ex) {
 		    	System.out.println("   $ Error storing an object: " + ex.getMessage());
+		    	r=false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
@@ -333,10 +346,11 @@ public class DAO implements IDAO {
 
 	    		pm.close();
 		    }
+	    return r;
 		}
 
 
-	public Genre retrieveGenreByName(String name){
+	public Genre retrieveGenreByParameter(String name){
 		System.out.println("Get Genre from db "+name);
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
@@ -369,13 +383,14 @@ public class DAO implements IDAO {
 	public boolean updateGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-
+	    boolean r=true;
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(g);
 	    	tx.commit();
 	     } catch (Exception ex) {
 		   	System.out.println("Error updating a genre: " + ex.getMessage());
+		   	r=false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
@@ -383,6 +398,7 @@ public class DAO implements IDAO {
 
 	   		pm.close();
 	     }
+	    return r;
 	}
 
 

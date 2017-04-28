@@ -8,12 +8,16 @@ import java.util.List;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
-@PersistenceCapable (detachable = "true")
+@PersistenceCapable 
 public class Genre implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@PrimaryKey
 	private String name;
+	
 	@Persistent(defaultFetchGroup="true", mappedBy="genre", dependentElement="true")
 	@Join
 	List<Game> genreGames = new ArrayList<Game>();
