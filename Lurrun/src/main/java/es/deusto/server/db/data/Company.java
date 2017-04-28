@@ -27,21 +27,22 @@ import java.util.List;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
-
+import javax.jdo.annotations.*;
 
 @PersistenceCapable (detachable = "true")
 
 public class Company implements Serializable
 {
 	private static final long serialVersionUID = 1L;
+	@PrimaryKey
     protected String name=null;
     @Persistent(defaultFetchGroup="true", mappedBy="company", dependentElement="true")
 	@Join
     List<Game> companyGames = new ArrayList<Game>();
-    
+
     protected Company(){
     }
-    
+
     public List<Game> getCompanyGames() {
 		return this.companyGames;
 	}
@@ -61,9 +62,9 @@ public class Company implements Serializable
     public Company(String name)
     {
         this.name = name;
-      
+
     }
-	
+
     public String getName()
     {
         return name;
@@ -78,15 +79,15 @@ public class Company implements Serializable
     public String toString() {
 		 if (companyGames.isEmpty()) {
 			 return "This company has no games Company: name --> " + this.name;
-			 
+
 		 } else {
 			StringBuffer gamesStr = new StringBuffer();
 			for (Game game: this.companyGames) {
 				gamesStr.append(game.toString() + " - ");
 			}
-		
+
 	        return "Company: name --> " + this.name +", games --> [" + gamesStr + "]";
-	 
+
 		 }
 	 }
 }

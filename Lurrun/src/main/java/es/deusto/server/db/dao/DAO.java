@@ -10,73 +10,82 @@ import java.util.List;
 import es.deusto.server.db.data.*;
 
 public class DAO implements IDAO {
-	
+
 	private PersistenceManagerFactory pmf;
-	
+
 	public DAO(){
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
 
 	@Override
-	public void storeUser(User u) {
-		
+	public boolean storeUser(User u) {
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-	    try {
+	    boolean ret=true;
+		try {
 	       tx.begin();
-	       System.out.println("   * Storing a user: " + u.getLogin());
+	      
 		       pm.makePersistent(u);
 		       tx.commit();
 		    } catch (Exception ex) {
 		    	System.out.println("   $ Error storing an object: " + ex.getMessage());
+		    	ret=false;
+		    
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-					
+
 	    		pm.close();
 		    }
+	    return ret;
 		}
-	
-	public void storeLicense(License u) {
-		
+
+	public boolean storeLicense(License u) {
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
+		boolean ret=true;
 	    try {
 	       tx.begin();
-	       System.out.println("   * Storing a License: " + u.getGameKey());
+	
 		       pm.makePersistent(u);
 		       tx.commit();
 		    } catch (Exception ex) {
 		    	System.out.println("   $ Error storing an object: " + ex.getMessage());
+		    	ret =false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-					
+
 	    		pm.close();
 		    }
+	    return ret;
 		}
 	@Override
-	public License retrieveLicense(String gameKey) {
-		System.out.println("Get License from db "+gameKey);
+	public License retrieveLicenseByName(String gameKey) {
+	
 	    PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
 	    pm.getFetchPlan().setMaxFetchDepth(3);
 	    License u = null;
+	    
 	    try {
 	        tx.begin();
 	        Extent<License> extentP = pm.getExtent(License.class);
-	
+
 	        for (License p : extentP) {
-	            
+
 	            if (p.getGameKey().equals(gameKey)) {
-	                u = p;              
+	                u = p;
 	            }
 	        }
 	        tx.commit();
 	    } catch (Exception ex) {
 	        System.out.println("# Error getting Extent: " + ex.getMessage());
+	       
 	    } finally {
 	        if (tx.isActive()) {
 	            tx.rollback();
@@ -85,37 +94,39 @@ public class DAO implements IDAO {
 	    }
 	    System.out.println(u);
 	    return u;
-	}	
-		
-	public	void updateLicense(License g){
+	}
+
+	public	boolean updateLicense(License g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-	    
+	    boolean ret=true;
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(g);
 	    	tx.commit();
 	     } catch (Exception ex) {
 		   	System.out.println("Error updating a License: " + ex.getMessage());
+		   	ret = false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
 		   	}
-				
+
 	   		pm.close();
 	     }
-	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	    return ret;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 	@Override
 	public User retrieveUser(String login) {
@@ -131,12 +142,12 @@ public class DAO implements IDAO {
 		{
 			System.out.println("User does not exist: " + jonfe.getMessage());
 		}
-		
+
 		finally {
 	    	if (tx != null && tx.isActive()) {
 	    		tx.rollback();
 	    	}
-				
+
     		pm.close();
 	    }
 
@@ -144,10 +155,10 @@ public class DAO implements IDAO {
 	}
 
 	@Override
-	public void updateUser(User u) {
+	public boolean updateUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-	    
+
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(u);
@@ -158,20 +169,20 @@ public class DAO implements IDAO {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
 		   	}
-				
+
 	   		pm.close();
 	     }
 
 	}
 
-	
-	
-	public	void storeGame(Game g){
+
+
+	public	boolean storeGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 	    try {
 	       tx.begin();
-	       System.out.println("   * Storing a game: " + g.getName());
+	 
 		       pm.makePersistent(g);
 		       tx.commit();
 		    } catch (Exception ex) {
@@ -180,14 +191,14 @@ public class DAO implements IDAO {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-					
+
 	    		pm.close();
 		    }
 		}
-	
-	
-	public	Game retrieveGame(String name){
-		System.out.println("Get Game from db "+name);
+
+
+	public	Game retrieveGameByName(String name){
+
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         pm.getFetchPlan().setMaxFetchDepth(3);
@@ -197,10 +208,10 @@ public class DAO implements IDAO {
             Extent<Game> extentP = pm.getExtent(Game.class);
 
             for (Game p : extentP) {
-                
+
                 if (p.getName().equals(name)) {
                     u = p;
-                   
+
                 }
             }
             tx.commit();
@@ -215,11 +226,11 @@ public class DAO implements IDAO {
         System.out.println(u);
         return u;
 	}
-	
-	public	void updateGame(Game g){
+
+	public	boolean updateGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-	    
+
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(g);
@@ -230,12 +241,12 @@ public class DAO implements IDAO {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
 		   	}
-				
+
 	   		pm.close();
 	     }
 	}
-	
-	
+
+
 	public	void storeCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -250,14 +261,14 @@ public class DAO implements IDAO {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-					
+
 	    		pm.close();
 		    }
 		}
+
+
+	public	Company retrieveCompanyByName(String name){
 	
-	
-	public	Company retrieveCompany(String name){
-		  System.out.println("Get Company from db "+name);
 	        PersistenceManager pm = pmf.getPersistenceManager();
 	        Transaction tx = pm.currentTransaction();
 	        pm.getFetchPlan().setMaxFetchDepth(3);
@@ -267,7 +278,7 @@ public class DAO implements IDAO {
 	            Extent<Company> extentP = pm.getExtent(Company.class);
 
 	            for (Company p : extentP) {
-	                
+
 	                if (p.getName().equals(name)) {
 	                    u = p;
 	                }
@@ -284,12 +295,12 @@ public class DAO implements IDAO {
 	        System.out.println(u);
 	        return u;
 	    }
-	
-	
-	public	void updateCompany(Company c){
+
+
+	public	boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-	    
+
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(c);
@@ -300,11 +311,11 @@ public class DAO implements IDAO {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
 		   	}
-				
+
 	   		pm.close();
 	     }
 	}
-	
+
 	public void storeGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -319,13 +330,13 @@ public class DAO implements IDAO {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
 		    	}
-					
+
 	    		pm.close();
 		    }
 		}
-	
 
-	public Genre retrieveGenre(String name){
+
+	public Genre retrieveGenreByName(String name){
 		System.out.println("Get Genre from db "+name);
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
@@ -336,10 +347,10 @@ public class DAO implements IDAO {
             Extent<Genre> extentP = pm.getExtent(Genre.class);
 
             for (Genre p : extentP) {
-                
+
                 if (p.getName().equals(name)) {
                     u = p;
-                   
+
                 }
             }
             tx.commit();
@@ -354,11 +365,11 @@ public class DAO implements IDAO {
         System.out.println(u);
         return u;
 	}
-	
-	public void updateGenre(Genre g){
+
+	public boolean updateGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
-	    
+
 	    try {
 	    	tx.begin();
 	    	pm.makePersistent(g);
@@ -369,32 +380,32 @@ public class DAO implements IDAO {
 		   	if (tx != null && tx.isActive()) {
 		   		tx.rollback();
 		   	}
-				
+
 	   		pm.close();
 	     }
 	}
-	
-	
+
+
 	public List<Game> getAllGames() {
-		
-		System.out.println("Get all Games from db ");
+
+	
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         pm.getFetchPlan().setMaxFetchDepth(3);
-       
+
         List<Game> games=new ArrayList<>();
         try {
             tx.begin();
             Extent<Game> extentP = pm.getExtent(Game.class);
 
             for (Game p : extentP) {
-                
+
                games.add(p);
                p.getName();
                p.getCompany();
                p.getGenre();
                 }
-            
+
             tx.commit();
         } catch (Exception ex) {
             System.out.println("# Error getting Extent: " + ex.getMessage());
@@ -404,22 +415,147 @@ public class DAO implements IDAO {
             }
             pm.close();
         }
-        
+
         return games;
 
 	}
+	
+	
+	public Genre retrieveGenre(String name) {
+		Genre genre = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			genre = pm.getObjectById(Genre.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			System.out.println("User does not exist: " + jonfe.getMessage());
+		}
+
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
+
+    		pm.close();
+	    }
+
+		return genre;
+	}
+	public Game retrieveGame(String name) {
+		Game game = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			game = pm.getObjectById(Game.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			System.out.println("User does not exist: " + jonfe.getMessage());
+		}
+
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
+
+    		pm.close();
+	    }
+
+		return game;
+	}
+	public Company retrieveCompany(String name) {
+		Company company = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			company = pm.getObjectById(Company.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			System.out.println("User does not exist: " + jonfe.getMessage());
+		}
+
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
+
+    		pm.close();
+	    }
+
+		return company;
+	}
+	public License retrieveLicense(String gameKey) {
+		License license = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			license = pm.getObjectById(License.class, gameKey);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			System.out.println("User does not exist: " + jonfe.getMessage());
+		}
+
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
+
+    		pm.close();
+	    }
+
+		return license;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-

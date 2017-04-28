@@ -4,31 +4,41 @@ import es.deusto.server.db.data.*;
 import java.util.List;
 
 public interface IDAO {
-	void storeUser(User u);
+	boolean storeUser(User u);
 	User retrieveUser(String login);
-	void updateUser(User u);
-	
-	void storeLicense(License u);
+	boolean updateUser(User u);
+
+	boolean storeLicense(License u);
 	License retrieveLicense(String gameKey);
-	void updateLicense(License u);
-	
-	void storeGame(Game g);
+	boolean updateLicense(License u);
+
+	boolean storeGame(Game g);
 	Game retrieveGame(String name);
-	void updateGame(Game g);
-	
-	void storeCompany(Company c);
+	boolean updateGame(Game g);
+
+	boolean storeCompany(Company c);
 	Company retrieveCompany(String name);
-	void updateCompany(Company c);
-	
-	void storeGenre(Genre g);
+	boolean updateCompany(Company c);
+
+	boolean storeGenre(Genre g);
 	Genre retrieveGenre(String name);
-	void updateGenre(Genre g);
+	boolean updateGenre(Genre g);
+
+	
+	
+	
+	
+	
+	Genre retrieveGenreByName(String name);
+	Company retrieveCompanyByName(String name);
+	Game retrieveGameByName(String name);
+	License retrieveLicenseByName(String gameKey);
 	
 
 	//Get all games
-	
+
 	public List<Game> getAllGames();
-	   
-	
+
+
 
 }

@@ -9,48 +9,51 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.*;
 
-@PersistenceCapable 
+
+@PersistenceCapable
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+	@PrimaryKey
 	private	String name;
 	private double price;
 	private double discount;
-	
+
+
 	Genre genre;
 	Company company;
-	
-	
+
+
 	@Persistent(defaultFetchGroup="true", mappedBy="game", dependentElement="true")
 	@Join
 	List<License> licenses = new ArrayList<License>();
-	
+
 	public Game(String name, double price, double discount) {
 		this.name = name;
 		this.price = price;
 		this.discount = discount;
 	}
-		
-		
+
+
 	public Game(){
-		
+
 	}
-	
-	
+
+
 	public String toString() {
-	
+
 		 if (licenses.isEmpty()) {
 			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +  "]";
 		 }else{
-		        
+
 			StringBuffer licensesStr = new StringBuffer();
 			for (License license: this.licenses) {
 				licensesStr.append(license.toString() + " - ");
 			}
-			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";		        	
+			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";
 		 }
 	}
-	
+
 	public Genre getGenre() {
 		return genre;
 	}
@@ -81,24 +84,24 @@ public class Game implements Serializable {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
-	
+
 	public void addLicense(License license) {
 		licenses.add(license);
 	}
-	
+
 	public void removeLicense(License license) {
 		licenses.remove(license);
 	}
-	
+
 	public List<License> getLicenses() {
 		 return this.licenses;
-		 
+
 	}
-	
+
 	public License getFirstFreeLicense(){
-		Licence license = this.licenses.get(1);
+		License license = this.licenses.get(1);
 		licenses.remove(1);
-		return license;		
+		return license;
 	}
 
 }

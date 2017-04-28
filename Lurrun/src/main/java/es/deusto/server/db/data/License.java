@@ -1,19 +1,21 @@
 package es.deusto.server.db.data;
 
 import java.io.Serializable;
+import javax.jdo.annotations.*;
 
-import javax.jdo.annotations.PersistenceCapable;
 
-@PersistenceCapable 
+
+@PersistenceCapable
 public class License implements Serializable {
-	private static final long serialVersionUID = 1L;	
-	
+	private static final long serialVersionUID = 1L;
+
+	@PrimaryKey
 	private	String gameKey;
 	Game game;
 	User user;
-	
-	
-	
+
+
+
 	@Override
 	public String toString() {
 		return "License [gameKey=" + gameKey + "]";
@@ -44,5 +46,5 @@ public class License implements Serializable {
 		super();
 		this.gameKey = gameKey;
 	}
-	
+
 }

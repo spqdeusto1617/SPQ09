@@ -31,8 +31,7 @@ public class DB implements IDB {
 	}
 
 	public static List<Game> getUserGames(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	public static boolean buyGame(User u, Game game) {
@@ -43,14 +42,17 @@ public class DB implements IDB {
 		return false;
 	}
 
-	public void registerUser(String login, String password,boolean isSuperUser) {
+	public boolean registerUser(String login, String password,boolean isSuperUser) {
 
-		System.out.println("Checking whether the user already exits or not: '" + login +"'");
+	
 		User user = null;
+		boolean ret=true;
+		
 		try {
 			user = dao.retrieveUser(login);
 		} catch (Exception  e) {
 			System.out.println("Exception launched: " + e.getMessage());
+			ret=false;
 		}
 
 		if (user != null) {
@@ -60,21 +62,24 @@ public class DB implements IDB {
 			System.out.println("Password set for User: " + login);
 			System.out.println("SuperUser set for User: " + login);
 			dao.updateUser(user);
+			
 		} else {
 			System.out.println("Creating user: " + login);
 			user = new User(login, password,isSuperUser);
 			dao.storeUser(user);				 
 			System.out.println("User created: " + login);
 		}
+		return ret;
 	}
 
-	public void addStufToDb(Game g,Genre gg, Company c) {
+	public boolean addGameToDb(Game g,Genre gg, Company c) {
 
-		System.out.println("Add Stuff to Db: " );
+
 
 		Game game = null;
 		Genre genre = null;
 		Company company = null;
+		boolean ret=true;
 
 		try {
 
@@ -84,16 +89,14 @@ public class DB implements IDB {
 
 		} catch (Exception  e) {
 			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			ret = false;
 		}
 
 		if (game != null && genre != null && company != null  ) {
-			System.out.println("The object already exist : " );	
-			System.out.println("");
-			System.out.println("");
 
 		}else if (game == null && genre != null && company != null  ){	
 
-			System.out.println("Creating game: " + g.getName());
+
 			g.setCompany(company);
 			g.setGenre(genre);
 
@@ -101,62 +104,38 @@ public class DB implements IDB {
 			genre.getGenreGames().add(g);
 			company.getCompanyGames().add(g);
 
-			System.out.println("Updating Genre: " + gg.getName());
-			System.out.println("Updating Company: " + c.getName());
 
-//			dao.storeGame(g);
 			dao.updateGenre(genre);
 			dao.updateCompany(company);				 
 
-			Game  example = dao.retrieveGame(g.getName());
-			Genre example1 =dao.retrieveGenre(gg.getName());
-			Company example2 =dao.retrieveCompany(c.getName());
 
-			System.out.println("Genre info: " + 		example1.toString() );
-			System.out.println("Company info: " + 		example2.toString() );			
-			System.out.println("Game info: " + 		example.toString() );
-			System.out.println("");
-			System.out.println("");
 
 		}
 		else {
 
-			System.out.println("Creating game: " + g.getName());
-			System.out.println("Creating genre: " + gg.getName());
-			System.out.println("Creating company: " + c.getName());
+		
 			g.setCompany(c);
 			g.setGenre(gg);
 
 			gg.getGenreGames().add(g);
 			c.getCompanyGames().add(g);
 
-		//	dao.storeGame(g);				 
+			 
 			dao.storeGenre(gg);				 
 			dao.storeCompany(c);				 
 
-			Game  example = dao.retrieveGame(g.getName());
-			Genre example1 =dao.retrieveGenre(gg.getName());
-			Company example2 =dao.retrieveCompany(c.getName());
-
-			System.out.println("Genre info: " + 		example1.toString() );
-			System.out.println("Company info: " + 		example2.toString() );			
-			System.out.println("Game info: " + 		example.toString() );
-
-			System.out.println("");
-			System.out.println("");
 
 
 		}
+		return ret;
 	}
 	
-	public void addLicenseToGame(Game g, License l) {
-		System.out.println("" );
-		System.out.println("" );
-		System.out.println("Add LICENSE to db: " );
+	public boolean addLicenseToGame(Game g, License l) {
+
 
 		Game game = null;
 		License license = null;
-
+		boolean ret=true;
 		try {
 
 			game  = dao.retrieveGame(g.getName());
@@ -164,50 +143,32 @@ public class DB implements IDB {
 
 		} catch (Exception  e) {
 			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			ret=false;
 		}
 
 		if (game != null && license != null  ) {
-			System.out.println("The license already exist so i will add it to the user" );	
+		
 
 
 		}else if (game !=null && license == null){	
-
-			System.out.println("Creating license for game: " + g.getName());
+	
 			l.setGame(game);
 			game.getLicenses().add(l);
-
-			System.out.println("Updating Game: " + g.getName());
-
-		//	dao.storeLicense(l);	
+	
 			dao.updateGame(game);
 
-
-			Game  example = dao.retrieveGame(g.getName());
-			License example1 =dao.retrieveLicense(l.getGameKey());
-			System.out.println("");
-			System.out.println("");
-
-			System.out.println("Game info: " + 		example.toString() );			
-			System.out.println("License info: " + 		example1.toString() );
-
-			System.out.println("");
-			System.out.println("");
 		}
 		else if (game== null)  {
 
-			System.out.println("The game has not been createad yet: " + g.getName());
 
 		}
+		return ret;
 	}	
 	
-	public void addLicenseToUser(User u, License l) {
-		System.out.println("" );
-		System.out.println("" );
-		System.out.println("Link license with the user db: " );
-	
+	public boolean addLicenseToUser(User u, License l) {
 		User user = null;
 		License license = null;
-
+		boolean ret=true;
 		try {
 
 
@@ -216,6 +177,7 @@ public class DB implements IDB {
 
 		} catch (Exception  e) {
 			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			ret=false;
 		}
 
 		if (user != null && license != null  ) {
@@ -223,24 +185,15 @@ public class DB implements IDB {
 			license.setUser(user);			
 			user.getLicenses().add(license);
 
-			System.out.println("Updating User: " +user.getLogin());
-
-
 			dao.updateLicense(license);
 			dao.updateUser(user);
-
-
-			License  example = dao.retrieveLicense(license.getGameKey());
-			User example1 =dao.retrieveUser(user.getLogin());
-			System.out.println("");
-			System.out.println("");
-
-			System.out.println("License info: " + example.toString() );
-			System.out.println("USer info: " + example1.toString() );			
-
+		
+			
 		}else if ( license == null || user == null ){	
 			System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
+			
 		}
+		return ret;
 	}
 
 	public void showGameInfo(String g,String c,String gen){
@@ -257,9 +210,7 @@ public class DB implements IDB {
 			System.out.println("Exception launched: " + e.getMessage());
 		}
 		if ( game != null && genre != null && company != null) {
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
+		
 			System.out.println("GAME DATA: "+ game.toString());
 			System.out.println("GENRE DATA: "+ genre.toString());
 			System.out.println("COMPANY DATA: "+ company.toString());
@@ -285,10 +236,6 @@ public class DB implements IDB {
 			System.out.println("Exception launched: " + e.getMessage());
 		}
 		if (user != null && game != null && license != null ) {
-			
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
 			
 			System.out.println("USER DATA: "+ user.toString());
 			System.out.println("GAME DATA: "+ game.toString());
@@ -316,7 +263,33 @@ public class DB implements IDB {
 		return games;
 	}
 
-
+public Game showGame(String name){
+	 Game g=dao.retrieveGame(name);
+	//dao.retrieveGameByName(name);
+	return g;
+	
+}
+public Genre showGenre(String name){
+	 Genre genr=dao.retrieveGenre(name);
+	//dao.retrieveGenreByName(name);
+	return genr;
+	
+}
+public Company showCompany(String name){
+	 Company c=dao.retrieveCompany(name);
+	// dao.retrieveCompanyyName(name);
+	return c;
+	
+}
+public License showLicense(String gameKey){
+	 License l=dao.retrieveLicense(gameKey);
+	// ao.retrieveLicenseByName(name);
+	return l;
+	
+}
+	
+	
+	
 
 
 //	public String sayMessage(String login, String password, String message) {
