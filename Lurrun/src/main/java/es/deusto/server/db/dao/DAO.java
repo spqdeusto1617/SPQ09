@@ -64,6 +64,7 @@ public class DAO implements IDAO {
 		    }
 	    return ret;
 		}
+	
 	@Override
 	public License retrieveLicenseByParameter(String gameKey) {
 	
@@ -117,17 +118,6 @@ public class DAO implements IDAO {
 	    return ret;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
 	@Override
 	public User retrieveUser(String login) {
 		User user = null;
@@ -176,8 +166,6 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-
-
 	public	boolean storeGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -199,7 +187,6 @@ public class DAO implements IDAO {
 		    }
 	    return r;
 		}
-
 
 	public	Game retrieveGameByParameter(String name){
 
@@ -252,7 +239,6 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-
 	public	boolean storeCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -274,7 +260,6 @@ public class DAO implements IDAO {
 		    }
 	    return r;
 		}
-
 
 	public	Company retrieveCompanyByParameter(String name){
 	
@@ -304,7 +289,6 @@ public class DAO implements IDAO {
 	        System.out.println(u);
 	        return u;
 	    }
-
 
 	public	boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -348,7 +332,6 @@ public class DAO implements IDAO {
 		    }
 	    return r;
 		}
-
 
 	public Genre retrieveGenreByParameter(String name){
 		System.out.println("Get Genre from db "+name);
@@ -401,7 +384,6 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-
 	public List<Game> getAllGames() {
 
 	
@@ -435,8 +417,7 @@ public class DAO implements IDAO {
         return games;
 
 	}
-	
-	
+		
 	public Genre retrieveGenre(String name) {
 		Genre genre = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -461,6 +442,7 @@ public class DAO implements IDAO {
 
 		return genre;
 	}
+	
 	public Game retrieveGame(String name) {
 		Game game = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -485,6 +467,7 @@ public class DAO implements IDAO {
 
 		return game;
 	}
+	
 	public Company retrieveCompany(String name) {
 		Company company = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -509,6 +492,7 @@ public class DAO implements IDAO {
 
 		return company;
 	}
+	
 	public License retrieveLicense(String gameKey) {
 		License license = null;
 		PersistenceManager pm = pmf.getPersistenceManager();

@@ -4,6 +4,7 @@ import es.deusto.server.db.data.*;
 import java.util.List;
 
 public interface IDAO {
+
 	boolean storeUser(User u);
 	User retrieveUser(String login);
 	boolean updateUser(User u);

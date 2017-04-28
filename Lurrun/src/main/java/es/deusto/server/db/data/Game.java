@@ -48,14 +48,14 @@ public class Game implements Serializable {
 	public String toString() {
 
 		 if (licenses.isEmpty()) {
-			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +  "]";
+			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +" genre=" + genre.getName() + ", company " + company.getName() +    "]";
 		 }else{
 
 			StringBuffer licensesStr = new StringBuffer();
 			for (License license: this.licenses) {
 				licensesStr.append(license.toString() + " - ");
 			}
-			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "]";
+			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "genre=" + genre.getName() + ", company " + company.getName() + "]";
 		 }
 	}
 
@@ -104,8 +104,8 @@ public class Game implements Serializable {
 	}
 
 	public License getFirstFreeLicense(){
-		License license = this.licenses.get(1);
-		licenses.remove(1);
+		License license = this.licenses.get(0);
+		licenses.remove(0);
 		IDAO dao= new DAO();
 		dao.updateGame(this);
 		return license;

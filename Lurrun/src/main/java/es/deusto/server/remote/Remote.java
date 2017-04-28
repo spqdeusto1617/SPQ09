@@ -23,41 +23,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	private PersistenceManager pm=null;
 	private Transaction tx=null;
 
-	
-	
-	
-	
-public static void addStuff(){
-		
-		Game g =new Game("HL1",200,0.2);
-		Game g1 =new Game("HL2",200,0.2);
-		Game g2 =new Game("Skyrim",200,0.2);
-		Game g3= new Game("Oblivion",200,0.2);
-		Genre gg = new Genre ("FPS6");
-		Genre gg1 = new Genre ("Rol");
-		Company c = new Company ("Valve");
-		Company c1 = new Company ("Bethesda");
-		License l = new License ("Hl1:ABCD");
-		License l1 = new License ("Sky:ABCDEF");
-		User javier =  new User ("Javier","qwerty",false);
-		
-		IDB db = new DB();
-		
-		db.addGameToDb( g, gg, c);
-		db.addGameToDb( g1, gg, c);
-		db.addGameToDb( g2, gg1, c1);
-		db.addGameToDb( g3, gg1, c1);
-	
-	
-		db.addLicenseToGame(g, l);
-		db.addLicenseToGame(g2, l1);
-		
-
-		db.addLicenseToUser(javier, l);
-		db.addLicenseToUser(javier, l1);
-
-	}
-
 	public Remote() throws RemoteException {
 		super();
 //		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -72,6 +37,15 @@ public static void addStuff(){
         pm.close();
 	}
 	
+	public boolean registerUser(String login, String password,boolean isSuperUser) {
+		IDB db = new DB();
+		//change to objetc the parameters
+		return	db.registerUser(login, password, isSuperUser);
+	}
+/**
+ * 
+ * 
+ * 
 	public boolean registerUser(String login, String password) {
 	boolean r=true;
 		try
@@ -107,7 +81,7 @@ public static void addStuff(){
         }
 		return r;
 	}
-
+*/
 	public Game sayHello(){
 		Company c = new Company("White Wolf");
 		Genre gr = new Genre("Vampire");
@@ -150,7 +124,6 @@ public static void addStuff(){
 	public boolean buyGame(String username, String name) throws RemoteException {
 		// call DB to make necessary changes for adding a new game to the users owned list
 		IDB db = new DB();
-		
 		return db.buyGame(username, name);
 	}
 

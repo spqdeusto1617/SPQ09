@@ -9,7 +9,7 @@ import es.deusto.server.db.data.*;
 public interface IRemote extends Remote {
 	
 //	String sayMessage(String login, String password, String message) throws RemoteException;
-	boolean registerUser(String login, String password) throws RemoteException;
+	 boolean registerUser(String login, String password,boolean isSuper) throws RemoteException;
 	Game sayHello() throws RemoteException;
 	
 	List<Game> showGamesInStore() throws RemoteException;

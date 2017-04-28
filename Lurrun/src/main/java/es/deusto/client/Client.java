@@ -31,8 +31,9 @@ public class Client {
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());
 		}
-		for(Game g : games){
-			System.out.println("Game: " + g.getName() + "; Price: " + g.getPrice());
+		for(int i = 0; i<games.size(); i++){
+			Game g = games.get(i);
+			System.out.println((i+1) + ".-" + g.toString());
 		}
 	}
 
@@ -50,21 +51,13 @@ public class Client {
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 			IRemote server = (IRemote) java.rmi.Naming.lookup(name);
 			
-			server.registerUser("dipina", "dipina");
-			
-	
-			String username = "";
+			server.registerUser("dipina", "dipina",false);	
+			server.registerUser("javier", "qwerty",false);
+	//AHINOAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			String username = "aihnoa";
 			
 			String input = "";
-			
-			
-			
-			
-			
-			
-			
-			
-			
+				
 			do{
 				displayMenu(mainMenu);
 				input = System.console().readLine();
@@ -74,7 +67,7 @@ public class Client {
 					showGames(server, null);
 					break;
 				case("2"):
-					showGames(server, username);
+					showGames(server, "aihnoa");
 					break;
 				case("3"):
 					//Buy game
@@ -82,9 +75,9 @@ public class Client {
 					showGames(server, null);
 					input = System.console().readLine();
 					
-					String n = "";
+					String n = "HL1";
 					
-					if(server.buyGame(username, name)){
+					if(server.buyGame(username, n)){
 						System.out.println("Game bought successfully");
 					}
 					break;

@@ -21,14 +21,12 @@ public class DB implements IDB {
 		dao = new DAO();
 
 	}
+
 	public DB(IDAO udao) {
 		super();
 		dao = udao;
 
 	}
-
-
-
 
 	public  List<Game> getUserGames(String username) {
 		User u= showUser(username);
@@ -47,8 +45,7 @@ public class DB implements IDB {
 		Game g = showGame(name);
 		License l=	g.getFirstFreeLicense();
 
-	return addLicenseToUser(u, l);
-
+		return addLicenseToUser(u, l);
 
 	}
 
@@ -118,11 +115,8 @@ public class DB implements IDB {
 		//	dao.updateGenre(genre);
 		//	dao.updateCompany(company);
 
-
-
 		}
 		else {
-
 
 			g.setCompany(c);
 			g.setGenre(gg);
@@ -131,17 +125,12 @@ public class DB implements IDB {
 			c.addGame(g);
 
 			dao.storeGame(g);
-		
-
-
 
 		}
 		return ret;
 	}
 
 	public boolean addLicenseToGame(Game g, License l) {
-
-
 		Game game = null;
 		License license = null;
 		boolean ret=true;
@@ -255,50 +244,42 @@ public class DB implements IDB {
 		}
 	}
 
+	public Game showGame(String name){
+		 Game g=dao.retrieveGame(name);
+		//dao.retrieveGameByName(name);
+		return g;
 
+	}
+	public Genre showGenre(String name){
+		 Genre genr=dao.retrieveGenre(name);
+		//dao.retrieveGenreByName(name);
+		return genr;
 
-public Game showGame(String name){
-	 Game g=dao.retrieveGame(name);
-	//dao.retrieveGameByName(name);
-	return g;
+	}
+	public Company showCompany(String name){
+		 Company c=dao.retrieveCompany(name);
+		// dao.retrieveCompanyyName(name);
+		return c;
 
-}
-public Genre showGenre(String name){
-	 Genre genr=dao.retrieveGenre(name);
-	//dao.retrieveGenreByName(name);
-	return genr;
+	}
+	public License showLicense(String gameKey){
+		 License l=dao.retrieveLicense(gameKey);
+		// ao.retrieveLicenseByName(name);
+		return l;
 
-}
-public Company showCompany(String name){
-	 Company c=dao.retrieveCompany(name);
-	// dao.retrieveCompanyyName(name);
-	return c;
+	}
 
-}
-public License showLicense(String gameKey){
-	 License l=dao.retrieveLicense(gameKey);
-	// ao.retrieveLicenseByName(name);
-	return l;
+	public User showUser(String login){
+		 User u=dao.retrieveUser(login);
+		// ao.retrieveLicenseByName(name);
+		return u;
 
-}
+	}
+	@Override
+	public List<Game> getAllGames() {
+		return dao.getAllGames();
 
-public User showUser(String login){
-	 User u=dao.retrieveUser(login);
-	// ao.retrieveLicenseByName(name);
-	return u;
-
-}
-@Override
-public List<Game> getAllGames() {
-	return dao.getAllGames();
-
-}
-
-
-
-
-
-
+	}
 
 //	public String sayMessage(String login, String password, String message) {
 //		System.out.println("");
