@@ -40,7 +40,7 @@ public static void addStuff(){
 		db.addLicenseToGame(g, l);
 		db.addLicenseToGame(g2, l1);
 		
-		//db.registerUser("aihnoa", "qwerty", false);
+		db.registerUser("aihnoa", "qwerty", false);
 
 	//	db.buyGame(a.getLogin(), g.getName());
 	//	db.buyGame(a.getLogin(), g2.getName());
