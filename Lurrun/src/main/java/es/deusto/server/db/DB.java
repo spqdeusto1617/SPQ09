@@ -58,7 +58,7 @@ public class DB implements IDB {
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			System.out.println("Exception launched: " + e.getMessage());
+			//System.out.println("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
@@ -94,7 +94,7 @@ public class DB implements IDB {
 			company = dao.retrieveCompany(c.getName());
 
 		} catch (Exception  e) {
-			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			//	System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret = false;
 		}
 
@@ -139,7 +139,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			//		System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -173,7 +173,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			//	System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -187,7 +187,7 @@ public class DB implements IDB {
 
 
 		}else if ( license == null || user == null ){
-			System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
+			//		System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
 
 		}
 		return ret;
@@ -204,16 +204,16 @@ public class DB implements IDB {
 			genre = dao.retrieveGenre(gen);
 			company = dao.retrieveCompany(c);
 		} catch (Exception  e) {
-			System.out.println("Exception launched: " + e.getMessage());
+			//	System.out.println("Exception launched: " + e.getMessage());
 		}
 		if ( game != null && genre != null && company != null) {
 
-			System.out.println("GAME DATA: "+ game.toString());
-			System.out.println("GENRE DATA: "+ genre.toString());
-			System.out.println("COMPANY DATA: "+ company.toString());
+			//	System.out.println("GAME DATA: "+ game.toString());
+			//	System.out.println("GENRE DATA: "+ genre.toString());
+			//	System.out.println("COMPANY DATA: "+ company.toString());
 
 		} else {
-			System.out.println("There is no such this data on the database");
+			//	System.out.println("There is no such this data on the database");
 
 		}
 
@@ -230,16 +230,16 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l);
 
 		} catch (Exception  e) {
-			System.out.println("Exception launched: " + e.getMessage());
+			//		System.out.println("Exception launched: " + e.getMessage());
 		}
 		if (user != null && game != null && license != null ) {
 
-			System.out.println("USER DATA: "+ user.toString());
-			System.out.println("GAME DATA: "+ game.toString());
-			System.out.println("LICENSE DATA: "+ license.toString());
+			//	System.out.println("USER DATA: "+ user.toString());
+			// System.out.println("GAME DATA: "+ game.toString());
+			//	System.out.println("LICENSE DATA: "+ license.toString());
 
 		} else {
-			System.out.println("There is no such this data on the database");
+			//	System.out.println("There is no such this data on the database");
 		}
 	}
 

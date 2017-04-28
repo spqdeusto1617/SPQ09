@@ -48,14 +48,14 @@ public class Game implements Serializable {
 	public String toString() {
 
 		 if (licenses.isEmpty()) {
-			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount +" genre=" + genre.getName() + ", company " + company.getName() +    "]";
+			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" + this.discount +" genre=" + this.genre.getName() + ", company " + this.company.getName() +    "]";
 		 }else{
 
 			StringBuffer licensesStr = new StringBuffer();
 			for (License license: this.licenses) {
 				licensesStr.append(license.toString() + " - ");
 			}
-			 return "Game [name=" + name + ", price=" + price + ", discount=" + discount  +" Licenses --> [" + licensesStr + "genre=" + genre.getName() + ", company " + company.getName() + "]";
+			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" + this.discount  +" Licenses --> [" + licensesStr + "genre=" + this.genre.getName() + ", company " + this.company.getName() + "]";
 		 }
 	}
 

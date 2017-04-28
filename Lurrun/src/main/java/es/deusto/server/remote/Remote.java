@@ -57,7 +57,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	@Override
 	public List<Game> showGamesInStore() throws RemoteException {
 		// call DB to retrieve full list of games
-		System.out.println("Client asked for games on store");
+		//	System.out.println("Client asked for games on store");
 		IDB db = new DB();
 		List<Game> games = db.getAllGames();
 		if(games.isEmpty()){
@@ -71,7 +71,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	@Override
 	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games
-		System.out.println("Client asked for games owned");
+		//		System.out.println("Client asked for games owned");
 		IDB db = new DB();
 		List<Game> games = db.getUserGames(username);
 		if(games.isEmpty()){

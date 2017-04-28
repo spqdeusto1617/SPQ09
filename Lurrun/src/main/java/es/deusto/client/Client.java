@@ -25,19 +25,22 @@ public class Client {
 		List<Game> games = null;
 		try {
 			if(username!=null){
+				System.out.println("Games owned iF sTART");
 				games = server.showOwnedGames(username);
-				
+				System.out.println("Games owned IF FINISHED");
 			}
-			else{
 			games = server.showGamesInStore();
-			}
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());
 		}
-		for(int i = 0; i<games.size(); i++){
-			Game g = games.get(i);
-			System.out.println((i+1) + ".-" + g.toString());
+		for(Game g : games){
+			
+			System.out.println("Game [name=" + g.getName() + ", price=" + g.getPrice() + ", discount=" + g.getDiscount() 
+			+" genre=" + g.getGenre().getName() + ", company " + g.getCompany().getName() +   "]");
 		}
+	
+		
+	
 	}
 
 	public static void main(String[] args) {
