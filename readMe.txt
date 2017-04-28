@@ -1,14 +1,10 @@
-- Start MySQL
-- Create MySQL schema using script
+Create schema lurrundb
+execute .bat
+Change datanucleus properties username/pass with mysql username and pass
 
-3. Run the command: "mvn clean compile"
-   This builds everything, and enhances the classes 
-
-4. Run the command: "mvn datanucleus:schema-create"
-   This creates the schema for this sample.
-
-6. Run the command: "mvn datanucleus:schema-delete"
-   This deletes the schema for this sample. See note for 4 also.
+mvn clean compile
+mvn datanucleus:schema-delete
+   
 
 mvn clean compile
 mvn datanucleus:schema-create
@@ -17,11 +13,6 @@ mvn exec:java -Pserver
 
 mvn exec:java -Pclient
 
-To execute application
-- launch registry.bat
-- mvn compile
-- mvn exec:java -Pserver
-- mvn exec:java -Pclient
 
 To test (do not forget to stop the RMIRegistry) 
 - mvn test
