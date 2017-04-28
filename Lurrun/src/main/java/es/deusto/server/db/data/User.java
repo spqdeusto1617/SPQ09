@@ -33,8 +33,8 @@ public class User implements Serializable {
 	
 	  
 
-	public boolean isSuperuser() {
-		return isSuperuser;
+	public boolean getSuperuser() {
+		return this.isSuperuser;
 	}
 
 	public void setSuperuser(boolean isSuperuser) {

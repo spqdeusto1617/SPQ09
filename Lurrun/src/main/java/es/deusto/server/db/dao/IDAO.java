@@ -9,7 +9,7 @@ public interface IDAO {
 	User retrieveUser(String login);
 	boolean updateUser(User u);
 
-	boolean storeLicense(License u);
+	boolean storeLicense(License l);
 	License retrieveLicense(String gameKey);
 	boolean updateLicense(License u);
 
@@ -25,16 +25,12 @@ public interface IDAO {
 	Genre retrieveGenre(String name);
 	boolean updateGenre(Genre g);
 
-	
-	
-	
-	
-	
+
 	Genre retrieveGenreByParameter(String name);
 	Company retrieveCompanyByParameter(String name);
 	Game retrieveGameByParameter(String name);
 	License retrieveLicenseByParameter(String gameKey);
-	
+
 
 	//Get all games
 

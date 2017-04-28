@@ -26,8 +26,10 @@ public static void addStuff(){
 		Company c1 = new Company ("Bethesda");
 		License l = new License ("Hl1:ABCD");
 		License l1 = new License ("Sky:ABCDEF");
-		User a =  new User ("aihnoa","qwerty",false);
 		
+		User u1 = new User("aihnoa", "qwerty", false);
+		User u2 = new User("Joel", "qwerty", false);
+		User u3 = new User("Cabezali", "qwerty", false);
 		IDB db = new DB();
 		
 		db.addGameToDb( g, gg, c);
@@ -40,8 +42,9 @@ public static void addStuff(){
 		db.addLicenseToGame(g, l);
 		db.addLicenseToGame(g2, l1);
 		
-		db.registerUser("aihnoa", "qwerty", false);
-
+		db.registerUser(u1);
+		db.registerUser(u2);
+		db.registerUser(u3);
 	//	db.buyGame(a.getLogin(), g.getName());
 	//	db.buyGame(a.getLogin(), g2.getName());
 	
@@ -73,11 +76,6 @@ public static void addStuff(){
 			java.io.BufferedReader stdin = new java.io.BufferedReader ( inputStreamReader );
 			@SuppressWarnings("unused")
 			String line  = stdin.readLine();
-			
-		
-			
-			
-			
 			
 		} catch (Exception e) {
 			System.err.println("[S] Server exception: " + e.getMessage());

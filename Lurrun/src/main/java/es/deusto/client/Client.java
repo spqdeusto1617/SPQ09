@@ -26,8 +26,11 @@ public class Client {
 		try {
 			if(username!=null){
 				games = server.showOwnedGames(username);
+				
 			}
+			else{
 			games = server.showGamesInStore();
+			}
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());
 		}
@@ -53,7 +56,7 @@ public class Client {
 			
 			server.registerUser("dipina", "dipina",false);	
 			server.registerUser("javier", "qwerty",false);
-	//AHINOAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	
 			String username = "aihnoa";
 			
 			String input = "";

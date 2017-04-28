@@ -49,32 +49,31 @@ public class DB implements IDB {
 
 	}
 
-	public boolean registerUser(String login, String password,boolean isSuperUser) {
+	public boolean registerUser(User u) {
 
 
 		User user = null;
 		boolean ret=true;
 
 		try {
-			user = dao.retrieveUser(login);
+			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
 			System.out.println("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
 		if (user != null) {
-			System.out.println("The user exists. So, setting new password for User: " + login);
-			user.setPassword(password);
-			user.setSuperuser(isSuperUser);
-			System.out.println("Password set for User: " + login);
-			System.out.println("SuperUser set for User: " + login);
+			
+			user.setPassword(u.getPassword());
+			user.setSuperuser(u.getSuperuser());
+		
 			dao.updateUser(user);
 
 		} else {
-			System.out.println("Creating user: " + login);
-			user = new User(login, password,isSuperUser);
-			dao.storeUser(user);
-			System.out.println("User created: " + login);
+			
+			
+			dao.storeUser(u);
+			
 		}
 		return ret;
 	}

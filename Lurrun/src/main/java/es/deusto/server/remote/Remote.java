@@ -40,48 +40,10 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	public boolean registerUser(String login, String password,boolean isSuperUser) {
 		IDB db = new DB();
 		//change to objetc the parameters
-		return	db.registerUser(login, password, isSuperUser);
+		User u = new User( login,  password, isSuperUser);
+		return	db.registerUser( u);
 	}
-/**
- * 
- * 
- * 
-	public boolean registerUser(String login, String password) {
-	boolean r=true;
-		try
-        {	
-            tx.begin();
-            System.out.println("Checking whether the user already exits or not: '" + login +"'");
-			User user = null;
-			try {
-				user = pm.getObjectById(User.class, login);
-			} catch (javax.jdo.JDOObjectNotFoundException jonfe) {
-				System.out.println("Exception launched: " + jonfe.getMessage());
-				r=false;
-			}
-			System.out.println("User: " + user);
-			if (user != null) {
-				System.out.println("Setting password user: " + user);
-				user.setPassword(password);
-				System.out.println("Password set user: " + user);
-			} else {
-				System.out.println("Creating user: " + user);
-				user = new User(login, password);
-				pm.makePersistent(user);					 
-				System.out.println("User created: " + user);
-			}
-			tx.commit();
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-        }
-		return r;
-	}
-*/
+
 	public Game sayHello(){
 		Company c = new Company("White Wolf");
 		Genre gr = new Genre("Vampire");
