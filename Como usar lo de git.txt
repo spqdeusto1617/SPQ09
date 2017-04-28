@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
 $ cd C:\Users\Carazo_laptop\git\SPQ09
@@ -318,3 +319,325 @@ To https://github.com/spqdeusto1617/SPQ09.git
 
 Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
 $
+=======
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ cd C:\Users\Carazo_laptop\git\SPQ09
+bash: cd: C:UsersCarazo_laptopgitSPQ09: No such file or directory
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ pwd
+/c/Users/Carazo_laptop
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ cd g
+git/          Google Drive/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ cd git/SPQ09
+SPQ09/              SPQ09_BranchCarazo/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ cd git/SPQ09
+SPQ09/              SPQ09_BranchCarazo/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~
+$ cd git/SPQ09
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git pull
+remote: Counting objects: 92, done.
+remote: Compressing objects: 100% (59/59), done.
+remote: Total 92 (delta 17), reused 92 (delta 17), pack-reused 0
+Unpacking objects: 100% (92/92), done.
+From https://github.com/spqdeusto1617/SPQ09
+ * [new branch]      Carazo-Database-with-JDO -> origin/Carazo-Database-with-JDO
+Already up-to-date.
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git add .
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.classpath.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.gitignore.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.project.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.settings/org.eclipse.core.resources.prefs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.settings/org.eclipse.jdt.core.prefs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/.settings/org.eclipse.m2e.core.prefs.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/pom.xml.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/registry.sh.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/resources/datanucleus.properties.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/resources/log4j.properties.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/resources/package-my_NOT_USED_sql.orm.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/resources/security/java.policy.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/sql/create-messagesdb.sql.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/classes/datanucleus.properties.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/classes/log4j.properties.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/classes/package-my_NOT_USED_sql.orm.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/classes/security/java.policy.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/client/Client.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/Server.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/DB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/DbMethods.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/IDB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/dao/DAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/dao/IDAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/data/Company.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/data/Game.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/data/Genre.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/data/License.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/db/data/User.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/remote/IRemote.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/deusto/server/remote/Remote.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/client/Client.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/Server.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/DB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/DbMethods.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/IDB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/dao/DAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/dao/IDAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/data/Company.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/data/Game.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/data/Genre.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/data/License.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/db/data/User.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/remote/IRemote.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/esU/deusto/server/remote/Remote.java.
+The file will have its original line endings in your working directory.
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git commit -m "Huge changes to all project"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git config --global user.name
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git config --global user.name "j.carazo.colina@opendeusto.es"
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git config --global user.email
+j.carazo.colina@opendeusto.es
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git config --global user.name
+j.carazo.colina@opendeusto.es
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git push
+Everything up-to-date
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ cd ..
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ ls
+Airline_Server_TW/   Airline_Server_TW2/         SPQ09/
+Airline_Server_TW1/  SimpleRMI_JDO_DAO_EXAMPLE/  SPQ09_BranchCarazo/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ rm -r SQP09/
+rm: cannot remove 'SQP09/': No such file or directory
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ rm -r
+.git/                      SimpleRMI_JDO_DAO_EXAMPLE/
+Airline_Server_TW/         SPQ09/
+Airline_Server_TW1/        SPQ09_BranchCarazo/
+Airline_Server_TW2/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ rm -r SPQ09
+rm: remove write-protected regular file 'SPQ09/.git/objects/02/e15c923c4f5c0129cfdfaffca06422e9a1899a'?
+rm: cannot remove 'SPQ09/.git/objects/02': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/04/5899088059d2301cc0fdc82f48c596e8cc7919'?
+rm: remove write-protected regular file 'SPQ09/.git/objects/04/cfa2c1a8566d64dd12fcf7a8e895fe02e1856f'?
+rm: cannot remove 'SPQ09/.git/objects/04': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/07/b0b53a68387f6a1f0ea6d9c25f3123aab4b3aa'?
+rm: cannot remove 'SPQ09/.git/objects/07': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/09/0a40ff5de083402f2e8cd171ceac6be35cf641'?
+rm: cannot remove 'SPQ09/.git/objects/09': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/0b/0cd690218f8b6d7b42df37e0c0837df490f3f2'?
+rm: cannot remove 'SPQ09/.git/objects/0b': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/0c/66c240808ec4059515b011f3c78aadd8d3cc2d'?
+rm: remove write-protected regular file 'SPQ09/.git/objects/0c/ad740138f50c08c4a9b46ad36e3d2aca4f4e27'?
+rm: cannot remove 'SPQ09/.git/objects/0c': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/0f/dcc720294e3483107b8d6079a72cb2a2f3b345'?
+rm: cannot remove 'SPQ09/.git/objects/0f': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/14/b697b7bbb0d85e8d8ee19141a2a92d9ce211be'?
+rm: cannot remove 'SPQ09/.git/objects/14': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/16/c89cc13733da44a37aa705233e6704c91106ef'?
+rm: cannot remove 'SPQ09/.git/objects/16': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/20/4dd12d2ac3185673e9fc2c2beb9c640ee4b49e'?
+rm: cannot remove 'SPQ09/.git/objects/20': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/24/74cb06d162ddce28e858ec9691ff3b17a5b894'?
+rm: cannot remove 'SPQ09/.git/objects/24': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/26/1f89ca3db2810d1a8785ce01149096ebe84ffc'?
+rm: remove write-protected regular file 'SPQ09/.git/objects/26/29c883ae0031bed3278ef3c70e07d4396776e8'?
+rm: cannot remove 'SPQ09/.git/objects/26': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/2d/2aa257e2a3942966d2566a1d2234800f9fb901'?
+rm: cannot remove 'SPQ09/.git/objects/2d': Directory not empty
+rm: remove write-protected regular file 'SPQ09/.git/objects/2e/3d076615c0ad90ed85803a88e11a9291f6f54c'?
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ sudo rm -r SPQ09
+bash: sudo: command not found
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ move SPQ09
+.git/                      SimpleRMI_JDO_DAO_EXAMPLE/
+Airline_Server_TW/         SPQ09/
+Airline_Server_TW1/        SPQ09_BranchCarazo/
+Airline_Server_TW2/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ move SPQ09 SPQ09OLD
+bash: move: command not found
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ cp SPQ09 SPQ09OLD
+cp: omitting directory 'SPQ09'
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ ls
+Airline_Server_TW/   Airline_Server_TW2/         SPQ09/
+Airline_Server_TW1/  SimpleRMI_JDO_DAO_EXAMPLE/  SPQ09_BranchCarazo/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ git clone https://github.com/spqdeusto1617/SPQ09.git
+Cloning into 'SPQ09'...
+remote: Counting objects: 467, done.
+remote: Compressing objects: 100% (248/248), done.
+Receiving oremote: Total 467 (delta 92), reused 0 (delta 0), pack-reused 156
+Receiving objects: 100% (467/467), 4.40 MiB | 500.00 KiB/s, done.
+Resolving deltas: 100% (119/119), done.
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ git add .
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ git cp
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ ls
+Airline_Server_TW/   Airline_Server_TW2/         SPQ09/
+Airline_Server_TW1/  SimpleRMI_JDO_DAO_EXAMPLE/  SPQ09_BranchCarazo/
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git (master)
+$ cd SPQ09
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git add .
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/client/Client.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/Server.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/DB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/DbMethods.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/IDB.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/dao/DAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/dao/IDAO.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/data/Company.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/data/Game.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/data/Genre.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/data/License.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/db/data/User.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/remote/IRemote.java.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in Lurrun/src/main/java/es/deusto/server/remote/Remote.java.
+The file will have its original line endings in your working directory.
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git commit -m "Huge changes to all proyect Carazo"
+[master 324671e] Huge changes to all proyect Carazo
+ 8 files changed, 388 insertions(+), 253 deletions(-)
+ rewrite Lurrun/src/main/java/es/deusto/server/db/IDB.java (64%)
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$ git push
+Counting objects: 20, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (20/20), 3.18 KiB | 0 bytes/s, done.
+Total 20 (delta 10), reused 0 (delta 0)
+remote: Resolving deltas: 100% (10/10), completed with 10 local objects.
+To https://github.com/spqdeusto1617/SPQ09.git
+   80234e1..324671e  master -> master
+
+Carazo_laptop@DESKTOP-HKMU054 MINGW64 ~/git/SPQ09 (master)
+$
+>>>>>>> e3feeac487e8d158fac7e7b05db7cbc2858d4a1a
