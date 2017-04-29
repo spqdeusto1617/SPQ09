@@ -8,7 +8,9 @@ import javax.jdo.annotations.*;
 
 import java.util.ArrayList;
 
-@PersistenceCapable (detachable = "true")
+//@PersistenceCapable (detachable = "true")
+
+@PersistenceCapable
 public class User implements Serializable {
 	/**
 	 * User implements Serializable to be transferred to the RMI client
@@ -29,9 +31,9 @@ public class User implements Serializable {
 	@Persistent(defaultFetchGroup="true", mappedBy="user", dependentElement="true")
 	@Join
 	List<License> licenses = new ArrayList<License>();
-	
-	
-	  
+
+
+
 
 	public boolean getSuperuser() {
 		return this.isSuperuser;
@@ -42,13 +44,13 @@ public class User implements Serializable {
 	}
 
 
-	
+
 
 	public User(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}
-	
+
 	public void addLicense(License license) {
 		licenses.add(license);
 	}
@@ -56,52 +58,41 @@ public class User implements Serializable {
 	public void removeLicense(License license) {
 		licenses.remove(license);
 	}
-	
-	 public List<License> getLicenses() {
-		 return this.licenses;
-		 
+
+	public List<License> getLicenses() {
+		return this.licenses;
+
 	}
 
 	public String getLogin() {
 		return this.login;
 	}
-	
+
 	public String getPassword() {
 		return this.password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	 
-//	 public String toString() {
-//		 if (messages.isEmpty() && licenses.isEmpty()) {
-//			 return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser;
-//			 
-//		 } else if(licenses.isEmpty()) {
-//			 StringBuffer messagesStr = new StringBuffer();
-//				for (Message message: this.messages) {
-//					messagesStr.append(message.toString() + " - ");
-//				}
-//			
-//		        return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser + ", messages --> [" + messagesStr + "]";
-//		 }else{
-//		        	StringBuffer messagesStr = new StringBuffer();
-//					for (Message message: this.messages) {
-//						messagesStr.append(message.toString() + " - ");
-//					}
-//					StringBuffer licensesStr = new StringBuffer();
-//					for (License license: this.licenses) {
-//						licensesStr.append(license.toString() + " - ");
-//					}
-//		        	
-//					return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " 
-//					+ this.isSuperuser + ", messages --> [" + messagesStr + "]"+ ", game licenses --> [" + licensesStr + "]";
-//		        	
-//		        }
-//		        	
-//		        	
-//		 }
-	 }
+
+	public String toString() {
+		if (licenses.isEmpty()) {
+			return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " + this.isSuperuser;
+
+		}else{
+			StringBuffer licensesStr = new StringBuffer();
+			for (License license: this.licenses) {
+				licensesStr.append(license.toString() + " - ");
+			}
+
+			return "User: login --> " + this.login + ", password -->  " + this.password + ", Super User -->  " 
+			+ this.isSuperuser + ", game licenses --> [" + licensesStr + "]";
+
+		}
+
+
+	}
+}
 
 

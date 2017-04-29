@@ -30,8 +30,6 @@ Change datanucleus properties username/pass with mysql username and pass
 
 mvn clean compile
 mvn datanucleus:schema-delete
-   
-
 mvn clean compile
 mvn datanucleus:schema-create
 mvn compile

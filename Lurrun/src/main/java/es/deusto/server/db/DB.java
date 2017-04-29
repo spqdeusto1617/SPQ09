@@ -100,21 +100,32 @@ public class DB implements IDB {
 
 		if (game != null && genre != null && company != null  ) {
 
-		}else if (game == null && genre != null && company != null  ){
+		}else if (game == null && genre != null && company == null  ){
 
 
-			g.setCompany(company);
+			g.setCompany(c);
 			g.setGenre(genre);
 
 
 			genre.addGame(g);
-			company.addGame(g);
+			c.addGame(g);
 
-			dao.storeGame(game);
-		//	dao.updateGenre(genre);
-		//	dao.updateCompany(company);
-
+			dao.updateGenre(genre);
+			dao.storeGame(g);
 		}
+		else if (game == null && genre == null && company != null  ){
+
+
+		g.setCompany(company);
+		g.setGenre(gg);
+
+
+		gg.addGame(g);
+		company.addGame(g);
+
+		dao.updateCompany(company);
+		dao.storeGame(g);
+	}
 		else {
 
 			g.setCompany(c);
@@ -182,7 +193,6 @@ public class DB implements IDB {
 			license.setUser(user);
 			user.getLicenses().add(license);
 
-			dao.updateLicense(license);
 			dao.updateUser(user);
 
 
@@ -193,84 +203,32 @@ public class DB implements IDB {
 		return ret;
 	}
 
-	public void showGameInfo(String g,String c,String gen){
-
-		Game game = null;
-		Genre genre = null;
-		Company company = null;
-		try {
-
-			game  = dao.retrieveGame(g);
-			genre = dao.retrieveGenre(gen);
-			company = dao.retrieveCompany(c);
-		} catch (Exception  e) {
-			//	System.out.println("Exception launched: " + e.getMessage());
-		}
-		if ( game != null && genre != null && company != null) {
-
-			//	System.out.println("GAME DATA: "+ game.toString());
-			//	System.out.println("GENRE DATA: "+ genre.toString());
-			//	System.out.println("COMPANY DATA: "+ company.toString());
-
-		} else {
-			//	System.out.println("There is no such this data on the database");
-
-		}
-
-	}
-
-	public void showLicenseInfo(String u,String l,String g){
-		User user = null;
-		Game game = null;
-		License license = null;
-
-		try {
-			user = dao.retrieveUser(u);
-			game  = dao.retrieveGame(g);
-			license = dao.retrieveLicense(l);
-
-		} catch (Exception  e) {
-			//		System.out.println("Exception launched: " + e.getMessage());
-		}
-		if (user != null && game != null && license != null ) {
-
-			//	System.out.println("USER DATA: "+ user.toString());
-			// System.out.println("GAME DATA: "+ game.toString());
-			//	System.out.println("LICENSE DATA: "+ license.toString());
-
-		} else {
-			//	System.out.println("There is no such this data on the database");
-		}
-	}
+	
 
 	public Game showGame(String name){
 		 Game g=dao.retrieveGame(name);
-		//dao.retrieveGameByName(name);
+		
 		return g;
 
 	}
 	public Genre showGenre(String name){
 		 Genre genr=dao.retrieveGenre(name);
-		//dao.retrieveGenreByName(name);
 		return genr;
 
 	}
 	public Company showCompany(String name){
 		 Company c=dao.retrieveCompany(name);
-		// dao.retrieveCompanyyName(name);
 		return c;
 
 	}
 	public License showLicense(String gameKey){
 		 License l=dao.retrieveLicense(gameKey);
-		// ao.retrieveLicenseByName(name);
 		return l;
 
 	}
 
 	public User showUser(String login){
 		 User u=dao.retrieveUser(login);
-		// ao.retrieveLicenseByName(name);
 		return u;
 
 	}
@@ -280,53 +238,5 @@ public class DB implements IDB {
 
 	}
 
-//	public String sayMessage(String login, String password, String message) {
-//		System.out.println("");
-//		System.out.println("");
-//		System.out.println("");
-//		System.out.println("Retrieving the user: '" + login +"'");
-//		User user = null;
-//		try {
-//			user = dao.retrieveUser(login);
-//		} catch (Exception  e) {
-//			System.out.println("Exception launched: " + e.getMessage());
-//		}
-//
-//		System.out.println("User retrieved: " + user);
-//		if (user != null)  {
-//			Message message1 = new Message(message);
-//			message1.setUser(user);
-//			user.getMessages().add(message1);
-//			dao.updateUser(user);
-//			cont++;
-//			System.out.println(" * Client number: " + cont);
-//			return message;
-//		}
-//		else {
-//			System.out.println("Login details supplied for message delivery are not correct");
-//			return null;
-////			throw new RemoteException("Login details supplied for message delivery are not correct");
-//		}
-//	}
-//
-//	public User getUserMessages(String login) {
-//		System.out.println("");
-//		System.out.println("");
-//		System.out.println("Checking whether the user already exits or not: '" + login +"'");
-//		User user = null;
-//		try {
-//			user = dao.retrieveUser(login);
-//		} catch (Exception  e) {
-//			System.out.println("Exception launched: " + e.getMessage());
-//		}
-//
-//		if (user != null) {
-//			System.out.println("Returning the User and its messages to the RMI Client: " + login);
-//			return user;
-//		} else {
-//			System.out.println("The user does not exist, no possibility of retrieving messages ...: " + login);
-//			return null;
-////			throw new RemoteException("Login details supplied for message retrieval are not correct");
-//		}
-//	}
+
 }

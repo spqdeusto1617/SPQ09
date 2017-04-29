@@ -15,28 +15,43 @@ public class Client {
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game"};
 	
 	public static void displayMenu(String[] options){
+		System.out.println("");
 		System.out.println("Insert the option number to select an action. If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
 		for(int i = 0; i<options.length; i++){
 			System.out.println((i+1) + ".- " + options[i]);
 		}
 	}
 	
-	public static void showGames(IRemote server, String username){
+	public static void showGames(IRemote server, String login){
 		List<Game> games = null;
+		List<License> ownedLicenses = null;
 		try {
-			if(username!=null){
-				System.out.println("Games owned iF sTART");
-				games = server.showOwnedGames(username);
-				System.out.println("Games owned IF FINISHED");
+			if(login!=null){
+				
+				User  u = server.getUser(login);
+				ownedLicenses = u.getLicenses();
+				games = server.showOwnedGames(login);
+				
+				System.out.println("");
+				System.out.println("Owned Licenses: ");				
+				
+				for(License license : ownedLicenses){				
+				System.out.println("	"+license.toString());
+				System.out.println("	"+license.getGame());					
+				}						
 			}
+			
 			games = server.showGamesInStore();
 		} catch (RemoteException e) {
 			System.out.println(e.getMessage());
 		}
-		for(Game g : games){
-			
-			System.out.println("Game [name=" + g.getName() + ", price=" + g.getPrice() + ", discount=" + g.getDiscount() 
-			+" genre=" + g.getGenre().getName() + ", company " + g.getCompany().getName() +   "]");
+		
+		System.out.println("");
+		System.out.println("Games in the store ");
+		int count=1;
+		for(Game g : games){												
+			System.out.println("	"+count + ")" + g.toString());
+			count++	;	
 		}
 	
 		
@@ -60,7 +75,7 @@ public class Client {
 			server.registerUser("dipina", "dipina",false);	
 			server.registerUser("javier", "qwerty",false);
 	
-			String username = "aihnoa";
+			String login = "aihnoa";
 			
 			String input = "";
 				
@@ -77,13 +92,13 @@ public class Client {
 					break;
 				case("3"):
 					//Buy game
+					System.out.println("");
 					System.out.println("Insert a games Id to select it; If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
+					
 					showGames(server, null);
-					input = System.console().readLine();
-					
-					String n = "HL1";
-					
-					if(server.buyGame(username, n)){
+					input = System.console().readLine();										
+																			
+					if(server.buyGame(login, "Game 1")){
 						System.out.println("Game bought successfully");
 					}
 					break;

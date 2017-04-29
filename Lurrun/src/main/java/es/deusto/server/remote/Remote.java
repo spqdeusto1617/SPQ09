@@ -68,6 +68,22 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		}
 	}
 
+	
+	public User getUser(String login) throws RemoteException{
+		
+		IDB db = new DB();
+		User u  = db.showUser(login);
+		
+		if(u == null){
+			throw new RemoteException("No games owned");
+		}
+		else{
+			return(u);
+		}
+		
+		
+	}
+
 	@Override
 	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games
@@ -87,6 +103,12 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		// call DB to make necessary changes for adding a new game to the users owned list
 		IDB db = new DB();
 		return db.buyGame(username, name);
+	}
+
+	@Override
+	public boolean addGame(Game game, Genre genre, Company company) throws RemoteException {
+		IDB db = new DB();
+		return db.addGameToDb(game,genre,company);
 	}
 
 }

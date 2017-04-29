@@ -17,6 +17,7 @@ public class License implements Serializable {
 
 
 
+	
 	@Override
 	public String toString() {
 		return "License [gameKey=" + gameKey + "]";

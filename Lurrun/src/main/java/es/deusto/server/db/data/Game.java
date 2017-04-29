@@ -14,7 +14,9 @@ import es.deusto.server.db.dao.IDAO;
 import javax.jdo.annotations.*;
 
 
-@PersistenceCapable (detachable = "true")
+//@PersistenceCapable (detachable = "true")
+
+@PersistenceCapable (detachable = "false")
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -48,14 +50,16 @@ public class Game implements Serializable {
 	public String toString() {
 
 		 if (licenses.isEmpty()) {
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" + this.discount +" genre=" + this.genre.getName() + ", company " + this.company.getName() +    "]";
+			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
+		 + this.discount +" genre=" + this.genre.getName() + ", company " + this.company.getName() +    "]";
 		 }else{
 
 			StringBuffer licensesStr = new StringBuffer();
 			for (License license: this.licenses) {
-				licensesStr.append(license.toString() + " - ");
+				licensesStr.append(license.getGameKey() + " - ");
 			}
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" + this.discount  +" Licenses --> [" + licensesStr + "genre=" + this.genre.getName() + ", company " + this.company.getName() + "]";
+			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
+			+ this.discount  +" Licenses --> [" + licensesStr + "genre=" + this.genre.getName() + ", company " + this.company.getName() + "]";
 		 }
 	}
 
