@@ -44,13 +44,35 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		return	db.registerUser( u);
 	}
 
-	public Game sayHello(){
+	public Game gameTest(){
 		Company c = new Company("White Wolf");
 		Genre gr = new Genre("Vampire");
 		Game g = new Game("Vampire the Masquerade", 19.90, 0);
-		g.setGenre(gr);
-		g.setCompany(c);
-		return(g);
+		
+		IDB db = new DB();
+		
+		db.addGameToDb(g, gr, c);
+		Game g1=db.showGame(g.getName());
+		
+		return(g1);
+	}
+	public License licenseTest(){
+		Company c = new Company("DICE");
+		Genre gr = new Genre("Bellic simulator");
+		Game g = new Game("BF 1942", 19.90, 0);
+		
+		License l = new License ("GGGG");
+		
+		User u = new User("JunitUser","Junit Pass",false);
+		
+		IDB db = new DB();
+		db .addGameToDb(g, gr, c);
+		db.registerUser(u);
+		db.addLicenseToGame(g, l);
+		db.buyGame(u.getLogin(), g.getName());
+		
+		db.showLicense(l.getGameKey());
+		return(l);
 	}
 
 

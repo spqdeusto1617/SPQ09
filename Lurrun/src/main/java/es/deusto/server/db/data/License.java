@@ -11,8 +11,11 @@ public class License implements Serializable {
 
 	@PrimaryKey
 	private	String gameKey;
-
+	
+	@Persistent(defaultFetchGroup="true")
 	private Game game;
+	
+	@Persistent(defaultFetchGroup="true")
 	private	User user;
 
 

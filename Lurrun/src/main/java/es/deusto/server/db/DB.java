@@ -202,9 +202,7 @@ public class DB implements IDB {
 		}
 		return ret;
 	}
-
 	
-
 	public Game showGame(String name){
 		 Game g=dao.retrieveGame(name);
 		

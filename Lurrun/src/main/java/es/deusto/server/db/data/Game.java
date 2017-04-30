@@ -26,8 +26,10 @@ public class Game implements Serializable {
 	private double price;
 	private double discount;
 
-
+	@Persistent(defaultFetchGroup="true")
 	Genre genre;
+	
+	@Persistent(defaultFetchGroup="true")
 	Company company;
 
 
@@ -51,7 +53,7 @@ public class Game implements Serializable {
 
 		 if (licenses.isEmpty()) {
 			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-		 + this.discount +" genre=" + this.genre.getName() + ", company " + this.company.getName() +    "]";
+		 + this.discount  + "]";
 		 }else{
 
 			StringBuffer licensesStr = new StringBuffer();
@@ -59,7 +61,7 @@ public class Game implements Serializable {
 				licensesStr.append(license.getGameKey() + " - ");
 			}
 			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-			+ this.discount  +" Licenses --> [" + licensesStr + "genre=" + this.genre.getName() + ", company " + this.company.getName() + "]";
+			+ this.discount  +" Licenses --> [" + licensesStr +" ]";
 		 }
 	}
 

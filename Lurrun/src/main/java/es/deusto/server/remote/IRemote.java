@@ -10,7 +10,9 @@ public interface IRemote extends Remote {
 	
 //	String sayMessage(String login, String password, String message) throws RemoteException;
 	boolean registerUser(String login, String password,boolean isSuper) throws RemoteException;
-	Game sayHello() throws RemoteException;
+	Game gameTest() throws RemoteException;
+	License licenseTest() throws RemoteException;
+	
 	
 	User getUser(String login) throws RemoteException;
 	List<Game> showGamesInStore() throws RemoteException;
