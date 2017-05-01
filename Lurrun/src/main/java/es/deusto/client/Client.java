@@ -75,10 +75,11 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
-				System.out.println("Introduce username");
+				System.out.println("Introduce username:");
 				String login = System.console().readLine();
-				System.out.println("Introduce password");
+				System.out.println("Introduce password:");
 				if(server.registerUser(login, System.console().readLine(), false)){
+					log = false;
 //					server.registerUser("dipina", "dipina",false);	
 //					server.registerUser("javier", "qwerty",false);
 					
@@ -108,13 +109,15 @@ public class Client {
 							}
 							break;
 						case("b"):
+						case("quit"):
 							break;
 						default:
 							System.out.println("Invalid input");
 							break;
 						}
 						
-					} while(!(input.equals("exit")));
+					} while(!(input.equals("quit")));
+					System.out.println("See you soon! :D");
 				}
 				else{
 					System.out.println("Incorrect login. Try again? Y|N");
