@@ -64,27 +64,20 @@ public static void addStuff(){
 		db.addGameToDb( g2, gg3, c3);
 		db.addGameToDb( g3, gg4, c4);
 		
-		db.addGameToDb( g4, gg4, c5);		
-		db.addGameToDb( g5, gg5, c3);
+//		db.addGameToDb( g4, gg4, c5);		
+//		db.addGameToDb( g5, gg5, c3);
 		
 		db.addGameToDb( g6, gg4, c4);	
 		db.addGameToDb( g7, gg3, c3);
-
-//		db.addLicenseToGame(g1, l6);
-//		db.addLicenseToGame(g2, l1);
-//		db.addLicenseToGame(g3, l2);
-//		db.addLicenseToGame(g1, l3);
-//		db.addLicenseToGame(g2, l4);
-//		db.addLicenseToGame(g3, l5);
-		
 		
 		db.registerUser(u1);
 		db.registerUser(u2);
 		db.registerUser(u3);
 		
-	//	db.buyGame(a.getLogin(), g.getName());
-	//	db.buyGame(a.getLogin(), g2.getName());
-	
+		db.buyGame(u1.getLogin(), g1.getName());
+		db.buyGame(u1.getLogin(), g2.getName());
+		
+		System.out.println("Finished");
 		
 	}
 	

@@ -1,7 +1,5 @@
 package es.deusto.server.db;
 
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import es.deusto.server.db.data.*;
 public class DB implements IDB {
 
 	private static final long serialVersionUID = 1L;
-	private int cont = 0;
 	IDAO dao;
 
 	public DB(){
@@ -31,57 +28,39 @@ public class DB implements IDB {
 	public  List<Game> getUserGames(String username) {
 		User u= showUser(username);
 		List <Game> gameList = new ArrayList<>();
-				for (License l :u.getLicenses() ) {
-					gameList.add(l.getGame());
-
-	                }
-				return gameList;
+		for (License l :u.getLicenses() ) {
+			gameList.add(l.getGame());
+        }
+		return gameList;
 
 	}
 
 	public  boolean buyGame(String username, String name) {
 		User u = showUser(username);
-		Game g = showGame(name);
-		License l =	g.getFirstFreeLicense();
-		System.out.println(l);
-
+		License l =	showGame(name).getFirstFreeLicense();
 		return addLicenseToUser(u, l);
-
 	}
 
 	public boolean registerUser(User u) {
-
-
 		User user = null;
-		boolean ret=true;
-
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
 			//System.out.println("Exception launched: " + e.getMessage());
-			ret=false;
+			return false;
 		}
 
 		if (user != null) {
-			
 			user.setPassword(u.getPassword());
 			user.setSuperuser(u.getSuperuser());
-		
 			dao.updateUser(user);
-
 		} else {
-			
-			
 			dao.storeUser(u);
-			
 		}
-		return ret;
+		return true;
 	}
 
 	public boolean addGameToDb(Game g,Genre gg, Company c) {
-
-
-
 		Game game = null;
 		Genre genre = null;
 		Company company = null;
@@ -99,35 +78,32 @@ public class DB implements IDB {
 		}
 
 		if (game != null && genre != null && company != null  ) {
-
-		}else if (game == null && genre != null && company == null  ){
-
+			System.out.println("Case 1");
+		} else if (game == null && genre != null && company == null  ){
+			System.out.println("Case 2");
 
 			g.setCompany(c);
 			g.setGenre(genre);
-
 
 			genre.addGame(g);
 			c.addGame(g);
 
 			dao.updateGenre(genre);
 			dao.storeGame(g);
-		}
-		else if (game == null && genre == null && company != null  ){
+		} else if (game == null && genre == null && company != null  ){
+			System.out.println("Case 3");
 
-
-		g.setCompany(company);
-		g.setGenre(gg);
-
-
-		gg.addGame(g);
-		company.addGame(g);
-
-		dao.updateCompany(company);
-		dao.storeGame(g);
-	}
-		else {
-
+			g.setCompany(company);
+			g.setGenre(gg);
+	
+			gg.addGame(g);
+			company.addGame(g);
+	
+			dao.updateCompany(company);
+			dao.storeGame(g);
+		} else {
+			System.out.println("Case 4");
+			
 			g.setCompany(c);
 			g.setGenre(gg);
 
@@ -171,20 +147,18 @@ public class DB implements IDB {
 
 		}
 		return ret;
-	}
+}
 
 	public boolean addLicenseToUser(User u, License l) {
 		User user = null;
 		License license = null;
 		boolean ret=true;
 		try {
-
-
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			//	System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+			System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -197,7 +171,7 @@ public class DB implements IDB {
 
 
 		}else if ( license == null || user == null ){
-			//		System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
+			System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
 
 		}
 		return ret;

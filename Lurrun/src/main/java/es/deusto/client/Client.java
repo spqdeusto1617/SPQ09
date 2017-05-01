@@ -109,6 +109,7 @@ public class Client {
 							}
 							break;
 						case("b"):
+							break;
 						case("quit"):
 							break;
 						default:

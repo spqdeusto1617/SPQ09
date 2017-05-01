@@ -48,6 +48,10 @@ public class Genre implements Serializable {
 		return name;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
 		if (genreGames.isEmpty()) {
@@ -63,9 +67,5 @@ public class Genre implements Serializable {
 			
 			return "Genre: name --> " + this.name +", games --> [" + gamesStr + "]";
 		}
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 }

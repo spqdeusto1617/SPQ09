@@ -41,7 +41,8 @@ public class Company implements Serializable
 	@Join
     List<Game> companyGames = new ArrayList<Game>();
 
-    protected Company(){
+    public Company(String name){
+        this.name = name;
     }
 
     public List<Game> getCompanyGames() {
@@ -60,22 +61,13 @@ public class Company implements Serializable
 		companyGames.remove(game);
 	}
 
-    public Company(String name)
-    {
-        this.name = name;
-
-    }
-
-    public String getName()
-    {
+    public String getName(){
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name){
         this.name = name;
     }
-
 
     public String toString() {
 		 if (companyGames.isEmpty()) {

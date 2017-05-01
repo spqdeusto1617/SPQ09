@@ -18,13 +18,16 @@ public class License implements Serializable {
 	@Persistent(defaultFetchGroup="true")
 	private	User user;
 
-
-
 	
-	@Override
-	public String toString() {
-		return "License [gameKey=" + gameKey + "]";
+	public License() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
+	public License(String gameKey) {
+		super();
+		this.gameKey = gameKey;
+	}
+	
 	public String getGameKey() {
 		return gameKey;
 	}
@@ -43,13 +46,10 @@ public class License implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public License() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public License(String gameKey) {
-		super();
-		this.gameKey = gameKey;
+	
+	@Override
+	public String toString() {
+		return "License [gameKey=" + gameKey + "]";
 	}
 
 }
