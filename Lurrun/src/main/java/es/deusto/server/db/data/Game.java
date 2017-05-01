@@ -48,23 +48,6 @@ public class Game implements Serializable {
 
 	}
 
-
-	public String toString() {
-
-		 if (licenses.isEmpty()) {
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-		 + this.discount  + "]";
-		 }else{
-
-			StringBuffer licensesStr = new StringBuffer();
-			for (License license: this.licenses) {
-				licensesStr.append(license.getGameKey() + " - ");
-			}
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-			+ this.discount  +" Licenses --> [" + licensesStr +" ]";
-		 }
-	}
-
 	public Genre getGenre() {
 		return genre;
 	}
@@ -115,6 +98,22 @@ public class Game implements Serializable {
 		IDAO dao= new DAO();
 		dao.updateGame(this);
 		return license;
+	}
+	
+	public String toString() {
+		
+		String game = "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
+				 + this.discount  + "]";
+
+		if (!licenses.isEmpty()) {
+			StringBuffer licensesStr = new StringBuffer();
+			for (License license: this.licenses) {
+			licensesStr.append(license.getGameKey() + " - ");
+			}
+			game = game + " Licenses --> [" + licensesStr +" ]";
+		}
+		
+		return game;
 	}
 
 }

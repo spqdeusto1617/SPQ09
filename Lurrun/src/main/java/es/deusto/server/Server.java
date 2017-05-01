@@ -46,7 +46,7 @@ public static void addStuff(){
 		License l5 = new License ("FFFAAAAAFFFF");
 		License l6 = new License ("12345667");
 		
-		User u1 = new User("aihnoa", "qwerty", false);
+		User u1 = new User("ainhoa", "qwerty", false);
 		User u2 = new User("Joel", "qwerty", false);
 		User u3 = new User("Cabezali", "qwerty", false);
 		
@@ -99,7 +99,7 @@ public static void addStuff(){
 			Naming.rebind(name, objServer);
 			
 			//DB testing
-			addStuff();
+//			addStuff();
 			
 			System.out.println("[S] Server '" + name + "' active and waiting...");
 			java.io.InputStreamReader inputStreamReader = new java.io.InputStreamReader ( System.in );

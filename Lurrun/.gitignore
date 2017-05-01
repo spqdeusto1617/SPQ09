@@ -70,3 +70,4 @@ local.properties
 ####### MYSQL logs #######
 
 datanucleus.log
+/target/
