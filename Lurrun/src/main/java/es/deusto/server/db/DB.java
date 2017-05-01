@@ -40,10 +40,10 @@ public class DB implements IDB {
 	}
 
 	public  boolean buyGame(String username, String name) {
-		// TODO Auto-generated method stub
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l=	g.getFirstFreeLicense();
+		License l =	g.getFirstFreeLicense();
+		System.out.println(l);
 
 		return addLicenseToUser(u, l);
 

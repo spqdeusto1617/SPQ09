@@ -13,17 +13,18 @@ import es.deusto.server.remote.*;
 public class Client {
 	
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game"};
+	private static List<Game> games = null;
+	private static String info = "If you want to go back, input 'b'; if you want to exit the application, input 'quit'";
 	
-	public static void displayMenu(String[] options){
+	private static void displayMenu(String[] options){
 		System.out.println("");
-		System.out.println("Insert the option number to select an action. If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
+		System.out.println("Insert the option number to select an action. " + info);
 		for(int i = 0; i<options.length; i++){
 			System.out.println((i+1) + ".- " + options[i]);
 		}
 	}
 	
-	public static void showGames(IRemote server, String login){
-		List<Game> games = null;
+	private static void showGames(IRemote server, String login){
 //		List<License> ownedLicenses = null;
 		String sentence = null;
 		try {
@@ -53,8 +54,8 @@ public class Client {
 		}
 		else{
 			System.out.println("Show " + sentence);
-			for(int i = 1; i <= games.size(); i++){												
-				System.out.println(i + ".-" + games.get(i).toString());	
+			for(int i = 0; i < games.size(); i++){												
+				System.out.println((i+1) + ".-" + games.get(i).toString());	
 			}
 		}
 	}
@@ -75,16 +76,15 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
-				System.out.println("Introduce username:");
-				String login = System.console().readLine();
-				System.out.println("Introduce password:");
-				if(server.registerUser(login, System.console().readLine(), false)){
+//				System.out.println("Introduce username:");
+//				String login = System.console().readLine();
+//				System.out.println("Introduce password:");
+//				if(server.registerUser(login, System.console().readLine(), false)){
+				String login = "ainhoa";
+				if(server.registerUser(login, "qwerty", false)){
 					log = false;
-//					server.registerUser("dipina", "dipina",false);	
-//					server.registerUser("javier", "qwerty",false);
-					
-					String input = "";
-						
+
+					String input = "";						
 					do{
 						displayMenu(mainMenu);
 						input = System.console().readLine();
@@ -99,12 +99,12 @@ public class Client {
 							break;
 						case("3"):
 							//Buy game
-							System.out.println("Insert a games Id to select it; If you want to go back, input 'b'; if you want to exit the application, input 'quit'");
-							
+							System.out.println("Insert a game's Id to select it. " + info);
 							showGames(server, null);
-							input = System.console().readLine();										
-																					
-							if(server.buyGame(login, "Game 1")){
+							input = System.console().readLine();
+							int id = Integer.parseInt(input)-1;
+							String gameName = games.get(id).getName();
+							if(server.buyGame(login, gameName)){
 								System.out.println("Game bought successfully");
 							}
 							break;
