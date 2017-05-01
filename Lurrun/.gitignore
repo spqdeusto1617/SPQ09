@@ -66,3 +66,7 @@ local.properties
 .scala_dependencies
 .worksheet
 
+
+####### MYSQL logs #######
+
+datanucleus.log
