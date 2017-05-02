@@ -78,7 +78,7 @@ public static void addStuff(){
 		db.registerUser(u2);
 		db.registerUser(u3);
 		
-	//	db.buyGame(a.getLogin(), g.getName());
+		db.buyGame(u1.getLogin(), g.getName());
 	//	db.buyGame(a.getLogin(), g2.getName());
 	
 		
