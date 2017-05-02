@@ -1,12 +1,16 @@
 package es.deusto.server.db;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import es.deusto.server.db.dao.IDAO;
+
 import es.deusto.server.db.dao.DAO;
 import es.deusto.server.db.data.*;
 
@@ -15,7 +19,7 @@ public class DB implements IDB {
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
 	IDAO dao;
-
+	final Logger logger = LoggerFactory.getLogger(DB.class);
 	public DB(){
 		super();
 		dao = new DAO();
@@ -58,12 +62,11 @@ public class DB implements IDB {
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			//System.out.println("Exception launched: " + e.getMessage());
+			logger.error("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
 		if (user != null) {
-			
 			user.setPassword(u.getPassword());
 			user.setSuperuser(u.getSuperuser());
 		
@@ -78,7 +81,7 @@ public class DB implements IDB {
 		return ret;
 	}
 
-	public boolean addGameToDb(Game g,Genre gg, Company c) {
+	public boolean addGameToDb(Game g,Genre gg, Company c)  {
 
 
 
@@ -87,19 +90,17 @@ public class DB implements IDB {
 		Company company = null;
 		boolean ret=true;
 
-		try {
+		
 
 			game  = dao.retrieveGame(g.getName());
 			genre = dao.retrieveGenre(gg.getName());
 			company = dao.retrieveCompany(c.getName());
 
-		} catch (Exception  e) {
-			//	System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
-			ret = false;
-		}
 
-		if (game != null && genre != null && company != null  ) {
-
+		if (game != null ) {
+			ret = false; 
+			
+			
 		}else if (game == null && genre != null && company == null  ){
 
 
@@ -111,8 +112,22 @@ public class DB implements IDB {
 			c.addGame(g);
 
 			dao.updateGenre(genre);
-			dao.storeGame(g);
+		//	dao.storeGame(g);
 		}
+		else if (game == null && genre != null && company != null  ){
+
+
+		g.setCompany(company);
+		g.setGenre(genre);
+
+
+		genre.addGame(g);
+		company.addGame(g);
+
+	//	dao.updateGenre(genre);
+	//	dao.updateCompany(company);
+		 dao.storeGame(g);
+	}
 		else if (game == null && genre == null && company != null  ){
 
 
@@ -124,9 +139,9 @@ public class DB implements IDB {
 		company.addGame(g);
 
 		dao.updateCompany(company);
-		dao.storeGame(g);
+		// dao.storeGame(g);
 	}
-		else {
+		else  if (game == null && genre == null && company == null  ){
 
 			g.setCompany(c);
 			g.setGenre(gg);
@@ -150,7 +165,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			//		System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -184,7 +199,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			//	System.out.println("Exception launched in checking if the data already exist: " + e.getMessage());
+				logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -197,7 +212,7 @@ public class DB implements IDB {
 
 
 		}else if ( license == null || user == null ){
-			//		System.out.println("Create the user or the license " + l.getGameKey() + u.getLogin());
+			//		logger.info("Create the user or the license " + l.getGameKey() + u.getLogin());
 
 		}
 		return ret;
@@ -234,6 +249,40 @@ public class DB implements IDB {
 	public List<Game> getAllGames() {
 		return dao.getAllGames();
 
+	}
+	public List<User> getAllUsers() {
+		return dao.getAllUsers();
+
+	}
+
+	@Override
+	public Game showGameByParam(String name) {
+		Game g=dao.retrieveGameByParameter(name);
+		
+		return g;
+	}
+
+	@Override
+	public Company showCompanyByParam(String name) {
+		Company c=dao.retrieveCompanyByParameter(name);
+		
+		return c;
+	}
+
+	@Override
+	public Genre showGenreByParam(String name) {
+	Genre g=dao.retrieveGenreByParameter(name);
+		
+		return g;
+	}
+
+	
+
+	@Override
+	public License showLicenseByParam(String gameKey) {
+		License l=dao.retrieveLicenseByParameter(gameKey);
+		
+		return l;
 	}
 
 

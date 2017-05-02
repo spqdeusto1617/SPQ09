@@ -2,6 +2,9 @@ package es.deusto.server;
 
 import java.rmi.Naming;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import es.deusto.server.db.DB;
 import es.deusto.server.db.IDB;
 import es.deusto.server.db.data.Company;
@@ -13,7 +16,7 @@ import es.deusto.server.remote.*;
 
 
 public class Server{
-
+	final static Logger logger = LoggerFactory.getLogger(Server.class);
 public static void addStuff(){
 		
 		Game g = new Game("Game 1",200,0.2);
@@ -52,23 +55,23 @@ public static void addStuff(){
 		
 		IDB db = new DB();
 		
-		db.addGameToDb( g, gg1, c1);		
-		db.addGameToDb( g1, gg2, c2);
-		db.addGameToDb( g2, gg3, c3);
-		db.addGameToDb( g3, gg4, c4);
-		
-		db.addGameToDb( g4, gg4, c5);		
-		db.addGameToDb( g5, gg5, c3);
-		
-		db.addGameToDb( g6, gg4, c4);	
-		db.addGameToDb( g7, gg3, c3);
 
-		db.addLicenseToGame(g1, l6);
-		db.addLicenseToGame(g2, l1);
-		db.addLicenseToGame(g3, l2);
-		db.addLicenseToGame(g1, l3);
-		db.addLicenseToGame(g2, l4);
-		db.addLicenseToGame(g3, l5);
+			db.addGameToDb( g, gg1, c1);
+			db.addGameToDb( g1, gg2, c2);
+			db.addGameToDb( g2, gg3, c3);
+			db.addGameToDb( g3, gg4, c4);	
+			
+			db.addGameToDb( g4, gg3, c5);		
+			db.addGameToDb( g5, gg5, c4);			
+			db.addGameToDb( g6, gg4, c4);	
+			db.addGameToDb( g7, gg3, c3);
+
+			db.addLicenseToGame(g1, l6);
+			db.addLicenseToGame(g2, l1);
+			db.addLicenseToGame(g3, l2);
+			db.addLicenseToGame(g1, l3);
+			db.addLicenseToGame(g2, l4);
+			db.addLicenseToGame(g3, l5);
 		
 		
 		db.registerUser(u1);
@@ -84,7 +87,7 @@ public static void addStuff(){
 	public static void main(String[] args) {
 		
 		if (args.length != 3) {
-			System.out.println("[S] How to invoke: java [policy] [codebase] Server.Server [host] [port] [server]");
+			logger.info("[S] How to invoke: java [policy] [codebase] Server.Server [host] [port] [server]");
 			System.exit(0);
 		}
 
@@ -101,14 +104,14 @@ public static void addStuff(){
 			//DB testing
 			addStuff();
 			
-			System.out.println("[S] Server '" + name + "' active and waiting...");
+			logger.info("[S] Server '" + name + "' active and waiting...");
 			java.io.InputStreamReader inputStreamReader = new java.io.InputStreamReader ( System.in );
 			java.io.BufferedReader stdin = new java.io.BufferedReader ( inputStreamReader );
 			@SuppressWarnings("unused")
 			String line  = stdin.readLine();
 			
 		} catch (Exception e) {
-			System.err.println("[S] Server exception: " + e.getMessage());
+			logger.error("[S] Server exception: " + e.getMessage());
 			e.printStackTrace();
 		}
 

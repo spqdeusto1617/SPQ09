@@ -23,6 +23,8 @@ import es.deusto.server.remote.IRemote;
 import es.deusto.server.remote.Remote;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -34,6 +36,8 @@ import es.deusto.server.remote.Remote;
 public class DAOMockTest {
 	
 	DB db;
+	final Logger logger = LoggerFactory.getLogger(DAOMockTest.class);
+	static int iteration = 0;
 	
 	@Mock
 	IDAO dao;
@@ -43,15 +47,18 @@ public class DAOMockTest {
 	}
 
 	@Before
-	public void setUp() throws Exception {		
+	public void setUp() throws Exception {
+		logger.info("Entering setUp: {}", iteration++);
 		db = new DB(dao);
+		logger.info("Leaving setUp");
 
 	}
 
 	@Test
 	//@Ignore
 	public void testRegisterUserCorrectly() {
-	
+		logger.info("Starting testRegisterUserCorrectly() ");
+		
 		// Stubbing - return a given value when a specific method is called
 		when( dao.retrieveUser("cortazar") ).thenReturn( null );
 		User u = new User ("cortazar", "cortazar",false);
@@ -63,10 +70,10 @@ public class DAOMockTest {
 		// Setting expectations -  the method storeUser() is called once and the argument is intercepted
 		verify (dao).storeUser(userCaptor.capture());
 		User newUser = userCaptor.getValue();
-		System.out.println("Registering mock new user: " + newUser.getLogin());
+		logger.info("Registering mock new user: " + newUser.getLogin());
 	
 		assertEquals( "cortazar", newUser.getLogin());
-		
+		logger.debug("Finishing testRegisterUserCorrectly() ");
 	}
 	
 	@Test
@@ -81,44 +88,62 @@ public class DAOMockTest {
 		ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass( User.class );
 		verify (dao).updateUser(userCaptor.capture());
 		User newUser = userCaptor.getValue();
-		System.out.println("Changing password of mock user: " + newUser.getPassword());
+		logger.info("Changing password of mock user: " + newUser.getPassword());
 		assertEquals( "dipina", newUser.getPassword());
 		
 	}
-/**
-	@Test(expected=RemoteException.class)
-	public void testSayMessageUserInvalid() throws RemoteException {
-		
-		when( dao.retrieveUser("cortazar") ).thenReturn( null );
-		System.out.println("Say message and invalid user, testing exception");
-		
-		db.
-			
-	}
 	
 	@Test
-	public void testSayMessageUserValid() throws RemoteException {
+	public void testGameValid() throws Exception {
+	
 		// Setting up the test data
-		User u = new User("cortazar","cortazar");
-		Message mes = new Message("testing message");
-		mes.setUser(u);
-		u.addMessage(mes) ;
+				logger.info("Test Game Valid");
+				Company c = new Company("Company Mockito");
+				Genre gr = new Genre("genre mockito");
+				Game g = new Game("Game mockito", 20.90, 0);
+				g.setGenre(gr);
+				g.setCompany(c);
+											
+				//Stubbing
+				when( dao.retrieveGame(g.getName()) ).thenReturn(null);
+				
+				//Calling the method under test								
+				db.addGameToDb(g, gr, c);
+				
+				// Verifying the outcome
+				ArgumentCaptor<Game> gameCaptor = ArgumentCaptor.forClass( Game.class );
+				verify (dao).storeGame(gameCaptor.capture());
+				Game newGame = gameCaptor.getValue();
+				
+				assertEquals(g.toString(), newGame.toString());
+				
 		
+	}	
+	
+	@Test(expected=RemoteException.class)
+	public void testAddInvalidRemote() throws RemoteException {
+		// Setting up the test data
+		Company c = null;
+		Genre gr = null;
+		Game g = null;
+		
+									
 		//Stubbing
-		when( dao.retrieveUser("cortazar") ).thenReturn(u);
-		
-		//Calling the method under test
-		
-		m.sayMessage("cortazar", "cortazar", "testing message");
-		
-		// Verifying the outcome
-		ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass( User.class );
-		verify (dao).updateUser(userCaptor.capture());
-		User newUser = userCaptor.getValue();
-		
-		assertEquals( "cortazar", newUser.getMessages().get(0).getUser().getLogin());
+	//	when( dao.retrieveGame("Game Mockito") ).thenReturn(null);
+		logger.info("Test Game InValid");
+		logger.error("Invalid game remote , testing exception");
+		logger.info("Test Game InValid Succes");
+		IRemote remote = new Remote();
+		//Calling the method under test								
+		remote.addGame(g, gr, c);
+			
 		
 	}
-	*/
+	
+	
+	
+	
+	
+	
 
 }

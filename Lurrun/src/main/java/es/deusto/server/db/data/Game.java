@@ -16,7 +16,7 @@ import javax.jdo.annotations.*;
 
 //@PersistenceCapable (detachable = "true")
 
-@PersistenceCapable (detachable = "false")
+@PersistenceCapable (detachable = "true")
 public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -53,14 +53,15 @@ public class Game implements Serializable {
 
 		 if (licenses.isEmpty()) {
 			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-		 + this.discount  + "]";
+		 + this.discount  + "genre= " + genre.getName() + "company" + company.getName() +"]";
 		 }else{
 
 			StringBuffer licensesStr = new StringBuffer();
 			for (License license: this.licenses) {
 				licensesStr.append(license.getGameKey() + " - ");
 			}
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
+			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" +
+			"genre= " + genre.getName() + "company" + company.getName()
 			+ this.discount  +" Licenses --> [" + licensesStr +" ]";
 		 }
 	}

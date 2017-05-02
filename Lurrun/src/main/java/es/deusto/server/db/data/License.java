@@ -23,7 +23,7 @@ public class License implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "License [gameKey=" + gameKey + "]";
+		return "License --> gameKey=" + gameKey + "Game "+   game.getName() + "]";
 	}
 	public String getGameKey() {
 		return gameKey;

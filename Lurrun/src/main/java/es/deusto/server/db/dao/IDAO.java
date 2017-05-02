@@ -35,7 +35,7 @@ public interface IDAO {
 	//Get all games
 
 	public List<Game> getAllGames();
-
+	public List<User> getAllUsers();
 
 
 }

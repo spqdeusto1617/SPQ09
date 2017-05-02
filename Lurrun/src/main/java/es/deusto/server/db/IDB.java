@@ -7,6 +7,7 @@ import es.deusto.server.db.data.*;
 public interface IDB {
 	
 	  List<Game> getAllGames();
+	  List<User> getAllUsers();
 	  List<Game> getUserGames(String login);
 	  
 	  boolean buyGame(String login, String game);
@@ -21,5 +22,10 @@ public interface IDB {
 	  License showLicense	(String gameKey);
 	  Company	showCompany	(String name);
 	  User	showUser	(String login);
+	  
+	  Game  showGameByParam(String name);
+	  Company	showCompanyByParam(String name);
+	  Genre 	showGenreByParam(String name);
+	  License showLicenseByParam(String gameKey);
 		
 }

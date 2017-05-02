@@ -28,9 +28,8 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.*;
-
-@PersistenceCapable 
-
+ 
+@PersistenceCapable (detachable = "true") 
 public class Company implements Serializable
 {
 	private static final long serialVersionUID = 1L;

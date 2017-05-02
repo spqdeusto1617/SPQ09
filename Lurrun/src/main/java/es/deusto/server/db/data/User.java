@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 //@PersistenceCapable (detachable = "true")
 
-@PersistenceCapable
+@PersistenceCapable (detachable = "true")
 public class User implements Serializable {
 	/**
 	 * User implements Serializable to be transferred to the RMI client
