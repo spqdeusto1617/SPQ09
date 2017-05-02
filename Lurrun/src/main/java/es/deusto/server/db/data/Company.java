@@ -28,9 +28,8 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.*;
-
-@PersistenceCapable 
-
+ 
+@PersistenceCapable (detachable = "true") 
 public class Company implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -41,8 +40,7 @@ public class Company implements Serializable
 	@Join
     List<Game> companyGames = new ArrayList<Game>();
 
-    public Company(String name){
-        this.name = name;
+    protected Company(){
     }
 
     public List<Game> getCompanyGames() {
@@ -61,13 +59,22 @@ public class Company implements Serializable
 		companyGames.remove(game);
 	}
 
-    public String getName(){
+    public Company(String name)
+    {
+        this.name = name;
+
+    }
+
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name)
+    {
         this.name = name;
     }
+
 
     public String toString() {
 		 if (companyGames.isEmpty()) {

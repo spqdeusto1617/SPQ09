@@ -10,7 +10,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-@PersistenceCapable 
+@PersistenceCapable (detachable = "true")
 public class Genre implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -48,10 +48,6 @@ public class Genre implements Serializable {
 		return name;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	@Override
 	public String toString() {
 		if (genreGames.isEmpty()) {
@@ -67,5 +63,9 @@ public class Genre implements Serializable {
 			
 			return "Genre: name --> " + this.name +", games --> [" + gamesStr + "]";
 		}
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 }
