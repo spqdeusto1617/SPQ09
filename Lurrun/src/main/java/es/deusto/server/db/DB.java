@@ -6,8 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import es.deusto.server.db.dao.IDAO;
 
@@ -19,7 +19,7 @@ public class DB implements IDB {
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
 	IDAO dao;
-	final Logger logger = LoggerFactory.getLogger(DB.class);
+//	final Logger logger = LoggerFactory.getLogger(DB.class);
 	public DB(){
 		super();
 		dao = new DAO();
@@ -35,20 +35,65 @@ public class DB implements IDB {
 	public  List<Game> getUserGames(String username) {
 		User u= showUser(username);
 		List <Game> gameList = new ArrayList<>();
-				for (License l :u.getLicenses() ) {
-					gameList.add(l.getGame());
+		for (License l :u.getLicenses() ) {
+			gameList.add(l.getGame());
 
-	                }
-				return gameList;
-
+        }
+		return gameList;
 	}
+	
+	//Test for trying to change this method
+//	public boolean buyGame(String username, String name) {
+//		Game g = showGame(name);
+//		User u = showUser(username);
+//		License l = g.getLicenses().get(0);
+//		
+//		boolean result = true;
+//				
+//		try{
+//			addLicenseToUser(u, l);
+//			dao.updateUser(u);
+//			
+//			g.removeLicense(l);
+//			dao.updateLicense(l);
+//			dao.updateGame(g);
+//			
+//		}catch(Exception e){
+////			logger.error("# Error getting Buying game: " + ex.getMessage());
+//			result = false;
+//		}
+//		
+//		
+//		
+//		return result;
+//
+//	}
 
 	public  boolean buyGame(String username, String name) {
-		// TODO Auto-generated method stub
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l=	g.getFirstFreeLicense();
-
+		//License l = g.getFirstFreeLicense();
+		License l =null;
+		
+		List<License> licenses=new ArrayList<>();
+		licenses= dao.getAllLicenses(name);
+		
+			for (License ul : licenses) {
+            	if(ul.isUsed()==true){
+               licenses.remove(ul);
+            	}
+            	else{
+            		
+            	}
+			}
+		l=licenses.get(licenses.size()-1);
+		
+		
+		l.setUsed(true);
+		
+		dao.updateLicense(l);
+		dao.updateGame(g);
+		
 		return addLicenseToUser(u, l);
 
 	}
@@ -62,7 +107,7 @@ public class DB implements IDB {
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			logger.error("Exception launched: " + e.getMessage());
+//			logger.error("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
@@ -165,7 +210,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+//					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -194,25 +239,22 @@ public class DB implements IDB {
 		boolean ret=true;
 		try {
 
-
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-				logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+//					logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
-		if (user != null && license != null  ) {
+		
+		if (user != null && license != null   ) {
 
 			license.setUser(user);
-			user.getLicenses().add(license);
+			user.addLicense(license);
+			
 
 			dao.updateUser(user);
-
-
-		}else if ( license == null || user == null ){
-			//		logger.info("Create the user or the license " + l.getGameKey() + u.getLogin());
 
 		}
 		return ret;

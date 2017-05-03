@@ -35,6 +35,7 @@ public interface IDAO {
 	//Get all games
 
 	public List<Game> getAllGames();
+	public List<License> getAllLicenses(String name);
 	public List<User> getAllUsers();
 
 

@@ -8,8 +8,8 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 
 import es.deusto.server.db.dao.DAO;
@@ -18,11 +18,9 @@ import es.deusto.server.db.dao.IDAO;
 import javax.jdo.annotations.*;
 
 
-//@PersistenceCapable (detachable = "true")
-
 @PersistenceCapable (detachable = "true")
 public class Game implements Serializable {
-	final Logger logger = LoggerFactory.getLogger(Game.class);
+//	final Logger logger = LoggerFactory.getLogger(Game.class);
 	private static final long serialVersionUID = 1L;
 
 	@PrimaryKey
@@ -115,19 +113,6 @@ public class Game implements Serializable {
 
 	}
 
-	public License getFirstFreeLicense(){
-		
-		logger.info("Hi");
-		logger.info("Size: " + licenses.size());
-		License license = this.licenses.get(0);
-		logger.info("License" + license);
-		licenses.remove(0);
-		logger.info("Size: " + licenses.size());
-		IDAO dao= new DAO();
-		Game g = dao.retrieveGame(name);
-		
-		dao.updateGame(g);
-		return license;
-	}
+	
 
 }
