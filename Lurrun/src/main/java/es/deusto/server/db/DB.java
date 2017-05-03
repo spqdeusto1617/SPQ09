@@ -6,8 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import es.deusto.server.db.dao.IDAO;
 
@@ -19,7 +19,7 @@ public class DB implements IDB {
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
 	IDAO dao;
-	final Logger logger = LoggerFactory.getLogger(DB.class);
+//	final Logger logger = LoggerFactory.getLogger(DB.class);
 	public DB(){
 		super();
 		dao = new DAO();
@@ -42,7 +42,7 @@ public class DB implements IDB {
 				return gameList;
 
 	}
-
+	
 	public  boolean buyGame(String username, String name) {
 		// TODO Auto-generated method stub
 		User u = showUser(username);
@@ -52,7 +52,7 @@ public class DB implements IDB {
 		return addLicenseToUser(u, l);
 
 	}
-
+	//tested
 	public boolean registerUser(User u) {
 
 
@@ -62,7 +62,7 @@ public class DB implements IDB {
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			logger.error("Exception launched: " + e.getMessage());
+//			logger.error("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
@@ -80,7 +80,7 @@ public class DB implements IDB {
 		}
 		return ret;
 	}
-
+	//tested
 	public boolean addGameToDb(Game g,Genre gg, Company c)  {
 
 
@@ -165,7 +165,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+//					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -199,7 +199,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-				logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+//				logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 

@@ -188,6 +188,30 @@ public class RMITest {
 		assertEquals(g, gameTest);
 		
 	}
+		@Test public void showGamesTest()
+		{
+			
+			System.out.println("Test 3 - Game Test ");
+			
+			Company c = new Company("White Wolf");
+			Genre gr = new Genre("Vampire");
+			Game g = new Game("Vampire the Masquerade", 19.90, 0);
+			g.setGenre(gr);
+			g.setCompany(c);
+			
+			Game gameTest = null;
+			
+			try{	
+				gameTest = remote.gameTest();		
+				
+			} catch (RemoteException e){
+				
+			}
+			assertEquals(g.getCompany(), gameTest.getCompany());
+			assertEquals(g.getGenre(), gameTest.getGenre());
+			assertEquals(g, gameTest);
+			
+		}
 	
 		
 		

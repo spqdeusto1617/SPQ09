@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;  
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 import junit.framework.JUnit4TestAdapter;
 
@@ -23,7 +25,7 @@ import es.deusto.server.remote.IRemote;
 import es.deusto.server.remote.Remote;
 
 
-
+//cambiar quitar syso y poner logger.error y .info
 /**
  * 
  * @author cortazar
@@ -85,6 +87,87 @@ public class DAOMockTest {
 		assertEquals( "dipina", newUser.getPassword());
 		
 	}
+	
+	
+	//DB TESTS
+	//test de la base de datos como el usuario no tiene 
+	@Test public void getUserGamesTest()
+	{
+		
+		System.out.println("Prueba de test");
+		User u = new User("cortazar","cortazar",false);
+		
+		
+		
+		
+		List<Game>gameList = new ArrayList<Game>();
+		try
+		{
+			gameList= db.getUserGames(u.getLogin());
+		}
+		catch(NullPointerException e)
+		{
+			
+			System.out.println("User has no games");
+		}
+		assertEquals( true , gameList.isEmpty());
+		
+	}
+	//Test del juego añadiendose a la db
+	@Test public void addGameToDBTest()
+	{
+		Game g = new Game("Game 1",200,0.2);
+		Genre gg = new Genre ("Genre 1");
+		Company c = new Company ("Company 1");
+				
+		
+		when( dao.retrieveGame("Game 1") ).thenReturn( null );
+		
+		db.addGameToDb(g, gg, c);
+			
+	
+		ArgumentCaptor<Game> gameCaptor = ArgumentCaptor.forClass( Game.class );
+				
+		
+		verify (dao).storeGame(gameCaptor.capture()) ;
+		Game gtest = gameCaptor.getValue();
+		System.out.println("Adding Game " + gtest.getName());
+			
+		assertEquals( "Game 1", gtest.getName());
+		
+		
+		
+		
+	}
+	
+	@Test public void addLicenseToGameTest()
+	{
+		Game g = new Game("Game 1",200,0.2);
+		Genre gg = new Genre ("Genre 1");
+		Company c = new Company ("Company 1");
+		db.addGameToDb(g, gg, c);
+		License l = new License() ;
+		l.setGameKey("Esto es una clave");
+		
+		boolean k =db.addLicenseToGame(g, l);
+		assertEquals(true, k);
+	}
+	
+	
+	@Test public void addLicenseToUserTest()
+	{
+		
+		User u = new User("cortazar","cortazar",false);
+		License l = new License() ;
+		l.setGameKey("Esto es una clave 2");
+		when( dao.storeLicense(l) ).thenReturn( null );//Puede funcionar?	
+		boolean k=db.addLicenseToUser(u, l);
+		assertEquals(true, k);
+		
+		
+	}
+	
+	
 /**
 	@Test(expected=RemoteException.class)
 	public void testSayMessageUserInvalid() throws RemoteException {
