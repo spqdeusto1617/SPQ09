@@ -21,5 +21,6 @@ public interface IRemote extends Remote {
 	
 	//SUPERUSER FUNCTION
 	boolean addGame (Game g,Genre gg, Company c) throws RemoteException;
-
+	
+	List<User> getAllUsers() throws RemoteException;
 }

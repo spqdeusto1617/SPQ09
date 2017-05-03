@@ -88,44 +88,56 @@ public class DAOMockTest {
 		
 	}
 	
-	
+	@Test
+	public void StoreAndRetrieveTests()
+	{	
+		
+//		boolean storeUser(User u);       
+//		User retrieveUser(String login); 
+		
+//		boolean storeCompany(Company c);      
+//		Company retrieveCompany(String name); 
+		
+//		boolean storeGame(Game g);      
+//		Game retrieveGame(String name);
+		
+//		boolean storeGenre(Genre g);     
+//		Genre retrieveGenre(String name);
+	}
 	//DB TESTS
 	//test de la base de datos como el usuario no tiene 
-	@Test public void getUserGamesTest()
-	{
-		
-		System.out.println("Prueba de test");
-		User u = new User("cortazar","cortazar",false);
-		
-		
-		
-		
-		List<Game>gameList = new ArrayList<Game>();
-		try
-		{
-			gameList= db.getUserGames(u.getLogin());
-		}
-		catch(NullPointerException e)
-		{
-			
-			System.out.println("User has no games");
-		}
-		assertEquals( true , gameList.isEmpty());
-		
-	}
+//	@Test public void getUserGamesTest()
+//	{
+//		
+//		System.out.println("Prueba de test");
+//		User u = new User("cortazar","cortazar",false);
+//		
+//		
+//		
+//		
+//		List<Game>gameList = new ArrayList<Game>();
+//		try
+//		{
+//			gameList= db.getUserGames(u.getLogin());
+//		}
+//		catch(NullPointerException e)
+//		{
+//			
+//			System.out.println("User has no games");
+//		}
+//		assertEquals( true , gameList.isEmpty());
+//		
+//	}
 	//Test del juego añadiendose a la db
 	@Test public void addGameToDBTest()
 	{
 		Game g = new Game("Game 1",200,0.2);
 		Genre gg = new Genre ("Genre 1");
-		Company c = new Company ("Company 1");
-				
+		Company c = new Company ("Company 1");				
 		
-		when( dao.retrieveGame("Game 1") ).thenReturn( null );
-		
+		when( dao.retrieveGame("Game 1") ).thenReturn( null );		
 		db.addGameToDb(g, gg, c);
-			
-	
+		
 		ArgumentCaptor<Game> gameCaptor = ArgumentCaptor.forClass( Game.class );
 				
 		
@@ -134,39 +146,55 @@ public class DAOMockTest {
 		System.out.println("Adding Game " + gtest.getName());
 			
 		assertEquals( "Game 1", gtest.getName());
-		
-		
-		
-		
+	
 	}
 	
 	@Test public void addLicenseToGameTest()
 	{
-		Game g = new Game("Game 1",200,0.2);
-		Genre gg = new Genre ("Genre 1");
-		Company c = new Company ("Company 1");
+		
+		Game g = new Game("Game 2",200,0.2);
+		Genre gg = new Genre ("Genre 2");
+		Company c = new Company ("Company 2");				
+		
+			
 		db.addGameToDb(g, gg, c);
-		License l = new License() ;
-		l.setGameKey("Esto es una clave");
 		
-		boolean k =db.addLicenseToGame(g, l);
-		assertEquals(true, k);
+		ArgumentCaptor<Game> gameCaptor = ArgumentCaptor.forClass( Game.class );
+				
+		
+		verify (dao).storeGame(gameCaptor.capture()) ;
+		Game gtest = gameCaptor.getValue();
+		//adding game
+		
+		System.out.println("Adding Game " + gtest.getName());
+		License l = new License("Clave 1") ;
+		//Mockito part
+		when( dao.retrieveLicense("Clave 1")).thenReturn( null );
+		db.addLicenseToGame(g, l);
+		
+		ArgumentCaptor<License> licenseCaptor = ArgumentCaptor.forClass( License.class );
+		verify (dao).storeLicense(licenseCaptor.capture());
+		License l2 = licenseCaptor.getValue();
+		
+		
+		System.out.println("Adding License " + l2.getGameKey());		
+		assertEquals("Clave 1", l2.getGameKey());// Posibles problemas
 	}
 	
-	
-	@Test public void addLicenseToUserTest()
-	{
-		
-		User u = new User("cortazar","cortazar",false);
-		License l = new License() ;
-		l.setGameKey("Esto es una clave 2");
-		when( dao.storeLicense(l) ).thenReturn( null );//Puede funcionar?	
-		boolean k=db.addLicenseToUser(u, l);
-		assertEquals(true, k);
-		
-		
-	}
-	
+//	@Test public void addLicenseToUserTest()
+//	{
+//		
+//		User u = new User("cortazar","cortazar",false);
+//		db.registerUser(u);
+//		License l = new License("") ;
+//		dao.storeLicense(l);
+//		when( dao.retrieveLicense("Clave 2")).thenReturn( null );//Puede funcionar?	
+//		boolean k=db.addLicenseToUser(u, l);
+//		assertEquals(true, k);
+//		
+//		
+//	}
+//	
 	
 /**
 	@Test(expected=RemoteException.class)

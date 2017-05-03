@@ -6,9 +6,7 @@ import javax.jdo.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import es.deusto.server.db.data.*;
-
 
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -33,7 +31,7 @@ public class DAO implements IDAO {
 		       pm.makePersistent(u);
 		       tx.commit();
 		    } catch (Exception ex) {
-//		    		logger.error("   $ Error storing an object: " + ex.getMessage());
+//		    	logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret=false;
 		    
 		    } finally {
@@ -57,7 +55,7 @@ public class DAO implements IDAO {
 		       pm.makePersistent(u);
 		       tx.commit();
 		    } catch (Exception ex) {
-//		    	 	logger.error("   $ Error storing an object: " + ex.getMessage());
+//		    	 logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret =false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
@@ -453,7 +451,45 @@ public class DAO implements IDAO {
         return users;
 
 	}
-		
+	
+	public List<License> getAllLicenses(String name) {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx = pm.currentTransaction();
+        pm.getFetchPlan().setMaxFetchDepth(3);
+        
+        List<License> licenses=new ArrayList<>();
+        try {
+            tx.begin();
+           
+            Extent<License> extentP = pm.getExtent(License.class);
+
+            for (License l : extentP) {
+            	if(l.getGame().getName().equals(name) ){
+            		
+               licenses.add(l);
+            	}
+            	else{
+            		
+            	}
+            }
+
+            tx.commit();
+        } catch (Exception ex) {
+//        	   logger.error("# Error getting Extent getLicenses: " + ex.getMessage());
+        } finally {
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            pm.close();
+        }
+
+        return licenses;
+
+	}
+	
+	
+	
+	
 	public Genre retrieveGenre(String name) {
 		Genre genre = null;
 		PersistenceManager pm = pmf.getPersistenceManager();

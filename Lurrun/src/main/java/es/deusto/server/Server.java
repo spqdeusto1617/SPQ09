@@ -46,38 +46,38 @@ public static void addStuff(){
 		License l5 = new License ("FFFAAAAAFFFF");
 		License l6 = new License ("12345667");
 		
-		g1.addLicense(l6);
-		g2.addLicense(l1);
-		g3.addLicense(l2);
-		g1.addLicense(l3);
-		g2.addLicense(l4);
-		g3.addLicense(l5);
-		
-		User u1 = new User("ainhoa", "qwerty", false);
+		User u1 = new User("aihnoa", "qwerty", false);
 		User u2 = new User("Joel", "qwerty", false);
 		User u3 = new User("Cabezali", "qwerty", false);
 		
 		IDB db = new DB();
 		
-		db.addGameToDb( g, gg1, c1);		
-		db.addGameToDb( g1, gg2, c2);
-		db.addGameToDb( g2, gg3, c3);
-		db.addGameToDb( g3, gg4, c4);
+
+			db.addGameToDb( g, gg1, c1);
+			db.addGameToDb( g1, gg2, c2);
+			db.addGameToDb( g2, gg3, c3);
+			db.addGameToDb( g3, gg4, c4);	
+			
+			db.addGameToDb( g4, gg3, c5);		
+			db.addGameToDb( g5, gg5, c4);			
+			db.addGameToDb( g6, gg4, c4);	
+			db.addGameToDb( g7, gg3, c3);
+
+			db.addLicenseToGame(g1, l1);
+			db.addLicenseToGame(g1, l1);
+			db.addLicenseToGame(g3, l2);
+			db.addLicenseToGame(g1, l3);
+			db.addLicenseToGame(g2, l4);
+			db.addLicenseToGame(g3, l5);
 		
-//		db.addGameToDb( g4, gg4, c5);		
-//		db.addGameToDb( g5, gg5, c3);
-		
-		db.addGameToDb( g6, gg4, c4);	
-		db.addGameToDb( g7, gg3, c3);
 		
 		db.registerUser(u1);
 		db.registerUser(u2);
 		db.registerUser(u3);
 		
 		db.buyGame(u1.getLogin(), g1.getName());
-		db.buyGame(u1.getLogin(), g2.getName());
-		
-		System.out.println("Finished");
+		db.buyGame(u2.getLogin(), g1.getName());
+	
 		
 	}
 	

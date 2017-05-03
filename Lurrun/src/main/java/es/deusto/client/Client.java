@@ -30,16 +30,10 @@ public class Client {
 		try {
 			
 			if(login!=null){
-//				User  u = server.getUser(login);
-//				ownedLicenses = u.getLicenses();
+
 				sentence = "games owned by user" + login;
 				games = server.showOwnedGames(login);
-//				System.out.println("Owned Licenses: ");				
-				
-//				for(License license : ownedLicenses){				
-//				System.out.println("	"+license.toString());
-//				System.out.println("	"+license.getGame());					
-//				}						
+					
 			}
 			else{
 				sentence = "games in the store";
@@ -76,12 +70,10 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
-//				System.out.println("Introduce username:");
-//				String login = System.console().readLine();
-//				System.out.println("Introduce password:");
-//				if(server.registerUser(login, System.console().readLine(), false)){
-				String login = "ainhoa";
-				if(server.registerUser(login, "qwerty", false)){
+				System.out.println("Introduce username:");
+				String login = System.console().readLine();
+				System.out.println("Introduce password:");
+				if(server.registerUser(login, System.console().readLine(), false)){
 					log = false;
 
 					String input = "";						

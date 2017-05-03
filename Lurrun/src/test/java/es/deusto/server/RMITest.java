@@ -1,6 +1,7 @@
 package es.deusto.server;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.*;
 import junit.framework.JUnit4TestAdapter;
 
@@ -19,6 +20,7 @@ import es.deusto.server.remote.Remote;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+
 import java.net.MalformedURLException;
 
 import javax.jdo.JDOHelper;
@@ -131,10 +133,100 @@ public class RMITest {
 		} 
 		
 	}
+	@Test
+	public void GetAllGamesTest()
+	{
+		
+		List<Game> gameList = new ArrayList<Game>();
+		try
+		{
+			gameList=remote.showGamesInStore();
+		}
+		catch(RemoteException e)
+		{
+			
+			//e.printStackTrace();
+		}
+	}
+	@Test public void GetAllUsersTest()
+	{
+		List<User> userList = new ArrayList<User>();
+		try
+		{
+			userList=remote.getAllUsers();
+		}
+		catch(RemoteException e)
+		{
+			//e.printStackTrace();
+			
+		}
+		
+		
+	}
+	
+	@Test
+	public void addAEmptygameTest()
+	{
+		
+		Company c = null;
+		Genre gr = null;
+		Game g = null;
+	try {
+		
+		remote.addGame(g, gr, c);
+	} catch (RemoteException e) {
+	
+	}
+	}
+	
+	@Test
+	public void showUserWithoutGamesTest()
+	{
+		try {
+			remote.registerUser("Mike", "tester",false);
+		} catch (RemoteException e) {
+			
+			//e.printStackTrace();
+		}
+		
+		try{
+			
+			remote.showOwnedGames("Mike");
+		}catch (RemoteException e)
+		{
+			//e.printStackTrace();
+		}
+		
+		
+	}
+	@Test public void showUserOwnedGamesTest() 
+	{
+		try {
+			remote.registerUser("mikel1", "Test1", false);
+			Company c = new Company("Grey Wolf");
+			Genre gr = new Genre("Werewolves");
+			Game g = new Game("Werewolve the Masquerade", 19.90, 0);
+			remote.addGame(g, gr, c);
+			
+			remote.buyGame("mikel1", "Grey Wolf");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
+		
+		try
+		{
+			
+			remote.showOwnedGames("mikel1");
+		}catch(RemoteException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
+	}
 	
 	@Test public void registerNewUserTest() {
 		try{
-			System.out.println("Test 1 - Register new user");
+//			System.out.println("Test 1 - Register new user");
 			remote.registerUser("ipina", "ipina",false);
 		}
 		catch (Exception re) {
@@ -148,7 +240,7 @@ public class RMITest {
 	
 	@Test public void registerExistingUserTest() {
 		try{
-			System.out.println("Test 2 - Register existing user. Change password");
+//			System.out.println("Test 2 - Register existing user. Change password");
 			remote.registerUser("smith", "smith",false);
 			// Silly way of testing the password testing
 			remote.registerUser("smith", "doe",false);
@@ -165,7 +257,7 @@ public class RMITest {
 	
 	
 	//@Test public void sayMessageValidUser() {
-	
+		//este peta
 		@Test public void gameTestValidation() {
 		System.out.println("Test 3 - Game Test ");
 		
@@ -188,6 +280,8 @@ public class RMITest {
 		assertEquals(g, gameTest);
 		
 	}
+		
+		
 		@Test public void showGamesTest()
 		{
 			
@@ -210,11 +304,16 @@ public class RMITest {
 			assertEquals(g.getCompany(), gameTest.getCompany());
 			assertEquals(g.getGenre(), gameTest.getGenre());
 			assertEquals(g, gameTest);
-			
+			try {
+				assertEquals(remote.showGamesInStore().get(0), gameTest);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	
-		
-		
+	
+	
 	/**	
 	@Test public void licenseTestValidation() {
 		System.out.println("Test 4 - License Test");		
