@@ -66,6 +66,9 @@ local.properties
 .scala_dependencies
 .worksheet
 
+#IntelIJ
+.idea
+out
 
 ####### MYSQL logs #######
 
