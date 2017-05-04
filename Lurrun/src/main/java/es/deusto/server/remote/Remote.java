@@ -131,7 +131,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 
 	}
-	//Tested?
+	//Tested-- Peta index out of bounds capturado pero no deberia ser asi
 	@Override
 	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games

@@ -134,7 +134,7 @@ public class RMITest {
 		
 	}
 	@Test
-	public void GetAllGamesTest()
+	public void GetAllGamesWhenEmptyTest()
 	{
 		
 		List<Game> gameList = new ArrayList<Game>();
@@ -148,7 +148,7 @@ public class RMITest {
 			//e.printStackTrace();
 		}
 	}
-	@Test public void GetAllUsersTest()
+	@Test public void GetAllUsersWhenEmptyTest()
 	{
 		List<User> userList = new ArrayList<User>();
 		try
@@ -199,6 +199,17 @@ public class RMITest {
 		
 		
 	}
+	@Test public void getUserTest()
+	{	User u = new User(null, null, false);
+		try {
+			u=remote.getUser("Mike");
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		assertEquals("Mike", u.getLogin());
+	}
 	@Test public void showUserOwnedGamesTest() 
 	{
 		try {
@@ -207,8 +218,13 @@ public class RMITest {
 			Genre gr = new Genre("Werewolves");
 			Game g = new Game("Werewolve the Masquerade", 19.90, 0);
 			remote.addGame(g, gr, c);
-			
+			try{
 			remote.buyGame("mikel1", "Grey Wolf");
+			}catch(Exception e)
+			{
+				
+			}
+			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 		//	e.printStackTrace();
@@ -259,7 +275,7 @@ public class RMITest {
 	//@Test public void sayMessageValidUser() {
 		//este peta
 		@Test public void gameTestValidation() {
-		System.out.println("Test 3 - Game Test ");
+		//System.out.println("Test 3 - Game Test ");
 		
 		Company c = new Company("White Wolf");
 		Genre gr = new Genre("Vampire");
