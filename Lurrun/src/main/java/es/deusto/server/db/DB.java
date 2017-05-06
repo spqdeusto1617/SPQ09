@@ -33,24 +33,26 @@ public class DB implements IDB {
 	}
 
 	public  List<Game> getUserGames(String username) {
-		User u= showUser(username);
+		User u = showUser(username);
 		List <Game> gameList = new ArrayList<>();
-				for (License l :u.getLicenses() ) {
-					gameList.add(l.getGame());
-
-	                }
-				return gameList;
-
+		for (License l : u.getLicenses() ) {
+			gameList.add(l.getGame());
+            }
+		return gameList;
 	}
 
 	public  boolean buyGame(String username, String name) {
-		// TODO Auto-generated method stub
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l=	g.getFirstFreeLicense();
-
-		return addLicenseToUser(u, l);
-
+		License l=	dao.getFirstLicense(name);
+	
+		l.setUsed(true);	
+		
+		dao.updateLicense(l);
+		dao.updateGame(g);
+	
+		addLicenseToUser(u, l);
+return true;
 	}
 
 	public boolean registerUser(User u) {
@@ -101,7 +103,7 @@ public class DB implements IDB {
 			ret = false; 
 			
 			
-		}else if (game == null && genre != null && company == null  ){
+		}else if ( genre != null && company == null  ){
 
 
 			g.setCompany(c);
@@ -114,7 +116,7 @@ public class DB implements IDB {
 			dao.updateGenre(genre);
 		//	dao.storeGame(g);
 		}
-		else if (game == null && genre != null && company != null  ){
+		else if ( genre != null && company != null  ){
 
 
 		g.setCompany(company);
@@ -128,7 +130,7 @@ public class DB implements IDB {
 	//	dao.updateCompany(company);
 		 dao.storeGame(g);
 	}
-		else if (game == null && genre == null && company != null  ){
+		else if (genre == null && company != null  ){
 
 
 		g.setCompany(company);
@@ -141,7 +143,7 @@ public class DB implements IDB {
 		dao.updateCompany(company);
 		// dao.storeGame(g);
 	}
-		else  if (game == null && genre == null && company == null  ){
+		else  if ( genre == null && company == null  ){
 
 			g.setCompany(c);
 			g.setGenre(gg);
@@ -169,11 +171,7 @@ public class DB implements IDB {
 			ret=false;
 		}
 
-		if (game != null && license != null  ) {
-
-
-
-		}else if (game !=null && license == null){
+		if (game !=null && license == null){
 
 			l.setGame(game);
 			game.addLicense(l);
@@ -181,7 +179,7 @@ public class DB implements IDB {
 			dao.updateGame(game);
 
 		}
-		else if (game== null)  {
+		else   {
 
 
 		}
@@ -194,25 +192,22 @@ public class DB implements IDB {
 		boolean ret=true;
 		try {
 
-
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-				logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+					logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
-		if (user != null && license != null  ) {
+		
+		if (user != null && license != null   ) {
 
 			license.setUser(user);
-			user.getLicenses().add(license);
+			user.addLicense(license);
+			
 
 			dao.updateUser(user);
-
-
-		}else if ( license == null || user == null ){
-			//		logger.info("Create the user or the license " + l.getGameKey() + u.getLogin());
 
 		}
 		return ret;
@@ -278,12 +273,7 @@ public class DB implements IDB {
 
 	
 
-	@Override
-	public License showLicenseByParam(String gameKey) {
-		License l=dao.retrieveLicenseByParameter(gameKey);
-		
-		return l;
-	}
+	
 
 
 }

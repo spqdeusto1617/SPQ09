@@ -17,6 +17,7 @@ import es.deusto.server.remote.*;
 
 public class Server{
 	final static Logger logger = LoggerFactory.getLogger(Server.class);
+	
 public static void addStuff(){
 		
 		Game g = new Game("Game 1",200,0.2);
@@ -66,8 +67,8 @@ public static void addStuff(){
 			db.addGameToDb( g6, gg4, c4);	
 			db.addGameToDb( g7, gg3, c3);
 
+			db.addLicenseToGame(g1, l1);
 			db.addLicenseToGame(g1, l6);
-			db.addLicenseToGame(g2, l1);
 			db.addLicenseToGame(g3, l2);
 			db.addLicenseToGame(g1, l3);
 			db.addLicenseToGame(g2, l4);
@@ -78,12 +79,13 @@ public static void addStuff(){
 		db.registerUser(u2);
 		db.registerUser(u3);
 		
-		db.buyGame(u1.getLogin(), g.getName());
-	//	db.buyGame(a.getLogin(), g2.getName());
+		db.buyGame(u1.getLogin(), g1.getName());
+		db.buyGame(u2.getLogin(), g1.getName());
 	
 		
 	}
-	
+
+
 	public static void main(String[] args) {
 		
 		if (args.length != 3) {

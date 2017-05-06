@@ -26,6 +26,6 @@ public interface IDB {
 	  Game  showGameByParam(String name);
 	  Company	showCompanyByParam(String name);
 	  Genre 	showGenreByParam(String name);
-	  License showLicenseByParam(String gameKey);
+//	  License showLicenseByParam(String gameKey);
 		
 }

@@ -44,10 +44,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		//change to objetc the parameters
 		User u = new User( login,  password, isSuperUser);
 		return	db.registerUser( u);
-	}else{
-		logger.error("Remote Exception Register User");
-		throw new RemoteException();
-	}
+	}else{logger.error("Remote Exception Register User");throw new RemoteException();}
 	}
 
 	public Game gameTest() throws RemoteException{
@@ -59,10 +56,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 		try {
 			db.addGameToDb(g, gr, c);
-		} catch (Exception e) {
-			logger.error(" Exception  gameTest");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {logger.error(" Exception  gameTest");e.printStackTrace();
 		}
 		Game g1=db.showGame(g.getName());
 
@@ -83,15 +77,35 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			db.registerUser(u);
 			db.addLicenseToGame(g, l);
 			//db.buyGame(u.getLogin(), g.getName());
-		} catch (Exception e) {
-			logger.error("Exception License Test");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
 		}
 	
 
 		db.showLicense(l.getGameKey());
 		return(l);
+	}
+	
+	public boolean buyGameTest(){
+		boolean  a = true;
+		Company c = new Company("Vivendi");
+		Genre gr = new Genre("shit");
+		Game g = new Game("COD 10", 19.90, 0);
+
+		License l = new License ("FFFFGGGG");
+
+		User u = new User("Rattata","Junit Pass",false);
+
+		IDB db = new DB();
+		try {
+			addGame(g, gr, c);
+			db.registerUser(u);
+			db.addLicenseToGame(g, l);
+			buyGame(u.getLogin(), g.getName());
+		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
+		a=false;
+		}
+
+		return(a);
 	}
 
 
@@ -102,9 +116,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 		IDB db = new DB();
 		List<Game> games = db.getAllGames();
-		if(games.isEmpty()){
-			logger.error("Remote Exception No games on store");
-			throw new RemoteException();
+		if(games.isEmpty()){logger.error("Remote Exception No games on store");throw new RemoteException();
 		}
 		else{
 			return(games);
@@ -117,9 +129,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		IDB db = new DB();
 		User u  = db.showUser(login);
 
-		if(u == null){
-			logger.error("Remote exception getUser");
-			throw new RemoteException();
+		if(u == null){logger.error("Remote exception getUser");throw new RemoteException();
 		}
 		else{
 			return(u);
@@ -131,7 +141,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	@Override
 	public List<Game> showOwnedGames(String username) throws RemoteException {
 		// call DB to retrieve specified users list of games
-				logger.info("Client asked for games owned");
+		logger.info("Client asked for games owned");
 		IDB db = new DB();
 		List<Game> games = db.getUserGames(username);
 		if(games.isEmpty()){
@@ -190,6 +200,12 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			throw new RemoteException();
 		}
 	}
+	
+//	public  void checkRemoteness(){		
+//		logger.info("checkremoteness");
+//		registerUser("remoteness"+count, "checkRemotenss" , false);
+//		count++;
+//		}
 	
 	
 	

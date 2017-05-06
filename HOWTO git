@@ -1,0 +1,22 @@
+NOTES:
+1. When you start to work, ALWAYS pull
+2. When you've changed some files, add them and commit to create a "package" with a comment
+3. Once you have created all the needed "packages", push all your work
+
+# To download what's on the repository
+$ git pull
+
+# To add everything on the folder
+$ git add .
+$ git add FILE_NAME
+
+# To commit added changes with a message
+$ git commit -m "Huge changes to all project"
+
+# To push everything that has been commited to the repository
+# If the user is configured
+$ git push
+# If the user isn't configured
+$ git push origin <<branch_name>>
+
+check differences between local files and git files $ gitt status

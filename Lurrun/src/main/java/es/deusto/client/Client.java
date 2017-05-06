@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import es.deusto.server.db.data.*;
 import es.deusto.server.remote.*;
 
@@ -15,55 +17,66 @@ public class Client {
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game"};
 	private static List<Game> games = null;
 	private static String info = "If you want to go back, input 'b'; if you want to exit the application, input 'quit'";
-	
+	final static Logger logger = LoggerFactory.getLogger(Client.class);
 	private static void displayMenu(String[] options){
-		System.out.println("");
-		System.out.println("Insert the option number to select an action. " + info);
+		
+		logger.info("Insert the option number to select an action. " + info);
 		for(int i = 0; i<options.length; i++){
-			System.out.println((i+1) + ".- " + options[i]);
+			logger.info((i+1) + ".- " + options[i]);
 		}
 	}
-	
+	/**
+	 * Method to show the games that the logged user owns
+	 * @param server, login
+	 */
 	private static void showGames(IRemote server, String login){
-//		List<License> ownedLicenses = null;
+		List<License> ownedLicenses = null;
 		String sentence = null;
 		try {
 			
 			if(login!=null){
-//				User  u = server.getUser(login);
-//				ownedLicenses = u.getLicenses();
-				sentence = "games owned by user" + login;
+
+				sentence = "games owned by user " + login;
 				games = server.showOwnedGames(login);
-//				System.out.println("Owned Licenses: ");				
-				
-//				for(License license : ownedLicenses){				
-//				System.out.println("	"+license.toString());
-//				System.out.println("	"+license.getGame());					
-//				}						
+						
 			}
 			else{
 				sentence = "games in the store";
 				games = server.showGamesInStore();
+				
 			}
 			
 		} catch (RemoteException e) {
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage());
 		}
 		if(games.isEmpty()){
-			System.out.println("No " + sentence);
+			logger.info("No " + sentence);
 		}
 		else{
-			System.out.println("Show " + sentence);
+			logger.info("Show " + sentence);
 			for(int i = 0; i < games.size(); i++){												
-				System.out.println((i+1) + ".-" + games.get(i).toString());	
+				Game g = games.get(i);
+				logger.info((i+1) + ".-" + g.toString());
+				List<License> la = g.getLicenses();;
+				if(!la.isEmpty()){
+				for(License a : la){
+					if (a.isUsed()==false){
+						logger.info("Free license avaliable");
+						break;
+					}
+
+				}
+			}else{
+				logger.info("No free license");}
 			}
+				
 		}
 	}
 
 	public static void main(String[] args) {
 		
 		if (args.length != 3) {
-			System.out.println("Use: java [policy] [codebase] Client.Client [host] [port] [server]");
+			logger.info("Use: java [policy] [codebase] Client.Client [host] [port] [server]");
 			System.exit(0);
 		}
 		if (System.getSecurityManager() == null) {
@@ -76,9 +89,9 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
-				System.out.println("Introduce username:");
+				logger.info("Insert username:");
 				String login = System.console().readLine();
-				System.out.println("Introduce password:");
+				logger.info("Insert password:");
 				if(server.registerUser(login, System.console().readLine(), false)){
 					log = false;
 
@@ -97,13 +110,13 @@ public class Client {
 							break;
 						case("3"):
 							//Buy game
-							System.out.println("Insert a game's Id to select it. " + info);
+							logger.info("Insert a game's Id to select it. " + info);
 							showGames(server, null);
 							input = System.console().readLine();
 							int id = Integer.parseInt(input)-1;
 							String gameName = games.get(id).getName();
 							if(server.buyGame(login, gameName)){
-								System.out.println("Game bought successfully");
+								logger.info("Game bought successfully");
 							}
 							break;
 						case("b"):
@@ -111,15 +124,15 @@ public class Client {
 						case("quit"):
 							break;
 						default:
-							System.out.println("Invalid input");
+							logger.info("Invalid input");
 							break;
 						}
 						
 					} while(!(input.equals("quit")));
-					System.out.println("See you soon! :D");
+					logger.info("See you soon! :D");
 				}
 				else{
-					System.out.println("Incorrect login. Try again? Y|N");
+					logger.info("Incorrect login. Try again? Y|N");
 					String input = System.console().readLine();
 					if(input.equals("N")){
 						log = false;

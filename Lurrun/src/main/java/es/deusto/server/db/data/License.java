@@ -5,7 +5,7 @@ import javax.jdo.annotations.*;
 
 
 
-@PersistenceCapable
+@PersistenceCapable (detachable = "true")
 public class License implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -18,12 +18,23 @@ public class License implements Serializable {
 	@Persistent(defaultFetchGroup="true")
 	private	User user;
 
-
+	private boolean isUsed;
 
 	
+	public boolean isUsed() {
+		return isUsed;
+	}
+	public void setUsed(boolean isUsed) {
+		this.isUsed = isUsed;
+	}
+	public License(String gameKey, boolean isUsed) {
+		super();
+		this.gameKey = gameKey;
+		this.isUsed = isUsed;
+	}
 	@Override
 	public String toString() {
-		return "License --> gameKey=" + gameKey + "Game "+   game.getName() + "]";
+		return "License --> gameKey=" + gameKey +" (Is used: "+ isUsed+ ")"  + "Game "+   game.getName() +  "]";
 	}
 	public String getGameKey() {
 		return gameKey;
@@ -50,6 +61,7 @@ public class License implements Serializable {
 	public License(String gameKey) {
 		super();
 		this.gameKey = gameKey;
+		this.isUsed = false;
 	}
 
 }

@@ -18,7 +18,7 @@ public interface IRemote extends Remote {
 	List<Game> showGamesInStore() throws RemoteException;
 	List<Game> showOwnedGames(String username) throws RemoteException;
 	boolean buyGame(String username, String name) throws RemoteException;
-	
+	boolean buyGameTest() throws RemoteException;
 	//SUPERUSER FUNCTION
 	boolean addGame (Game g,Genre gg, Company c) throws RemoteException;
 	

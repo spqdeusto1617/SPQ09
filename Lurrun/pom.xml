@@ -71,20 +71,22 @@
 		    <groupId>org.ow2.asm</groupId>
 		    <artifactId>asm</artifactId>
 		    <version>5.2</version>
-		</dependency>
-		<dependency>
+		</dependency>	
+	
+	 	<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.4</version>
 			<scope>compile</scope>
 		</dependency>
-		<!--
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.4</version>
 			<scope>compile</scope>
-		</dependency>-->
+		</dependency>
+	
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -126,28 +128,21 @@
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>2.7</version>
 				<configuration>
+					<formats>
+					<format>xml</format>
+					<format>html</format>
+					</formats>
 				<instrumentation>
 					 <!-- This line is for skipping set/get and constructor trivial methods. The coverage is higher-->
-					  <ignoreTrivial>true</ignoreTrivial> 
-					
+					  <ignoreTrivial>true</ignoreTrivial> 	
+					 					 					 	
 						<excludes>
-						<!--	<exclude>es.deusto.client/*.class</exclude> -->
-						<!--	<exclude>es.deusto.server/Server.class</exclude> -->
-						
-							<exclude>/**/*.*/</exclude>
-								<!--
-							<exclude>es.deusto.server.db.data/**/.java</exclude>
-							<exclude>es.deusto.server.db.data.Genre.java</exclude>
-							<exclude>es.deusto.server.db.data.Game.java</exclude>
-							<exclude>es.deusto.server.db.data.User.java</exclude>
-							<exclude>es.deusto.server.db.data/License.java</exclude>
-							
-					
-							 This lines is for excluding from the instrumentation and the coverage calculations all the classes from server down							
-							<exclude>es/deusto/server/**/*</exclude> 
-							-->
-					
+							<exclude>es/deusto/client/*</exclude>
+							<exclude>**/Server.class</exclude>
+							<exclude>es/deusto/server/**/I*.*</exclude>
+							<exclude>es/deusto/server/db/data/**</exclude>																								
 						</excludes>
+					
 				  </instrumentation>
 					<check>
 						<branchRate>85</branchRate>
@@ -206,40 +201,6 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>2.7</version>
-				<configuration>
-				<instrumentation>
-					<!--  This line is for skipping set/get and constructor trivial methods. The coverage is higher-->
-					<!--   <ignoreTrivial>true</ignoreTrivial> -->
-					  
-					  
-					  	<ignores>
-      						<ignore>es.deusto.server.db.data/**/.java</ignore>
-      						<exclude>/**/*.*/</exclude>
-							<ignore>es.deusto.server.db.data.Genre.java</ignore>
-							<ignore>es.deusto.server.db.data.Game.java</ignore>
-							<ignore>es.deusto.server.db.data.User.java</ignore>
-							<ignore>es.deusto.server.db.data.License.java</ignore>
-   					 	</ignores> 
-						<excludes>
-						<!--	<exclude>es.deusto.client/*.class</exclude> -->
-						<!--	<exclude>es.deusto.server/Server.class</exclude> -->
-							<exclude>es.deusto.server/**/I*.*</exclude>
-							
-							<exclude>es.deusto/**/*.*/</exclude>
-							<exclude>/**/*.*/</exclude>
-							<exclude>es.deusto.server.db.data.Genre.java</exclude>
-							<exclude>es.deusto.server.db.data.Game.java</exclude>
-							<exclude>es.deusto.server.db.data.User.java</exclude>
-							<exclude>es.deusto.server.db.data/License.java</exclude>
-							
-						<!--
-							 This lines is for excluding from the instrumentation and the coverage calculations all the classes from server down							
-							<exclude>es/deusto/server/**/*</exclude> 
-							-->
-					
-						</excludes>
-				  </instrumentation>
-				  </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
