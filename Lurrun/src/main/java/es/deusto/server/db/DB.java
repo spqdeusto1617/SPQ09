@@ -60,7 +60,7 @@ public class DB implements IDB {
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			logger.error("Exception launched: " + e.getMessage());
+			//logger.error("Exception launched: " + e.getMessage());
 			ret=false;
 		}
 
@@ -139,7 +139,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-			logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+			//logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
@@ -161,7 +161,7 @@ public class DB implements IDB {
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception e) {
-			logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
+			//logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 		
