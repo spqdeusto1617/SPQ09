@@ -23,13 +23,11 @@ public class DB implements IDB {
 	public DB(){
 		super();
 		dao = new DAO();
-
 	}
 
 	public DB(IDAO udao) {
 		super();
 		dao = udao;
-
 	}
 
 	public  List<Game> getUserGames(String username) {
@@ -44,7 +42,7 @@ public class DB implements IDB {
 	public  boolean buyGame(String username, String name) {
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l=	dao.getFirstLicense(name);
+		License l= dao.getFirstLicense(name);
 	
 		l.setUsed(true);	
 		
@@ -52,12 +50,10 @@ public class DB implements IDB {
 		dao.updateGame(g);
 	
 		addLicenseToUser(u, l);
-return true;
+		return true;
 	}
 
 	public boolean registerUser(User u) {
-
-
 		User user = null;
 		boolean ret=true;
 
@@ -73,78 +69,56 @@ return true;
 			user.setSuperuser(u.getSuperuser());
 		
 			dao.updateUser(user);
-
 		} else {
-			
-			
 			dao.storeUser(u);
-			
 		}
 		return ret;
 	}
 
 	public boolean addGameToDb(Game g,Genre gg, Company c)  {
-
-
-
 		Game game = null;
 		Genre genre = null;
 		Company company = null;
 		boolean ret=true;
 
-		
+		game  = dao.retrieveGame(g.getName());
+		genre = dao.retrieveGenre(gg.getName());
+		company = dao.retrieveCompany(c.getName());
 
-			game  = dao.retrieveGame(g.getName());
-			genre = dao.retrieveGenre(gg.getName());
-			company = dao.retrieveCompany(c.getName());
-
-
-		if (game != null ) {
+		if (game != null) {
 			ret = false; 
 			
 			
-		}else if ( genre != null && company == null  ){
-
-
+		} else if (genre != null && company == null){
 			g.setCompany(c);
 			g.setGenre(genre);
-
 
 			genre.addGame(g);
 			c.addGame(g);
 
 			dao.updateGenre(genre);
-		//	dao.storeGame(g);
+			//dao.storeGame(g);
+		} else if (genre != null && company != null){
+			g.setCompany(company);
+			g.setGenre(genre);
+
+			genre.addGame(g);
+			company.addGame(g);
+
+			//dao.updateGenre(genre);
+			//dao.updateCompany(company);
+			 dao.storeGame(g);
+		} else if (genre == null && company != null){
+			g.setCompany(company);
+			g.setGenre(gg);
+
+			gg.addGame(g);
+			company.addGame(g);
+
+			dao.updateCompany(company);
+			// dao.storeGame(g);
 		}
-		else if ( genre != null && company != null  ){
-
-
-		g.setCompany(company);
-		g.setGenre(genre);
-
-
-		genre.addGame(g);
-		company.addGame(g);
-
-	//	dao.updateGenre(genre);
-	//	dao.updateCompany(company);
-		 dao.storeGame(g);
-	}
-		else if (genre == null && company != null  ){
-
-
-		g.setCompany(company);
-		g.setGenre(gg);
-
-
-		gg.addGame(g);
-		company.addGame(g);
-
-		dao.updateCompany(company);
-		// dao.storeGame(g);
-	}
-		else  if ( genre == null && company == null  ){
-
+		else  if (genre == null && company == null){
 			g.setCompany(c);
 			g.setGenre(gg);
 
@@ -152,7 +126,6 @@ return true;
 			c.addGame(g);
 
 			dao.storeGame(g);
-
 		}
 		return ret;
 	}
@@ -162,26 +135,19 @@ return true;
 		License license = null;
 		boolean ret=true;
 		try {
-
 			game  = dao.retrieveGame(g.getName());
 			license = dao.retrieveLicense(l.getGameKey());
 
 		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+			logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
 		if (game !=null && license == null){
-
 			l.setGame(game);
 			game.addLicense(l);
 
 			dao.updateGame(game);
-
-		}
-		else   {
-
-
 		}
 		return ret;
 	}
@@ -191,22 +157,18 @@ return true;
 		License license = null;
 		boolean ret=true;
 		try {
-
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
 
-		} catch (Exception  e) {
-					logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
+		} catch (Exception e) {
+			logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
-
 		
-		if (user != null && license != null   ) {
-
+		if (user != null && license != null) {
 			license.setUser(user);
 			user.addLicense(license);
 			
-
 			dao.updateUser(user);
 
 		}
@@ -214,8 +176,7 @@ return true;
 	}
 	
 	public Game showGame(String name){
-		 Game g=dao.retrieveGame(name);
-		
+		Game g=dao.retrieveGame(name);
 		return g;
 
 	}
@@ -225,18 +186,18 @@ return true;
 
 	}
 	public Company showCompany(String name){
-		 Company c=dao.retrieveCompany(name);
+		Company c=dao.retrieveCompany(name);
 		return c;
 
 	}
 	public License showLicense(String gameKey){
-		 License l=dao.retrieveLicense(gameKey);
+		License l=dao.retrieveLicense(gameKey);
 		return l;
 
 	}
 
 	public User showUser(String login){
-		 User u=dao.retrieveUser(login);
+		User u=dao.retrieveUser(login);
 		return u;
 
 	}
@@ -270,10 +231,4 @@ return true;
 		
 		return g;
 	}
-
-	
-
-	
-
-
 }
