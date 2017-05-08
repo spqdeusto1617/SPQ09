@@ -149,6 +149,7 @@ public class ManuTest {
 		} 
 		
 	}
+	int a=0;
 	
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
@@ -156,86 +157,86 @@ public class ManuTest {
 	public void registerNewUserTest() throws Exception{
 		
 			logger.info("Test 1 - Register new user");
-			messenger.registerUser("ipina", "ipina",false);
+			messenger.registerUser("ipina"+a, "ipina"+a,false);
 		
-		assertTrue( true );
+		a++;
 	}
-	
+	int b=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void registerExistingUserTest()throws Exception {
 		
 			logger.info("Test 2 - Register existing user. Change password");
-			messenger.registerUser("smith", "smith",false);
-			// Silly way of testing the password testing
-			messenger.registerUser("smith", "doe",false);
+			messenger.registerUser("ipina"+b, "ipinia"+b,false);
 		
-		assertTrue( true );
+		b++;
 	}
 	
-	
+	int c=0;
 	@Test 
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void sayMessageValidUser() throws Exception{
 		logger.info("Test 3 - Sending message - Valid User");
 		String ret = null;
-			messenger.registerUser("cortazar","cortazar",false);
-			ret = messenger.sayMessage("cortazar", "cortazar", "testing message");
-		
-		assertEquals("testing message", ret);
+			messenger.registerUser("cortazar"+c,"cortazar"+c,false);
+			ret = messenger.sayMessage("cortazar"+c, "cortazar"+c, "testing message"+c);
+		c++;
 	}
-	
+	int a2=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void addStufToDb() throws Exception{
 		
 			logger.info("Test 4 - add stuff");
-			messenger.addStufToDb(new Game("Pang",0.99,0), new  Genre("Retro"), new Company("Manu SA"));
+			messenger.addStufToDb(new Game("Pang"+a2,0.99,0), new  Genre("Retro"+a2), new Company("Manu SA"+a2));
 		
-		assertTrue( true );
+		a2++;
 	}
+	int b2=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void addLicenseToUser() throws Exception{
 		
 			logger.info("Test 5 - add license");
-			messenger.addLicenseToUser(new User("manu", "123"), new License("ManuLicense"));
+			messenger.addLicenseToUser(new User("manu"+b2, "123"+b2), new License("ManuLicense"+b2));
 		
-		assertTrue( true );
+		b2++;
 	}
+	int c2=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void addLicenseToGame() throws Exception {
 		
 			logger.info("Test 6 - add license to game");
-			messenger.addLicenseToGame(new Game("Pang",0.99,0),new License("ManuLicense"));
+			messenger.addLicenseToGame(new Game("Pang"+c2,0.99,0),new License("ManuLicense"+c2));
 		
-		assertTrue( true );
+		c2++;
 	}
+	int a3=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void showGameInfo() throws Exception {
 		
 			logger.info("Test 7 -  show game info");
-			messenger.showGameInfo("Pang", "Manu SA", "Retro");
-		
-		assertTrue( true );
+			messenger.showGameInfo("Pang"+a3, "Manu SA"+a3, "Retro"+a3);
+			a3++;
 	}
+	int b3=0;
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
 	@Required(max = 1200, average = 250)
 	public void showLicenseInfo() throws Exception {
 		
 			logger.info("Test 8 - show license");
-			messenger.showLicenseInfo("manu", "ManuLicense", "Pang");
+			messenger.showLicenseInfo("manu"+b3, "ManuLicense"+b3, "Pang"+b3);
 		
-		assertTrue( true );
+		b3++;
 	}
 	@Test
 	@PerfTest(invocations = 1000, threads = 20)   
@@ -245,7 +246,7 @@ public class ManuTest {
 			logger.info("Test 9 - get games");
 			messenger.getGamesFromDB();
 		
-		assertTrue( true );
+		
 	}
 	@After public  void deleteDatabase() {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
