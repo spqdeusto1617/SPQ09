@@ -149,7 +149,7 @@ public class DAO implements IDAO {
 		    	}
 			pm.close();
 		}
-		logger.error(u);
+		
 		return g;
 	}
 
@@ -195,7 +195,7 @@ public class DAO implements IDAO {
 	            }
 	            pm.close();
 	        }
-		logger.error(u);
+		
 	        return u;
 	    }
 
@@ -242,7 +242,7 @@ public class DAO implements IDAO {
 			}
 			pm.close();
         	}
-		logger.error(u);
+	
         	return u;
 	}
 
