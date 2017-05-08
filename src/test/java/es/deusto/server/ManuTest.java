@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.AfterClass;
 import org.junit.After;
 import java.util.logging.Level;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 
@@ -30,14 +28,20 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.net.MalformedURLException;
 
-import org.databene.contiperf.junit.ContiPerfRule; 
-import org.databene.contiperf.report.EmptyReportModule; 
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Transaction;
+import org.databene.contiperf.junit.*;
+import org.databene.contiperf.Required;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.junit.ContiPerfRule;
+import org.databene.contiperf.report.EmptyReportModule;
+import org.databene.contiperf.junit.ContiPerfRule;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
@@ -53,7 +57,7 @@ public class ManuTest {
 	private static Thread rmiRegistryThread = null;
 	private static Thread rmiServerThread = null;
 	final static java.util.logging.Logger logger = LoggerFactory.getLogger(ManuTest.class);
-
+	@Rule public ContiPerfRule rule = new ContiPerfRule();
 	
 	private IMessenger messenger;
 
