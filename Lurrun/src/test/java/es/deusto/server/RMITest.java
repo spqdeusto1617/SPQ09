@@ -4,7 +4,7 @@ package es.deusto.server;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
+import javax.jdo.*;
 import junit.framework.JUnit4TestAdapter;
 
 import org.junit.BeforeClass;
@@ -409,7 +409,40 @@ public class RMITest {
 			e.printStackTrace();
 			a=false;
 		}
+PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+		PersistenceManager pm = pmf.getPersistenceManager();
+				Transaction tx = pm.currentTransaction();
+				
+		try
+				{
+						tx.begin();
 
+						logger.info("Deleting all");
+
+						Query<User> q1 = pm.newQuery(User.class);
+						Query<Game> q2 = pm.newQuery(Game.class);
+						Query<License> q3 = pm.newQuery(License.class);
+						Query<Genre> q4 = pm.newQuery(Genre.class);
+						Query<Company> q5 = pm.newQuery(Company.class);
+
+
+				q1.deletePersistentAll();
+				q2.deletePersistentAll();
+				q3.deletePersistentAll();
+				q4.deletePersistentAll();
+				q5.deletePersistentAll();
+
+
+						tx.commit();
+				}
+				finally
+				{
+						if (tx.isActive())
+						{
+								tx.rollback();
+						}
+						pm.close();
+				}
 		assertTrue(a);
 	}	
 
