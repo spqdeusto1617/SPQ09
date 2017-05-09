@@ -68,3 +68,8 @@ reports with the command: mvn dashboard:dashboard
 
 5. Run the Dashboard plugin: mvn dashboard:dashboard
 cc
+
+
+
+
+DOXYGEN mvn doxygen:report

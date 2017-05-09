@@ -64,6 +64,7 @@ reports with the command: mvn dashboard:dashboard
 4. Run the JDepend plugin: mvn jdepend:generate 
 
 5. Run the Dashboard plugin: mvn dashboard:dashboard
-cc
+
+DOXYGEN mvn doxygen:report
 =======
 >>>>>>> 8012827e1b835782bb20705514251c7bfd21aa00

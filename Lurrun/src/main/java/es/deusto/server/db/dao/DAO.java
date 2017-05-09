@@ -20,7 +20,9 @@ public class DAO implements IDAO {
 	public DAO(){
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
-
+/**
+ * SOME stuff about the dao
+ */
 	@Override
 	public boolean storeUser(User u) {
 
