@@ -52,75 +52,75 @@ import javax.swing.plaf.synth.SynthSeparatorUI;
 public class ContiPerfTest {
 	IDB db = new DB();
 
-	
+
 	int count = 0;
 	int count1 = 0;
 	String a = ""+count;
 	String b = ""+count;
 	Random rand = new Random();
-	
-	
-	
+
+
+
 	final static Logger logger = LoggerFactory.getLogger(ContiPerfTest.class);
-	
+
 	@Rule public ContiPerfRule rule = new ContiPerfRule();
-	
+
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(ContiPerfTest.class);
 	}
-	
 
-	
-	//@Test 
-	//@PerfTest(duration = 5000)
-	//@Required(average =100,throughput = 70)	
-	//public void storeGameInvocationFail() {
-	//	Company cc = new Company("PerfTestCompany");
-	//	Genre gr = new Genre("PerfTestGenre");
-	//	Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
-	//		
-	//	db.addGameToDb(g, gr, cc);
-	//	count++;
-		
-	//}
-	
-//	@Test 
+
+	/**
+	@Test
+	@PerfTest(duration = 5000)
+	@Required(average =100,throughput = 70)
+	public void storeGameInvocationFail() {
+		Company cc = new Company("PerfTestCompany");
+		Genre gr = new Genre("PerfTestGenre");
+		Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
+
+		db.addGameToDb(g, gr, cc);
+		count++;
+
+	}
+	*/
+//	@Test
 //	@PerfTest(duration = 5000)
 //	@Required(average =100,throughput = 30)
-//	
+//
 //	public void storeGameInvocationSucces() {
 //		Company cc = new Company("PerfTestCompany");
 //		Genre gr = new Genre("PerfTestGenre");
 //		Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
-//			
+//
 //		db.addGameToDb(g, gr, cc);
 //		count++;
-//		
+//
 //	}
-	
-	@Test 
+
+	@Test
 	@PerfTest(duration = 5000)
-	public void storeGameDuration() {		
-	
+	public void storeGameDuration() {
+
 		Company cc = new Company("PerfTestCompany");
 		Genre gr = new Genre("PerfTestGenre");
 		Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
-			
+
 		db.addGameToDb(g, gr, cc);
 		count++;
-		
+
 	}
 
-	
-	@Test 
+
+	@Test
 	@PerfTest(invocations = 50, threads = 20)
 	@Required(max = 400 , median = 120)
 	public void loadGame() {
 		db.showGame("Perftest" + b);
 		count1++;
 		}
-	
-	@Test 
+
+	@Test
 	@PerfTest(invocations = 100, threads = 10)
 	@Required(totalTime = 1000)
 	public void loadGame2() {
@@ -130,11 +130,3 @@ public class ContiPerfTest {
 
 
 }
-
-	
-	
-	
-	
-
-	
-

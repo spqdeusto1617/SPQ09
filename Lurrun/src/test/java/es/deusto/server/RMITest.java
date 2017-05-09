@@ -41,7 +41,7 @@ public class RMITest {
 	private IRemote remote;
 	final static Logger logger = LoggerFactory.getLogger(RMITest.class);
 
-	
+
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(RMITest.class);
 	}
@@ -57,7 +57,7 @@ public class RMITest {
 				} catch (Exception e) {
 					logger.info("Exception starting RMI registry:");
 					e.printStackTrace();
-				}	
+				}
 			}
 		}
 
@@ -126,7 +126,7 @@ public class RMITest {
 		catch (Exception re) {
 			logger.error(" # Messenger RemoteException: " + re.getMessage());
 			System.exit(-1);
-		} 
+		}
 
 	}
 
@@ -139,7 +139,7 @@ public class RMITest {
 		catch (Exception re) {
 			logger.error(" # Messenger RemoteException: " + re.getMessage());
 			a =false;
-		} 
+		}
 
 		assertTrue( a );
 	}
@@ -156,10 +156,10 @@ public class RMITest {
 		catch (Exception re) {
 			logger.error(" # Messenger RemoteException: " + re.getMessage());
 			a=false;
-		} 
+		}
 
 		assertTrue( a );
-	}	
+	}
 
 
 	@Test public void gameTestValidation() {
@@ -179,7 +179,7 @@ public class RMITest {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 
 		assertEquals(g.toString(), gameTest.toString());
 
@@ -214,13 +214,13 @@ public class RMITest {
 		Genre gr = null;
 		Game g = null;
 
-		logger.error("Test 5 - testAddInvalidRemote()");							
+		logger.error("Test 5 - testAddInvalidRemote()");
 		remote.addGame(g, gr, c);
 
 
 	}
-	
-	
+
+
 	@Test
 	public void testRetrieveByParameters() throws Exception  {
 
@@ -244,16 +244,16 @@ public class RMITest {
 		assertEquals(g.getName(), g1.getName());
 		assertEquals(c.getName(), c1.getName());
 		assertEquals(gr.getName(), gr1.getName());
-	}	
+	}
 
 	@Test public void licenseTestValidation() {
-		logger.info("Test 8 - licenseTestValidation()");		
+		logger.info("Test 8 - licenseTestValidation()");
 		License licenseTest = null;
 
 		Company c = new Company("DICE");
 		Genre gr = new Genre("Bellic simulator");
-		Game g = new Game("BF 1942", 19.90, 0);		
-		License l = new License ("GGGG");		
+		Game g = new Game("BF 1942", 19.90, 0);
+		License l = new License ("GGGG");
 		User u = new User("JunitUser","Junit Pass",false);
 
 		g.setCompany(c);
@@ -281,8 +281,8 @@ public class RMITest {
 		licenseTest = db.showLicense(l.getGameKey());
 		assertEquals(l.toString(), licenseTest.toString());
 	}
-	
-	
+
+
 	@Test public void buyGameTestValidation() throws RemoteException {
 		boolean  a = true;
 		logger.info("Test 9 - buyGameTestValidation()");
@@ -294,7 +294,7 @@ public class RMITest {
 
 		User u = new User("Rattata","Junit Pass",false);
 		a = remote.buyGameTest();
-		
+
 		assertTrue(a);
 	}
 
@@ -326,7 +326,7 @@ public class RMITest {
 
 		License l1 = new License ("AAAAA");
 		License l2 = new License ("BBBBB");
-		License l3 = new License ("CCCCCC");		
+		License l3 = new License ("CCCCCC");
 		License l4 = new License ("DDDDDDDDDD");
 		License l5 = new License ("FFFAAAAAFFFF");
 		License l6 = new License ("12345667");
@@ -341,11 +341,11 @@ public class RMITest {
 		db.addGameToDb( g, gg1, c1);
 		db.addGameToDb( g1, gg2, c2);
 		db.addGameToDb( g2, gg3, c3);
-		db.addGameToDb( g3, gg4, c4);	
+		db.addGameToDb( g3, gg4, c4);
 
-		db.addGameToDb( g4, gg3, c5);		
-		db.addGameToDb( g5, gg5, c4);			
-		db.addGameToDb( g6, gg4, c4);	
+		db.addGameToDb( g4, gg3, c5);
+		db.addGameToDb( g5, gg5, c4);
+		db.addGameToDb( g6, gg4, c4);
 		db.addGameToDb( g7, gg3, c3);
 
 		db.addLicenseToGame(g1, l1);
@@ -371,7 +371,7 @@ public class RMITest {
 	@Test(expected=RemoteException.class)
 	public void addAEmptygameTest() throws RemoteException
 	{
-		
+
 		logger.error("Test 11 - addAEmptygameTest()");
 		Company c = null;
 		Genre gr = null;
@@ -394,7 +394,7 @@ public class RMITest {
 
 	assertEquals("Mike", u.getLogin());
 	}
-		
+
 
 
 	@Test public void showGamesTest()
@@ -409,104 +409,50 @@ public class RMITest {
 			e.printStackTrace();
 			a=false;
 		}
-PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-		PersistenceManager pm = pmf.getPersistenceManager();
-				Transaction tx = pm.currentTransaction();
-				
-		try
-				{
-						tx.begin();
+				PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+				PersistenceManager pm = pmf.getPersistenceManager();
+		        Transaction tx = pm.currentTransaction();
+		        try
+		        {
+		            tx.begin();
 
-						logger.info("Deleting all");
+		           logger.info("Deleting test DB from persistence. Cleaning up.");
 
-						Query<User> q1 = pm.newQuery(User.class);
-						Query<Game> q2 = pm.newQuery(Game.class);
-						Query<License> q3 = pm.newQuery(License.class);
-						Query<Genre> q4 = pm.newQuery(Genre.class);
-						Query<Company> q5 = pm.newQuery(Company.class);
-
-
-				q1.deletePersistentAll();
-				q2.deletePersistentAll();
-				q3.deletePersistentAll();
-				q4.deletePersistentAll();
-				q5.deletePersistentAll();
+		            Query<User> q1 = pm.newQuery(User.class);
+		            Query<Game> q2 = pm.newQuery(Game.class);
+								Query<Genre> q3 = pm.newQuery(Genre.class);
+		            Query<Company> q4 = pm.newQuery(Company.class);
+								Query<License> q5 = pm.newQuery(License.class);
 
 
-						tx.commit();
-				}
-				finally
-				{
-						if (tx.isActive())
-						{
-								tx.rollback();
-						}
-						pm.close();
-				}
+								q1.deletePersistentAll();
+		            q2.deletePersistentAll();
+								q3.deletePersistentAll();
+								q4.deletePersistentAll();
+								q5.deletePersistentAll();
+
+
+		            logger.info("Deleted");
+
+		            tx.commit();
+		        } catch (Exception ex) {
+		    		logger.error("   $ Error Deleting database " + ex.getMessage());
+
+
+		    }
+		        finally
+		        {
+		            if (tx.isActive())
+		            {
+		               tx.rollback();
+		           }
+		            pm.close();
+		        }
 		assertTrue(a);
-	}	
+	}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//	@After public  void deleteDatabase() {
-	//		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-	//		PersistenceManager pm = pmf.getPersistenceManager();
-	//        Transaction tx = pm.currentTransaction();
-	//        try
-	//        {
-	//            tx.begin();
-	//	
-	//            logger.info("Deleting test DB from persistence. Cleaning up.");
-	//            
-	//            Query<User> q1 = pm.newQuery(User.class);
-	//            Query<Game> q2 = pm.newQuery(Game.class);
-	//            long numberInstancesDeleted = q1.deletePersistentAll();
-	//            long numberInstancesDeleted1 = q2.deletePersistentAll();
-	//            
-	//            
-	//            logger.info("Deleted " + numberInstancesDeleted + " user"+ "Deleted" +numberInstancesDeleted1 + "Game");
-	//			
-	//            tx.commit();
-	//        } catch (Exception ex) {
-	//    		logger.error("   $ Error Deleting database " + ex.getMessage());
-	//    	
-	//    
-	//    }
-	//        finally
-	//        {
-	//            if (tx.isActive())
-	//            {
-	//                tx.rollback();
-	//            }
-	//            pm.close();
-	//        }
-	//		
-	//	}
 
 
 	@AfterClass static public void tearDown() {
@@ -518,5 +464,5 @@ PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucl
 		}
 
 
-	} 
+	}
 }
