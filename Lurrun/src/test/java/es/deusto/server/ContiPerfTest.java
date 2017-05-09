@@ -71,18 +71,18 @@ public class ContiPerfTest {
 	
 
 	
-	@Test 
-	@PerfTest(duration = 5000)
-	@Required(average =100,throughput = 70)	
-	public void storeGameInvocationFail() {
-		Company cc = new Company("PerfTestCompany");
-		Genre gr = new Genre("PerfTestGenre");
-		Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
-			
-		db.addGameToDb(g, gr, cc);
-		count++;
+	//@Test 
+	//@PerfTest(duration = 5000)
+	//@Required(average =100,throughput = 70)	
+	//public void storeGameInvocationFail() {
+	//	Company cc = new Company("PerfTestCompany");
+	//	Genre gr = new Genre("PerfTestGenre");
+	//	Game g = new Game("Perftest" + a, rand.nextInt(5) + 1, 0);
+	//		
+	//	db.addGameToDb(g, gr, cc);
+	//	count++;
 		
-	}
+	//}
 	
 //	@Test 
 //	@PerfTest(duration = 5000)
