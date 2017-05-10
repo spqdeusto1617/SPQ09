@@ -9,7 +9,8 @@ import es.deusto.server.db.data.*;
 public interface IRemote extends Remote {
 	
 //	String sayMessage(String login, String password, String message) throws RemoteException;
-	boolean registerUser(String login, String password,boolean isSuper) throws RemoteException;
+	boolean registerUser(String login, String password) throws RemoteException;
+	boolean loginUser(String login, String password) throws RemoteException;
 	Game gameTest() throws RemoteException;
 	License licenseTest() throws RemoteException;
 	

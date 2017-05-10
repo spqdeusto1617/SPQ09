@@ -26,25 +26,137 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	private PersistenceManager pm=null;
 	private Transaction tx=null;
 	final Logger logger = LoggerFactory.getLogger(Remote.class);
+	
 	public Remote() throws RemoteException {
 		super();
 
 	}
 
+	public boolean loginUser(String login, String password) throws RemoteException {
+		if(login != null || password != null){
+			IDB db = new DB();
+			//change to objetc the parameters
+			User u = new User(login,  password, false);
+			return	db.registerUser( u);
+		} else {
+			logger.error("Remote Exception Register User");
+			throw new RemoteException();
+		}
+	}
+	
+	public boolean registerUser(String login, String password) throws RemoteException {
+		if(login != null || password != null){
+			IDB db = new DB();
+			//change to objetc the parameters
+			User u = new User(login,  password, false);
+			return	db.registerUser( u);
+		} else {
+			logger.error("Remote Exception Register User");
+			throw new RemoteException();
+		}
+	}
+	
+	@Override
+	public List<Game> showGamesInStore() throws RemoteException {
+		// call DB to retrieve full list of games
+		logger.info("Client asked for games on store");
+
+		IDB db = new DB();
+		List<Game> games = db.getAllGames();
+		if(games.isEmpty()){logger.error("Remote Exception No games on store");throw new RemoteException();
+		}
+		else{
+			return(games);
+		}
+	}
+
+	public User getUser(String login) throws RemoteException{
+
+		IDB db = new DB();
+		User u  = db.showUser(login);
+
+		if(u == null){logger.error("Remote exception getUser");throw new RemoteException();
+		}
+		else{
+			return(u);
+		}
+
+
+	}
+
+	@Override
+	public List<Game> showOwnedGames(String username) throws RemoteException {
+		// call DB to retrieve specified users list of games
+		logger.info("Client asked for games owned");
+		IDB db = new DB();
+		List<Game> games = db.getUserGames(username);
+		if(games.isEmpty()){
+			logger.error("Remote exception getUser showOwnedGames ");
+			throw new RemoteException();
+		}
+		else{
+			return(games);
+		}
+	}
+
+	public List<User> getAllUsers() throws RemoteException {
+	    // TODO Auto-generated method stub
+	    
+	    IDB db = new DB();
+	    List<User> users = db.getAllUsers();
+	    if(users.isEmpty()){
+	    logger.error("Remote exception ,No users, getAllUsers" );
+	      throw new RemoteException();
+	    }
+	    else{
+	      return(users);
+	    }
+	  }
+	
+	@Override
+	public boolean buyGame(String username, String name) throws RemoteException {
+		// call DB to make necessary changes for adding a new game to the users owned list
+		if(username!=null || name!=null){
+			IDB db = new DB();
+
+			return db.buyGame(username, name);
+		}else{
+			logger.error("Remote exception buyGame");
+			throw new RemoteException();
+		}
+
+
+	}
+
+	@Override
+	public boolean addGame(Game game, Genre genre, Company company) throws RemoteException {
+		if(game!=null || genre!=null || company!=null){
+		IDB db = new DB();
+		try {
+			return db.addGameToDb(game,genre,company);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Remote exception addGame");
+			throw new RemoteException();
+		}
+		}else{
+			logger.error("Remote exception addGame");
+			throw new RemoteException();
+		}
+	}
+	
+//	public  void checkRemoteness(){		
+//		logger.info("checkremoteness");
+//		registerUser("remoteness"+count, "checkRemotenss" , false);
+//		count++;
+//		}
+	
 	protected void finalize () throws Throwable {
 		if (tx.isActive()) {
             tx.rollback();
         }
         pm.close();
-	}
-
-	public boolean registerUser(String login, String password,boolean isSuperUser) throws RemoteException {
-	if(login != null || password != null){
-		IDB db = new DB();
-		//change to objetc the parameters
-		User u = new User( login,  password, isSuperUser);
-		return	db.registerUser( u);
-	}else{logger.error("Remote Exception Register User");throw new RemoteException();}
 	}
 
 	public Game gameTest() throws RemoteException{
@@ -56,12 +168,15 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 		try {
 			db.addGameToDb(g, gr, c);
-		} catch (Exception e) {logger.error(" Exception  gameTest");e.printStackTrace();
+		} catch (Exception e) {
+			logger.error("Exception gameTest");
+			e.printStackTrace();
 		}
 		Game g1=db.showGame(g.getName());
 
 		return(g1);
 	}
+	
 	public License licenseTest(){
 		Company c = new Company("DICE");
 		Genre gr = new Genre("Bellic simulator");
@@ -107,106 +222,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 
 		return(a);
 	}
-
-
-	@Override
-	public List<Game> showGamesInStore() throws RemoteException {
-		// call DB to retrieve full list of games
-		logger.info("Client asked for games on store");
-
-		IDB db = new DB();
-		List<Game> games = db.getAllGames();
-		if(games.isEmpty()){logger.error("Remote Exception No games on store");throw new RemoteException();
-		}
-		else{
-			return(games);
-		}
-	}
-
-
-	public User getUser(String login) throws RemoteException{
-
-		IDB db = new DB();
-		User u  = db.showUser(login);
-
-		if(u == null){logger.error("Remote exception getUser");throw new RemoteException();
-		}
-		else{
-			return(u);
-		}
-
-
-	}
-
-	@Override
-	public List<Game> showOwnedGames(String username) throws RemoteException {
-		// call DB to retrieve specified users list of games
-		logger.info("Client asked for games owned");
-		IDB db = new DB();
-		List<Game> games = db.getUserGames(username);
-		if(games.isEmpty()){
-			logger.error("Remote exception getUser showOwnedGames ");
-			throw new RemoteException();
-		}
-		else{
-			return(games);
-		}
-	}
-
-	public List<User> getAllUsers() throws RemoteException {
-	    // TODO Auto-generated method stub
-	    
-	    IDB db = new DB();
-	    List<User> users = db.getAllUsers();
-	    if(users.isEmpty()){
-	    logger.error("Remote exception ,No users, getAllUsers" );
-	      throw new RemoteException();
-	    }
-	    else{
-	      return(users);
-	    }
-	  }
-	
-	
-	@Override
-	public boolean buyGame(String username, String name) throws RemoteException {
-		// call DB to make necessary changes for adding a new game to the users owned list
-		if(username!=null || name!=null){
-			IDB db = new DB();
-
-			return db.buyGame(username, name);
-		}else{
-			logger.error("Remote exception buyGame");
-			throw new RemoteException();
-		}
-
-
-	}
-
-	@Override
-	public boolean addGame(Game game, Genre genre, Company company) throws RemoteException {
-		if(game!=null || genre!=null || company!=null){
-		IDB db = new DB();
-		try {
-			return db.addGameToDb(game,genre,company);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			logger.error("Remote exception addGame");
-			throw new RemoteException();
-		}
-		}else{
-			logger.error("Remote exception addGame");
-			throw new RemoteException();
-		}
-	}
-	
-//	public  void checkRemoteness(){		
-//		logger.info("checkremoteness");
-//		registerUser("remoteness"+count, "checkRemotenss" , false);
-//		count++;
-//		}
-	
 	
 	
 

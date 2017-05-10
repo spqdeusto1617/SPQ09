@@ -89,10 +89,25 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
+				logger.info("For loggin press '1'; for registering press '2'");
+				int logreg = Integer.parseInt(System.console().readLine());
+				boolean pass = false;
 				logger.info("Insert username:");
 				String login = System.console().readLine();
 				logger.info("Insert password:");
-				if(server.registerUser(login, System.console().readLine(), false)){
+				String password = String.valueOf(System.console().readPassword());
+				if(logreg == 1){
+					pass = server.loginUser(login, password);
+				}
+				else if (logreg == 2){
+					pass = server.registerUser(login, password);
+				}
+				else{
+					logger.error("Non valid input");
+				}
+				
+				
+				if(pass){
 					log = false;
 
 					String input = "";						

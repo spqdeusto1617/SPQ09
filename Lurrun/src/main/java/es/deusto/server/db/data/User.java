@@ -43,9 +43,6 @@ public class User implements Serializable {
 		this.isSuperuser = isSuperuser;
 	}
 
-
-
-
 	public User(String login, String password) {
 		this.login = login;
 		this.password = password;
@@ -74,6 +71,15 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean compareUserTo(User u2){
+		if(this.login.equals(u2.getLogin())){
+			if(this.password.equals(u2.getPassword())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String toString() {

@@ -20,6 +20,7 @@ public class DB implements IDB {
 	private int cont = 0;
 	IDAO dao;
 	final Logger logger = LoggerFactory.getLogger(DB.class);
+	
 	public DB(){
 		super();
 		dao = new DAO();
@@ -32,7 +33,7 @@ public class DB implements IDB {
 
 	}
 
-	public  List<Game> getUserGames(String username) {
+	public List<Game> getUserGames(String username) {
 		User u = showUser(username);
 		List <Game> gameList = new ArrayList<>();
 		for (License l : u.getLicenses() ) {
@@ -41,7 +42,7 @@ public class DB implements IDB {
 		return gameList;
 	}
 
-	public  boolean buyGame(String username, String name) {
+	public boolean buyGame(String username, String name) {
 		User u = showUser(username);
 		Game g = showGame(name);
 		License l=	dao.getFirstLicense(name);
@@ -52,35 +53,32 @@ public class DB implements IDB {
 		dao.updateGame(g);
 	
 		addLicenseToUser(u, l);
-return true;
+		return true;
 	}
 
-	public boolean registerUser(User u) {
-
-
+	public boolean loginUser(User u) {
 		User user = null;
-		boolean ret=true;
 
 		try {
 			user = dao.retrieveUser(u.getLogin());
 		} catch (Exception  e) {
-			logger.error("Exception launched: " + e.getMessage());
-			ret=false;
+			logger.error("Exception launched retrieving user: " + e.getMessage());
+			return false;
 		}
-
-		if (user != null) {
-			user.setPassword(u.getPassword());
-			user.setSuperuser(u.getSuperuser());
-		
-			dao.updateUser(user);
-
-		} else {
-			
-			
+		if(user!=null){
+			return u.compareUserTo(user);
+		}
+		return false;
+	}
+	
+	public boolean registerUser(User u) {
+		try {
 			dao.storeUser(u);
-			
+		} catch (Exception  e) {
+			logger.error("Exception launched storing new user: " + e.getMessage());
+			return false;
 		}
-		return ret;
+		return true;
 	}
 
 	public boolean addGameToDb(Game g,Genre gg, Company c)  {
@@ -219,16 +217,19 @@ return true;
 		return g;
 
 	}
+	
 	public Genre showGenre(String name){
-		 Genre genr=dao.retrieveGenre(name);
+		Genre genr=dao.retrieveGenre(name);
 		return genr;
 
 	}
+	
 	public Company showCompany(String name){
 		 Company c=dao.retrieveCompany(name);
 		return c;
 
 	}
+	
 	public License showLicense(String gameKey){
 		 License l=dao.retrieveLicense(gameKey);
 		return l;
@@ -240,11 +241,13 @@ return true;
 		return u;
 
 	}
+	
 	@Override
 	public List<Game> getAllGames() {
 		return dao.getAllGames();
 
 	}
+	
 	public List<User> getAllUsers() {
 		return dao.getAllUsers();
 
@@ -270,10 +273,5 @@ return true;
 		
 		return g;
 	}
-
-	
-
-	
-
 
 }

@@ -11,6 +11,7 @@ public interface IDB {
 	  List<Game> getUserGames(String login);
 	  
 	  boolean buyGame(String login, String game);
+	  public boolean loginUser(User u);
 	  boolean registerUser(User u);
 
 	  boolean addGameToDb(Game g,Genre gg, Company c);
