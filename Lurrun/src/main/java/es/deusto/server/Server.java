@@ -21,7 +21,7 @@ public class Server{
 public static void addStuff(){
 		
 		Game g = new Game("Game 1",200,0.2);
-		Game g1 =new Game("Game 2",300,0.1);
+		Game g1 =new Game("Game 2",100,0.1);
 		Game g2 =new Game("Game 3",20,0.25);
 		Game g3= new Game("Game 4",250,0.2);
 		Game g4 =new Game("Game 5",26,0.3);
@@ -72,7 +72,7 @@ public static void addStuff(){
 			db.addLicenseToGame(g3, l2);
 			db.addLicenseToGame(g1, l3);
 			db.addLicenseToGame(g2, l4);
-			db.addLicenseToGame(g3, l5);
+			db.addLicenseToGame(g, l5);
 		
 		
 		db.registerUser(u1);
@@ -80,7 +80,8 @@ public static void addStuff(){
 		db.registerUser(u3);
 		
 		db.buyGame(u1.getLogin(), g1.getName());
-		db.buyGame(u2.getLogin(), g1.getName());
+		db.buyGame(u2.getLogin(), g2.getName());
+		db.buyGame(u3.getLogin(), g.getName());
 	
 		
 	}

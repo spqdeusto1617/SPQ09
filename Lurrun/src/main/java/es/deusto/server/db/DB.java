@@ -188,6 +188,7 @@ public class DB implements IDB {
 		User user = null;
 		License license = null;
 		boolean ret=true;
+		double price;
 		try {
 
 			user = dao.retrieveUser(u.getLogin());
@@ -204,9 +205,18 @@ public class DB implements IDB {
 			license.setUser(user);
 			user.addLicense(license);
 			
+			price=license.getGame().getPrice()*(1-(license.getGame().getDiscount()));
+			
+		if(price<user.getMoney())	{
+			user.setMoney(user.getMoney()-price);
+			license.setUser(user);
+			user.addLicense(license);
 
 			dao.updateUser(user);
-
+		}
+		else{
+			logger.error("Not enough money");
+		}
 		}
 		return ret;
 	}

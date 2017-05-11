@@ -19,12 +19,8 @@ public class User implements Serializable {
 	@PrimaryKey
 	String login=null;
 	String password=null;
-	public User(String login, String password, boolean isSuperuser) {
-		super();
-		this.login = login;
-		this.password = password;
-		this.isSuperuser = isSuperuser;
-	}
+	double money=0;
+	
 
 	boolean isSuperuser=false;
 
@@ -33,7 +29,13 @@ public class User implements Serializable {
 	List<License> licenses = new ArrayList<License>();
 
 
-
+	public User(String login, String password, boolean isSuperuser) {
+		super();
+		this.login = login;
+		this.password = password;
+		this.isSuperuser = isSuperuser;
+		this.money=100;
+	}
 
 	public boolean getSuperuser() {
 		return this.isSuperuser;
@@ -72,6 +74,15 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public double getMoney() {
+		return money;
+	}
+
+	public void setMoney(double money) {
+		this.money = money;
+	}
+
+	
 	
 	public boolean compareUserTo(User u2){
 		if(this.login.equals(u2.getLogin())){
