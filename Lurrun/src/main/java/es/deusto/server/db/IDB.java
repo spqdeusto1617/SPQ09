@@ -5,28 +5,16 @@ import java.util.List;
 import es.deusto.server.db.data.*;
 
 public interface IDB {
-	
+	  boolean loginUser(User u);
+	  boolean registerUser(User u);
+	  boolean buyGame(String login, String game);
+	  
 	  List<Game> getAllGames();
-	  List<User> getAllUsers();
 	  List<Game> getUserGames(String login);
 	  
-	  boolean buyGame(String login, String game);
-	  public boolean loginUser(User u);
-	  boolean registerUser(User u);
-
-	  boolean addGameToDb(Game g,Genre gg, Company c);
-	  boolean addLicenseToUser(User u, License l);	
 	  boolean addLicenseToGame(Game g, License l);
+	  boolean addGameToDb(Game g,Genre gg, Company c);
 	
-	  Genre showGenre (String name);
-	  Game showGame	(String name);
-	  License showLicense	(String gameKey);
-	  Company	showCompany	(String name);
-	  User	showUser	(String login);
-	  
-	  Game  showGameByParam(String name);
-	  Company	showCompanyByParam(String name);
-	  Genre 	showGenreByParam(String name);
-//	  License showLicenseByParam(String gameKey);
-		
+	  Game showGame(String name);
+	  User showUser(String login);
 }

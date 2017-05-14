@@ -17,15 +17,13 @@ public class DAO implements IDAO {
 
 	private PersistenceManagerFactory pmf;
 	final Logger logger = LoggerFactory.getLogger(DAO.class);
+	
 	public DAO(){
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
-/**
- * SOME stuff about the dao
- */
+
 	@Override
 	public boolean storeUser(User u) {
-
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 	    boolean ret=true;
@@ -45,29 +43,6 @@ public class DAO implements IDAO {
 
 	    		pm.close();
 		    }
-	    return ret;
-		}
-
-
-
-	public	boolean updateLicense(License g){
-		PersistenceManager pm = pmf.getPersistenceManager();
-	    Transaction tx = pm.currentTransaction();
-	    boolean ret=true;
-	    try {
-	    	tx.begin();
-	    	pm.makePersistent(g);
-	    	tx.commit();
-	     } catch (Exception ex) {
-//	    	logger.error("Error updating a License: " + ex.getMessage());
-		   	ret = false;
-	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
-
-	   		pm.close();
-	     }
 	    return ret;
 	}
 
@@ -96,7 +71,7 @@ public class DAO implements IDAO {
 
 		return user;
 	}
-
+	
 	@Override
 	public boolean updateUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -119,6 +94,57 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
+
+	@Override
+	public License retrieveLicense(String gameKey) {
+		License license = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			license = pm.getObjectById(License.class, gameKey);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			//logger.warn("User does not exist: " + jonfe.getMessage());
+		}
+
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
+
+    		pm.close();
+	    }
+
+		return license;
+	}
+	
+	@Override
+	public boolean updateLicense(License g){
+		PersistenceManager pm = pmf.getPersistenceManager();
+	    Transaction tx = pm.currentTransaction();
+	    boolean ret=true;
+	    try {
+	    	tx.begin();
+	    	pm.makePersistent(g);
+	    	tx.commit();
+	     } catch (Exception ex) {
+//	    	logger.error("Error updating a License: " + ex.getMessage());
+		   	ret = false;
+	     } finally {
+		   	if (tx != null && tx.isActive()) {
+		   		tx.rollback();
+		   	}
+
+	   		pm.close();
+	     }
+	    return ret;
+	}
+
+	
+	@Override
 	public	boolean storeGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
@@ -141,37 +167,34 @@ public class DAO implements IDAO {
 	    return r;
 		}
 
-	public	Game retrieveGameByParameter(String name){
+	@Override
+	public Game retrieveGame(String name) {
+		Game game = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			game = pm.getObjectById(Game.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+					//logger.warn("Game does not exist: " + jonfe.getMessage());
+		}
 
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
-        Game g = null;
-        try {
-            tx.begin();
-            Extent<Game> extentP = pm.getExtent(Game.class);
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
 
-            for (Game p : extentP) {
+    		pm.close();
+	    }
 
-                if (p.getName().equals(name)) {
-                    g= p;
-           
-                }
-            }
-            tx.commit();
-        } catch (Exception ex) {
-//        	   ////////////logger.error("# Error getting Extent Game: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-        //      ////////////logger.error(u);
-        return g;
+		return game;
 	}
-
-	public	boolean updateGame(Game g){
+	
+	@Override
+	public boolean updateGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
 	    boolean r=true;
@@ -192,38 +215,35 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-
-
-	public	Company retrieveCompanyByParameter(String name){
 	
-	        PersistenceManager pm = pmf.getPersistenceManager();
-	        Transaction tx = pm.currentTransaction();
-	        pm.getFetchPlan().setMaxFetchDepth(3);
-	        Company u = null;
-	        try {
-	            tx.begin();
-	            Extent<Company> extentP = pm.getExtent(Company.class);
+	@Override
+	public Company retrieveCompany(String name) {
+		Company company = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			company = pm.getObjectById(Company.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+			//logger.warn("Company does not exist: " + jonfe.getMessage());
+		}
 
-	            for (Company p : extentP) {
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
 
-	                if (p.getName().equals(name)) {
-	                    u = p;
-	                }
-	            }
-	            tx.commit();
-	        } catch (Exception ex) {
-	        	      ////////////logger.error("# Error getting Extent: " + ex.getMessage());
-	        } finally {
-	            if (tx.isActive()) {
-	                tx.rollback();
-	            }
-	            pm.close();
-	        }
-	        //     ////////////logger.error(u);
-	        return u;
+    		pm.close();
 	    }
 
-	public	boolean updateCompany(Company c){
+		return company;
+	}
+	
+	@Override
+	public boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
 	    boolean r= true;
@@ -244,38 +264,34 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
+	
+	@Override
+	public Genre retrieveGenre(String name) {
+		Genre genre = null;
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(2);
+		Transaction tx = pm.currentTransaction();
+		try {
+			tx.begin();
+			genre = pm.getObjectById(Genre.class, name);
+			tx.commit();
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
+		{
+					//logger.warn("Genre does not exist: " + jonfe.getMessage());
+		}
 
+		finally {
+	    	if (tx != null && tx.isActive()) {
+	    		tx.rollback();
+	    	}
 
-	public Genre retrieveGenreByParameter(String name){
-		//		////////////logger.error("Get Genre from db "+name);
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
-        Genre u = null;
-        try {
-            tx.begin();
-            Extent<Genre> extentP = pm.getExtent(Genre.class);
+    		pm.close();
+	    }
 
-            for (Genre p : extentP) {
-
-                if (p.getName().equals(name)) {
-                    u = p;
-
-                }
-            }
-            tx.commit();
-        } catch (Exception ex) {
-        	       ////////////logger.error("# Error getting Extent: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-        //   ////////////logger.error(u);
-        return u;
+		return genre;
 	}
-
+	
+	@Override
 	public boolean updateGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
 	    Transaction tx = pm.currentTransaction();
@@ -297,6 +313,8 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
+	
+	@Override
 	public List<Game> getAllGames() {
 
 	
@@ -331,40 +349,8 @@ public class DAO implements IDAO {
 
 	}
 	
-	public List<User> getAllUsers() {
-
-		
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
-
-        List<User> users=new ArrayList<>();
-        try {
-            tx.begin();
-            Extent<User> extentP = pm.getExtent(User.class);
-
-            for (User u : extentP) {
-
-               users.add(u);
-               
-                }
-
-            tx.commit();
-        } catch (Exception ex) {
-        	   ////////////logger.error("# Error getting Extent getAllUsers: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-
-        return users;
-
-	}
-	
-	
-public License getFirstLicense(String name) {
+	@Override
+	public License getFirstLicense(String name) {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         pm.getFetchPlan().setMaxFetchDepth(3);
@@ -395,107 +381,94 @@ public License getFirstLicense(String name) {
         return u;
 	}
 	
-	
-	
-	
-	public Genre retrieveGenre(String name) {
-		Genre genre = null;
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			genre = pm.getObjectById(Genre.class, name);
-			tx.commit();
-		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
-		{
-					//logger.warn("Genre does not exist: " + jonfe.getMessage());
-		}
 
-		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
-		return genre;
-	}
-	
-	public Game retrieveGame(String name) {
-		Game game = null;
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			game = pm.getObjectById(Game.class, name);
-			tx.commit();
-		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
-		{
-					//logger.warn("Game does not exist: " + jonfe.getMessage());
-		}
-
-		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
-		return game;
-	}
-	
-	public Company retrieveCompany(String name) {
-		Company company = null;
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			company = pm.getObjectById(Company.class, name);
-			tx.commit();
-		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
-		{
-			//logger.warn("Company does not exist: " + jonfe.getMessage());
-		}
-
-		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
-		return company;
-	}
-	
-	public License retrieveLicense(String gameKey) {
-		License license = null;
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
-		Transaction tx = pm.currentTransaction();
-		try {
-			tx.begin();
-			license = pm.getObjectById(License.class, gameKey);
-			tx.commit();
-		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
-		{
-			//logger.warn("User does not exist: " + jonfe.getMessage());
-		}
-
-		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
-		return license;
-	}
+//	public Genre retrieveGenreByParameter(String name){
+//	//		////////////logger.error("Get Genre from db "+name);
+//    PersistenceManager pm = pmf.getPersistenceManager();
+//    Transaction tx = pm.currentTransaction();
+//    pm.getFetchPlan().setMaxFetchDepth(3);
+//    Genre u = null;
+//    try {
+//        tx.begin();
+//        Extent<Genre> extentP = pm.getExtent(Genre.class);
+//
+//        for (Genre p : extentP) {
+//
+//            if (p.getName().equals(name)) {
+//                u = p;
+//
+//            }
+//        }
+//        tx.commit();
+//    } catch (Exception ex) {
+//    	       ////////////logger.error("# Error getting Extent: " + ex.getMessage());
+//    } finally {
+//        if (tx.isActive()) {
+//            tx.rollback();
+//        }
+//        pm.close();
+//    }
+//    //   ////////////logger.error(u);
+//    return u;
+//}
+//	
+//	public Company retrieveCompanyByParameter(String name){
+//	
+//	        PersistenceManager pm = pmf.getPersistenceManager();
+//	        Transaction tx = pm.currentTransaction();
+//	        pm.getFetchPlan().setMaxFetchDepth(3);
+//	        Company u = null;
+//	        try {
+//	            tx.begin();
+//	            Extent<Company> extentP = pm.getExtent(Company.class);
+//
+//	            for (Company p : extentP) {
+//
+//	                if (p.getName().equals(name)) {
+//	                    u = p;
+//	                }
+//	            }
+//	            tx.commit();
+//	        } catch (Exception ex) {
+//	        	      ////////////logger.error("# Error getting Extent: " + ex.getMessage());
+//	        } finally {
+//	            if (tx.isActive()) {
+//	                tx.rollback();
+//	            }
+//	            pm.close();
+//	        }
+//	        //     ////////////logger.error(u);
+//	        return u;
+//	    }
+//	
+//	public	Game retrieveGameByParameter(String name){
+//
+//        PersistenceManager pm = pmf.getPersistenceManager();
+//        Transaction tx = pm.currentTransaction();
+//        pm.getFetchPlan().setMaxFetchDepth(3);
+//        Game g = null;
+//        try {
+//            tx.begin();
+//            Extent<Game> extentP = pm.getExtent(Game.class);
+//
+//            for (Game p : extentP) {
+//
+//                if (p.getName().equals(name)) {
+//                    g= p;
+//           
+//                }
+//            }
+//            tx.commit();
+//        } catch (Exception ex) {
+////        	   ////////////logger.error("# Error getting Extent Game: " + ex.getMessage());
+//        } finally {
+//            if (tx.isActive()) {
+//                tx.rollback();
+//            }
+//            pm.close();
+//        }
+//        //      ////////////logger.error(u);
+//        return g;
+//	}
 	
 }

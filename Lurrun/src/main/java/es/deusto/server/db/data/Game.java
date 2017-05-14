@@ -22,17 +22,12 @@ public class Game implements Serializable {
 
 	@PrimaryKey
 	private	String name;
-	
 	private double price;
 	private double discount;
-
 	@Persistent(defaultFetchGroup="true")
 	Genre genre;
-	
 	@Persistent(defaultFetchGroup="true")
 	Company company;
-
-
 	@Persistent(defaultFetchGroup="true", mappedBy="game", dependentElement="true")
 	@Join
 	List<License> licenses = new ArrayList<License>();
@@ -42,59 +37,17 @@ public class Game implements Serializable {
 		this.price = price;
 		this.discount = discount;
 	}
-
-
-	public Game(){
-
-	}
-
-
-	public String toString() {
-
-//		 if (licenses.isEmpty()) {
-			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" 
-		 + this.discount + "]";
-//		 }else{
-//
-//			StringBuffer licensesStr = new StringBuffer();
-//			for (License license: this.licenses) {
-//				licensesStr.append(license.getGameKey() + " - ");
-//			}
-//			 return "Game [name=" + this.name + ", price=" + this.price + ", discount=" +
-//			"genre= " + genre.getName() + "company" + company.getName()
-//			+ this.discount  +" Licenses --> [" + licensesStr +" ]";
-//		 }
-	}
-
-	public Genre getGenre() {
-		return genre;
-	}
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-	public Company getCompany() {
-		return company;
-	}
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
+	
 	public double getDiscount() {
 		return discount;
-	}
-	public void setDiscount(double discount) {
-		this.discount = discount;
 	}
 
 	public void addLicense(License license) {
@@ -107,9 +60,26 @@ public class Game implements Serializable {
 
 	public List<License> getLicenses() {
 		 return this.licenses;
-
 	}
 
+	public Genre getGenre() {
+		return genre;
+	}
 	
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+	
+	public Company getCompany() {
+		return company;
+	}
+	
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public String toString() {
+		return "Game [name=" + this.name + ", price=" + this.price + ", discount=" + this.discount + "]";
+	}
 
 }

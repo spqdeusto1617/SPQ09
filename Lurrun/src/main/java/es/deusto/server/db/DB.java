@@ -25,21 +25,40 @@ public class DB implements IDB {
 		super();
 		dao = new DAO();
 	}
-
-	public DB(IDAO udao) {
+	
+	public DB(IDAO dao){
 		super();
-		dao = udao;
+		this.dao = dao;
+	}
+	
+	@Override
+	public boolean loginUser(User u) {
+		User user = null;
+
+		try {
+			user = dao.retrieveUser(u.getLogin());
+		} catch (Exception  e) {
+			logger.error("Exception launched retrieving user: " + e.getMessage());
+			return false;
+		}
+		if(user!=null){
+			return u.compareUserTo(user);
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean registerUser(User u) {
+		try {
+			dao.storeUser(u);
+		} catch (Exception  e) {
+			logger.error("Exception launched storing new user: " + e.getMessage());
+			return false;
+		}
+		return true;
 	}
 
-	public List<Game> getUserGames(String username) {
-		User u = showUser(username);
-		List <Game> gameList = new ArrayList<>();
-		for (License l : u.getLicenses() ) {
-			gameList.add(l.getGame());
-        }
-		return gameList;
-	}
-
+	@Override
 	public boolean buyGame(String username, String name) {
 		logger.info("Buying game");
 		User u = showUser(username);
@@ -57,32 +76,50 @@ public class DB implements IDB {
 		addLicenseToUser(u, l);
 		return true;
 	}
+	
+	@Override
+	public List<Game> getAllGames() {
+		return dao.getAllGames();
 
-	public boolean loginUser(User u) {
-		User user = null;
-
-		try {
-			user = dao.retrieveUser(u.getLogin());
-		} catch (Exception  e) {
-			logger.error("Exception launched retrieving user: " + e.getMessage());
-			return false;
-		}
-		if(user!=null){
-			return u.compareUserTo(user);
-		}
-		return false;
 	}
 	
-	public boolean registerUser(User u) {
-		try {
-			dao.storeUser(u);
-		} catch (Exception  e) {
-			logger.error("Exception launched storing new user: " + e.getMessage());
-			return false;
-		}
-		return true;
+	@Override
+	public List<Game> getUserGames(String username) {
+		User u = showUser(username);
+		List <Game> gameList = new ArrayList<>();
+		for (License l : u.getLicenses() ) {
+			gameList.add(l.getGame());
+        }
+		return gameList;
 	}
 
+	@Override
+	public boolean addLicenseToGame(Game g, License l) {
+		Game game = null;
+		License license = null;
+		boolean ret=true;
+		try {
+
+			game  = dao.retrieveGame(g.getName());
+			license = dao.retrieveLicense(l.getGameKey());
+
+		} catch (Exception  e) {
+					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+			ret=false;
+		}
+
+		if (game !=null && license == null){
+
+			l.setGame(game);
+			game.addLicense(l);
+
+			dao.updateGame(game);
+
+		}
+		return ret;
+	}
+	
+	@Override
 	public boolean addGameToDb(Game g,Genre gg, Company c)  {
 		Game game = null;
 		Genre genre = null;
@@ -150,36 +187,21 @@ public class DB implements IDB {
 		return ret;
 	}
 
-	public boolean addLicenseToGame(Game g, License l) {
-		Game game = null;
-		License license = null;
-		boolean ret=true;
-		try {
+	@Override
+	public Game showGame(String name){
+		 Game g=dao.retrieveGame(name);
+		
+		return g;
+	}
+	
+	@Override
+	public User showUser(String login){
+		 User u=dao.retrieveUser(login);
+		return u;
 
-			game  = dao.retrieveGame(g.getName());
-			license = dao.retrieveLicense(l.getGameKey());
-
-		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
-			ret=false;
-		}
-
-		if (game !=null && license == null){
-
-			l.setGame(game);
-			game.addLicense(l);
-
-			dao.updateGame(game);
-
-		}
-		else   {
-
-
-		}
-		return ret;
 	}
 
-	public boolean addLicenseToUser(User u, License l) {
+	private boolean addLicenseToUser(User u, License l) {
 		User user = null;
 		License license = null;
 		boolean ret=true;
@@ -216,67 +238,45 @@ public class DB implements IDB {
 		return ret;
 	}
 	
-	public Game showGame(String name){
-		 Game g=dao.retrieveGame(name);
-		
-		return g;
-
-	}
+//	private Genre showGenre(String name){
+//		Genre genr=dao.retrieveGenre(name);
+//		return genr;
+//
+//	}
 	
-	public Genre showGenre(String name){
-		Genre genr=dao.retrieveGenre(name);
-		return genr;
-
-	}
+//	private Company showCompany(String name){
+//		 Company c=dao.retrieveCompany(name);
+//		return c;
+//
+//	}
 	
-	public Company showCompany(String name){
-		 Company c=dao.retrieveCompany(name);
-		return c;
-
-	}
+//	private License showLicense(String gameKey){
+//		 License l=dao.retrieveLicense(gameKey);
+//		return l;
+//
+//	}
 	
-	public License showLicense(String gameKey){
-		 License l=dao.retrieveLicense(gameKey);
-		return l;
+//	private List<User> getAllUsers() {
+//		return dao.getAllUsers();
+//
+//	}
 
-	}
-
-	public User showUser(String login){
-		 User u=dao.retrieveUser(login);
-		return u;
-
-	}
-	
-	@Override
-	public List<Game> getAllGames() {
-		return dao.getAllGames();
-
-	}
-	
-	public List<User> getAllUsers() {
-		return dao.getAllUsers();
-
-	}
-
-	@Override
-	public Game showGameByParam(String name) {
-		Game g=dao.retrieveGameByParameter(name);
-		
-		return g;
-	}
-
-	@Override
-	public Company showCompanyByParam(String name) {
-		Company c=dao.retrieveCompanyByParameter(name);
-		
-		return c;
-	}
-
-	@Override
-	public Genre showGenreByParam(String name) {
-	Genre g=dao.retrieveGenreByParameter(name);
-		
-		return g;
-	}
+//	public Game showGameByParam(String name) {
+//		Game g=dao.retrieveGameByParameter(name);
+//		
+//		return g;
+//	}
+//
+//	public Company showCompanyByParam(String name) {
+//		Company c=dao.retrieveCompanyByParameter(name);
+//		
+//		return c;
+//	}
+//
+//	public Genre showGenreByParam(String name) {
+//	Genre g=dao.retrieveGenreByParameter(name);
+//		
+//		return g;
+//	}
 
 }

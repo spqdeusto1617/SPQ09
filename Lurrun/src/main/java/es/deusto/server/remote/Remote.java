@@ -123,7 +123,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		try {
 			return db.addGameToDb(game,genre,company);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			logger.error("Remote exception addGame");
 			throw new RemoteException();

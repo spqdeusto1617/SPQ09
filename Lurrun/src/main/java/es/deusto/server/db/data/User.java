@@ -8,26 +8,19 @@ import javax.jdo.annotations.*;
 
 import java.util.ArrayList;
 
-//@PersistenceCapable (detachable = "true")
 
 @PersistenceCapable (detachable = "true")
 public class User implements Serializable {
-	/**
-	 * User implements Serializable to be transferred to the RMI client
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	@PrimaryKey
 	String login=null;
 	String password=null;
 	double money=0;
-	
-
 	boolean isSuperuser=false;
-
 	@Persistent(defaultFetchGroup="true", mappedBy="user", dependentElement="true")
 	@Join
 	List<License> licenses = new ArrayList<License>();
-
 
 	public User(String login, String password, boolean isSuperuser) {
 		super();
@@ -70,19 +63,14 @@ public class User implements Serializable {
 	public String getPassword() {
 		return this.password;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 	public double getMoney() {
 		return money;
-	}
-
+	}	
+	
 	public void setMoney(double money) {
 		this.money = money;
 	}
-
-	
 	
 	public boolean compareUserTo(User u2){
 		if(this.login.equals(u2.getLogin())){
@@ -107,8 +95,6 @@ public class User implements Serializable {
 			+ this.isSuperuser + ", game licenses --> [" + licensesStr + "]";
 
 		}
-
-
 	}
 }
 

@@ -17,7 +17,6 @@ public class Genre implements Serializable {
 	
 	@PrimaryKey
 	private String name;
-	
 	@Persistent(defaultFetchGroup="true", mappedBy="genre", dependentElement="true")
 	@Join
 	List<Game> genreGames = new ArrayList<Game>();
@@ -27,25 +26,12 @@ public class Genre implements Serializable {
 		this.name = name;
 	}
 	
-	public void addGame(Game game) {
-		genreGames.add(game);
-	}
-	
-	public List<Game> getGenreGames() {
-		return this.genreGames;
-	}
-	
-	public void setGenreGames(List<Game> genreGames) {
-		this.genreGames = genreGames;
-	}
-	
-	public void removeGame(Game game) {
-		genreGames.remove(game);
-	}
-	
-	
 	public String getName() {
 		return name;
+	}
+	
+	public void addGame(Game game) {
+		genreGames.add(game);
 	}
 	
 	@Override
@@ -63,9 +49,5 @@ public class Genre implements Serializable {
 			
 			return "Genre: name --> " + this.name +", games --> [" + gamesStr + "]";
 		}
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 }
