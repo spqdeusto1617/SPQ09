@@ -43,12 +43,12 @@ public class Server{
 //		Company c5 = new Company ("Company 5");
 		
 		
-		License l1 = new License ("AAAAA");
-		License l2 = new License ("BBBBB");
-		License l3 = new License ("CCCCCC");		
-		License l4 = new License ("DDDDDDDDDD");
-		License l5 = new License ("FFFAAAAAFFFF");
-		License l6 = new License ("12345667");
+//		License l1 = new License ("AAAAA");
+//		License l2 = new License ("BBBBB");
+//		License l3 = new License ("CCCCCC");		
+//		License l4 = new License ("DDDDDDDDDD");
+//		License l5 = new License ("FFFAAAAAFFFF");
+//		License l6 = new License ("12345667");
 		
 		User u1 = new User("ainhoa", "ainhoa", true);
 		User u2 = new User("Joel", "qwerty", false);
@@ -67,12 +67,12 @@ public class Server{
 //		db.addGameToDb( g6, gg4, c4);	
 //		db.addGameToDb( g7, gg3, c3);
 
-		db.addLicenseToGame(g1, l1);
-		db.addLicenseToGame(g1, l6);
-		db.addLicenseToGame(g3, l2);
-		db.addLicenseToGame(g1, l3);
-		db.addLicenseToGame(g2, l4);
-		db.addLicenseToGame(g, l5);
+//		db.addLicenseToGame(g1, l1);
+//		db.addLicenseToGame(g1, l6);
+//		db.addLicenseToGame(g3, l2);
+//		db.addLicenseToGame(g1, l3);
+//		db.addLicenseToGame(g2, l4);
+//		db.addLicenseToGame(g, l5);
 		
 		
 		db.registerUser(u1);

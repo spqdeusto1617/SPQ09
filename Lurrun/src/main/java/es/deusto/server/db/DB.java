@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,11 @@ import es.deusto.server.db.data.*;
 public class DB implements IDB {
 
 	private static final long serialVersionUID = 1L;
+	
 	private int cont = 0;
 	IDAO dao;
 	final Logger logger = LoggerFactory.getLogger(DB.class);
+	private final int DEFAULT_LICENSES = 3;
 	
 	public DB(){
 		super();
@@ -80,7 +83,6 @@ public class DB implements IDB {
 	@Override
 	public List<Game> getAllGames() {
 		return dao.getAllGames();
-
 	}
 	
 	@Override
@@ -94,33 +96,27 @@ public class DB implements IDB {
 	}
 
 	@Override
-	public boolean addLicenseToGame(Game g, License l) {
-		Game game = null;
-		License license = null;
-		boolean ret=true;
-		try {
-
-			game  = dao.retrieveGame(g.getName());
-			license = dao.retrieveLicense(l.getGameKey());
-
-		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
-			ret=false;
+	public List<String> getAllCompanies() {
+		List<Company> companies = dao.getAllCompanies();
+		List<String> compNames = new ArrayList<>();
+		for(Company comp : companies){
+			compNames.add(comp.getName());
 		}
-
-		if (game !=null && license == null){
-
-			l.setGame(game);
-			game.addLicense(l);
-
-			dao.updateGame(game);
-
-		}
-		return ret;
+		return compNames;
 	}
 	
 	@Override
-	public boolean addGameToDb(Game g,Genre gg, Company c)  {
+	public List<String> getAllGenres() {
+		List<Genre> genres = dao.getAllGenres();
+		List<String> genNames = new ArrayList<>();
+		for(Genre gen : genres){
+			genNames.add(gen.getName());
+		}
+		return genNames;
+	}
+	
+	@Override
+	public boolean addGameToDb(Game g,Genre gg, Company c) {
 		Game game = null;
 		Genre genre = null;
 		Company company = null;
@@ -130,51 +126,37 @@ public class DB implements IDB {
 		genre = dao.retrieveGenre(gg.getName());
 		company = dao.retrieveCompany(c.getName());
 
-
 		if (game != null ) {
 			ret = false; 
-			
-			
-		} else if ( genre != null && company == null){
-
-
+		} 
+		else if ( genre != null && company == null){
 			g.setCompany(c);
 			g.setGenre(genre);
-
 
 			genre.addGame(g);
 			c.addGame(g);
 
 			dao.updateGenre(genre);
-		//	dao.storeGame(g);
-		} else if ( genre != null && company != null  ){
-
-
+		} 
+		else if ( genre != null && company != null  ){
 		g.setCompany(company);
 		g.setGenre(genre);
-
 
 		genre.addGame(g);
 		company.addGame(g);
 
-	//	dao.updateGenre(genre);
-	//	dao.updateCompany(company);
 		 dao.storeGame(g);
-		} else if (genre == null && company != null  ){
-
-
+		} 
+		else if (genre == null && company != null  ){
 		g.setCompany(company);
 		g.setGenre(gg);
-
 
 		gg.addGame(g);
 		company.addGame(g);
 
 		dao.updateCompany(company);
-		// dao.storeGame(g);
-	}
-		else  if ( genre == null && company == null  ){
-
+		}
+		else if ( genre == null && company == null  ){
 			g.setCompany(c);
 			g.setGenre(gg);
 
@@ -182,8 +164,12 @@ public class DB implements IDB {
 			c.addGame(g);
 
 			dao.storeGame(g);
-
 		}
+		
+		for(int i = 0; i<DEFAULT_LICENSES; i++){
+			addLicenseToGame(g, new License(createLicenseKey()));
+		}
+		
 		return ret;
 	}
 
@@ -191,6 +177,14 @@ public class DB implements IDB {
 	public boolean isSuperUser(String login){
 		User u = dao.retrieveUser(login);
 		return u.getSuperuser();
+	}
+	
+	
+	@Override
+	public User showUser(String login){
+		 User u=dao.retrieveUser(login);
+		return u;
+
 	}
 	
 	@Override
@@ -201,9 +195,16 @@ public class DB implements IDB {
 	}
 	
 	@Override
-	public User showUser(String login){
-		 User u=dao.retrieveUser(login);
-		return u;
+	public Company showCompany(String name){
+		 Company c=dao.retrieveCompany(name);
+		return c;
+
+	}
+	
+	@Override
+	public Genre showGenre(String name){
+		Genre genr=dao.retrieveGenre(name);
+		return genr;
 
 	}
 
@@ -244,17 +245,41 @@ public class DB implements IDB {
 		return ret;
 	}
 	
-//	private Genre showGenre(String name){
-//		Genre genr=dao.retrieveGenre(name);
-//		return genr;
-//
-//	}
+	private String createLicenseKey() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
 	
-//	private Company showCompany(String name){
-//		 Company c=dao.retrieveCompany(name);
-//		return c;
-//
-//	}
+	private boolean addLicenseToGame(Game g, License l) {
+		Game game = null;
+		License license = null;
+		boolean ret=true;
+		try {
+			game  = dao.retrieveGame(g.getName());
+			license = dao.retrieveLicense(l.getGameKey());
+		} catch (Exception  e) {
+					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+			ret=false;
+		}
+
+		if (game !=null && license == null){
+
+			l.setGame(game);
+			game.addLicense(l);
+
+			dao.updateGame(game);
+
+		}
+		return ret;
+	}
 	
 //	private License showLicense(String gameKey){
 //		 License l=dao.retrieveLicense(gameKey);

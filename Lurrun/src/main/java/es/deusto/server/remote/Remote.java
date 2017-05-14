@@ -123,20 +123,35 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	}
 	
 	@Override
-	public boolean addGame(Game game, Genre genre, Company company) throws RemoteException {
-		if(game!=null || genre!=null || company!=null){
+	public boolean addGame(String gName, double price, double disc,String gg, String c) throws RemoteException {
 		IDB db = new DB();
-		try {
-			return db.addGameToDb(game,genre,company);
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error("Remote exception addGame");
-			throw new RemoteException();
+		Game g = new Game(gName, price, disc);
+		Genre gen = db.showGenre(gg);
+		Company comp = db.showCompany(c);
+		return db.addGameToDb(g, gen, comp);
+	}
+	
+	@Override
+	public String[] getAllCompanies() {
+		IDB db = new DB();
+		List<String> companies = db.getAllCompanies();
+		return toArray(companies);
+	}
+	
+	@Override
+	public String[] getAllGenres() {
+		IDB db = new DB();
+		List<String> genres = db.getAllGenres();
+		return toArray(genres);
+	}
+	
+	private String[] toArray(List<String> list){
+		int length = list.size();
+		String[] array = new String [length];
+		for(int i = 0; i<length; i++){
+			array[i] = list.get(i);
 		}
-		}else{
-			logger.error("Remote exception addGame");
-			throw new RemoteException();
-		}
+		return array;
 	}
 	
 	protected void finalize () throws Throwable {

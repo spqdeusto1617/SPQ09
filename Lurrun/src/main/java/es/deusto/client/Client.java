@@ -18,10 +18,10 @@ public class Client {
 	private static List<Game> games = null;
 	final static Logger logger = LoggerFactory.getLogger(Client.class);
 	private static boolean superuser = false;
+	private static String defInfo = "\nInsert the option number to select an action. If you want to exit the application, input 'quit'.";
 	
-	private static void displayMenu(String[] options){
-		
-		logger.info("\nInsert the option number to select an action. If you want to exit the application, input 'quit'.");
+	private static void displayMenu(String[] options, String info){
+		logger.info(info);
 		int len = options.length;
 		if(!superuser){
 			len--;
@@ -108,10 +108,13 @@ public class Client {
 				}
 				
 				if(pass){
+					if(superuser){
+						logger.info("\nHello superuser!");
+					}
 					log = false;
 					String input = "";						
 					do{
-						displayMenu(mainMenu);
+						displayMenu(mainMenu, defInfo);
 						input = System.console().readLine();
 						switch(input){
 						case("1"):
@@ -144,20 +147,34 @@ public class Client {
 								double gPrice = 0.0;
 								double gDisc = 0.0;
 								//Input name, price and discount
-								logger.info("Input new game name:");
+								logger.info("\nInput new game name:");
 								gName = System.console().readLine();
 								try{
 									logger.info("Input new game price:");
-									gPrice = Integer.parseInt(System.console().readLine());
+									gPrice = Double.parseDouble(System.console().readLine());
 									logger.info("Input new game discount:");
-									gDisc = Integer.parseInt(System.console().readLine());
+									gDisc = Double.parseDouble(System.console().readLine());
 								} catch (Exception e){
 									logger.info("Invalid input");
+									break;
 								}
 								
 								//Choose Company
+								int choose = 0;
+								String[] chooseList = server.getAllCompanies();
+								displayMenu(chooseList, "Select a company");
+								choose = Integer.parseInt(System.console().readLine());
+								String cName = chooseList[choose--];
+								
 								//Coose Genre
-								//Add license (generate random and check if exsists on game before adding)
+								chooseList = server.getAllGenres();
+								displayMenu(chooseList, "Select a Genre");
+								choose = Integer.parseInt(System.console().readLine());
+								String ggName = chooseList[choose--];
+								
+								if(server.addGame(gName, gPrice, gDisc, ggName, cName)){
+									logger.info("\nNew game added successfully");
+								}
 								break;
 							}
 						case("quit"):

@@ -11,11 +11,15 @@ public interface IDB {
 	  
 	  List<Game> getAllGames();
 	  List<Game> getUserGames(String login);
+	  List<String> getAllCompanies();
+	  List<String> getAllGenres();
 	  
-	  boolean addLicenseToGame(Game g, License l);
+//	  boolean addLicenseToGame(Game g, License l);
 	  boolean addGameToDb(Game g,Genre gg, Company c);
 	  boolean isSuperUser(String login);
 	
-	  Game showGame(String name);
 	  User showUser(String login);
+	  Game showGame(String name);
+	  Company showCompany(String name);
+	  Genre showGenre(String name);
 }

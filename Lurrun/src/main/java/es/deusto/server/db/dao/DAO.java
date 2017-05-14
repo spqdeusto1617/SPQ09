@@ -346,6 +346,68 @@ public class DAO implements IDAO {
 	}
 	
 	@Override
+	public List<Company> getAllCompanies() {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx = pm.currentTransaction();
+        pm.getFetchPlan().setMaxFetchDepth(3);
+
+        List<Company> companies = new ArrayList<>();
+        try {
+            tx.begin();
+            Extent<Company> extentP = pm.getExtent(Company.class);
+
+            for (Company p : extentP) {
+
+               companies.add(p);
+               p.getName();
+//               p.getCompany();
+//               p.getGenre();
+                }
+
+            tx.commit();
+        } catch (Exception ex) {
+        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
+        } finally {
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            pm.close();
+        }
+        return companies;
+	}
+	
+	@Override
+	public List<Genre> getAllGenres() {
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx = pm.currentTransaction();
+        pm.getFetchPlan().setMaxFetchDepth(3);
+
+        List<Genre> genres = new ArrayList<>();
+        try {
+            tx.begin();
+            Extent<Genre> extentP = pm.getExtent(Genre.class);
+
+            for (Genre p : extentP) {
+
+               genres.add(p);
+               p.getName();
+//               p.getCompany();
+//               p.getGenre();
+                }
+
+            tx.commit();
+        } catch (Exception ex) {
+        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
+        } finally {
+            if (tx.isActive()) {
+                tx.rollback();
+            }
+            pm.close();
+        }
+        return genres;
+	}
+	
+	@Override
 	public License getFirstLicense(String name) {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();

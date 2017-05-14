@@ -23,6 +23,8 @@ public interface IDAO {
 	boolean updateGenre(Genre g);
 	
 	List<Game> getAllGames();
+	List<Company> getAllCompanies();
+	List<Genre> getAllGenres();
 	License getFirstLicense(String name);
 
 //	Genre retrieveGenreByParameter(String name);
