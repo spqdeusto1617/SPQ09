@@ -188,6 +188,12 @@ public class DB implements IDB {
 	}
 
 	@Override
+	public boolean isSuperUser(String login){
+		User u = dao.retrieveUser(login);
+		return u.getSuperuser();
+	}
+	
+	@Override
 	public Game showGame(String name){
 		 Game g=dao.retrieveGame(name);
 		

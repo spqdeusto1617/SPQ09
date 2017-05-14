@@ -16,6 +16,7 @@ public interface IRemote extends Remote {
 	double getUserWallet(String login) throws RemoteException;
 	
 	//SUPERUSER FUNCTION
+	boolean isSuperUser(String login) throws RemoteException;
 	boolean addGame (Game g,Genre gg, Company c) throws RemoteException;
 	
 //	List<User> getAllUsers() throws RemoteException;

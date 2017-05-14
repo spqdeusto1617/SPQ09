@@ -50,7 +50,7 @@ public class Server{
 		License l5 = new License ("FFFAAAAAFFFF");
 		License l6 = new License ("12345667");
 		
-		User u1 = new User("ainhoa", "ainhoa", false);
+		User u1 = new User("ainhoa", "ainhoa", true);
 		User u2 = new User("Joel", "qwerty", false);
 		User u3 = new User("Cabezali", "qwerty", false);
 		

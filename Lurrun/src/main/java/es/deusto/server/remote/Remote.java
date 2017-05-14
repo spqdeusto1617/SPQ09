@@ -117,6 +117,12 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 	}
 
 	@Override
+	public boolean isSuperUser(String login) throws RemoteException {
+		IDB db = new DB();
+		return db.isSuperUser(login);
+	}
+	
+	@Override
 	public boolean addGame(Game game, Genre genre, Company company) throws RemoteException {
 		if(game!=null || genre!=null || company!=null){
 		IDB db = new DB();

@@ -14,20 +14,23 @@ import es.deusto.server.remote.*;
 
 public class Client {
 	
-	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game"};
+	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game", "Add game"};
 	private static List<Game> games = null;
 	final static Logger logger = LoggerFactory.getLogger(Client.class);
+	private static boolean superuser = false;
+	
 	private static void displayMenu(String[] options){
 		
 		logger.info("\nInsert the option number to select an action. If you want to exit the application, input 'quit'.");
-		for(int i = 0; i<options.length; i++){
+		int len = options.length;
+		if(!superuser){
+			len--;
+		}
+		for(int i = 0; i<len; i++){
 			logger.info((i+1) + ".- " + options[i]);
 		}
 	}
-	/**
-	 * Method to show the games that the logged user owns
-	 * @param server, login
-	 */
+	
 	private static void showGames(IRemote server, String login){
 		List<License> ownedLicenses = null;
 		String sentence = null;
@@ -75,6 +78,7 @@ public class Client {
 			logger.info("Use: java [policy] [codebase] Client.Client [host] [port] [server]");
 			System.exit(0);
 		}
+		
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
@@ -94,6 +98,7 @@ public class Client {
 				String password = String.valueOf(System.console().readPassword());
 				if(logreg == 1){
 					pass = server.loginUser(login, password);
+					superuser = server.isSuperUser(login);
 				}
 				else if (logreg == 2){
 					pass = server.registerUser(login, password);
@@ -102,10 +107,8 @@ public class Client {
 					logger.error("Non valid input");
 				}
 				
-				
 				if(pass){
 					log = false;
-
 					String input = "";						
 					do{
 						displayMenu(mainMenu);
@@ -134,6 +137,29 @@ public class Client {
 								logger.info("Game bought successfully");
 							}
 							break;
+						case("4"):
+							//Add new game only if superUser
+							if(superuser){
+								String gName = "";
+								double gPrice = 0.0;
+								double gDisc = 0.0;
+								//Input name, price and discount
+								logger.info("Input new game name:");
+								gName = System.console().readLine();
+								try{
+									logger.info("Input new game price:");
+									gPrice = Integer.parseInt(System.console().readLine());
+									logger.info("Input new game discount:");
+									gDisc = Integer.parseInt(System.console().readLine());
+								} catch (Exception e){
+									logger.info("Invalid input");
+								}
+								
+								//Choose Company
+								//Coose Genre
+								//Add license (generate random and check if exsists on game before adding)
+								break;
+							}
 						case("quit"):
 							break;
 						default:

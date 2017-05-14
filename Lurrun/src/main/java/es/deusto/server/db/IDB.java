@@ -14,6 +14,7 @@ public interface IDB {
 	  
 	  boolean addLicenseToGame(Game g, License l);
 	  boolean addGameToDb(Game g,Genre gg, Company c);
+	  boolean isSuperUser(String login);
 	
 	  Game showGame(String name);
 	  User showUser(String login);

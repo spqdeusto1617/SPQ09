@@ -316,8 +316,6 @@ public class DAO implements IDAO {
 	
 	@Override
 	public List<Game> getAllGames() {
-
-	
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
         pm.getFetchPlan().setMaxFetchDepth(3);
@@ -337,16 +335,14 @@ public class DAO implements IDAO {
 
             tx.commit();
         } catch (Exception ex) {
-        	   ////////////logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
+        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
         } finally {
             if (tx.isActive()) {
                 tx.rollback();
             }
             pm.close();
         }
-
         return games;
-
 	}
 	
 	@Override
