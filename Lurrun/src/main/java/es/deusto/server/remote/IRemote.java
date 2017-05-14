@@ -8,20 +8,15 @@ import es.deusto.server.db.data.*;
 
 public interface IRemote extends Remote {
 	
-//	String sayMessage(String login, String password, String message) throws RemoteException;
 	boolean registerUser(String login, String password) throws RemoteException;
 	boolean loginUser(String login, String password) throws RemoteException;
-	Game gameTest() throws RemoteException;
-	License licenseTest() throws RemoteException;
-	
-	
-	User getUser(String login) throws RemoteException;
 	List<Game> showGamesInStore() throws RemoteException;
 	List<Game> showOwnedGames(String username) throws RemoteException;
 	boolean buyGame(String username, String name) throws RemoteException;
-	boolean buyGameTest() throws RemoteException;
+	double getUserWallet(String login) throws RemoteException;
+	
 	//SUPERUSER FUNCTION
 	boolean addGame (Game g,Genre gg, Company c) throws RemoteException;
 	
-	List<User> getAllUsers() throws RemoteException;
+//	List<User> getAllUsers() throws RemoteException;
 }

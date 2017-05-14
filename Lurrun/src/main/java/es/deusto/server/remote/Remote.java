@@ -37,7 +37,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			IDB db = new DB();
 			//change to objetc the parameters
 			User u = new User(login,  password, false);
-			return	db.registerUser( u);
+			return db.loginUser(u);
 		} else {
 			logger.error("Remote Exception Register User");
 			throw new RemoteException();
@@ -49,7 +49,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			IDB db = new DB();
 			//change to objetc the parameters
 			User u = new User(login,  password, false);
-			return	db.registerUser( u);
+			return db.registerUser(u);
 		} else {
 			logger.error("Remote Exception Register User");
 			throw new RemoteException();
@@ -70,15 +70,17 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		}
 	}
 
-	public User getUser(String login) throws RemoteException{
+	public double getUserWallet(String login) throws RemoteException{
 
 		IDB db = new DB();
 		User u  = db.showUser(login);
 
-		if(u == null){logger.error("Remote exception getUser");throw new RemoteException();
+		if(u == null){
+			logger.error("Remote exception getUser");
+			throw new RemoteException();
 		}
 		else{
-			return(u);
+			return(u.getMoney());
 		}
 
 
@@ -98,20 +100,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			return(games);
 		}
 	}
-
-	public List<User> getAllUsers() throws RemoteException {
-	    // TODO Auto-generated method stub
-	    
-	    IDB db = new DB();
-	    List<User> users = db.getAllUsers();
-	    if(users.isEmpty()){
-	    logger.error("Remote exception ,No users, getAllUsers" );
-	      throw new RemoteException();
-	    }
-	    else{
-	      return(users);
-	    }
-	  }
 	
 	@Override
 	public boolean buyGame(String username, String name) throws RemoteException {
@@ -146,83 +134,10 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		}
 	}
 	
-//	public  void checkRemoteness(){		
-//		logger.info("checkremoteness");
-//		registerUser("remoteness"+count, "checkRemotenss" , false);
-//		count++;
-//		}
-	
 	protected void finalize () throws Throwable {
 		if (tx.isActive()) {
             tx.rollback();
         }
         pm.close();
 	}
-
-	public Game gameTest() throws RemoteException{
-		Company c = new Company("White Wolf");
-		Genre gr = new Genre("Vampire");
-		Game g = new Game("Vampire the Masquerade", 19.90, 0);
-
-		IDB db = new DB();
-
-		try {
-			db.addGameToDb(g, gr, c);
-		} catch (Exception e) {
-			logger.error("Exception gameTest");
-			e.printStackTrace();
-		}
-		Game g1=db.showGame(g.getName());
-
-		return(g1);
-	}
-	
-	public License licenseTest(){
-		Company c = new Company("DICE");
-		Genre gr = new Genre("Bellic simulator");
-		Game g = new Game("BF 1942", 19.90, 0);
-
-		License l = new License ("GGGG");
-
-		User u = new User("JunitUser","Junit Pass",false);
-
-		IDB db = new DB();
-		try {
-			db .addGameToDb(g, gr, c);
-			db.registerUser(u);
-			db.addLicenseToGame(g, l);
-			//db.buyGame(u.getLogin(), g.getName());
-		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
-		}
-	
-
-		db.showLicense(l.getGameKey());
-		return(l);
-	}
-	
-	public boolean buyGameTest(){
-		boolean  a = true;
-		Company c = new Company("Vivendi");
-		Genre gr = new Genre("shit");
-		Game g = new Game("COD 10", 19.90, 0);
-
-		License l = new License ("FFFFGGGG");
-
-		User u = new User("Rattata","Junit Pass",false);
-
-		IDB db = new DB();
-		try {
-			addGame(g, gr, c);
-			db.registerUser(u);
-			db.addLicenseToGame(g, l);
-			buyGame(u.getLogin(), g.getName());
-		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
-		a=false;
-		}
-
-		return(a);
-	}
-	
-	
-
 }

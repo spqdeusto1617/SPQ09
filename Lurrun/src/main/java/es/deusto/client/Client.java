@@ -16,11 +16,10 @@ public class Client {
 	
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game"};
 	private static List<Game> games = null;
-	private static String info = "If you want to go back, input 'b'; if you want to exit the application, input 'quit'";
 	final static Logger logger = LoggerFactory.getLogger(Client.class);
 	private static void displayMenu(String[] options){
 		
-		logger.info("Insert the option number to select an action. " + info);
+		logger.info("\nInsert the option number to select an action. If you want to exit the application, input 'quit'.");
 		for(int i = 0; i<options.length; i++){
 			logger.info((i+1) + ".- " + options[i]);
 		}
@@ -33,43 +32,40 @@ public class Client {
 		List<License> ownedLicenses = null;
 		String sentence = null;
 		try {
-			
 			if(login!=null){
-
 				sentence = "games owned by user " + login;
-				games = server.showOwnedGames(login);
-						
+				games = server.showOwnedGames(login);	
 			}
 			else{
 				sentence = "games in the store";
 				games = server.showGamesInStore();
-				
 			}
 			
 		} catch (RemoteException e) {
 			logger.info(e.getMessage());
 		}
+		
 		if(games.isEmpty()){
 			logger.info("No " + sentence);
-		}
-		else{
+		} 
+		else {
 			logger.info("Show " + sentence);
-			for(int i = 0; i < games.size(); i++){												
+			for(int i = 0; i < games.size(); i++){
 				Game g = games.get(i);
 				logger.info((i+1) + ".-" + g.toString());
-				List<License> la = g.getLicenses();;
+				List<License> la = g.getLicenses();
 				if(!la.isEmpty()){
-				for(License a : la){
-					if (a.isUsed()==false){
-						logger.info("Free license avaliable");
-						break;
+					for(License a : la){
+						if (a.isUsed()==false){
+							logger.info("Free license avaliable");
+							break;
+						}
 					}
-
+				} 
+				else {
+					logger.info("No available licenses");
 				}
-			}else{
-				logger.info("No free license");}
-			}
-				
+			}	
 		}
 	}
 
@@ -89,7 +85,7 @@ public class Client {
 			
 			boolean log = true;
 			while(log){
-				logger.info("For loggin press '1'; for registering press '2'");
+				logger.info("\nFor loggin press '1'; for registering press '2'");
 				int logreg = Integer.parseInt(System.console().readLine());
 				boolean pass = false;
 				logger.info("Insert username:");
@@ -125,16 +121,18 @@ public class Client {
 							break;
 						case("3"):
 							//Buy game
-							logger.info("Insert a game's Id to select it. " + info);
+							logger.info("\nInsert a game's Id to select it. If you want to go back, input 'b'.");
+							logger.info("Available money: " + server.getUserWallet(login));
 							showGames(server, null);
 							input = System.console().readLine();
+							if(input.equals("b")){
+								break;
+							}
 							int id = Integer.parseInt(input)-1;
 							String gameName = games.get(id).getName();
 							if(server.buyGame(login, gameName)){
 								logger.info("Game bought successfully");
 							}
-							break;
-						case("b"):
 							break;
 						case("quit"):
 							break;

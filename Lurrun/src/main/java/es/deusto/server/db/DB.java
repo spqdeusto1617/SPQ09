@@ -24,13 +24,11 @@ public class DB implements IDB {
 	public DB(){
 		super();
 		dao = new DAO();
-
 	}
 
 	public DB(IDAO udao) {
 		super();
 		dao = udao;
-
 	}
 
 	public List<Game> getUserGames(String username) {
@@ -38,20 +36,24 @@ public class DB implements IDB {
 		List <Game> gameList = new ArrayList<>();
 		for (License l : u.getLicenses() ) {
 			gameList.add(l.getGame());
-            }
+        }
 		return gameList;
 	}
 
 	public boolean buyGame(String username, String name) {
+		logger.info("Buying game");
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l=	dao.getFirstLicense(name);
-	
+		License l =	dao.getFirstLicense(name);
+		
+		logger.info("Setting license used");
 		l.setUsed(true);	
 		
+		logger.info("Updating DB");
 		dao.updateLicense(l);
 		dao.updateGame(g);
 	
+		logger.info("Adding license to user");
 		addLicenseToUser(u, l);
 		return true;
 	}
@@ -82,26 +84,21 @@ public class DB implements IDB {
 	}
 
 	public boolean addGameToDb(Game g,Genre gg, Company c)  {
-
-
-
 		Game game = null;
 		Genre genre = null;
 		Company company = null;
 		boolean ret=true;
 
-		
-
-			game  = dao.retrieveGame(g.getName());
-			genre = dao.retrieveGenre(gg.getName());
-			company = dao.retrieveCompany(c.getName());
+		game  = dao.retrieveGame(g.getName());
+		genre = dao.retrieveGenre(gg.getName());
+		company = dao.retrieveCompany(c.getName());
 
 
 		if (game != null ) {
 			ret = false; 
 			
 			
-		}else if ( genre != null && company == null  ){
+		} else if ( genre != null && company == null){
 
 
 			g.setCompany(c);
@@ -113,8 +110,7 @@ public class DB implements IDB {
 
 			dao.updateGenre(genre);
 		//	dao.storeGame(g);
-		}
-		else if ( genre != null && company != null  ){
+		} else if ( genre != null && company != null  ){
 
 
 		g.setCompany(company);
@@ -127,8 +123,7 @@ public class DB implements IDB {
 	//	dao.updateGenre(genre);
 	//	dao.updateCompany(company);
 		 dao.storeGame(g);
-	}
-		else if (genre == null && company != null  ){
+		} else if (genre == null && company != null  ){
 
 
 		g.setCompany(company);

@@ -35,7 +35,7 @@ public class DAO implements IDAO {
 		       pm.makePersistent(u);
 		       tx.commit();
 		    } catch (Exception ex) {
-//		    		////////////logger.error("   $ Error storing an object: " + ex.getMessage());
+//		    	logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret=false;
 		    
 		    } finally {
@@ -59,7 +59,7 @@ public class DAO implements IDAO {
 	    	pm.makePersistent(g);
 	    	tx.commit();
 	     } catch (Exception ex) {
-	    	   	////////////logger.error("Error updating a License: " + ex.getMessage());
+//	    	logger.error("Error updating a License: " + ex.getMessage());
 		   	ret = false;
 	     } finally {
 		   	if (tx != null && tx.isActive()) {

@@ -459,7 +459,68 @@
 //		} catch (InterruptedException ie) {
 //			ie.printStackTrace();
 //		}
-//
-//
-//	} 
+//	}
+//	public Game gameTest() throws RemoteException{
+//		Company c = new Company("White Wolf");
+//		Genre gr = new Genre("Vampire");
+//		Game g = new Game("Vampire the Masquerade", 19.90, 0);
+//		
+//		IDB db = new DB();
+//		
+//		try {
+//			db.addGameToDb(g, gr, c);
+//		} catch (Exception e) {
+//			logger.error("Exception gameTest");
+//			e.printStackTrace();
+//		}
+//		Game g1=db.showGame(g.getName());
+//		
+//		return(g1);
+//	}
+//	
+//	public License licenseTest(){
+//		Company c = new Company("DICE");
+//		Genre gr = new Genre("Bellic simulator");
+//		Game g = new Game("BF 1942", 19.90, 0);
+//		
+//		License l = new License ("GGGG");
+//		
+//		User u = new User("JunitUser","Junit Pass",false);
+//		
+//		IDB db = new DB();
+//		try {
+//			db .addGameToDb(g, gr, c);
+//			db.registerUser(u);
+//			db.addLicenseToGame(g, l);
+//			//db.buyGame(u.getLogin(), g.getName());
+//		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
+//		}
+//		
+//		
+//		db.showLicense(l.getGameKey());
+//		return(l);
+//	}
+//	
+//	public boolean buyGameTest(){
+//		boolean  a = true;
+//		Company c = new Company("Vivendi");
+//		Genre gr = new Genre("shit");
+//		Game g = new Game("COD 10", 19.90, 0);
+//		
+//		License l = new License ("FFFFGGGG");
+//		
+//		User u = new User("Rattata","Junit Pass",false);
+//		
+//		IDB db = new DB();
+//		try {
+//			addGame(g, gr, c);
+//			db.registerUser(u);
+//			db.addLicenseToGame(g, l);
+//			buyGame(u.getLogin(), g.getName());
+//		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
+//		a=false;
+//		}
+//		
+//		return(a);
+//	}
 //}
