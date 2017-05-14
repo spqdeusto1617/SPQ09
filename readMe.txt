@@ -4,39 +4,17 @@ Change datanucleus properties username/pass with mysql username and pass
 
 mvn clean compile
 mvn datanucleus:schema-delete
-<<<<<<< HEAD
 mvn clean compile
 mvn datanucleus:schema-create
 mvn compile
 mvn exec:java -Pserver
 
 mvn exec:java -Pclient
-
-
-To test (do not forget to stop the RMIRegistry) 
-- mvn test
-
-(Mock tests simulation of DAO Layer)
-(RMI integration tests)
-
-To generate cobertura reports
-- mvn cobertura:cobertura
-=======
-Create schema lurrundb
-execute .bat
-Change datanucleus properties username/pass with mysql username and pass
 
 mvn clean compile
 mvn datanucleus:schema-delete
-mvn clean compile
-=======
->>>>>>> 8012827e1b835782bb20705514251c7bfd21aa00
 mvn datanucleus:schema-create
-mvn compile
 mvn exec:java -Pserver
-
-mvn exec:java -Pclient
-
 
 To test (do not forget to stop the RMIRegistry) 
 - mvn test
@@ -44,13 +22,18 @@ To test (do not forget to stop the RMIRegistry)
 mvn clean compile
 mvn datanucleus:schema-delete
 mvn test
+mvn datanucleus:schema-delete
+mvn cobertura:cobertura
+mvn checkstyle:checkstyle
+mvn jdepend:generate
+mvn dashboard:dashboard
 
 (Mock tests simulation of DAO Layer)
 (RMI integration tests)
 
 To generate cobertura reports
 - mvn cobertura:cobertura
-<<<<<<< HEAD
+
 
 Alternatively, in order to clearly see the elements involved, you may run one by one 
 the difference quality assurance and performance tests and then integrate all their 
@@ -65,5 +48,8 @@ reports with the command: mvn dashboard:dashboard
 
 5. Run the Dashboard plugin: mvn dashboard:dashboard
 cc
-=======
->>>>>>> 8012827e1b835782bb20705514251c7bfd21aa00
+
+
+
+
+DOXYGEN mvn doxygen:report
