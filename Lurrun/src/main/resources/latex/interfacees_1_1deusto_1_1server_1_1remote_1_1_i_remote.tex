@@ -9,13 +9,9 @@ Inheritance diagram for es.\+deusto.\+server.\+remote.\+I\+Remote\+:\begin{figur
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af5be134b00959135119e13a5980a4364}{register\+User} (String login, String password, boolean is\+Super)  throws Remote\+Exception
+boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_aea9a185d69da02d134443a3802a20b32}{register\+User} (String login, String password)  throws Remote\+Exception
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a253273caee8c2bceaa3b03922b2e3108}{game\+Test} ()  throws Remote\+Exception
-\item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a58d270fcac4cf9bc4ccd7fb45dd92753}{license\+Test} ()  throws Remote\+Exception
-\item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a011f0eb1977e978bddb8ef1a385221ed}{get\+User} (String login)  throws Remote\+Exception
+boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a19acdbd6565b0f00cbe860a3316071ad}{login\+User} (String login, String password)  throws Remote\+Exception
 \item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a091249da31b567c1be29e07085d3ff18}{show\+Games\+In\+Store} ()  throws Remote\+Exception
 \item 
@@ -23,11 +19,15 @@ List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$
 \item 
 boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_ad2e6ee616bdc780b4057e63bf2ae8be7}{buy\+Game} (String username, String name)  throws Remote\+Exception
 \item 
-boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af921e33b96b8dac2b1b62a5e16c2952b}{buy\+Game\+Test} ()  throws Remote\+Exception
+double \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a53305dbc72d910c932e66e2c27c5e1bb}{get\+User\+Wallet} (String login)  throws Remote\+Exception
 \item 
-boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a1875223271b9ce7a29a835fee12e735b}{add\+Game} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} g, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} gg, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} c)  throws Remote\+Exception
+boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a488f8b57271876e219af445345428d73}{is\+Super\+User} (String login)  throws Remote\+Exception
 \item 
-List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} $>$ \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a0ef7c091b38259be1d5ea89a2bda14e1}{get\+All\+Users} ()  throws Remote\+Exception
+boolean \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a991909db4d26d5be67bb3e0bcb501c7e}{add\+Game} (String g\+Name, double price, double disc, String gg, String c)  throws Remote\+Exception
+\item 
+String \mbox{[}$\,$\mbox{]} \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a43ab8347d64e5d49093e607029f2598b}{get\+All\+Companies} ()  throws Remote\+Exception
+\item 
+String \mbox{[}$\,$\mbox{]} \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a7c3721ee532d20aa65b892b55f157b21}{get\+All\+Genres} ()  throws Remote\+Exception
 \end{DoxyCompactItemize}
 
 
@@ -39,15 +39,15 @@ Definition at line 9 of file I\+Remote.\+java.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a1875223271b9ce7a29a835fee12e735b}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a1875223271b9ce7a29a835fee12e735b}} 
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a991909db4d26d5be67bb3e0bcb501c7e}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a991909db4d26d5be67bb3e0bcb501c7e}} 
 \index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!add\+Game@{add\+Game}}
 \index{add\+Game@{add\+Game}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
 \subsubsection{\texorpdfstring{add\+Game()}{addGame()}}
-{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+add\+Game (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game}}]{g,  }\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre}}]{gg,  }\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company}}]{c }\end{DoxyParamCaption}) throws Remote\+Exception}
+{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+add\+Game (\begin{DoxyParamCaption}\item[{String}]{g\+Name,  }\item[{double}]{price,  }\item[{double}]{disc,  }\item[{String}]{gg,  }\item[{String}]{c }\end{DoxyParamCaption}) throws Remote\+Exception}
 
 
 
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1ecaa4a69094e3f3410720b54027e5b3}{es.\+deusto.\+server.\+remote.\+Remote}.
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a81c61e602f9419408e0069b51bc1e740}{es.\+deusto.\+server.\+remote.\+Remote}.
 
 \mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_ad2e6ee616bdc780b4057e63bf2ae8be7}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_ad2e6ee616bdc780b4057e63bf2ae8be7}} 
 \index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!buy\+Game@{buy\+Game}}
@@ -59,65 +59,65 @@ Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1eca
 
 Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ad9f8ad426b1162504b7b39eb1c86d2a3}{es.\+deusto.\+server.\+remote.\+Remote}.
 
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af921e33b96b8dac2b1b62a5e16c2952b}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af921e33b96b8dac2b1b62a5e16c2952b}} 
-\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!buy\+Game\+Test@{buy\+Game\+Test}}
-\index{buy\+Game\+Test@{buy\+Game\+Test}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
-\subsubsection{\texorpdfstring{buy\+Game\+Test()}{buyGameTest()}}
-{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+buy\+Game\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a43ab8347d64e5d49093e607029f2598b}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a43ab8347d64e5d49093e607029f2598b}} 
+\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!get\+All\+Companies@{get\+All\+Companies}}
+\index{get\+All\+Companies@{get\+All\+Companies}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
+\subsubsection{\texorpdfstring{get\+All\+Companies()}{getAllCompanies()}}
+{\footnotesize\ttfamily String \mbox{[}$\,$\mbox{]} es.\+deusto.\+server.\+remote.\+I\+Remote.\+get\+All\+Companies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
 
 
 
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_abf7e74962d613440fcac6c2c55110163}{es.\+deusto.\+server.\+remote.\+Remote}.
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ab8595d6689604ef57f2d01309936ccd2}{es.\+deusto.\+server.\+remote.\+Remote}.
 
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a253273caee8c2bceaa3b03922b2e3108}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a253273caee8c2bceaa3b03922b2e3108}} 
-\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!game\+Test@{game\+Test}}
-\index{game\+Test@{game\+Test}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
-\subsubsection{\texorpdfstring{game\+Test()}{gameTest()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} es.\+deusto.\+server.\+remote.\+I\+Remote.\+game\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
-
-
-
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a6fb46c2635427f798b75c8ab124b54da}{es.\+deusto.\+server.\+remote.\+Remote}.
-
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a0ef7c091b38259be1d5ea89a2bda14e1}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a0ef7c091b38259be1d5ea89a2bda14e1}} 
-\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!get\+All\+Users@{get\+All\+Users}}
-\index{get\+All\+Users@{get\+All\+Users}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
-\subsubsection{\texorpdfstring{get\+All\+Users()}{getAllUsers()}}
-{\footnotesize\ttfamily List$<$\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User}$>$ es.\+deusto.\+server.\+remote.\+I\+Remote.\+get\+All\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a7c3721ee532d20aa65b892b55f157b21}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a7c3721ee532d20aa65b892b55f157b21}} 
+\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!get\+All\+Genres@{get\+All\+Genres}}
+\index{get\+All\+Genres@{get\+All\+Genres}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
+\subsubsection{\texorpdfstring{get\+All\+Genres()}{getAllGenres()}}
+{\footnotesize\ttfamily String \mbox{[}$\,$\mbox{]} es.\+deusto.\+server.\+remote.\+I\+Remote.\+get\+All\+Genres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
 
 
 
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a5c284c933c6f1f9651634dc764e526d5}{es.\+deusto.\+server.\+remote.\+Remote}.
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a89ce5459e2ebe375dc534e59eda91b74}{es.\+deusto.\+server.\+remote.\+Remote}.
 
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a011f0eb1977e978bddb8ef1a385221ed}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a011f0eb1977e978bddb8ef1a385221ed}} 
-\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!get\+User@{get\+User}}
-\index{get\+User@{get\+User}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
-\subsubsection{\texorpdfstring{get\+User()}{getUser()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} es.\+deusto.\+server.\+remote.\+I\+Remote.\+get\+User (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption}) throws Remote\+Exception}
-
-
-
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a09318956131f355c8b43f93e3c3afea4}{es.\+deusto.\+server.\+remote.\+Remote}.
-
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a58d270fcac4cf9bc4ccd7fb45dd92753}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a58d270fcac4cf9bc4ccd7fb45dd92753}} 
-\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!license\+Test@{license\+Test}}
-\index{license\+Test@{license\+Test}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
-\subsubsection{\texorpdfstring{license\+Test()}{licenseTest()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} es.\+deusto.\+server.\+remote.\+I\+Remote.\+license\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a53305dbc72d910c932e66e2c27c5e1bb}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a53305dbc72d910c932e66e2c27c5e1bb}} 
+\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!get\+User\+Wallet@{get\+User\+Wallet}}
+\index{get\+User\+Wallet@{get\+User\+Wallet}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
+\subsubsection{\texorpdfstring{get\+User\+Wallet()}{getUserWallet()}}
+{\footnotesize\ttfamily double es.\+deusto.\+server.\+remote.\+I\+Remote.\+get\+User\+Wallet (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption}) throws Remote\+Exception}
 
 
 
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a58e6d2180aeea8259ea29392ffe70b8b}{es.\+deusto.\+server.\+remote.\+Remote}.
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_af7cc190cccf69cda838a6d9805c5c2f5}{es.\+deusto.\+server.\+remote.\+Remote}.
 
-\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af5be134b00959135119e13a5980a4364}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_af5be134b00959135119e13a5980a4364}} 
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a488f8b57271876e219af445345428d73}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a488f8b57271876e219af445345428d73}} 
+\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!is\+Super\+User@{is\+Super\+User}}
+\index{is\+Super\+User@{is\+Super\+User}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
+\subsubsection{\texorpdfstring{is\+Super\+User()}{isSuperUser()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+is\+Super\+User (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac7d2e76813b61b5a9fcf33d89b6e08c4}{es.\+deusto.\+server.\+remote.\+Remote}.
+
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a19acdbd6565b0f00cbe860a3316071ad}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a19acdbd6565b0f00cbe860a3316071ad}} 
+\index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!login\+User@{login\+User}}
+\index{login\+User@{login\+User}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
+\subsubsection{\texorpdfstring{login\+User()}{loginUser()}}
+{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+login\+User (\begin{DoxyParamCaption}\item[{String}]{login,  }\item[{String}]{password }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+
+
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1c8e0153dd9b3f6d5499eb6d01e48bbe}{es.\+deusto.\+server.\+remote.\+Remote}.
+
+\mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_aea9a185d69da02d134443a3802a20b32}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_aea9a185d69da02d134443a3802a20b32}} 
 \index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!register\+User@{register\+User}}
 \index{register\+User@{register\+User}!es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}}
 \subsubsection{\texorpdfstring{register\+User()}{registerUser()}}
-{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+register\+User (\begin{DoxyParamCaption}\item[{String}]{login,  }\item[{String}]{password,  }\item[{boolean}]{is\+Super }\end{DoxyParamCaption}) throws Remote\+Exception}
+{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+remote.\+I\+Remote.\+register\+User (\begin{DoxyParamCaption}\item[{String}]{login,  }\item[{String}]{password }\end{DoxyParamCaption}) throws Remote\+Exception}
 
 
 
-Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a5a130e99a06078d7d6fe186597e91d41}{es.\+deusto.\+server.\+remote.\+Remote}.
+Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a4b013f75d23e2c9f0dbca2d3bb467f6a}{es.\+deusto.\+server.\+remote.\+Remote}.
 
 \mbox{\Hypertarget{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a091249da31b567c1be29e07085d3ff18}\label{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a091249da31b567c1be29e07085d3ff18}} 
 \index{es\+::deusto\+::server\+::remote\+::\+I\+Remote@{es\+::deusto\+::server\+::remote\+::\+I\+Remote}!show\+Games\+In\+Store@{show\+Games\+In\+Store}}
@@ -143,4 +143,4 @@ Implemented in \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a7356
 
 The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\hyperlink{_i_remote_8java}{I\+Remote.\+java}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\hyperlink{_i_remote_8java}{I\+Remote.\+java}\end{DoxyCompactItemize}

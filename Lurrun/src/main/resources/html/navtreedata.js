@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Doxygen Documentation", "index.html", [
+  [ "Lurrun Doxygen", "index.html", [
     [ "Packages", null, [
       [ "Packages", "namespaces.html", "namespaces" ]
     ] ],

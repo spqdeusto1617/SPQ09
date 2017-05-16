@@ -21,19 +21,17 @@ boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7f6ed7729
 \item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7484309d9b9b39c24cd7d0413a90c468}{store\+Game} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} g)
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a5ac74c9e59db9f20336d6e68d77c6ed8}{retrieve\+Game\+By\+Parameter} (String name)
-\item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae7540010b43f96c5e50995a8376614e7}{update\+Game} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} g)
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af3dc3f84b3ea6981bd5e93d54ab45169}{retrieve\+Company\+By\+Parameter} (String name)
-\item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a0748467c3346a5bcdcd79b508562b6dc}{update\+Company} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} c)
-\item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a1442de50d193b561a382edcac5837660}{retrieve\+Genre\+By\+Parameter} (String name)
 \item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae08384fb32fa6936c93f6292dbe02c7e}{update\+Genre} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} g)
 \item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af49ed57bdac4dec48ab7616602d12df2}{get\+All\+Games} ()
+\item 
+List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac564970c7e308393497e874655470aaa}{get\+All\+Companies} ()
+\item 
+List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac1cb7032ef21f53dead8347ef440f431}{get\+All\+Genres} ()
 \item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a9c59f6c4bf89f46e305f88a4f8eb96bc}{get\+All\+Users} ()
 \item 
@@ -50,9 +48,18 @@ List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} $>$
 
 
 \subsection{Detailed Description}
+This class is the link between the database and the server \begin{DoxyAuthor}{Author}
+
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+24/03/2017 
+\end{DoxySince}
 
 
-Definition at line 16 of file D\+A\+O.\+java.
+Definition at line 22 of file D\+A\+O.\+java.
 
 
 
@@ -65,24 +72,85 @@ Definition at line 16 of file D\+A\+O.\+java.
 
 
 
-Definition at line 20 of file D\+A\+O.\+java.
+Definition at line 27 of file D\+A\+O.\+java.
 
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac564970c7e308393497e874655470aaa}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac564970c7e308393497e874655470aaa}} 
+\index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!get\+All\+Companies@{get\+All\+Companies}}
+\index{get\+All\+Companies@{get\+All\+Companies}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
+\subsubsection{\texorpdfstring{get\+All\+Companies()}{getAllCompanies()}}
+{\footnotesize\ttfamily List$<$\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company}$>$ es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+get\+All\+Companies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method shows all the companies 
+\begin{DoxyParams}{Parameters}
+{\em unused} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List Returns a list of companies 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ad83c37658f356cb69c1fa70f99416579}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::get\+All\+Companies()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ad83c37658f356cb69c1fa70f99416579}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
+
+
+
+Definition at line 415 of file D\+A\+O.\+java.
+
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af49ed57bdac4dec48ab7616602d12df2}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af49ed57bdac4dec48ab7616602d12df2}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!get\+All\+Games@{get\+All\+Games}}
 \index{get\+All\+Games@{get\+All\+Games}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
 \subsubsection{\texorpdfstring{get\+All\+Games()}{getAllGames()}}
 {\footnotesize\ttfamily List$<$\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game}$>$ es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+get\+All\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+This method shows a list of games 
+\begin{DoxyParams}{Parameters}
+{\em unused} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List Returns a list of games 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_aebafef372cf3064b12d16fcb651b41ff}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::get\+All\+Games()} 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_aebafef372cf3064b12d16fcb651b41ff}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 300 of file D\+A\+O.\+java.
+Definition at line 377 of file D\+A\+O.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac1cb7032ef21f53dead8347ef440f431}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac1cb7032ef21f53dead8347ef440f431}} 
+\index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!get\+All\+Genres@{get\+All\+Genres}}
+\index{get\+All\+Genres@{get\+All\+Genres}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
+\subsubsection{\texorpdfstring{get\+All\+Genres()}{getAllGenres()}}
+{\footnotesize\ttfamily List$<$\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre}$>$ es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+get\+All\+Genres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method shows all the genres 
+\begin{DoxyParams}{Parameters}
+{\em unused} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List Returns a list of genres 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a96ad8de066318847a7828b12befe94f7}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::get\+All\+Genres()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a96ad8de066318847a7828b12befe94f7}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
+
+
+
+Definition at line 452 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a9c59f6c4bf89f46e305f88a4f8eb96bc}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a9c59f6c4bf89f46e305f88a4f8eb96bc}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!get\+All\+Users@{get\+All\+Users}}
@@ -90,13 +158,20 @@ Definition at line 300 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{get\+All\+Users()}{getAllUsers()}}
 {\footnotesize\ttfamily List$<$\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User}$>$ es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+get\+All\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+This method shows a list of users 
+\begin{DoxyParams}{Parameters}
+{\em unused} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List Returns a list of users 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::get\+All\+Users() 
+\end{DoxySeeAlso}
 
 
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a3786445c689f73ccd693c57a629c02de}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
-
-
-
-Definition at line 334 of file D\+A\+O.\+java.
+Definition at line 488 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a4a5a54059bac00ea6f3b6d21f2a31a02}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a4a5a54059bac00ea6f3b6d21f2a31a02}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!get\+First\+License@{get\+First\+License}}
@@ -104,13 +179,24 @@ Definition at line 334 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{get\+First\+License()}{getFirstLicense()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+get\+First\+License (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
 
+This method returns the first license stored in the database 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a license \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+License Returns a license 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_aef2783889a572e23bd57c5a2a955599a}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::get\+First\+License}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_aef2783889a572e23bd57c5a2a955599a}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 367 of file D\+A\+O.\+java.
+Definition at line 527 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_aabd374b169473cfd6e1bdc4efc89b177}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_aabd374b169473cfd6e1bdc4efc89b177}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Company@{retrieve\+Company}}
@@ -118,27 +204,24 @@ Definition at line 367 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{retrieve\+Company()}{retrieveCompany()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Company (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
 
+This method retrieves a company 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a company \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Company Returns a company 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ad6fd7873e2191e887184e2261e34e3e5}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Company}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ad6fd7873e2191e887184e2261e34e3e5}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 451 of file D\+A\+O.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af3dc3f84b3ea6981bd5e93d54ab45169}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_af3dc3f84b3ea6981bd5e93d54ab45169}} 
-\index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Company\+By\+Parameter@{retrieve\+Company\+By\+Parameter}}
-\index{retrieve\+Company\+By\+Parameter@{retrieve\+Company\+By\+Parameter}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
-\subsubsection{\texorpdfstring{retrieve\+Company\+By\+Parameter()}{retrieveCompanyByParameter()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Company\+By\+Parameter (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
-
-
-
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a5bab06408d3191e9bfd553384e65e7a4}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
-
-
-
-Definition at line 197 of file D\+A\+O.\+java.
+Definition at line 627 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac94a91d3e5aeeb98fc12f087532b3506}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ac94a91d3e5aeeb98fc12f087532b3506}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Game@{retrieve\+Game}}
@@ -146,27 +229,24 @@ Definition at line 197 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{retrieve\+Game()}{retrieveGame()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Game (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
 
+This method retrieves a game 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Game Returns a game 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a30558c19c086ac0ffff6796a8ae208fb}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Game}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a30558c19c086ac0ffff6796a8ae208fb}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 426 of file D\+A\+O.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a5ac74c9e59db9f20336d6e68d77c6ed8}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a5ac74c9e59db9f20336d6e68d77c6ed8}} 
-\index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Game\+By\+Parameter@{retrieve\+Game\+By\+Parameter}}
-\index{retrieve\+Game\+By\+Parameter@{retrieve\+Game\+By\+Parameter}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
-\subsubsection{\texorpdfstring{retrieve\+Game\+By\+Parameter()}{retrieveGameByParameter()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Game\+By\+Parameter (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
-
-
-
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a5189543a4a8e9e3bed8df7d452db283a}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
-
-
-
-Definition at line 144 of file D\+A\+O.\+java.
+Definition at line 596 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a16b0af798fbb00cd29a505491c57e2cd}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a16b0af798fbb00cd29a505491c57e2cd}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Genre@{retrieve\+Genre}}
@@ -174,27 +254,24 @@ Definition at line 144 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{retrieve\+Genre()}{retrieveGenre()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Genre (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
 
+This methos retrieves a genre 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a genre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Genre Returns a genre 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a8b15955637f9b81c57900761c6d03571}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Genre}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a8b15955637f9b81c57900761c6d03571}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 401 of file D\+A\+O.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a1442de50d193b561a382edcac5837660}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a1442de50d193b561a382edcac5837660}} 
-\index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+Genre\+By\+Parameter@{retrieve\+Genre\+By\+Parameter}}
-\index{retrieve\+Genre\+By\+Parameter@{retrieve\+Genre\+By\+Parameter}!es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}}
-\subsubsection{\texorpdfstring{retrieve\+Genre\+By\+Parameter()}{retrieveGenreByParameter()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+Genre\+By\+Parameter (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})}
-
-
-
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_aecdf5c34463102b38528152c0dfc9811}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
-
-
-
-Definition at line 249 of file D\+A\+O.\+java.
+Definition at line 565 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a02fd634e6bd7a087b1476ab161af646f}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a02fd634e6bd7a087b1476ab161af646f}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+License@{retrieve\+License}}
@@ -202,13 +279,24 @@ Definition at line 249 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{retrieve\+License()}{retrieveLicense()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+License (\begin{DoxyParamCaption}\item[{String}]{game\+Key }\end{DoxyParamCaption})}
 
+This method retrieves a license 
+\begin{DoxyParams}{Parameters}
+{\em game\+Key} & This is the key of a license \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+License Returns a license 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a6a3e25055d4a81c738d1bd73de6ef7da}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+License}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a6a3e25055d4a81c738d1bd73de6ef7da}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 476 of file D\+A\+O.\+java.
+Definition at line 658 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a8c316b4c3bf246d00fb2b423a603ebe6}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a8c316b4c3bf246d00fb2b423a603ebe6}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!retrieve\+User@{retrieve\+User}}
@@ -216,13 +304,24 @@ Definition at line 476 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{retrieve\+User()}{retrieveUser()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+retrieve\+User (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption})}
 
+This method retrieves a user 
+\begin{DoxyParams}{Parameters}
+{\em login} & This is the login name of a user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+User Returns a user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a19f9b0d0b6f5f80730d6d197deca7dfc}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+User}(java.\+lang.\+String) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a19f9b0d0b6f5f80730d6d197deca7dfc}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 75 of file D\+A\+O.\+java.
+Definition at line 98 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7484309d9b9b39c24cd7d0413a90c468}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7484309d9b9b39c24cd7d0413a90c468}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!store\+Game@{store\+Game}}
@@ -230,13 +329,24 @@ Definition at line 75 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{store\+Game()}{storeGame()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+store\+Game (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game}}]{g }\end{DoxyParamCaption})}
 
+This method stores a game 
+\begin{DoxyParams}{Parameters}
+{\em g} & This is a game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the game exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ab38972c7c70c95b4c409fa7758ef2fc3}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::store\+Game}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{es.\+deusto.\+server.\+db.\+data.\+Game}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ab38972c7c70c95b4c409fa7758ef2fc3}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 122 of file D\+A\+O.\+java.
+Definition at line 157 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_acb146e96959c340ef828ef8e36b4283c}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_acb146e96959c340ef828ef8e36b4283c}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!store\+User@{store\+User}}
@@ -244,13 +354,24 @@ Definition at line 122 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{store\+User()}{storeUser()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+store\+User (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User}}]{u }\end{DoxyParamCaption})}
 
-S\+O\+ME stuff about the dao 
+This method stores a user 
+\begin{DoxyParams}{Parameters}
+{\em u} & This is a user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the user exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ab943216560f43595a852b406dcd394a4}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::store\+User}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{es.\+deusto.\+server.\+db.\+data.\+User}) 
+\end{DoxySeeAlso}
+
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ab943216560f43595a852b406dcd394a4}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 27 of file D\+A\+O.\+java.
+Definition at line 38 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a0748467c3346a5bcdcd79b508562b6dc}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a0748467c3346a5bcdcd79b508562b6dc}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!update\+Company@{update\+Company}}
@@ -258,13 +379,35 @@ Definition at line 27 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{update\+Company()}{updateCompany()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+update\+Company (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company}}]{c }\end{DoxyParamCaption})}
 
+This method retrieves a company with a given parameter 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a company \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Company Returns a company 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Company\+By\+Parameter(java.\+lang.\+String) This method updates a company 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & This is a company \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the company exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a2d4302c61abd557f5a84d0698afdb814}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::update\+Company}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{es.\+deusto.\+server.\+db.\+data.\+Company}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a2d4302c61abd557f5a84d0698afdb814}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 226 of file D\+A\+O.\+java.
+Definition at line 285 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae7540010b43f96c5e50995a8376614e7}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae7540010b43f96c5e50995a8376614e7}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!update\+Game@{update\+Game}}
@@ -272,13 +415,35 @@ Definition at line 226 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{update\+Game()}{updateGame()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+update\+Game (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game}}]{g }\end{DoxyParamCaption})}
 
+This method retrieves a game with a given parameter 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Game Returns a game 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Game\+By\+Parameter(java.\+lang.\+String) This method updates a game 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em g} & This is a game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the game exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a3a3ca0456879e35349a937aac661ff3f}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::update\+Game}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{es.\+deusto.\+server.\+db.\+data.\+Game}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a3a3ca0456879e35349a937aac661ff3f}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 174 of file D\+A\+O.\+java.
+Definition at line 221 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae08384fb32fa6936c93f6292dbe02c7e}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_ae08384fb32fa6936c93f6292dbe02c7e}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!update\+Genre@{update\+Genre}}
@@ -286,13 +451,35 @@ Definition at line 174 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{update\+Genre()}{updateGenre()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+update\+Genre (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre}}]{g }\end{DoxyParamCaption})}
 
+This method retrieves a genre with a given parameter 
+\begin{DoxyParams}{Parameters}
+{\em name} & This is the name of a genre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Genre Returns a genre 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::retrieve\+Genre\+By\+Parameter(java.\+lang.\+String) This method updates a genre 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em g} & This is a genre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the genre exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ae989ff2681d6afe8651a595340265c39}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::update\+Genre}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{es.\+deusto.\+server.\+db.\+data.\+Genre}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_ae989ff2681d6afe8651a595340265c39}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 279 of file D\+A\+O.\+java.
+Definition at line 350 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a98774e8d93cdd4d8d104a197bd37d4e1}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a98774e8d93cdd4d8d104a197bd37d4e1}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!update\+License@{update\+License}}
@@ -300,13 +487,24 @@ Definition at line 279 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{update\+License()}{updateLicense()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+update\+License (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License}}]{g }\end{DoxyParamCaption})}
 
+This method updates a license 
+\begin{DoxyParams}{Parameters}
+{\em g} & This is a license \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the license exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a601329b95123948b10c3232687b11d5b}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::update\+License}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{es.\+deusto.\+server.\+db.\+data.\+License}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a601329b95123948b10c3232687b11d5b}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 53 of file D\+A\+O.\+java.
+Definition at line 70 of file D\+A\+O.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7f6ed77294fe1f61cbebbea410cef6e0}\label{classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o_a7f6ed77294fe1f61cbebbea410cef6e0}} 
 \index{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO@{es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}!update\+User@{update\+User}}
@@ -314,16 +512,27 @@ Definition at line 53 of file D\+A\+O.\+java.
 \subsubsection{\texorpdfstring{update\+User()}{updateUser()}}
 {\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+dao.\+D\+A\+O.\+update\+User (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User}}]{u }\end{DoxyParamCaption})}
 
+This method updates a user 
+\begin{DoxyParams}{Parameters}
+{\em u} & This is a user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean Returns true or false depending on whether the user exists or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a790b00e2989b634c1bbb2c6620ff3583}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+A\+O\+::update\+User}(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{es.\+deusto.\+server.\+db.\+data.\+User}) 
+\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o_a790b00e2989b634c1bbb2c6620ff3583}{es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}.
 
 
 
-Definition at line 101 of file D\+A\+O.\+java.
+Definition at line 130 of file D\+A\+O.\+java.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\hyperlink{_d_a_o_8java}{D\+A\+O.\+java}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\hyperlink{_d_a_o_8java}{D\+A\+O.\+java}\end{DoxyCompactItemize}

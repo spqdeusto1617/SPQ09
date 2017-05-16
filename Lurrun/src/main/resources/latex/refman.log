@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.9)  9 MAY 2017 19:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  16 MAY 2017 10:50
 entering extended mode
 **./refman.tex
 (refman.tex
@@ -1196,63 +1196,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 11.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 26.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 26.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [1
+ [1
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 62.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 62.
- [2] [3] [4]
-[5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 222--222
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/dao/[]D[]AO.java File 
- []
+ [2]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 77.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 77.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--223
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/dao/[]I[]D[]AO.java File 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--224
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/data/[]Company.java 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--225
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/data/[]Game.java File 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--226
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/data/[]Genre.java File 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--228
- [][] [][][]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]L
-urrun/src/main/java/es/deusto/server/db/data/[]User.java File 
- []
-
-)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [3] [4] [5] [6]
+[7])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [8] [9] [10
-
-]
+ [8]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
 
 Chapter 1.
@@ -1272,6 +1235,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 ) [1
+
 
 ] [2
 
@@ -1320,7 +1284,7 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 22.
 )
 (classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.tex
-<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.pdf, id=1415, 501.875pt 
+<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.pdf, id=1434, 501.875pt 
 x 184.69pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.pdf Graphic file (t
 ype pdf)
@@ -1331,19 +1295,10 @@ pdf used on input line 6.
 
 [11
 
- <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.pdf>]
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 7.19995pt on input line 51.
-
-
-LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 51.
-
-[12]
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 115.
- [13]) (classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.tex
-<classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf, id=1472, 501.875pt x 2
+ <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.pdf>] [12])
+(classes_1_1deusto_1_1server_1_1_conti_perf_test.tex [13])
+(classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.tex
+<classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf, id=1486, 501.875pt x 2
 08.78pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf Graphic file (type
  pdf)
@@ -1351,19 +1306,458 @@ File: classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf Graphic file (type
 Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf
  used on input line 6.
 (pdftex.def)             Requested size: 136.78694pt x 56.9055pt.
- [14 <./classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf>] [15] [16] [17]
-)
-(classes_1_1deusto_1_1server_1_1db_1_1_d_b.tex
-<classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf, id=1600, 501.875pt x 255.95625p
+ [14]
+Underfull \hbox (badness 10000) detected at line 51
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 57
+[][][]
+ []
+
+[15 <./classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.pdf>]
+Underfull \hbox (badness 10000) detected at line 91
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Overfull \vbox (6.55603pt too high) has occurred while \output is active []
+
+
+[16]
+Underfull \hbox (badness 10000) detected at line 116
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 144
+[][][]
+ []
+
+[17]
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 169
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 187
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 190
+[][][]
+ []
+
+[18]
+Underfull \hbox (badness 10000) detected at line 212
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 215
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 237
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 240
+[][][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \hbox (badness 10000) detected at line 262
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 265
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 280.
+
+Underfull \hbox (badness 10000) detected at line 287
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 290
+[][][]
+ []
+
+[20]
+Underfull \hbox (badness 10000) detected at line 312
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 315
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 337
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 340
+[][][]
+ []
+
+[21]
+Underfull \hbox (badness 10000) detected at line 362
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 365
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 387
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 390
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 398
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 401
+[][][]
+ []
+
+[22]
+Underfull \hbox (badness 10000) detected at line 423
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 426
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 434
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 437
+[][][]
+ []
+
+[23]
+Underfull \hbox (badness 10000) detected at line 459
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 462
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 470
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 473
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 495
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 498
+[][][]
+ []
+
+[24]
+Underfull \hbox (badness 10000) detected at line 520
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 523
+[][][]
+ []
+
+) (classes_1_1deusto_1_1server_1_1_d_a_o_mock_test.tex
+Underfull \hbox (badness 10000) detected at line 24
+[][][]
+ []
+
+[25]) (classes_1_1deusto_1_1server_1_1db_1_1_d_b.tex
+<classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf, id=1706, 501.875pt x 255.95625p
 t>
 File: classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf Graphic file (type pdf)
  <use classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf>
 Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf used on 
 input line 6.
 (pdftex.def)             Requested size: 111.57684pt x 56.9055pt.
- [18] [19 <./classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf>] [20] [21] [22])
-(classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.tex
-<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf, id=1738, 501.875pt x 2
+ [26]
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 55
+[][][]
+ []
+
+[27 <./classes_1_1deusto_1_1server_1_1db_1_1_d_b.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 7.19995pt on input line 68.
+
+
+LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
+(Font)              using `T1/pcr/m/n' instead on input line 68.
+
+
+Underfull \hbox (badness 10000) detected at line 76
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+[28] [29]
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
+[][][]\T1/phv/m/n/10 es.[]deusto.[]server.[]db.[]I[]D[]B[]::add[]Game[]To[]Db[]
+[]([][]es.[]deusto.[]server.[]db.[]data.[]Game[][], [][]es.[]deusto.[]server.[]
+db.[]data.[]Genre[][],
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 146
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 149
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+[]\T1/phv/m/n/10 es.[]deusto.[]server.[]db.[]I[]D[]B[]::add[]License[]To[]Game(
+[][]es.[]deusto.[]server.[]db.[]data.[]Game[][], [][]es.[]deusto.[]server.[]db.
+[]data.[]
+ []
+
+[30] [31]
+Underfull \hbox (badness 10000) detected at line 169
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+[]\T1/phv/m/n/10 es.[]deusto.[]server.[]db.[]I[]D[]B[]::add[]License[]To[]User(
+[][]es.[]deusto.[]server.[]db.[]data.[]User[][], [][]es.[]deusto.[]server.[]db.
+[]data.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 192
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 195
+[][][]
+ []
+
+[32]
+Underfull \hbox (badness 10000) detected at line 217
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 220
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 242
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 245
+[][][]
+ []
+
+[33]
+Underfull \hbox (badness 10000) detected at line 267
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 270
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 292
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 295
+[][][]
+ []
+
+[34]
+Underfull \hbox (badness 10000) detected at line 317
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 320
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 342
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+[35]
+Underfull \hbox (badness 10000) detected at line 367
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 370
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 392
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 395
+[][][]
+ []
+
+[36]
+Underfull \hbox (badness 10000) detected at line 417
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 439
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 442
+[][][]
+ []
+
+
+Overfull \vbox (4.39262pt too high) has occurred while \output is active []
+
+
+[37]
+Underfull \hbox (badness 10000) detected at line 464
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 467
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 475
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 478
+[][][]
+ []
+
+) (classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.tex
+<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf, id=1897, 501.875pt x 2
 04.765pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf Graphic file (type
  pdf)
@@ -1371,10 +1765,9 @@ File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf Graphic file (type
 Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf
  used on input line 6.
 (pdftex.def)             Requested size: 139.47488pt x 56.9055pt.
- [23 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf>] [24] [25] [26]
-)
+ [38 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.pdf>] [39] [40])
 (classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.tex
-<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pdf, id=1811, 501.875pt x 
+<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pdf, id=1957, 501.875pt x 
 200.75pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pdf Graphic file (typ
 e pdf)
@@ -1383,9 +1776,9 @@ Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pd
 f used on input line 6.
 (pdftex.def)             Requested size: 142.26239pt x 56.9055pt.
 
-[27 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pdf>] [28])
+[41 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre.pdf>])
 (interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.tex
-<interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf, id=1850, 501.875
+<interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf, id=1978, 501.875
 pt x 208.78pt>
 File: interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf Graphic file
  (type pdf)
@@ -1394,10 +1787,10 @@ File: interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf Graphic file
 Package pdftex.def Info: interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a
 _o.pdf used on input line 6.
 (pdftex.def)             Requested size: 136.78694pt x 56.9055pt.
- [29 <./interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf>] [30] [31
+ [42 <./interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.pdf>] [43] [44
 ])
-(interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.tex [32]
-<interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf, id=1946, 501.875pt x 255.
+(interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.tex [45]
+<interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf, id=2066, 501.875pt x 255.
 95625pt>
 File: interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf Graphic file (type pd
 f)
@@ -1405,9 +1798,9 @@ f)
 Package pdftex.def Info: interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf us
 ed on input line 6.
 (pdftex.def)             Requested size: 111.57684pt x 56.9055pt.
- [33 <./interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf>] [34] [35])
-(interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.tex
-<interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.pdf, id=2035, 501.875pt
+ [46 <./interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.pdf>] [47])
+(interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.tex [48]
+<interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.pdf, id=2133, 501.875pt
  x 196.735pt>
 File: interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.pdf Graphic file (
 type pdf)
@@ -1416,9 +1809,9 @@ Package pdftex.def Info: interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote
 .pdf used on input line 6.
 (pdftex.def)             Requested size: 145.16478pt x 56.9055pt.
 
-[36] [37 <./interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.pdf>]
-[38]) (classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.tex
-<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.pdf, id=2111, 501.875pt 
+[49 <./interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.pdf>] [50])
+(classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.tex
+<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.pdf, id=2187, 501.875pt 
 x 192.72pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.pdf Graphic file (t
 ype pdf)
@@ -1427,9 +1820,9 @@ Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.
 pdf used on input line 6.
 (pdftex.def)             Requested size: 148.18968pt x 56.9055pt.
 
-[39 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.pdf>] [40])
+[51] [52 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.pdf>])
 (classes_1_1deusto_1_1server_1_1remote_1_1_remote.tex
-<classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf, id=2160, 501.875pt x 98.
+<classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf, id=2234, 501.875pt x 98.
 3675pt>
 File: classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf Graphic file (type p
 df)
@@ -1437,11 +1830,166 @@ df)
 Package pdftex.def Info: classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf u
 sed on input line 6.
 (pdftex.def)             Requested size: 290.32956pt x 56.9055pt.
- [41]
-[42 <./classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf>] [43] [44])
-(classes_1_1deusto_1_1server_1_1_server.tex)
+ [53]
+Underfull \hbox (badness 10000) detected at line 46
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+[54 <./classes_1_1deusto_1_1server_1_1remote_1_1_remote.pdf>]
+Underfull \hbox (badness 10000) detected at line 73
+[][][]
+ []
+
+[55]
+Underfull \hbox (badness 10000) detected at line 103
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 111
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+[][][]\T1/phv/m/n/10 es.[]deusto.[]server.[]remote.[]I[]Remote[]::add[]Game[][]
+([][]es.[]deusto.[]server.[]db.[]data.[]Game[][], [][]es.[]deusto.[]server.[]db
+.[]data.[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 135
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 143
+[][][]
+ []
+
+[56]
+Underfull \hbox (badness 10000) detected at line 165
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 168
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 186
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 194
+[][][]
+ []
+
+[57]
+Underfull \hbox (badness 10000) detected at line 212
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 215
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 237
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 240
+[][][]
+ []
+
+[58]
+Underfull \hbox (badness 10000) detected at line 262
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 270
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 288
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 296
+[][][]
+ []
+
+[59]
+Underfull \hbox (badness 10000) detected at line 318
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 321
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+[60]
+Underfull \hbox (badness 10000) detected at line 353
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 379
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 387
+[][][]
+ []
+
+[61]
+Underfull \hbox (badness 10000) detected at line 409
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 417
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 439
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 447
+[][][]
+ []
+
+[62]) (classes_1_1deusto_1_1server_1_1_server.tex)
 (classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.tex
-<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf, id=2230, 501.875pt x 2
+<classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf, id=2361, 501.875pt x 2
 10.7875pt>
 File: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf Graphic file (type
  pdf)
@@ -1450,193 +1998,195 @@ Package pdftex.def Info: classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf
  used on input line 6.
 (pdftex.def)             Requested size: 135.48508pt x 56.9055pt.
 
-[45] [46 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf>] [47])
-[48]
+[63 <./classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.pdf>] [64] [65])
+[66]
 Chapter 7.
 (_client_8java.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/client/[]Client.java
+Underfull \hbox (badness 7326) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/client/[]Client.java File Ref-er-
  []
 
 ) (_d_a_o_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/dao/[]D[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/dao/[]D[]AO.java File
  []
 
 ) (_i_d_a_o_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/dao/[]I[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/dao/[]I[]D[]AO.java File
  []
 
 ) (_company_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/data/[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/data/[]Company.java
  []
 
-[49
+[67
 
-]) (_game_8java.tex
+]) (_game_8java.tex) (_genre_8java.tex) (_license_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/data/[]
- []
-
-) (_genre_8java.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/data/[]
- []
-
-) (_license_8java.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/data/[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/data/[]License.java
  []
 
 ) (_user_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/data/[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/data/[]User.java File
  []
 
-[50]) (_d_b_8java.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/[]DB.java
+[68]) (_d_b_8java.tex
+Underfull \hbox (badness 1424) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/db/[]DB.java File Ref-er-
  []
 
-) (_i_d_b_8java.tex
+) (_i_d_b_8java.tex) (_i_remote_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/db/[]I[]
- []
-
-) (_i_remote_8java.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/remote/[]I[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/remote/[]I[]Remote.java
  []
 
 ) (_remote_8java.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/s
-rc/main/java/es/deusto/server/remote/[]
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/
+deusto/server/remote/[]Remote.java
+ []
+
+[69]) (_server_8java.tex) (_conti_perf_test_8java.tex
+Underfull \hbox (badness 1622) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/test/java/es/
+deusto/server/[]Conti[]Perf[]Test.java File
+ []
+
+) (_d_a_o_mock_test_8java.tex) (_r_m_i_test_8java.tex) [70] (refman.ind
+Overfull \hbox (30.02933pt too wide) in paragraph at lines 42--44
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/client/[]
  []
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 22.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[51]) (_server_8java.tex) [52] (refman.ind
-Overfull \hbox (76.97253pt too wide) in paragraph at lines 46--48
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/client/[]
+Overfull \hbox (34.07028pt too wide) in paragraph at lines 44--46
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/[]
  []
 
 
-Overfull \hbox (81.01349pt too wide) in paragraph at lines 48--50
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/[]
+Overfull \hbox (46.57999pt too wide) in paragraph at lines 46--48
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/[]
  []
 
 
-Overfull \hbox (93.5232pt too wide) in paragraph at lines 50--52
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/[]
+Overfull \hbox (46.57999pt too wide) in paragraph at lines 48--50
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/[]
  []
 
 
-Overfull \hbox (93.5232pt too wide) in paragraph at lines 52--54
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/[]
+Overfull \hbox (64.0936pt too wide) in paragraph at lines 50--52
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/dao/[]
  []
 
 
-Overfull \hbox (111.0368pt too wide) in paragraph at lines 54--56
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/dao/[]
+Overfull \hbox (64.0936pt too wide) in paragraph at lines 52--54
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/dao/[]
  []
 
 
-Overfull \hbox (111.0368pt too wide) in paragraph at lines 56--58
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/dao/[]
+Overfull \hbox (66.59549pt too wide) in paragraph at lines 54--56
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/data/[]
  []
 
 
-Overfull \hbox (113.5387pt too wide) in paragraph at lines 58--60
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/data/[]
+Overfull \hbox (66.59549pt too wide) in paragraph at lines 56--58
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/data/[]
  []
 
 
-Overfull \hbox (113.5387pt too wide) in paragraph at lines 60--62
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/data/[]
+Overfull \hbox (66.59549pt too wide) in paragraph at lines 58--60
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/data/[]
  []
 
 
-Overfull \hbox (113.5387pt too wide) in paragraph at lines 62--64
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/data/[]
+Overfull \hbox (66.59549pt too wide) in paragraph at lines 60--62
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/data/[]
  []
 
 
-Overfull \hbox (113.5387pt too wide) in paragraph at lines 64--66
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/data/[]
+Overfull \hbox (66.59549pt too wide) in paragraph at lines 62--64
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/db/data/[]
  []
 
 
-Overfull \hbox (113.5387pt too wide) in paragraph at lines 66--68
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/db/data/[]
+Overfull \hbox (64.57962pt too wide) in paragraph at lines 64--66
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/remote/[]
  []
 
 
-Overfull \hbox (111.52283pt too wide) in paragraph at lines 68--70
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/remote/[]
+Overfull \hbox (64.57962pt too wide) in paragraph at lines 66--68
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/main/java/es/deu
+sto/server/remote/[]
  []
 
 
-Overfull \hbox (111.52283pt too wide) in paragraph at lines 70--72
-[]\T1/phv/m/n/10 C[]:/[]Users/[]Carazo[]_[]laptop/git/[]S[]P[]Q09/[]Lurrun/src/
-main/java/es/deusto/server/remote/[]
+Overfull \hbox (29.07527pt too wide) in paragraph at lines 68--70
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/test/java/es/deu
+sto/server/[]
  []
 
-[53
+
+Overfull \hbox (29.07527pt too wide) in paragraph at lines 70--72
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/test/java/es/deu
+sto/server/[]
+ []
+
+
+Overfull \hbox (29.07527pt too wide) in paragraph at lines 72--74
+[]\T1/phv/m/n/10 C[]:/[]Users/[]Marta/[]S[]P[]Q09/[]Lurrun/src/test/java/es/deu
+sto/server/[]
+ []
+
+[71
 
 
 
-] [54] [55] [56])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
+] [72] [73] [74] [75
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
  (refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 1AC8996A0EF6A076AA84AF0A5E90450F;52801.
+(rerunfilecheck)             Checksum: 7DE45D3C035F6B414D2E11A51D303132;53748.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
  ) 
 Here is how much of TeX's memory you used:
- 15897 strings out of 493328
- 252398 string characters out of 3139101
- 346477 words of memory out of 3000000
- 18563 multiletter control sequences out of 15000+200000
- 57168 words of font info for 77 fonts, out of 3000000 for 9000
+ 16081 strings out of 493328
+ 253233 string characters out of 3139124
+ 343513 words of memory out of 3000000
+ 18645 multiletter control sequences out of 15000+200000
+ 61983 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,1573b,412s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,16n,92p,1562b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
@@ -1645,10 +2195,11 @@ c/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/uc
 rr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (68 pages, 610889 bytes).
+ts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvro8a.pfb>
+Output written on refman.pdf (85 pages, 657182 bytes).
 PDF statistics:
- 2847 PDF objects out of 2984 (max. 8388607)
- 542 named destinations out of 1000 (max. 500000)
- 1928 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3013 PDF objects out of 3580 (max. 8388607)
+ 632 named destinations out of 1000 (max. 500000)
+ 1952 words of extra memory for PDF output out of 10000 (max. 10000000)
 

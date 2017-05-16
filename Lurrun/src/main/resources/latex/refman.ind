@@ -4,82 +4,87 @@
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
 		\hyperpage{12}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{28}
+		\hyperpage{42}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{37}
+		\hyperpage{49}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{43}
+		\hyperpage{55}
+  \item {add\+Game\+To\+D\+B\+Test}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
   \item {add\+Game\+To\+Db}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{20}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{33}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{28}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{46}
   \item {add\+License}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{24}
+		\hyperpage{39}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{47}
+		\hyperpage{64}
   \item {add\+License\+To\+Game}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{20}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{34}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{30}
   \item {add\+License\+To\+User}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{20}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{34}
-  \item {add\+Stuff}
-    \subitem {es\+::deusto\+::server\+::\+Server}, \hyperpage{45}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{30}
 
   \indexspace
 
+  \item {basic\+Data}
+    \subitem {es\+::deusto\+::server\+::\+Server}, \hyperpage{63}
   \item {buy\+Game}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{20}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{34}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{32}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{37}
+		\hyperpage{50}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{43}
-  \item {buy\+Game\+Test}
-    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{37}
-    \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{43}
+		\hyperpage{56}
 
   \indexspace
 
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/client/\+Client.\+java}, 
-		\hyperpage{49}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/\+Server.\+java}, 
-		\hyperpage{52}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/\+D\+B.\+java}, 
-		\hyperpage{51}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/\+I\+D\+B.\+java}, 
-		\hyperpage{51}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\+D\+A\+O.\+java}, 
-		\hyperpage{49}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\+I\+D\+A\+O.\+java}, 
-		\hyperpage{49}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Company.\+java}, 
-		\hyperpage{50}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Game.\+java}, 
-		\hyperpage{50}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Genre.\+java}, 
-		\hyperpage{50}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+License.\+java}, 
-		\hyperpage{50}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+User.\+java}, 
-		\hyperpage{51}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\+I\+Remote.\+java}, 
-		\hyperpage{51}
-  \item {C\+:/\+Users/\+Carazo\+\_\+laptop/git/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\+Remote.\+java}, 
-		\hyperpage{52}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/client/\+Client.\+java}, 
+		\hyperpage{67}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/\+Server.\+java}, 
+		\hyperpage{70}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/\+D\+B.\+java}, 
+		\hyperpage{69}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/\+I\+D\+B.\+java}, 
+		\hyperpage{69}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\+D\+A\+O.\+java}, 
+		\hyperpage{67}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/dao/\+I\+D\+A\+O.\+java}, 
+		\hyperpage{67}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Company.\+java}, 
+		\hyperpage{68}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Game.\+java}, 
+		\hyperpage{68}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+Genre.\+java}, 
+		\hyperpage{68}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+License.\+java}, 
+		\hyperpage{68}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/data/\+User.\+java}, 
+		\hyperpage{69}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\+I\+Remote.\+java}, 
+		\hyperpage{69}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\+Remote.\+java}, 
+		\hyperpage{70}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/test/java/es/deusto/server/\+Conti\+Perf\+Test.\+java}, 
+		\hyperpage{70}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/test/java/es/deusto/server/\+D\+A\+O\+Mock\+Test.\+java}, 
+		\hyperpage{70}
+  \item {C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/test/java/es/deusto/server/\+R\+M\+I\+Test.\+java}, 
+		\hyperpage{70}
   \item {Company}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
 		\hyperpage{12}
+  \item {compare\+User\+To}
+    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
+		\hyperpage{65}
 
   \indexspace
 
   \item {D\+AO}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{15}
+		\hyperpage{16}
   \item {DB}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{19}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{28}
 
   \indexspace
 
@@ -88,506 +93,506 @@
   \item {es.\+deusto.\+client}, \hyperpage{9}
   \item {es.\+deusto.\+client.\+Client}, \hyperpage{11}
   \item {es.\+deusto.\+server}, \hyperpage{9}
+  \item {es.\+deusto.\+server.\+Conti\+Perf\+Test}, \hyperpage{13}
+  \item {es.\+deusto.\+server.\+D\+A\+O\+Mock\+Test}, \hyperpage{25}
   \item {es.\+deusto.\+server.\+db}, \hyperpage{10}
   \item {es.\+deusto.\+server.\+db.\+dao}, \hyperpage{10}
-  \item {es.\+deusto.\+server.\+db.\+dao.\+D\+AO}, \hyperpage{14}
-  \item {es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}, \hyperpage{29}
+  \item {es.\+deusto.\+server.\+db.\+dao.\+D\+AO}, \hyperpage{15}
+  \item {es.\+deusto.\+server.\+db.\+dao.\+I\+D\+AO}, \hyperpage{42}
   \item {es.\+deusto.\+server.\+db.\+data}, \hyperpage{10}
   \item {es.\+deusto.\+server.\+db.\+data.\+Company}, \hyperpage{11}
-  \item {es.\+deusto.\+server.\+db.\+data.\+Game}, \hyperpage{23}
-  \item {es.\+deusto.\+server.\+db.\+data.\+Genre}, \hyperpage{27}
-  \item {es.\+deusto.\+server.\+db.\+data.\+License}, \hyperpage{39}
-  \item {es.\+deusto.\+server.\+db.\+data.\+User}, \hyperpage{46}
-  \item {es.\+deusto.\+server.\+db.\+DB}, \hyperpage{19}
-  \item {es.\+deusto.\+server.\+db.\+I\+DB}, \hyperpage{33}
+  \item {es.\+deusto.\+server.\+db.\+data.\+Game}, \hyperpage{38}
+  \item {es.\+deusto.\+server.\+db.\+data.\+Genre}, \hyperpage{41}
+  \item {es.\+deusto.\+server.\+db.\+data.\+License}, \hyperpage{52}
+  \item {es.\+deusto.\+server.\+db.\+data.\+User}, \hyperpage{63}
+  \item {es.\+deusto.\+server.\+db.\+DB}, \hyperpage{27}
+  \item {es.\+deusto.\+server.\+db.\+I\+DB}, \hyperpage{46}
   \item {es.\+deusto.\+server.\+remote}, \hyperpage{10}
-  \item {es.\+deusto.\+server.\+remote.\+I\+Remote}, \hyperpage{37}
-  \item {es.\+deusto.\+server.\+remote.\+Remote}, \hyperpage{42}
-  \item {es.\+deusto.\+server.\+Server}, \hyperpage{45}
+  \item {es.\+deusto.\+server.\+remote.\+I\+Remote}, \hyperpage{49}
+  \item {es.\+deusto.\+server.\+remote.\+Remote}, \hyperpage{54}
+  \item {es.\+deusto.\+server.\+Server}, \hyperpage{63}
   \item {es\+::deusto\+::client\+::\+Client}
     \subitem {main}, \hyperpage{11}
+  \item {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}
+    \subitem {load\+Game}, \hyperpage{13}
+    \subitem {load\+Game2}, \hyperpage{14}
+    \subitem {rule}, \hyperpage{14}
+    \subitem {store\+Game\+Duration}, \hyperpage{14}
+    \subitem {store\+Game\+Invocation\+Fail}, \hyperpage{14}
+    \subitem {suite}, \hyperpage{14}
+  \item {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}
+    \subitem {add\+Game\+To\+D\+B\+Test}, \hyperpage{26}
+    \subitem {set\+Up}, \hyperpage{26}
+    \subitem {suite}, \hyperpage{26}
+    \subitem {test\+Game\+Valid}, \hyperpage{26}
+    \subitem {test\+Register\+User\+Already\+Exists}, \hyperpage{26}
+    \subitem {test\+Register\+User\+Correctly}, \hyperpage{26}
   \item {es\+::deusto\+::server\+::\+Server}
-    \subitem {add\+Stuff}, \hyperpage{45}
-    \subitem {main}, \hyperpage{45}
+    \subitem {basic\+Data}, \hyperpage{63}
+    \subitem {main}, \hyperpage{63}
   \item {es\+::deusto\+::server\+::db\+::\+DB}
-    \subitem {add\+Game\+To\+Db}, \hyperpage{20}
-    \subitem {add\+License\+To\+Game}, \hyperpage{20}
-    \subitem {add\+License\+To\+User}, \hyperpage{20}
-    \subitem {buy\+Game}, \hyperpage{20}
-    \subitem {DB}, \hyperpage{19}
-    \subitem {get\+All\+Games}, \hyperpage{21}
-    \subitem {get\+All\+Users}, \hyperpage{21}
-    \subitem {get\+User\+Games}, \hyperpage{21}
-    \subitem {register\+User}, \hyperpage{21}
-    \subitem {show\+Company}, \hyperpage{21}
-    \subitem {show\+Company\+By\+Param}, \hyperpage{22}
-    \subitem {show\+Game}, \hyperpage{22}
-    \subitem {show\+Game\+By\+Param}, \hyperpage{22}
-    \subitem {show\+Genre}, \hyperpage{22}
-    \subitem {show\+Genre\+By\+Param}, \hyperpage{22}
-    \subitem {show\+License}, \hyperpage{23}
-    \subitem {show\+User}, \hyperpage{23}
-  \item {es\+::deusto\+::server\+::db\+::\+I\+DB}
-    \subitem {add\+Game\+To\+Db}, \hyperpage{33}
-    \subitem {add\+License\+To\+Game}, \hyperpage{34}
-    \subitem {add\+License\+To\+User}, \hyperpage{34}
-    \subitem {buy\+Game}, \hyperpage{34}
-    \subitem {get\+All\+Games}, \hyperpage{34}
-    \subitem {get\+All\+Users}, \hyperpage{34}
-    \subitem {get\+User\+Games}, \hyperpage{35}
+    \subitem {add\+Game\+To\+Db}, \hyperpage{28}
+    \subitem {add\+License\+To\+Game}, \hyperpage{30}
+    \subitem {add\+License\+To\+User}, \hyperpage{30}
+    \subitem {buy\+Game}, \hyperpage{32}
+    \subitem {DB}, \hyperpage{28}
+    \subitem {get\+All\+Companies}, \hyperpage{32}
+    \subitem {get\+All\+Games}, \hyperpage{33}
+    \subitem {get\+All\+Genres}, \hyperpage{33}
+    \subitem {get\+User\+Games}, \hyperpage{34}
+    \subitem {is\+Super\+User}, \hyperpage{34}
+    \subitem {login\+User}, \hyperpage{35}
     \subitem {register\+User}, \hyperpage{35}
-    \subitem {show\+Company}, \hyperpage{35}
-    \subitem {show\+Company\+By\+Param}, \hyperpage{35}
-    \subitem {show\+Game}, \hyperpage{35}
-    \subitem {show\+Game\+By\+Param}, \hyperpage{35}
-    \subitem {show\+Genre}, \hyperpage{36}
-    \subitem {show\+Genre\+By\+Param}, \hyperpage{36}
-    \subitem {show\+License}, \hyperpage{36}
-    \subitem {show\+User}, \hyperpage{36}
+    \subitem {show\+Company}, \hyperpage{36}
+    \subitem {show\+Game}, \hyperpage{36}
+    \subitem {show\+Genre}, \hyperpage{37}
+    \subitem {show\+User}, \hyperpage{37}
+  \item {es\+::deusto\+::server\+::db\+::\+I\+DB}
+    \subitem {add\+Game\+To\+Db}, \hyperpage{46}
+    \subitem {buy\+Game}, \hyperpage{47}
+    \subitem {get\+All\+Companies}, \hyperpage{47}
+    \subitem {get\+All\+Games}, \hyperpage{47}
+    \subitem {get\+All\+Genres}, \hyperpage{47}
+    \subitem {get\+User\+Games}, \hyperpage{47}
+    \subitem {is\+Super\+User}, \hyperpage{47}
+    \subitem {login\+User}, \hyperpage{48}
+    \subitem {register\+User}, \hyperpage{48}
+    \subitem {show\+Company}, \hyperpage{48}
+    \subitem {show\+Game}, \hyperpage{48}
+    \subitem {show\+Genre}, \hyperpage{48}
+    \subitem {show\+User}, \hyperpage{48}
   \item {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}
-    \subitem {D\+AO}, \hyperpage{15}
-    \subitem {get\+All\+Games}, \hyperpage{15}
-    \subitem {get\+All\+Users}, \hyperpage{15}
-    \subitem {get\+First\+License}, \hyperpage{15}
-    \subitem {retrieve\+Company}, \hyperpage{15}
-    \subitem {retrieve\+Company\+By\+Parameter}, \hyperpage{16}
-    \subitem {retrieve\+Game}, \hyperpage{16}
-    \subitem {retrieve\+Game\+By\+Parameter}, \hyperpage{16}
-    \subitem {retrieve\+Genre}, \hyperpage{16}
-    \subitem {retrieve\+Genre\+By\+Parameter}, \hyperpage{16}
-    \subitem {retrieve\+License}, \hyperpage{17}
-    \subitem {retrieve\+User}, \hyperpage{17}
-    \subitem {store\+Game}, \hyperpage{17}
-    \subitem {store\+User}, \hyperpage{17}
-    \subitem {update\+Company}, \hyperpage{17}
-    \subitem {update\+Game}, \hyperpage{18}
-    \subitem {update\+Genre}, \hyperpage{18}
-    \subitem {update\+License}, \hyperpage{18}
-    \subitem {update\+User}, \hyperpage{18}
+    \subitem {D\+AO}, \hyperpage{16}
+    \subitem {get\+All\+Companies}, \hyperpage{16}
+    \subitem {get\+All\+Games}, \hyperpage{16}
+    \subitem {get\+All\+Genres}, \hyperpage{17}
+    \subitem {get\+All\+Users}, \hyperpage{17}
+    \subitem {get\+First\+License}, \hyperpage{18}
+    \subitem {retrieve\+Company}, \hyperpage{18}
+    \subitem {retrieve\+Game}, \hyperpage{19}
+    \subitem {retrieve\+Genre}, \hyperpage{19}
+    \subitem {retrieve\+License}, \hyperpage{20}
+    \subitem {retrieve\+User}, \hyperpage{20}
+    \subitem {store\+Game}, \hyperpage{21}
+    \subitem {store\+User}, \hyperpage{21}
+    \subitem {update\+Company}, \hyperpage{22}
+    \subitem {update\+Game}, \hyperpage{22}
+    \subitem {update\+Genre}, \hyperpage{23}
+    \subitem {update\+License}, \hyperpage{24}
+    \subitem {update\+User}, \hyperpage{24}
   \item {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}
-    \subitem {get\+All\+Games}, \hyperpage{30}
-    \subitem {get\+All\+Users}, \hyperpage{30}
-    \subitem {get\+First\+License}, \hyperpage{30}
-    \subitem {retrieve\+Company}, \hyperpage{30}
-    \subitem {retrieve\+Company\+By\+Parameter}, \hyperpage{30}
-    \subitem {retrieve\+Game}, \hyperpage{30}
-    \subitem {retrieve\+Game\+By\+Parameter}, \hyperpage{31}
-    \subitem {retrieve\+Genre}, \hyperpage{31}
-    \subitem {retrieve\+Genre\+By\+Parameter}, \hyperpage{31}
-    \subitem {retrieve\+License}, \hyperpage{31}
-    \subitem {retrieve\+User}, \hyperpage{31}
-    \subitem {store\+Game}, \hyperpage{31}
-    \subitem {store\+User}, \hyperpage{32}
-    \subitem {update\+Company}, \hyperpage{32}
-    \subitem {update\+Game}, \hyperpage{32}
-    \subitem {update\+Genre}, \hyperpage{32}
-    \subitem {update\+License}, \hyperpage{32}
-    \subitem {update\+User}, \hyperpage{32}
+    \subitem {get\+All\+Companies}, \hyperpage{43}
+    \subitem {get\+All\+Games}, \hyperpage{43}
+    \subitem {get\+All\+Genres}, \hyperpage{43}
+    \subitem {get\+First\+License}, \hyperpage{43}
+    \subitem {retrieve\+Company}, \hyperpage{44}
+    \subitem {retrieve\+Game}, \hyperpage{44}
+    \subitem {retrieve\+Genre}, \hyperpage{44}
+    \subitem {retrieve\+License}, \hyperpage{44}
+    \subitem {retrieve\+User}, \hyperpage{44}
+    \subitem {store\+Game}, \hyperpage{44}
+    \subitem {store\+User}, \hyperpage{45}
+    \subitem {update\+Company}, \hyperpage{45}
+    \subitem {update\+Game}, \hyperpage{45}
+    \subitem {update\+Genre}, \hyperpage{45}
+    \subitem {update\+License}, \hyperpage{45}
+    \subitem {update\+User}, \hyperpage{45}
   \item {es\+::deusto\+::server\+::db\+::data\+::\+Company}
     \subitem {add\+Game}, \hyperpage{12}
     \subitem {Company}, \hyperpage{12}
-    \subitem {get\+Company\+Games}, \hyperpage{13}
-    \subitem {get\+Name}, \hyperpage{13}
-    \subitem {name}, \hyperpage{14}
-    \subitem {remove\+Game}, \hyperpage{13}
-    \subitem {set\+Company\+Games}, \hyperpage{13}
-    \subitem {set\+Name}, \hyperpage{13}
-    \subitem {to\+String}, \hyperpage{13}
+    \subitem {get\+Name}, \hyperpage{12}
+    \subitem {name}, \hyperpage{13}
+    \subitem {to\+String}, \hyperpage{12}
   \item {es\+::deusto\+::server\+::db\+::data\+::\+Game}
-    \subitem {add\+License}, \hyperpage{24}
-    \subitem {Game}, \hyperpage{24}
-    \subitem {get\+Company}, \hyperpage{25}
-    \subitem {get\+Discount}, \hyperpage{25}
-    \subitem {get\+Genre}, \hyperpage{25}
-    \subitem {get\+Licenses}, \hyperpage{25}
-    \subitem {get\+Name}, \hyperpage{25}
-    \subitem {get\+Price}, \hyperpage{25}
-    \subitem {remove\+License}, \hyperpage{26}
-    \subitem {set\+Company}, \hyperpage{26}
-    \subitem {set\+Discount}, \hyperpage{26}
-    \subitem {set\+Genre}, \hyperpage{26}
-    \subitem {set\+Name}, \hyperpage{26}
-    \subitem {set\+Price}, \hyperpage{26}
-    \subitem {to\+String}, \hyperpage{27}
-  \item {es\+::deusto\+::server\+::db\+::data\+::\+Genre}
-    \subitem {add\+Game}, \hyperpage{28}
-    \subitem {Genre}, \hyperpage{27}
-    \subitem {get\+Genre\+Games}, \hyperpage{28}
-    \subitem {get\+Name}, \hyperpage{28}
-    \subitem {remove\+Game}, \hyperpage{28}
-    \subitem {set\+Genre\+Games}, \hyperpage{28}
-    \subitem {set\+Name}, \hyperpage{29}
-    \subitem {to\+String}, \hyperpage{29}
-  \item {es\+::deusto\+::server\+::db\+::data\+::\+License}
-    \subitem {get\+Game}, \hyperpage{40}
-    \subitem {get\+Game\+Key}, \hyperpage{40}
-    \subitem {get\+User}, \hyperpage{40}
-    \subitem {is\+Used}, \hyperpage{41}
-    \subitem {License}, \hyperpage{40}
-    \subitem {set\+Game}, \hyperpage{41}
-    \subitem {set\+Game\+Key}, \hyperpage{41}
-    \subitem {set\+Used}, \hyperpage{41}
-    \subitem {set\+User}, \hyperpage{41}
+    \subitem {add\+License}, \hyperpage{39}
+    \subitem {Game}, \hyperpage{39}
+    \subitem {get\+Company}, \hyperpage{39}
+    \subitem {get\+Discount}, \hyperpage{39}
+    \subitem {get\+Genre}, \hyperpage{39}
+    \subitem {get\+Licenses}, \hyperpage{40}
+    \subitem {get\+Name}, \hyperpage{40}
+    \subitem {get\+Price}, \hyperpage{40}
+    \subitem {remove\+License}, \hyperpage{40}
+    \subitem {set\+Company}, \hyperpage{40}
+    \subitem {set\+Genre}, \hyperpage{40}
     \subitem {to\+String}, \hyperpage{41}
+  \item {es\+::deusto\+::server\+::db\+::data\+::\+Genre}
+    \subitem {add\+Game}, \hyperpage{42}
+    \subitem {Genre}, \hyperpage{41}
+    \subitem {get\+Name}, \hyperpage{42}
+    \subitem {to\+String}, \hyperpage{42}
+  \item {es\+::deusto\+::server\+::db\+::data\+::\+License}
+    \subitem {get\+Game}, \hyperpage{52}
+    \subitem {get\+Game\+Key}, \hyperpage{52}
+    \subitem {get\+User}, \hyperpage{53}
+    \subitem {is\+Used}, \hyperpage{53}
+    \subitem {License}, \hyperpage{52}
+    \subitem {set\+Game}, \hyperpage{53}
+    \subitem {set\+Used}, \hyperpage{53}
+    \subitem {set\+User}, \hyperpage{53}
+    \subitem {to\+String}, \hyperpage{53}
   \item {es\+::deusto\+::server\+::db\+::data\+::\+User}
-    \subitem {add\+License}, \hyperpage{47}
-    \subitem {get\+Licenses}, \hyperpage{47}
-    \subitem {get\+Login}, \hyperpage{47}
-    \subitem {get\+Password}, \hyperpage{47}
-    \subitem {get\+Superuser}, \hyperpage{48}
-    \subitem {remove\+License}, \hyperpage{48}
-    \subitem {set\+Password}, \hyperpage{48}
-    \subitem {set\+Superuser}, \hyperpage{48}
-    \subitem {to\+String}, \hyperpage{48}
-    \subitem {User}, \hyperpage{46, 47}
+    \subitem {add\+License}, \hyperpage{64}
+    \subitem {compare\+User\+To}, \hyperpage{65}
+    \subitem {get\+Licenses}, \hyperpage{65}
+    \subitem {get\+Login}, \hyperpage{65}
+    \subitem {get\+Money}, \hyperpage{65}
+    \subitem {get\+Password}, \hyperpage{65}
+    \subitem {get\+Superuser}, \hyperpage{65}
+    \subitem {remove\+License}, \hyperpage{66}
+    \subitem {set\+Money}, \hyperpage{66}
+    \subitem {set\+Superuser}, \hyperpage{66}
+    \subitem {to\+String}, \hyperpage{66}
+    \subitem {User}, \hyperpage{64}
   \item {es\+::deusto\+::server\+::remote\+::\+I\+Remote}
-    \subitem {add\+Game}, \hyperpage{37}
-    \subitem {buy\+Game}, \hyperpage{37}
-    \subitem {buy\+Game\+Test}, \hyperpage{37}
-    \subitem {game\+Test}, \hyperpage{38}
-    \subitem {get\+All\+Users}, \hyperpage{38}
-    \subitem {get\+User}, \hyperpage{38}
-    \subitem {license\+Test}, \hyperpage{38}
-    \subitem {register\+User}, \hyperpage{38}
-    \subitem {show\+Games\+In\+Store}, \hyperpage{38}
-    \subitem {show\+Owned\+Games}, \hyperpage{39}
+    \subitem {add\+Game}, \hyperpage{49}
+    \subitem {buy\+Game}, \hyperpage{50}
+    \subitem {get\+All\+Companies}, \hyperpage{50}
+    \subitem {get\+All\+Genres}, \hyperpage{50}
+    \subitem {get\+User\+Wallet}, \hyperpage{50}
+    \subitem {is\+Super\+User}, \hyperpage{50}
+    \subitem {login\+User}, \hyperpage{51}
+    \subitem {register\+User}, \hyperpage{51}
+    \subitem {show\+Games\+In\+Store}, \hyperpage{51}
+    \subitem {show\+Owned\+Games}, \hyperpage{51}
   \item {es\+::deusto\+::server\+::remote\+::\+Remote}
-    \subitem {add\+Game}, \hyperpage{43}
-    \subitem {buy\+Game}, \hyperpage{43}
-    \subitem {buy\+Game\+Test}, \hyperpage{43}
-    \subitem {finalize}, \hyperpage{43}
-    \subitem {game\+Test}, \hyperpage{43}
-    \subitem {get\+All\+Users}, \hyperpage{44}
-    \subitem {get\+User}, \hyperpage{44}
-    \subitem {license\+Test}, \hyperpage{44}
-    \subitem {register\+User}, \hyperpage{44}
-    \subitem {Remote}, \hyperpage{42}
-    \subitem {show\+Games\+In\+Store}, \hyperpage{44}
-    \subitem {show\+Owned\+Games}, \hyperpage{45}
+    \subitem {add\+Game}, \hyperpage{55}
+    \subitem {buy\+Game}, \hyperpage{56}
+    \subitem {finalize}, \hyperpage{56}
+    \subitem {game\+Test}, \hyperpage{57}
+    \subitem {get\+All\+Companies}, \hyperpage{57}
+    \subitem {get\+All\+Genres}, \hyperpage{58}
+    \subitem {get\+User}, \hyperpage{58}
+    \subitem {get\+User\+Wallet}, \hyperpage{59}
+    \subitem {is\+Super\+User}, \hyperpage{59}
+    \subitem {login\+User}, \hyperpage{60}
+    \subitem {register\+User}, \hyperpage{61}
+    \subitem {Remote}, \hyperpage{55}
+    \subitem {show\+Games\+In\+Store}, \hyperpage{61}
+    \subitem {show\+Owned\+Games}, \hyperpage{62}
 
   \indexspace
 
   \item {finalize}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{43}
+		\hyperpage{56}
 
   \indexspace
 
   \item {Game}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{24}
+		\hyperpage{39}
   \item {game\+Test}
-    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{43}
+		\hyperpage{57}
   \item {Genre}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{27}
-  \item {get\+All\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{21}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{34}
+		\hyperpage{41}
+  \item {get\+All\+Companies}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{32}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{15}
+		\hyperpage{16}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
-  \item {get\+All\+Users}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{21}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{34}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{15}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
+		\hyperpage{43}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
+		\hyperpage{50}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{44}
+		\hyperpage{57}
+  \item {get\+All\+Games}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{33}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
+    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
+		\hyperpage{16}
+    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
+		\hyperpage{43}
+  \item {get\+All\+Genres}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{33}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
+    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
+		\hyperpage{17}
+    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
+		\hyperpage{43}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
+		\hyperpage{50}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
+		\hyperpage{58}
+  \item {get\+All\+Users}
+    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
+		\hyperpage{17}
   \item {get\+Company}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
-  \item {get\+Company\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
+		\hyperpage{39}
   \item {get\+Discount}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
+		\hyperpage{39}
   \item {get\+First\+License}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{15}
+		\hyperpage{18}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
+		\hyperpage{43}
   \item {get\+Game}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{40}
+		\hyperpage{52}
   \item {get\+Game\+Key}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{40}
+		\hyperpage{52}
   \item {get\+Genre}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
-  \item {get\+Genre\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{28}
+		\hyperpage{39}
   \item {get\+Licenses}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
+		\hyperpage{40}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{47}
+		\hyperpage{65}
   \item {get\+Login}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{47}
+		\hyperpage{65}
+  \item {get\+Money}
+    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
+		\hyperpage{65}
   \item {get\+Name}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
+		\hyperpage{12}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
+		\hyperpage{40}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{28}
+		\hyperpage{42}
   \item {get\+Password}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{47}
+		\hyperpage{65}
   \item {get\+Price}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{25}
+		\hyperpage{40}
   \item {get\+Superuser}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{48}
+		\hyperpage{65}
   \item {get\+User}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{40}
-    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
+		\hyperpage{53}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{44}
+		\hyperpage{58}
   \item {get\+User\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{21}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{34}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
+  \item {get\+User\+Wallet}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
+		\hyperpage{50}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
+		\hyperpage{59}
 
   \indexspace
 
+  \item {is\+Super\+User}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{34}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{47}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
+		\hyperpage{50}
+    \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
+		\hyperpage{59}
   \item {is\+Used}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{41}
+		\hyperpage{53}
 
   \indexspace
 
   \item {License}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{40}
-  \item {license\+Test}
+		\hyperpage{52}
+  \item {load\+Game}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{13}
+  \item {load\+Game2}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{14}
+  \item {login\+User}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
+		\hyperpage{51}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{44}
+		\hyperpage{60}
 
   \indexspace
 
   \item {main}
     \subitem {es\+::deusto\+::client\+::\+Client}, \hyperpage{11}
-    \subitem {es\+::deusto\+::server\+::\+Server}, \hyperpage{45}
+    \subitem {es\+::deusto\+::server\+::\+Server}, \hyperpage{63}
 
   \indexspace
 
   \item {name}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{14}
+		\hyperpage{13}
 
   \indexspace
 
   \item {register\+User}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{21}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
+		\hyperpage{51}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{44}
+		\hyperpage{61}
   \item {Remote}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{42}
-  \item {remove\+Game}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{28}
+		\hyperpage{55}
   \item {remove\+License}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
+		\hyperpage{40}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{48}
+		\hyperpage{66}
   \item {retrieve\+Company}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{15}
+		\hyperpage{18}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
-  \item {retrieve\+Company\+By\+Parameter}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{16}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
+		\hyperpage{44}
   \item {retrieve\+Game}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{16}
+		\hyperpage{19}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{30}
-  \item {retrieve\+Game\+By\+Parameter}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{16}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
+		\hyperpage{44}
   \item {retrieve\+Genre}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{16}
+		\hyperpage{19}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
-  \item {retrieve\+Genre\+By\+Parameter}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{16}
-    \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
+		\hyperpage{44}
   \item {retrieve\+License}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{17}
+		\hyperpage{20}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
+		\hyperpage{44}
   \item {retrieve\+User}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{17}
+		\hyperpage{20}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
+		\hyperpage{44}
+  \item {rule}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{14}
 
   \indexspace
 
   \item {set\+Company}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
-  \item {set\+Company\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
-  \item {set\+Discount}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
+		\hyperpage{40}
   \item {set\+Game}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{41}
-  \item {set\+Game\+Key}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{41}
+		\hyperpage{53}
   \item {set\+Genre}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
-  \item {set\+Genre\+Games}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{28}
-  \item {set\+Name}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{29}
-  \item {set\+Password}
+		\hyperpage{40}
+  \item {set\+Money}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{48}
-  \item {set\+Price}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{26}
+		\hyperpage{66}
   \item {set\+Superuser}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{48}
+		\hyperpage{66}
+  \item {set\+Up}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
   \item {set\+Used}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{41}
+		\hyperpage{53}
   \item {set\+User}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
-		\hyperpage{41}
+		\hyperpage{53}
   \item {show\+Company}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{21}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
-  \item {show\+Company\+By\+Param}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{22}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{36}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
   \item {show\+Game}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{22}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
-  \item {show\+Game\+By\+Param}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{22}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{35}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{36}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
   \item {show\+Games\+In\+Store}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{38}
+		\hyperpage{51}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{44}
+		\hyperpage{61}
   \item {show\+Genre}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{22}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{36}
-  \item {show\+Genre\+By\+Param}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{22}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{36}
-  \item {show\+License}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{23}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{36}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{37}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
   \item {show\+Owned\+Games}
     \subitem {es\+::deusto\+::server\+::remote\+::\+I\+Remote}, 
-		\hyperpage{39}
+		\hyperpage{51}
     \subitem {es\+::deusto\+::server\+::remote\+::\+Remote}, 
-		\hyperpage{45}
+		\hyperpage{62}
   \item {show\+User}
-    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{23}
-    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{36}
+    \subitem {es\+::deusto\+::server\+::db\+::\+DB}, \hyperpage{37}
+    \subitem {es\+::deusto\+::server\+::db\+::\+I\+DB}, \hyperpage{48}
   \item {store\+Game}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{17}
+		\hyperpage{21}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{31}
+		\hyperpage{44}
+  \item {store\+Game\+Duration}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{14}
+  \item {store\+Game\+Invocation\+Fail}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{14}
   \item {store\+User}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{17}
+		\hyperpage{21}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
+  \item {suite}
+    \subitem {es\+::deusto\+::server\+::\+Conti\+Perf\+Test}, 
+		\hyperpage{14}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
 
   \indexspace
 
+  \item {test\+Game\+Valid}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
+  \item {test\+Register\+User\+Already\+Exists}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
+  \item {test\+Register\+User\+Correctly}
+    \subitem {es\+::deusto\+::server\+::\+D\+A\+O\+Mock\+Test}, 
+		\hyperpage{26}
   \item {to\+String}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Company}, 
-		\hyperpage{13}
+		\hyperpage{12}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Game}, 
-		\hyperpage{27}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
-		\hyperpage{29}
-    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
 		\hyperpage{41}
+    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+Genre}, 
+		\hyperpage{42}
+    \subitem {es\+::deusto\+::server\+::db\+::data\+::\+License}, 
+		\hyperpage{53}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{48}
+		\hyperpage{66}
 
   \indexspace
 
   \item {update\+Company}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{17}
+		\hyperpage{22}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
   \item {update\+Game}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{18}
+		\hyperpage{22}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
   \item {update\+Genre}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{18}
+		\hyperpage{23}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
   \item {update\+License}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{18}
+		\hyperpage{24}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
   \item {update\+User}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+D\+AO}, 
-		\hyperpage{18}
+		\hyperpage{24}
     \subitem {es\+::deusto\+::server\+::db\+::dao\+::\+I\+D\+AO}, 
-		\hyperpage{32}
+		\hyperpage{45}
   \item {User}
     \subitem {es\+::deusto\+::server\+::db\+::data\+::\+User}, 
-		\hyperpage{46, 47}
+		\hyperpage{64}
 
 \end{theindex}
