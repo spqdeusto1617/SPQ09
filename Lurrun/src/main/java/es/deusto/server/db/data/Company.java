@@ -35,46 +35,24 @@ public class Company implements Serializable
 	private static final long serialVersionUID = 1L;
 	@PrimaryKey
     protected String name=null;
-	
-    @Persistent(defaultFetchGroup="true", mappedBy="company", dependentElement="true")
+	@Persistent(defaultFetchGroup="true", mappedBy="company", dependentElement="true")
 	@Join
     List<Game> companyGames = new ArrayList<Game>();
+	
+	public Company(String name)
+    {
+        this.name = name;
 
-    protected Company(){
     }
-
-    public List<Game> getCompanyGames() {
-		return this.companyGames;
-	}
-
-	public void setCompanyGames(List<Game> companyGames) {
-		this.companyGames = companyGames;
-	}
 
 	public void addGame(Game game) {
     	companyGames.add(game);
 	}
-
-	public void removeGame(Game game) {
-		companyGames.remove(game);
-	}
-
-    public Company(String name)
-    {
-        this.name = name;
-
-    }
-
-    public String getName()
+	
+	public String getName()
     {
         return name;
     }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
 
     public String toString() {
 		 if (companyGames.isEmpty()) {
