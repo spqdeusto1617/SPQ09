@@ -736,7 +736,7 @@ public class Client extends JFrame{
 		btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				superUserWindow();
+				superUserWindow();
 			}
 		});
 		btnNewButton.setBounds(337, 186, 125, 23);
