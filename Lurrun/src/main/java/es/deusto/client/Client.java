@@ -1,6 +1,7 @@
 package es.deusto.client;
 
 
+import java.awt.HeadlessException;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +38,7 @@ import es.deusto.server.remote.*;
 public class Client extends JFrame{
 	
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game", "Add game"};
-	private static List<Game> games = new ArrayList<Game>();
+	
 	
 	final static Logger logger = LoggerFactory.getLogger(Client.class);
 	private static boolean superuser = false;
@@ -63,11 +64,42 @@ public class Client extends JFrame{
 	private JButton btnNewButton;
 	private JTable table;
 	private JTable table_1;
-
+	private JList list_1;
+	private JList list_2;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
+	private static List<Game> games = new ArrayList<Game>();
+	private static List<Game> gameUsers;
+	private static List<String> genres= new ArrayList<String>();
+	private static List<String> companies = new ArrayList<String>();
 	
-	
+	public void loadAllArrayList()
+	{
+		
+		try {
+			companies=server.getAllCompanies();
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			genres=server.getAllGenres();
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			games=server.showGamesInStore();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void loginWindow()
 	{
+		setResizable(false);
+		loadAllArrayList();
+		
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 397, 175);
@@ -93,7 +125,15 @@ public class Client extends JFrame{
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
+			}
+			catch (NullPointerException e1)
+			{
+				JOptionPane.showMessageDialog(addGame,
+					    "Invalid User or password.",
+					    "",
+					    JOptionPane.ERROR_MESSAGE);
+				
+			}
 			if(k && !superuser)
 			{			
 			loggedUser= user;	
@@ -103,14 +143,7 @@ public class Client extends JFrame{
 			{
 			superUserWindow();				
 			}
-			else
-			{
-				JOptionPane.showMessageDialog(addGame,
-					    "Invalid User or password.",
-					    "",
-					    JOptionPane.ERROR_MESSAGE);
-				
-			}
+			
 				
 			}else
 			{
@@ -157,56 +190,14 @@ public class Client extends JFrame{
 		addGame.add(btnRegister);
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {			 
-				registerUserWindow();			
-			}
-		});
-	}
-	public void registerUserWindow()
-	{
-		
-		setTitle("Register ");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 397, 175);
-		addGame = new JPanel();
-		addGame.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(addGame);
-		addGame.setLayout(null);
-		addGame.setName("Log in");
-		
-		userTextField = new JTextField();
-		userTextField.setBounds(83, 45, 86, 20);
-		addGame.add(userTextField);
-		userTextField.setColumns(10);
-		
-		JTextPane txtpnPass = new JTextPane();
-		txtpnPass.setEditable(false);
-		txtpnPass.setEnabled(false);
-		txtpnPass.setText("Password");
-		txtpnPass.setBounds(10, 76, 60, 20);
-		addGame.add(txtpnPass);
-		
-		JTextPane txtpnUser = new JTextPane();
-		txtpnUser.setEnabled(false);
-		txtpnUser.setEditable(false);
-		txtpnUser.setText("User");
-		txtpnUser.setBounds(10, 45, 50, 20);
-		addGame.add(txtpnUser);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(83, 76, 86, 20);
-		addGame.add(passwordField);	
-		
-		JButton btnRegister = new JButton("Register");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				String user = userTextField.getText().toString();		
-				
-				String pass = passwordField.getText().toString();
-				
+				String user = userTextField.getText().toString();			
+				String pass = passwordField.getText().toString();			
 				if(user.length()!=0 && pass.length()!=0)
 				try {
 					server.registerUser(user, pass);
+					loggedUser=user;
+					normalUserWindow();
+				
 				} catch (RemoteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -219,16 +210,13 @@ public class Client extends JFrame{
 						    JOptionPane.ERROR_MESSAGE);
 					
 					
-				}
+				}		
 			}
 		});
-		
-		btnRegister.setBounds(239, 42, 110, 54);
-		addGame.add(btnRegister);
-	}
+	}	
 	public void normalUserWindow()
 	{
-		
+		setResizable(false);
 		setTitle("User");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 588, 405);
@@ -255,24 +243,28 @@ public class Client extends JFrame{
 		
 		//TABLA
 		String col[] = {"Name","Company","Gernre" ,"Price" ,"Discount"};
-		DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-		DefaultTableModel tableModel1 = new DefaultTableModel(col, 0) ;
+		String col1[] = {"Name","Gernre" };
+		DefaultTableModel storeTable = new DefaultTableModel(col, 0);
+		DefaultTableModel mygamesTable = new DefaultTableModel(col1, 0) ;
 		try {
+			
 			games=server.showGamesInStore();
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+//			e1.printStackTrace();
 		}
 		
 		for (int i = 0; i < games.size(); i++)
 		{
-			   String name = games.get(i).getName();
+				
+			   String name1 = games.get(i).getName();
+			   System.out.println(" Juegos en games "+games.get(i).getName());
 			   double price = games.get(i).getPrice();
 			   double discount = games.get(i).getDiscount();
 			   String companyname = games.get(i).getCompany().getName();
 			   String genre = games.get(i).getGenre().getName();
-			   Object[] data = { name, companyname, genre ,price, discount};
-			   tableModel.addRow(data);
+			   Object[] data = { name1 ,companyname, genre ,price, discount};//
+			   storeTable.addRow(data);
 
 		}
 		
@@ -281,24 +273,36 @@ public class Client extends JFrame{
 		myGamesPanel.setLayout(null);
 		
 		try {
-			games= server.showOwnedGames(loggedUser);
+			
+			gameUsers= server.showOwnedGames(loggedUser);
 		} catch (RemoteException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+//			e1.printStackTrace();
+			
 		}
-		for (int i = 0; i < games.size(); i++){
-			   String name = games.get(i).getName();
-			   double price = games.get(i).getPrice();
-			   double discount = games.get(i).getDiscount();
-			   String companyname = games.get(i).getCompany().getName();
-			   String genre = games.get(i).getGenre().getName();
-			   Object[] data = { name, companyname, genre ,price, discount};
+		
+		try{
+		if(!gameUsers.isEmpty())
+		for (int i = 0; i < gameUsers.size(); i++){
+			   String name1 = gameUsers.get(i).getName();
+			   System.out.println(" Juegos en games "+gameUsers.get(i).getName());
+			   double price = gameUsers.get(i).getPrice();
+			   double discount = gameUsers.get(i).getDiscount();
+// descomentar peta
+//			   String companyname = gameUsers.get(i).getCompany().getName();
+//			   String genre = gameUsers.get(i).getGenre().getName();
+			   Object[] data = { name1  }; //,companyname, genre
 			  
-			tableModel1.addRow(data);
+			   mygamesTable.addRow(data);
 
 			}
+		}catch(NullPointerException e)
+		{
+//			System.out.println("NullPointer por algo games user");
+//			e.printStackTrace();
+		}
 	
-		tableMyGames = new JTable(tableModel);
+		tableMyGames = new JTable(mygamesTable);
 		tableMyGames.setBounds(0, 0, 428, 291);
 		myGamesPanel.add(tableMyGames);
 		
@@ -306,39 +310,51 @@ public class Client extends JFrame{
 		allGamesPanel.setLayout(null);
 		userTab.addTab("All Games", null, allGamesPanel, null);
 		
-		tableAllGames = new JTable(tableModel1);
+		tableAllGames = new JTable(storeTable);
 		tableAllGames.setBounds(0, 0, 428, 291);
-		allGamesPanel.add(tableAllGames);
-		
-		
-		
-		
-
+		allGamesPanel.add(tableAllGames);	
 		
 		JButton btnMyWallet = new JButton("My Wallet");
 		btnMyWallet.setBounds(473, 127, 89, 23);
 		addGame.add(btnMyWallet);	
 		btnMyWallet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-			System.out.println("Enseña el dinero en un pop up");
+					try {
+					JOptionPane.showMessageDialog(addGame,
+						    "You have"
+						    + server.getUserWallet(loggedUser) + "lelreles",    		//
+						    "Wallet",
+						    JOptionPane.PLAIN_MESSAGE);
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
 			}
 		});
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			System.out.println("Performs log out");
 			loginWindow();
 			}
 		});
 		btnLogOut.setBounds(472, 296, 89, 23);
 		addGame.add(btnLogOut);
-	}
+
+}
 	public void buyGameWindow()
 	{
-		DefaultListModel model = new DefaultListModel();
+		setResizable(false);
+		DefaultListModel modelgam = new DefaultListModel();
+		DefaultListModel modelcomp =new DefaultListModel();
+		DefaultListModel modelgen =new DefaultListModel();
 		setTitle("Buy Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 480, 308);
+		setBounds(100, 100, 656, 410);
 		addGame = new JPanel();
 		addGame.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(addGame);
@@ -352,20 +368,65 @@ public class Client extends JFrame{
 				normalUserWindow();
 			}
 		});
-		btnCancel.setBounds(272, 238, 89, 23);
+		btnCancel.setBounds(350, 310, 89, 23);
 		addGame.add(btnCancel);
 		
 		JButton btnBuyGame_1 = new JButton("Buy Game");
 		btnBuyGame_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String selected = (String) list.getSelectedValue();
-				if(selected!=null)
-				try {
-					server.buyGame(loggedUser, selected);
+				String selected = (String) list.getSelectedValue();				
+				
+			
+				if(selected!=null){
+				
+				String[] parts = selected.split("//");
+				selected=parts[1].trim();
+				System.out.println("Selected"+ selected);
+				boolean puedePagar=false;
+				int r=0;
+				for( r=0;r<games.size();r++)
+				{
+					System.out.println("entra");
+				if(games.get(r).getName().equals(selected))
+				{
+					System.out.println("encuentra");
+					
+					try {
+						if(games.get(r).getPrice() <=server.getUserWallet(loggedUser) )
+						{
+							
+							puedePagar=true;
+							
+						}
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						System.out.println("coge mal la wallet");
+						e1.printStackTrace();
+					}
+					
+					break;
+				}
+				}
+				if(puedePagar)
+				try {	
+					System.out.println("pop up");				
+					int selectedOption = JOptionPane.showConfirmDialog(addGame, 
+                            "Are you sure you want to buy this game", 
+                            "Confirm", 
+                            JOptionPane.YES_NO_OPTION); 
+							if (selectedOption == JOptionPane.YES_OPTION) 
+							{
+								
+								server.buyGame(loggedUser, selected);						
+								normalUserWindow();				
+								server.setUserWallet(server.getUserWallet(loggedUser)-games.get(r).getPrice(), loggedUser);
+							}													
+					
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				}
 				}
 				else
 				{
@@ -377,7 +438,7 @@ public class Client extends JFrame{
 			}
 			
 		});
-		btnBuyGame_1.setBounds(93, 238, 89, 23);
+		btnBuyGame_1.setBounds(141, 310, 89, 23);
 		addGame.add(btnBuyGame_1);
 		
 		txtSearchGame = new JTextField();
@@ -396,35 +457,25 @@ public class Client extends JFrame{
 		txtpnGenre.setText("Genre");
 		txtpnGenre.setEnabled(false);
 		txtpnGenre.setEditable(false);
-		txtpnGenre.setBounds(28, 42, 33, 20);
+		txtpnGenre.setBounds(350, 11, 33, 20);
 		addGame.add(txtpnGenre);
-		
-		txtSearchGenre = new JTextField();
-		txtSearchGenre.setColumns(10);
-		txtSearchGenre.setBounds(93, 42, 75, 20);
-		addGame.add(txtSearchGenre);
 		
 		JTextPane txtpnCompany = new JTextPane();
 		txtpnCompany.setText("Company");
 		txtpnCompany.setEnabled(false);
 		txtpnCompany.setEditable(false);
-		txtpnCompany.setBounds(196, 11, 66, 20);
+		txtpnCompany.setBounds(184, 11, 66, 20);
 		addGame.add(txtpnCompany);
-		
-		txtsearchCompany = new JTextField();
-		txtsearchCompany.setColumns(10);
-		txtsearchCompany.setBounds(272, 11, 75, 20);
-		addGame.add(txtsearchCompany);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String gamename= txtsearchCompany.getText();
-				String genre =txtSearchGenre.getText();
-				String companyname=txtSearchGame.getText();
+				String gamename= txtSearchGame.getText();
+				String genre =(String) list_1.getSelectedValue();
+				String companyname=(String) list_2.getSelectedValue();
 				boolean valido=true;
-				model.removeAllElements();
+				modelgam.removeAllElements();
 				for(int i = 0; i < games.size(); i++)
 				{
 					
@@ -433,51 +484,92 @@ public class Client extends JFrame{
 						valido=games.get(i).getName().contains(gamename);
 						
 					}
-					if(genre.length()!=0 && valido==true){
+					if(genre!=null && valido==true && genre!="All"){
+						
+						
 						valido=games.get(i).getGenre().getName().contains(genre);
+					
 						
 					}
-					if(companyname.length()!=0 &&valido==true)
+					if(companyname!=null &&valido==true && companyname!="All")
 					{
+					
 						valido=games.get(i).getCompany().getName().contains(companyname);
 						
+						
 					}
-					if(companyname.length()!=0&&gamename.length()!=0&&genre.length()!=0)
+					if((companyname==null||companyname=="All")&&gamename.length()==0&& (genre==null||companyname=="All"))
 					{
-						valido=true;
+						valido=true;	
 						
 					}									
 					if(valido)
 					{
-						model.addElement(games.get(i).toString());
+						modelgam.addElement("//  " +games.get(i).getName() + "  // Price ->" + games.get(i).getPrice()+ "  Discount ->  " + games.get(i).getDiscount() );
 					}
-					
+					valido=true;
 				}
-				
+				if(list.getModel().getSize()==0)
+				{
+					JOptionPane.showMessageDialog(addGame,
+						    "No Game found try, search is case sensitive.",
+						    "",
+						    JOptionPane.OK_OPTION);
+				}
 				
 			}
 		});
-		btnSearch.setBounds(357, 27, 89, 23);
+		btnSearch.setBounds(525, 10, 89, 23);
 		addGame.add(btnSearch);
 		
 		
 		
-	    list = new JList(model);   
-	    JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setBounds(46, 85, 365, 138);	   
+	    list = new JList(modelgam);   
 	    for (int i = 0; i < games.size(); i++)
 	    {	    
-	      model.addElement(games.get(i).getName());
+	    	modelgam.addElement("//  "+games.get(i).getName() + "  // Price ->" + games.get(i).getPrice()+ "// Discount ->  " + games.get(i).getDiscount() );
 	    }
+	    
+	    
+	    JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane.setBounds(72, 161, 439, 138);	   
+	   
 		
+	    
+	    
 	    addGame.add(scrollPane);
-		
+	    
+	    JScrollPane scrollPane_1 = new JScrollPane(list_1);
+	    scrollPane_1.setBounds(260, 12, 75, 96);
+	    addGame.add(scrollPane_1);
+	    
+	    list_1 = new JList(modelgen);
+	    modelgen.addElement("All");
+	    
+	    for(int i = 0; i < genres.size(); i++)
+	    {
+	    	modelgen.addElement(genres.get(i));
+	    }
+	    scrollPane_1.setColumnHeaderView(list_1);
+	    
+	    JScrollPane scrollPane_2 = new JScrollPane(list_2);
+	    scrollPane_2.setBounds(418, 11, 75, 102);
+	    addGame.add(scrollPane_2);
+	    
+	    modelcomp.addElement("All");
+	    list_2 = new JList(modelcomp);
+	    for(int i = 0; i < companies.size(); i++)
+	    {
+	    	modelcomp.addElement(companies.get(i));
+	    }
+	    scrollPane_2.setViewportView(list_2);		
 		
 		
 	}
 	public void superUserWindow()
 	{
-		
+		loadAllArrayList();
+		setResizable(false);
 		String col[] = {"Name","Company","Gernre" ,"Price" ,"Discount"};
 		DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 	
@@ -487,13 +579,13 @@ public class Client extends JFrame{
 			   String name = games.get(i).getName();
 			   double price = games.get(i).getPrice();
 			   double discount = games.get(i).getDiscount();
-//			   String companyname = games.get(i).getCompany().getName();
-//			   String genre = games.get(i).getGenre().getName();
-			   Object[] data = { name ,price, discount};
+			   String companyname = games.get(i).getCompany().getName();
+			   String genre = games.get(i).getGenre().getName();
+			   Object[] data = { name , genre , companyname ,price, discount};
 			   tableModel.addRow(data);
 
 		}
-//
+
 		setTitle("Super User Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 773, 481);
@@ -535,11 +627,13 @@ public class Client extends JFrame{
 	}
 	public void addGameWindow()	
 	{
-		
-		
+		loadAllArrayList();
+		DefaultListModel modelcomp =new DefaultListModel();
+		DefaultListModel modelgen =new DefaultListModel();
+		setResizable(false);
 		setTitle("Add Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 589, 249);
+		setBounds(100, 100, 607, 249);
 		addGame = new JPanel();
 		addGame.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(addGame);
@@ -550,29 +644,67 @@ public class Client extends JFrame{
 		btnAddGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String gnName = txtSearchGame.getText();
-				double price =  Double.parseDouble(txtPrice.getText());			
-				double disc = Double.parseDouble(txtPrice.getText());
-				String gg = txtSearchGenre.getText();
-				String c= txtsearchCompany.getText();
-				if(gnName.length()==0||gnName.length()==0||gnName.length()==0||gg.length()==0||c.length()==0)
+				String priceStr=txtPrice.getText();
+				String discStr= txtDiscount.getText();
+				
+				String gg = (String) list_1.getSelectedValue();
+				String c= (String) list_2.getSelectedValue();
+				if(gnName.length()==0||priceStr.length()==0||discStr.length()==0||gg==null||c==null)
 				{
+					
+					
+					
 					JOptionPane.showMessageDialog(addGame,
 						    "Fill all fields please.",
 						    "",
 						    JOptionPane.ERROR_MESSAGE);				
 				}
-				else{
-				try {
+				else
+				{
+				try{
+				double price =  Double.parseDouble(txtPrice.getText());
+				
+				double disc = Double.parseDouble(txtDiscount.getText());
+				if(disc<=100 || disc >0){
+					if(price>=0){
+				try {			
 					server.addGame(gnName, price, disc, gg, c);
+					superUserWindow();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(addGame,
+							  "Game Already in the database",
+							 "",
+								    JOptionPane.ERROR_MESSAGE);	
 				}
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(addGame,
+								  "Insert a price value that's 0 or higher",
+								 "Invalid Price",
+									    JOptionPane.ERROR_MESSAGE);	
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(addGame,
+							  "Insert a discount from 0 to 100",
+							 "Invalid Discount",
+								    JOptionPane.ERROR_MESSAGE);		
+				}
+				}catch(NumberFormatException e3)
+				{
+				JOptionPane.showMessageDialog(addGame,
+							  "Price or Discount not numbers.",
+							 "",
+								    JOptionPane.ERROR_MESSAGE);				
+//				
 				}
 				
+				}
 			}
 		});
-		btnAddGame.setBounds(123, 159, 119, 23);
+		btnAddGame.setBounds(120, 186, 119, 23);
 		addGame.add(btnAddGame);
 		
 		txtSearchGame = new JTextField();
@@ -591,33 +723,23 @@ public class Client extends JFrame{
 		txtpnGenre1.setText("Genre");
 		txtpnGenre1.setEnabled(false);
 		txtpnGenre1.setEditable(false);
-		txtpnGenre1.setBounds(337, 24, 75, 20);
+		txtpnGenre1.setBounds(354, 24, 75, 20);
 		addGame.add(txtpnGenre1);
-		
-		txtSearchGenre = new JTextField();
-		txtSearchGenre.setColumns(10);
-		txtSearchGenre.setBounds(422, 24, 75, 20);
-		addGame.add(txtSearchGenre);
 		
 		JTextPane txtpnCompany1 = new JTextPane();
 		txtpnCompany1.setText("Company");
 		txtpnCompany1.setEnabled(false);
 		txtpnCompany1.setEditable(false);
-		txtpnCompany1.setBounds(165, 24, 66, 20);
+		txtpnCompany1.setBounds(173, 24, 57, 20);
 		addGame.add(txtpnCompany1);
-		
-		txtsearchCompany = new JTextField();
-		txtsearchCompany.setColumns(10);
-		txtsearchCompany.setBounds(252, 24, 75, 20);
-		addGame.add(txtsearchCompany);
 		
 		btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				superUserWindow();
+//				superUserWindow();
 			}
 		});
-		btnNewButton.setBounds(305, 159, 125, 23);
+		btnNewButton.setBounds(337, 186, 125, 23);
 		addGame.add(btnNewButton);
 		
 		txtPrice = new JTextField();
@@ -643,8 +765,28 @@ public class Client extends JFrame{
 		txtpnDiscount.setEditable(false);
 		txtpnDiscount.setBounds(20, 86, 50, 20);
 		addGame.add(txtpnDiscount);
-
 		
+		
+		scrollPane = new JScrollPane(list_1);
+		scrollPane.setBounds(238, 26, 111, 137);
+		addGame.add(scrollPane);
+		
+		list_1 = new JList(modelgen);
+		scrollPane.setViewportView(list_1);
+		for(int i = 0; i < genres.size(); i++)
+	    {
+	    	modelgen.addElement(genres.get(i));
+	    }
+		scrollPane_1 = new JScrollPane(list_2);
+		scrollPane_1.setBounds(439, 24, 105, 139);
+		addGame.add(scrollPane_1);
+		
+		list_2 = new JList(modelcomp);
+		for(int i = 0; i < companies.size(); i++)
+	    {
+	    	modelcomp.addElement(companies.get(i));
+	    }
+		scrollPane_1.setViewportView(list_2);	
 	}		
 	public Client() 
 	{
@@ -733,138 +875,137 @@ public class Client extends JFrame{
 				frame.setVisible(true);	
 			
 			
-			
-			boolean log = true;
-			while(log){
-				logger.info("To log in press '1'; for registering press '2'");
-				int logreg = Integer.parseInt(System.console().readLine());
-				boolean pass = false;
-				logger.info("Insert username:");
-				String login = System.console().readLine();
-				logger.info("Insert password:");
-				String password = String.valueOf(System.console().readPassword());
-				
-				try{
-					if(logreg == 1){
-						pass = server.loginUser(login, password);
-						superuser = server.isSuperUser(login);
-					}
-					else if (logreg == 2){
-						pass = server.registerUser(login, password);
-					}
-					else{
-						logger.error("Non valid input");
-					}
-				} catch (RemoteException e){
-					logger.error("Remote exception when trying to log in");
-					pass = false;
-					
-				}
-				if(pass){
-					if(superuser){
-						logger.info("Hello superuser!");
-					}
-					log = false;
-					String input = "";						
-					do{
-						displayMenu(mainMenu, defInfo);
-						input = System.console().readLine();
-						switch(input){
-						case("1"):
-							//Show games
-							showGames(server, null);
-							break;
-						case("2"):
-							//Show current user's games
-							showGames(server, login);
-							break;
-						case("3"):
-							//Buy game
-							logger.info("Insert a game's Id to select it. If you want to go back, input 'b'.");
-							logger.info("Available money: " + server.getUserWallet(login));
-							showGames(server, null);
-							input = System.console().readLine();
-							if(input.equals("b")){
-								break;
-							}
-							int id = Integer.parseInt(input)-1;
-							String gameName = "";
-							try{
-								gameName = games.get(id).getName();
-							} catch (Exception e){
-								logger.error("Invalid input");
-								break;
-							}
-							try{
-								if(server.buyGame(login, gameName)){
-									logger.info("Game bought successfully");
-								}
-							} catch (RemoteException e){
-								logger.error("Remote exception when trying to buy a game");
-							}
-							break;
-						case("4"):
-							//Add new game only if superUser
-							if(superuser){
-								String gName = "";
-								double gPrice = 0.0;
-								double gDisc = 0.0;
-								//Input name, price and discount
-								logger.info("Input new game name:");
-								gName = System.console().readLine();
-								try{
-									logger.info("Input new game price:");
-									gPrice = Double.parseDouble(System.console().readLine());
-									logger.info("Input new game discount:");
-									gDisc = Double.parseDouble(System.console().readLine());
-								} catch (Exception e){
-									logger.info("Invalid input");
-									break;
-								}
-								
-								try{
-									//Choose Company
-									int choose = 0;
-									String[] chooseList = server.getAllCompanies();
-									displayMenu(chooseList, "Select a company");
-									choose = Integer.parseInt(System.console().readLine())-1;
-									String cName = chooseList[choose];
-									
-									//Coose Genre
-									chooseList = server.getAllGenres();
-									displayMenu(chooseList, "Select a Genre");
-									choose = Integer.parseInt(System.console().readLine())-1;
-									String ggName = chooseList[choose];
-									if(server.addGame(gName, gPrice, gDisc, ggName, cName)){
-										logger.info("New game added successfully");
-									}
-								} catch (RemoteException e){
-									logger.error("Remote exception on the process of adding a game to the DB");
-								}
-								
-								break;
-							}
-						case("quit"):
-							break;
-						default:
-							logger.info("Invalid input");
-							break;
-						}
-						
-					} while(!(input.equals("quit")));
-					logger.info("See you soon! :D");
-				}
-				else{
-					logger.info("Incorrect login. Try again? Y|N");
-					String input = System.console().readLine();
-					if(input.equals("N")){
-						log = false;
-					}
-				}
-			}
-
-		} catch (Exception e) {
-			System.err.println("[GenericException] Unexpected exception caught on the code: " + e.getMessage());
+//			
+//			boolean log = true;
+//			while(log){
+//				logger.info("To log in press '1'; for registering press '2'");
+//				int logreg = Integer.parseInt(System.console().readLine());
+//				boolean pass = false;
+//				logger.info("Insert username:");
+//				String login = System.console().readLine();
+//				logger.info("Insert password:");
+//				String password = String.valueOf(System.console().readPassword());
+//				
+//				try{
+//					if(logreg == 1){
+//						pass = server.loginUser(login, password);
+//						superuser = server.isSuperUser(login);
+//					}
+//					else if (logreg == 2){
+//						pass = server.registerUser(login, password);
+//					}
+//					else{
+//						logger.error("Non valid input");
+//					}
+//				} catch (RemoteException e){
+//					logger.error("Remote exception when trying to log in");
+//					pass = false;
+//					
+//				}
+//				if(pass){
+//					if(superuser){
+//						logger.info("Hello superuser!");
+//					}
+//					log = false;
+//					String input = "";						
+//					do{
+//						displayMenu(mainMenu, defInfo);
+//						input = System.console().readLine();
+//						switch(input){
+//						case("1"):
+//							//Show games
+//							showGames(server, null);
+//							break;
+//						case("2"):
+//							//Show current user's games
+//							showGames(server, login);
+//							break;
+//						case("3"):
+//							//Buy game
+//							logger.info("Insert a game's Id to select it. If you want to go back, input 'b'.");
+//							logger.info("Available money: " + server.getUserWallet(login));
+//							showGames(server, null);
+//							input = System.console().readLine();
+//							if(input.equals("b")){
+//								break;
+//							}
+//							int id = Integer.parseInt(input)-1;
+//							String gameName = "";
+//							try{
+//								gameName = games.get(id).getName();
+//							} catch (Exception e){
+//								logger.error("Invalid input");
+//								break;
+//							}
+//							try{
+//								if(server.buyGame(login, gameName)){
+//									logger.info("Game bought successfully");
+//								}
+//							} catch (RemoteException e){
+//								logger.error("Remote exception when trying to buy a game");
+//							}
+//							break;
+//						case("4"):
+//							//Add new game only if superUser
+//							if(superuser){
+//								String gName = "";
+//								double gPrice = 0.0;
+//								double gDisc = 0.0;
+//								//Input name, price and discount
+//								logger.info("Input new game name:");
+//								gName = System.console().readLine();
+//								try{
+//									logger.info("Input new game price:");
+//									gPrice = Double.parseDouble(System.console().readLine());
+//									logger.info("Input new game discount:");
+//									gDisc = Double.parseDouble(System.console().readLine());
+//								} catch (Exception e){
+//									logger.info("Invalid input");
+//									break;
+//								}
+//								
+//								try{
+//									//Choose Company
+//									int choose = 0;
+//									String[] chooseList = server.getAllCompanies();
+//									displayMenu(chooseList, "Select a company");
+//									choose = Integer.parseInt(System.console().readLine())-1;
+//									String cName = chooseList[choose];
+//									
+//									//Coose Genre
+//									chooseList = server.getAllGenres();
+//									displayMenu(chooseList, "Select a Genre");
+//									choose = Integer.parseInt(System.console().readLine())-1;
+//									String ggName = chooseList[choose];
+//									if(server.addGame(gName, gPrice, gDisc, ggName, cName)){
+//										logger.info("New game added successfully");
+//									}
+//								} catch (RemoteException e){
+//									logger.error("Remote exception on the process of adding a game to the DB");
+//								}
+//								
+//								break;
+//							}
+//						case("quit"):
+//							break;
+//						default:
+//							logger.info("Invalid input");
+//							break;
+//						}
+//						
+//					} while(!(input.equals("quit")));
+//					logger.info("See you soon! :D");
+//				}
+//				else{
+//					logger.info("Incorrect login. Try again? Y|N");
+//					String input = System.console().readLine();
+//					if(input.equals("N")){
+//						log = false;
+//					}
+//				}
+//			}
+//
+		} catch (Exception e) {			System.err.println("[GenericException] Unexpected exception caught on the code: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
