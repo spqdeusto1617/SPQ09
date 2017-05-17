@@ -68,8 +68,91 @@ public class ContiPerfTest {
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(ContiPerfTest.class);
 	}
-	
+	/*
+	@BeforeClass static public void setUp() {
+		 //Launch the RMI registry
+		class RMIRegistryRunnable implements Runnable {
 
+			public void run() {
+				try {
+					java.rmi.registry.LocateRegistry.createRegistry(1099);
+					logger.info("BeforeClass: RMI registry ready.");
+				} catch (Exception e) {
+					logger.info("Exception starting RMI registry:");
+					e.printStackTrace();
+				}	
+			}
+		}
+
+		rmiRegistryThread = new Thread(new RMIRegistryRunnable());
+		rmiRegistryThread.start();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+
+		}
+
+		class RMIServerRunnable implements Runnable {
+
+			public void run() {
+				logger.info("This is a test to check how mvn test executes this test without external interaction; JVM properties by program");
+				logger.info("**************: " + cwd);
+				System.setProperty("java.rmi.server.codebase", "file:" + cwd);
+				System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
+
+				if (System.getSecurityManager() == null) {
+					System.setSecurityManager(new SecurityManager());
+				}
+
+				String name = "127.0.0.1:1099/MessengerRMIDAO";
+				logger.info("BeforeClass - Setting the server ready TestServer name: " + name);
+
+				try {
+
+					IRemote remote = new Remote();
+					Naming.rebind(name, remote);
+				} catch (RemoteException re) {
+					logger.error(" # Messenger RemoteException: " + re.getMessage());
+					re.printStackTrace();
+					System.exit(-1);
+				} catch (MalformedURLException murle) {
+					logger.error(" # Messenger MalformedURLException: " + murle.getMessage());
+					murle.printStackTrace();
+					System.exit(-1);
+				}
+			}
+		}
+		rmiServerThread = new Thread(new RMIServerRunnable());
+		rmiServerThread.start();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+		}
+
+	}
+
+	@Before public void setUpClient() {
+
+		try {
+			System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
+
+			if (System.getSecurityManager() == null) {
+				System.setSecurityManager(new SecurityManager());
+			}
+
+			String name = "127.0.0.1:1099/MessengerRMIDAO";
+			logger.info("BeforeTest - Setting the client ready for calling TestServer name: " + name);
+			remote = (IRemote) java.rmi.Naming.lookup(name);
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			System.exit(-1);
+		} 
+
+	}
+*/
 	
 	@Test 
 	@PerfTest(duration = 5000)
@@ -127,6 +210,62 @@ public class ContiPerfTest {
 		db.showGame("Perftest" + b);
 		count1++;
 		}
+	/*
+	@Test @PerfTest(invocations = 100, threads = 10)
+	@Required(totalTime = 1000)public void isSuperUserTest() {
+		boolean a =true;
+		try{
+			logger.info("Test 14 - Is SuperUser?");
+			remote.isSuperUser("Carazo");
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			a =false;
+		} 
 
+		assertTrue( a );
+	}
+	@Test @PerfTest(invocations = 100, threads = 10)
+	@Required(totalTime = 1000)public void addGame() {
+		boolean a =true;
+		try{
+			logger.info("Test 15 - Add game");
+			remote.addGame("Counter", 11, 0,"shooter", "valve");
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			a =false;
+		} 
+
+		assertTrue( a );
+	}
+	@Test @PerfTest(invocations = 100, threads = 10)
+	@Required(totalTime = 1000)public void getAllCompanies() {
+		boolean a =true;
+		try{
+			logger.info("Test 16 - Get all companies");
+			remote.getAllCompanies();
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			a =false;
+		} 
+
+		assertTrue( a );
+	}
+	@Test @PerfTest(invocations = 100, threads = 10)
+	@Required(totalTime = 1000)public void getAllGenres() {
+		boolean a =true;
+		try{
+			logger.info("Test 17 - Get all genres");
+			remote.getAllGenres();
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			a =false;
+		} 
+
+		assertTrue( a );
+	}*/
 
 }
