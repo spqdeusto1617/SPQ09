@@ -110,14 +110,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad2e6ee616bdc780b4057e63bf2ae8be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53305dbc72d910c932e66e2c27c5e1bb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a53305dbc72d910c932e66e2c27c5e1bb">getUserWallet</a> (String login)  throws RemoteException</td></tr>
 <tr class="separator:a53305dbc72d910c932e66e2c27c5e1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6252daae1e76aee233294482f661160a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a6252daae1e76aee233294482f661160a">setUserWallet</a> (double k, String login)  throws RemoteException</td></tr>
+<tr class="separator:a6252daae1e76aee233294482f661160a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a488f8b57271876e219af445345428d73"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a488f8b57271876e219af445345428d73">isSuperUser</a> (String login)  throws RemoteException</td></tr>
 <tr class="separator:a488f8b57271876e219af445345428d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a991909db4d26d5be67bb3e0bcb501c7e"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a991909db4d26d5be67bb3e0bcb501c7e">addGame</a> (String gName, double price, double disc, String gg, String c)  throws RemoteException</td></tr>
 <tr class="separator:a991909db4d26d5be67bb3e0bcb501c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43ab8347d64e5d49093e607029f2598b"><td class="memItemLeft" align="right" valign="top">String []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a43ab8347d64e5d49093e607029f2598b">getAllCompanies</a> ()  throws RemoteException</td></tr>
-<tr class="separator:a43ab8347d64e5d49093e607029f2598b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c3721ee532d20aa65b892b55f157b21"><td class="memItemLeft" align="right" valign="top">String []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a7c3721ee532d20aa65b892b55f157b21">getAllGenres</a> ()  throws RemoteException</td></tr>
-<tr class="separator:a7c3721ee532d20aa65b892b55f157b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79aad360068d216b63b8afadcc6bcc92"><td class="memItemLeft" align="right" valign="top">List&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a79aad360068d216b63b8afadcc6bcc92">getAllCompanies</a> ()  throws RemoteException</td></tr>
+<tr class="separator:a79aad360068d216b63b8afadcc6bcc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90995befbd81e0781056f75645997fe9"><td class="memItemLeft" align="right" valign="top">List&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a90995befbd81e0781056f75645997fe9">getAllGenres</a> ()  throws RemoteException</td></tr>
+<tr class="separator:a90995befbd81e0781056f75645997fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -201,14 +203,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a43ab8347d64e5d49093e607029f2598b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43ab8347d64e5d49093e607029f2598b">&#9670;&nbsp;</a></span>getAllCompanies()</h2>
+<a id="a79aad360068d216b63b8afadcc6bcc92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79aad360068d216b63b8afadcc6bcc92">&#9670;&nbsp;</a></span>getAllCompanies()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">String [] es.deusto.server.remote.IRemote.getAllCompanies </td>
+          <td class="memname">List&lt;String&gt; es.deusto.server.remote.IRemote.getAllCompanies </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> throws RemoteException</td>
@@ -216,18 +218,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#ab8595d6689604ef57f2d01309936ccd2">es.deusto.server.remote.Remote</a>.</p>
+<p>Implemented in <a class="el" href="classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#aab476fc9723873e8f85296602d34a97a">es.deusto.server.remote.Remote</a>.</p>
 
 </div>
 </div>
-<a id="a7c3721ee532d20aa65b892b55f157b21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c3721ee532d20aa65b892b55f157b21">&#9670;&nbsp;</a></span>getAllGenres()</h2>
+<a id="a90995befbd81e0781056f75645997fe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90995befbd81e0781056f75645997fe9">&#9670;&nbsp;</a></span>getAllGenres()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">String [] es.deusto.server.remote.IRemote.getAllGenres </td>
+          <td class="memname">List&lt;String&gt; es.deusto.server.remote.IRemote.getAllGenres </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> throws RemoteException</td>
@@ -235,7 +237,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a89ce5459e2ebe375dc534e59eda91b74">es.deusto.server.remote.Remote</a>.</p>
+<p>Implemented in <a class="el" href="classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a7a276118f167e088bbb56d962b2cc18f">es.deusto.server.remote.Remote</a>.</p>
 
 </div>
 </div>
@@ -339,6 +341,36 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6252daae1e76aee233294482f661160a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6252daae1e76aee233294482f661160a">&#9670;&nbsp;</a></span>setUserWallet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void es.deusto.server.remote.IRemote.setUserWallet </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>login</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> throws RemoteException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#aceab50768f98f50ff144b079f229c249">es.deusto.server.remote.Remote</a>.</p>
+
+</div>
+</div>
 <a id="a091249da31b567c1be29e07085d3ff18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a091249da31b567c1be29e07085d3ff18">&#9670;&nbsp;</a></span>showGamesInStore()</h2>
 
@@ -379,7 +411,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>C:/Users/Marta/SPQ09/Lurrun/src/main/java/es/deusto/server/remote/<a class="el" href="_i_remote_8java_source.html">IRemote.java</a></li>
+<li>src/main/java/es/deusto/server/remote/<a class="el" href="_i_remote_8java_source.html">IRemote.java</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

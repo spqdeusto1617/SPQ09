@@ -4,7 +4,6 @@ var classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o =
     [ "getAllCompanies", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#ac564970c7e308393497e874655470aaa", null ],
     [ "getAllGames", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#af49ed57bdac4dec48ab7616602d12df2", null ],
     [ "getAllGenres", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#ac1cb7032ef21f53dead8347ef440f431", null ],
-    [ "getAllUsers", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#a9c59f6c4bf89f46e305f88a4f8eb96bc", null ],
     [ "getFirstLicense", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#a4a5a54059bac00ea6f3b6d21f2a31a02", null ],
     [ "retrieveCompany", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#aabd374b169473cfd6e1bdc4efc89b177", null ],
     [ "retrieveGame", "classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#ac94a91d3e5aeeb98fc12f087532b3506", null ],

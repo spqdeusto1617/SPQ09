@@ -15,13 +15,11 @@ boolean \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1c8e0153dd9
 \item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a4b013f75d23e2c9f0dbca2d3bb467f6a}{register\+User} (String login, String password)  throws Remote\+Exception 
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a6fb46c2635427f798b75c8ab124b54da}{game\+Test} ()  throws Remote\+Exception
-\item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ae40a5882d6b3ef3d5928d87dafeb15fa}{show\+Games\+In\+Store} ()  throws Remote\+Exception 
 \item 
-double \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_af7cc190cccf69cda838a6d9805c5c2f5}{get\+User\+Wallet} (String login)  throws Remote\+Exception
+void \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aceab50768f98f50ff144b079f229c249}{set\+User\+Wallet} (double k, String login)  throws Remote\+Exception 	
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a09318956131f355c8b43f93e3c3afea4}{get\+User} (String login)  throws Remote\+Exception
+double \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_af7cc190cccf69cda838a6d9805c5c2f5}{get\+User\+Wallet} (String login)  throws Remote\+Exception
 \item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a73569877f9317fc48a4e134977baa304}{show\+Owned\+Games} (String username)  throws Remote\+Exception 
 \item 
@@ -31,9 +29,9 @@ boolean \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac7d2e76813b
 \item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a81c61e602f9419408e0069b51bc1e740}{add\+Game} (String g\+Name, double price, double disc, String gg, String c)  throws Remote\+Exception 
 \item 
-String \mbox{[}$\,$\mbox{]} \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ab8595d6689604ef57f2d01309936ccd2}{get\+All\+Companies} ()
+List$<$ String $>$ \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aab476fc9723873e8f85296602d34a97a}{get\+All\+Companies} ()
 \item 
-String \mbox{[}$\,$\mbox{]} \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a89ce5459e2ebe375dc534e59eda91b74}{get\+All\+Genres} ()
+List$<$ String $>$ \hyperlink{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a7a276118f167e088bbb56d962b2cc18f}{get\+All\+Genres} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -54,7 +52,7 @@ This class checks if the main processes, such as buying a game or registering a 
 \end{DoxySince}
 
 
-Definition at line 28 of file Remote.\+java.
+Definition at line 27 of file Remote.\+java.
 
 
 
@@ -80,7 +78,7 @@ nothing
 \end{DoxyExceptions}
 
 
-Definition at line 42 of file Remote.\+java.
+Definition at line 41 of file Remote.\+java.
 
 
 
@@ -117,7 +115,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a99
 
 
 
-Definition at line 240 of file Remote.\+java.
+Definition at line 215 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ad9f8ad426b1162504b7b39eb1c86d2a3}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ad9f8ad426b1162504b7b39eb1c86d2a3}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!buy\+Game@{buy\+Game}}
@@ -149,7 +147,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_ad2
 
 
 
-Definition at line 206 of file Remote.\+java.
+Definition at line 181 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac8c5c24cdafa413da4ad7d71f7f710d3}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac8c5c24cdafa413da4ad7d71f7f710d3}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!finalize@{finalize}}
@@ -170,39 +168,13 @@ java.\+lang.\+Object\+::finalize()
 \end{DoxySeeAlso}
 
 
-Definition at line 294 of file Remote.\+java.
+Definition at line 266 of file Remote.\+java.
 
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a6fb46c2635427f798b75c8ab124b54da}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a6fb46c2635427f798b75c8ab124b54da}} 
-\index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!game\+Test@{game\+Test}}
-\index{game\+Test@{game\+Test}!es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}}
-\subsubsection{\texorpdfstring{game\+Test()}{gameTest()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} es.\+deusto.\+server.\+remote.\+Remote.\+game\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Remote\+Exception}
-
-This method checks if adding a game works correctly 
-\begin{DoxyParams}{Parameters}
-{\em unused} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Game Returns a game from the database 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em Remote\+Exception} & \\
-\hline
-\end{DoxyExceptions}
-\begin{DoxySeeAlso}{See also}
-es.\+deusto.\+server.\+remote.\+I\+Remote\+::game\+Test() 
-\end{DoxySeeAlso}
-
-
-Definition at line 95 of file Remote.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ab8595d6689604ef57f2d01309936ccd2}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ab8595d6689604ef57f2d01309936ccd2}} 
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aab476fc9723873e8f85296602d34a97a}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aab476fc9723873e8f85296602d34a97a}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!get\+All\+Companies@{get\+All\+Companies}}
 \index{get\+All\+Companies@{get\+All\+Companies}!es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}}
 \subsubsection{\texorpdfstring{get\+All\+Companies()}{getAllCompanies()}}
-{\footnotesize\ttfamily String \mbox{[}$\,$\mbox{]} es.\+deusto.\+server.\+remote.\+Remote.\+get\+All\+Companies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily List$<$String$>$ es.\+deusto.\+server.\+remote.\+Remote.\+get\+All\+Companies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 This method shows all the companies 
 \begin{DoxyParams}{Parameters}
@@ -210,24 +182,24 @@ This method shows all the companies
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-String\mbox{[}\mbox{]} Returns an array of companies 
+List$<$\+String$>$ Returns a list of companies 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a43ab8347d64e5d49093e607029f2598b}{es.\+deusto.\+server.\+remote.\+I\+Remote\+::get\+All\+Companies()} 
+\hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a79aad360068d216b63b8afadcc6bcc92}{es.\+deusto.\+server.\+remote.\+I\+Remote\+::get\+All\+Companies()} 
 \end{DoxySeeAlso}
 
 
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a43ab8347d64e5d49093e607029f2598b}{es.\+deusto.\+server.\+remote.\+I\+Remote}.
+Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a79aad360068d216b63b8afadcc6bcc92}{es.\+deusto.\+server.\+remote.\+I\+Remote}.
 
 
 
-Definition at line 255 of file Remote.\+java.
+Definition at line 229 of file Remote.\+java.
 
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a89ce5459e2ebe375dc534e59eda91b74}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a89ce5459e2ebe375dc534e59eda91b74}} 
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a7a276118f167e088bbb56d962b2cc18f}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a7a276118f167e088bbb56d962b2cc18f}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!get\+All\+Genres@{get\+All\+Genres}}
 \index{get\+All\+Genres@{get\+All\+Genres}!es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}}
 \subsubsection{\texorpdfstring{get\+All\+Genres()}{getAllGenres()}}
-{\footnotesize\ttfamily String \mbox{[}$\,$\mbox{]} es.\+deusto.\+server.\+remote.\+Remote.\+get\+All\+Genres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily List$<$String$>$ es.\+deusto.\+server.\+remote.\+Remote.\+get\+All\+Genres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 This method shows all the genres 
 \begin{DoxyParams}{Parameters}
@@ -235,44 +207,18 @@ This method shows all the genres
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-String\mbox{[}\mbox{]} Returns an array of genres 
+List$<$\+String$>$ Returns a list of genres 
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-\hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a7c3721ee532d20aa65b892b55f157b21}{es.\+deusto.\+server.\+remote.\+I\+Remote\+::get\+All\+Genres()} 
+\hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a90995befbd81e0781056f75645997fe9}{es.\+deusto.\+server.\+remote.\+I\+Remote\+::get\+All\+Genres()} 
 \end{DoxySeeAlso}
 
 
-Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a7c3721ee532d20aa65b892b55f157b21}{es.\+deusto.\+server.\+remote.\+I\+Remote}.
+Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a90995befbd81e0781056f75645997fe9}{es.\+deusto.\+server.\+remote.\+I\+Remote}.
 
 
 
-Definition at line 268 of file Remote.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a09318956131f355c8b43f93e3c3afea4}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a09318956131f355c8b43f93e3c3afea4}} 
-\index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!get\+User@{get\+User}}
-\index{get\+User@{get\+User}!es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}}
-\subsubsection{\texorpdfstring{get\+User()}{getUser()}}
-{\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} es.\+deusto.\+server.\+remote.\+Remote.\+get\+User (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption}) throws Remote\+Exception}
-
-This method shows a user 
-\begin{DoxyParams}{Parameters}
-{\em login} & This is the login name of a user \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-User Returns a user stored in the database 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em Remote\+Exception} & \\
-\hline
-\end{DoxyExceptions}
-\begin{DoxySeeAlso}{See also}
-es.\+deusto.\+server.\+remote.\+I\+Remote\+::get\+User(java.\+lang.\+String) 
-\end{DoxySeeAlso}
-
-
-Definition at line 161 of file Remote.\+java.
+Definition at line 241 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_af7cc190cccf69cda838a6d9805c5c2f5}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_af7cc190cccf69cda838a6d9805c5c2f5}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!get\+User\+Wallet@{get\+User\+Wallet}}
@@ -302,7 +248,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a53
 
 
 
-Definition at line 139 of file Remote.\+java.
+Definition at line 133 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac7d2e76813b61b5a9fcf33d89b6e08c4}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ac7d2e76813b61b5a9fcf33d89b6e08c4}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!is\+Super\+User@{is\+Super\+User}}
@@ -327,7 +273,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a48
 
 
 
-Definition at line 225 of file Remote.\+java.
+Definition at line 201 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1c8e0153dd9b3f6d5499eb6d01e48bbe}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a1c8e0153dd9b3f6d5499eb6d01e48bbe}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!login\+User@{login\+User}}
@@ -359,7 +305,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a19
 
 
 
-Definition at line 55 of file Remote.\+java.
+Definition at line 53 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a4b013f75d23e2c9f0dbca2d3bb467f6a}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a4b013f75d23e2c9f0dbca2d3bb467f6a}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!register\+User@{register\+User}}
@@ -393,7 +339,36 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_aea
 
 
 
-Definition at line 76 of file Remote.\+java.
+Definition at line 73 of file Remote.\+java.
+
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aceab50768f98f50ff144b079f229c249}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_aceab50768f98f50ff144b079f229c249}} 
+\index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!set\+User\+Wallet@{set\+User\+Wallet}}
+\index{set\+User\+Wallet@{set\+User\+Wallet}!es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}}
+\subsubsection{\texorpdfstring{set\+User\+Wallet()}{setUserWallet()}}
+{\footnotesize\ttfamily void es.\+deusto.\+server.\+remote.\+Remote.\+set\+User\+Wallet (\begin{DoxyParamCaption}\item[{double}]{k,  }\item[{String}]{login }\end{DoxyParamCaption}) throws Remote\+Exception}
+
+This method changes the amount of money in the wallet 
+\begin{DoxyParams}{Parameters}
+{\em k} & This is the amount of money \\
+\hline
+{\em login} & This is the login name of a user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Remote\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a6252daae1e76aee233294482f661160a}{es.\+deusto.\+server.\+remote.\+I\+Remote}.
+
+
+
+Definition at line 112 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ae40a5882d6b3ef3d5928d87dafeb15fa}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_ae40a5882d6b3ef3d5928d87dafeb15fa}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!show\+Games\+In\+Store@{show\+Games\+In\+Store}}
@@ -423,7 +398,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_a09
 
 
 
-Definition at line 119 of file Remote.\+java.
+Definition at line 93 of file Remote.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a73569877f9317fc48a4e134977baa304}\label{classes_1_1deusto_1_1server_1_1remote_1_1_remote_a73569877f9317fc48a4e134977baa304}} 
 \index{es\+::deusto\+::server\+::remote\+::\+Remote@{es\+::deusto\+::server\+::remote\+::\+Remote}!show\+Owned\+Games@{show\+Owned\+Games}}
@@ -453,10 +428,10 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote_aaa
 
 
 
-Definition at line 183 of file Remote.\+java.
+Definition at line 156 of file Remote.\+java.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/remote/\hyperlink{_remote_8java}{Remote.\+java}\end{DoxyCompactItemize}
+src/main/java/es/deusto/server/remote/\hyperlink{_remote_8java}{Remote.\+java}\end{DoxyCompactItemize}

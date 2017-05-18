@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['client',['Client',['../classes_1_1deusto_1_1client_1_1_client.html',1,'es::deusto::client']]],
+  ['client',['Client',['../classes_1_1deusto_1_1client_1_1_client.html',1,'es.deusto.client.Client'],['../classes_1_1deusto_1_1client_1_1_client.html#a71c03e318a72447da873297f3364f67f',1,'es.deusto.client.Client.Client()']]],
   ['client_2ejava',['Client.java',['../_client_8java.html',1,'']]],
   ['company',['Company',['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.html',1,'es.deusto.server.db.data.Company'],['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company.html#acdee89103d4e157b7d4016fd8cd26d5e',1,'es.deusto.server.db.data.Company.Company()']]],
   ['company_2ejava',['Company.java',['../_company_8java.html',1,'']]],

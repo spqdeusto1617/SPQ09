@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import es.deusto.server.db.data.*;
 import es.deusto.server.db.*;
 import es.deusto.server.db.dao.*;
-
 /**
  * This class checks if the main processes, such as buying a game or registering a user, work correctly
  * @author 
@@ -43,7 +42,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		super();
 
 	}
-	
 	/**
 	 * This method allows a user to log in
 	 * @param login This is the login name of a user
@@ -63,7 +61,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			throw new RemoteException();
 		}
 	}
-
 	/**
 	 * This method checks if the registration process works correctly
 	 * @param login This is the login name of the user
@@ -83,29 +80,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			logger.error("Remote Exception Register User");
 			throw new RemoteException();
 		}
-	}
-
-	/**
-	 * This method checks if adding a game works correctly
-	 * @param unused
-	 * @return Game Returns a game from the database
-	 * @exception RemoteException
-	 * @see es.deusto.server.remote.IRemote#gameTest()
-	 */
-	public Game gameTest() throws RemoteException{
-		Company c = new Company("White Wolf");
-		Genre gr = new Genre("Vampire");
-		Game g = new Game("Vampire the Masquerade", 19.90, 0);
-
-		IDB db = new DB();
-
-		try {
-			db.addGameToDb(g, gr, c);
-		} catch (Exception e) {logger.error(" Exception  gameTest");e.printStackTrace();
-		}
-		Game g1=db.showGame(g.getName());
-
-		return(g1);
 	}
 	
 	/**
@@ -128,7 +102,27 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			return(games);
 		}
 	}
-	
+	/**
+	 * This method changes the amount of money in the wallet
+	 * @param k This is the amount of money
+	 * @param login  This is the login name of a user
+	 * @return nothing
+	 * @exception RemoteException
+	 */
+	public void setUserWallet(double k, String login) throws RemoteException
+	{
+		IDB db = new DB();
+		User u  = db.showUser(login);
+
+		if(u == null){
+			logger.error("Remote exception getUser");
+			throw new RemoteException();
+		}
+		else{
+		u.setMoney(k);
+		}
+		
+	}
 	/**
 	 * This method shows the wallet of a user
 	 * @param login This is the user login name
@@ -148,30 +142,9 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		else{
 			return(u.getMoney());
 		}
-	}
-
-
-	/**
-	 * This method shows a user
-	 * @param login This is the login name of a user
-	 * @return User Returns a user stored in the database
-	 * @exception RemoteException
-	 * @see es.deusto.server.remote.IRemote#getUser(java.lang.String)
-	 */
-	public User getUser(String login) throws RemoteException{
-
-		IDB db = new DB();
-		User u  = db.showUser(login);
-
-		if(u == null){logger.error("Remote exception getUser");throw new RemoteException();
-		}
-		else{
-			return(u);
-		}
 
 
 	}
-
 	/**
 	 * This method shows all the games a user owns
 	 * @param username This is the name of the user
@@ -186,14 +159,16 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		IDB db = new DB();
 		List<Game> games = db.getUserGames(username);
 		if(games.isEmpty()){
+			
+			
 			logger.error("Remote exception getUser showOwnedGames ");
+		
 			throw new RemoteException();
 		}
 		else{
 			return(games);
 		}
 	}
-	
 	/**
 	 * This method buys a game and adds it to the user owned list
 	 * @param username This is the name of the user
@@ -213,8 +188,9 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			logger.error("Remote exception buyGame");
 			throw new RemoteException();
 		}
+
+
 	}
-	
 	/**
 	 * This method shows if a user is superuser or not
 	 * @param login This is the login name of a user
@@ -226,7 +202,6 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		IDB db = new DB();
 		return db.isSuperUser(login);
 	}
-
 	/**
 	 * This method adds a game to the database
 	 * @param game This is the name of a game
@@ -244,33 +219,30 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		Company comp = db.showCompany(c);
 		return db.addGameToDb(g, gen, comp);
 	}
-	
 	/**
 	 * This method shows all the companies
 	 * @param unused
-	 * @return String[] Returns an array of companies
+	 * @return List<String> Returns a list of companies
 	 * @see es.deusto.server.remote.IRemote#getAllCompanies()
 	 */
 	@Override
-	public String[] getAllCompanies() {
+	public List<String> getAllCompanies() {
 		IDB db = new DB();
 		List<String> companies = db.getAllCompanies();
-		return toArray(companies);
+		return companies;
 	}
-	
 	/**
 	 * This method shows all the genres
 	 * @param unused
-	 * @return String[] Returns an array of genres
+	 * @return List<String> Returns a list of genres
 	 * @see es.deusto.server.remote.IRemote#getAllGenres()
 	 */
 	@Override
-	public String[] getAllGenres() {
+	public List<String> getAllGenres() {
 		IDB db = new DB();
 		List<String> genres = db.getAllGenres();
-		return toArray(genres);
+		return genres;
 	}
-	
 	/**
 	 * This method shows an array
 	 * @param list This is a list
@@ -297,5 +269,4 @@ public class Remote extends UnicastRemoteObject implements IRemote {
         }
         pm.close();
 	}
-	
 }

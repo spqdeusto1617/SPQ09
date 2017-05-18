@@ -11,7 +11,15 @@ Inheritance diagram for es.\+deusto.\+server.\+db.\+DB\+:\begin{figure}[H]
 \item 
 \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ab53f32f36928ba9aa3ddff65fce395dc}{DB} ()
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_abcfd35c624e742697bc2b1d1df8cc92a}{DB} (\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o}{I\+D\+AO} udao)
+\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a95f85fb4da6cf8b630f12536c81caaff}{DB} (\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o}{I\+D\+AO} dao)
+\item 
+boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8e5744311b5924e740d190673abee104}{login\+User} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} u)
+\item 
+boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a888f468b3fc2a05520fca9ac135823e3}{register\+User} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} u)
+\item 
+boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8aa2e7531181a31b54850ca6665f87c2}{buy\+Game} (String username, String name)
+\item 
+List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ad878c1c58062596b5e1b582ed496bd11}{get\+All\+Games} ()
 \item 
 List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a1c471589284782e7ff1190f2b6c2369e}{get\+User\+Games} (String username)
 \item 
@@ -19,29 +27,17 @@ List$<$ String $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a59802ae
 \item 
 List$<$ String $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a741c4c8b38c31010d5c86e1586ffa880}{get\+All\+Genres} ()
 \item 
-boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8aa2e7531181a31b54850ca6665f87c2}{buy\+Game} (String username, String name)
-\item 
-boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8e5744311b5924e740d190673abee104}{login\+User} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} u)
-\item 
-boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a888f468b3fc2a05520fca9ac135823e3}{register\+User} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} u)
-\item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a376112d91f8e3018821fd9362f6598ae}{add\+Game\+To\+Db} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} g, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} gg, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} c)
 \item 
 boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a53a59425c7690f07861fd5d006f83cbc}{is\+Super\+User} (String login)
 \item 
-boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a5f4f68a9d2b7d6e8fbcc6e28136b92c8}{add\+License\+To\+Game} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} g, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} l)
-\item 
-boolean \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a996d40d6b184ea0dfa3dcab05bc04757}{add\+License\+To\+User} (\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} u, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License} l)
+\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ac85523faea523033439a932bbcab2c7e}{show\+User} (String login)
 \item 
 \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_adba76c20f2fc7ed01d486564d881a718}{show\+Game} (String name)
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a207ddeb183db925dc20f095033aa4d94}{show\+Genre} (String name)
-\item 
 \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_company}{Company} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ab5edf3ae158bb0501a882b1d724cc2a8}{show\+Company} (String name)
 \item 
-\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ac85523faea523033439a932bbcab2c7e}{show\+User} (String login)
-\item 
-List$<$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game} $>$ \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ad878c1c58062596b5e1b582ed496bd11}{get\+All\+Games} ()
+\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_genre}{Genre} \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a207ddeb183db925dc20f095033aa4d94}{show\+Genre} (String name)
 \end{DoxyCompactItemize}
 
 
@@ -57,7 +53,7 @@ This class executes all the basic functions of the database, such as buying a ga
 \end{DoxySince}
 
 
-Definition at line 26 of file D\+B.\+java.
+Definition at line 24 of file D\+B.\+java.
 
 
 
@@ -78,13 +74,13 @@ nothing
 \end{DoxyReturn}
 
 
-Definition at line 39 of file D\+B.\+java.
+Definition at line 37 of file D\+B.\+java.
 
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_abcfd35c624e742697bc2b1d1df8cc92a}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_abcfd35c624e742697bc2b1d1df8cc92a}} 
+\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a95f85fb4da6cf8b630f12536c81caaff}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a95f85fb4da6cf8b630f12536c81caaff}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!DB@{DB}}
 \index{DB@{DB}!es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}}
 \subsubsection{\texorpdfstring{D\+B()}{DB()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily es.\+deusto.\+server.\+db.\+D\+B.\+DB (\begin{DoxyParamCaption}\item[{\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o}{I\+D\+AO}}]{udao }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily es.\+deusto.\+server.\+db.\+D\+B.\+DB (\begin{DoxyParamCaption}\item[{\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o}{I\+D\+AO}}]{dao }\end{DoxyParamCaption})}
 
 This is the second constructor for the database 
 \begin{DoxyParams}{Parameters}
@@ -96,7 +92,7 @@ nothing
 \end{DoxyReturn}
 
 
-Definition at line 50 of file D\+B.\+java.
+Definition at line 46 of file D\+B.\+java.
 
 
 
@@ -128,53 +124,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a645335b2c
 
 
 
-Definition at line 174 of file D\+B.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a5f4f68a9d2b7d6e8fbcc6e28136b92c8}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a5f4f68a9d2b7d6e8fbcc6e28136b92c8}} 
-\index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!add\+License\+To\+Game@{add\+License\+To\+Game}}
-\index{add\+License\+To\+Game@{add\+License\+To\+Game}!es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}}
-\subsubsection{\texorpdfstring{add\+License\+To\+Game()}{addLicenseToGame()}}
-{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+D\+B.\+add\+License\+To\+Game (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{Game}}]{g,  }\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License}}]{l }\end{DoxyParamCaption})}
-
-This method adds a license to a game 
-\begin{DoxyParams}{Parameters}
-{\em g} & This is a game \\
-\hline
-{\em l} & This is a license \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-boolean Returns true or false depending on whether the game has a license or not 
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-es.\+deusto.\+server.\+db.\+I\+D\+B\+::add\+License\+To\+Game(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game}{es.\+deusto.\+server.\+db.\+data.\+Game}, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{es.\+deusto.\+server.\+db.\+data.\+License}) 
-\end{DoxySeeAlso}
-
-
-Definition at line 267 of file D\+B.\+java.
-
-\mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a996d40d6b184ea0dfa3dcab05bc04757}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a996d40d6b184ea0dfa3dcab05bc04757}} 
-\index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!add\+License\+To\+User@{add\+License\+To\+User}}
-\index{add\+License\+To\+User@{add\+License\+To\+User}!es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}}
-\subsubsection{\texorpdfstring{add\+License\+To\+User()}{addLicenseToUser()}}
-{\footnotesize\ttfamily boolean es.\+deusto.\+server.\+db.\+D\+B.\+add\+License\+To\+User (\begin{DoxyParamCaption}\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User}}]{u,  }\item[{\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{License}}]{l }\end{DoxyParamCaption})}
-
-This method adds a license to a user 
-\begin{DoxyParams}{Parameters}
-{\em u} & This is a user \\
-\hline
-{\em l} & This is a license \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-boolean Returns true or false depending on whether the user has a license or not 
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-es.\+deusto.\+server.\+db.\+I\+D\+B\+::add\+License\+To\+User(\hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{es.\+deusto.\+server.\+db.\+data.\+User}, \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license}{es.\+deusto.\+server.\+db.\+data.\+License}) 
-\end{DoxySeeAlso}
-
-
-Definition at line 296 of file D\+B.\+java.
+Definition at line 177 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8aa2e7531181a31b54850ca6665f87c2}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8aa2e7531181a31b54850ca6665f87c2}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!buy\+Game@{buy\+Game}}
@@ -201,7 +151,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_ab1076d02b
 
 
 
-Definition at line 110 of file D\+B.\+java.
+Definition at line 96 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a59802aeefdd9d445152fbd548a964708}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a59802aeefdd9d445152fbd548a964708}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!get\+All\+Companies@{get\+All\+Companies}}
@@ -226,7 +176,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_af7500b1f7
 
 
 
-Definition at line 78 of file D\+B.\+java.
+Definition at line 145 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ad878c1c58062596b5e1b582ed496bd11}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ad878c1c58062596b5e1b582ed496bd11}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!get\+All\+Games@{get\+All\+Games}}
@@ -251,7 +201,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a76af81d4b
 
 
 
-Definition at line 417 of file D\+B.\+java.
+Definition at line 120 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a741c4c8b38c31010d5c86e1586ffa880}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a741c4c8b38c31010d5c86e1586ffa880}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!get\+All\+Genres@{get\+All\+Genres}}
@@ -276,7 +226,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_ab0d82284b
 
 
 
-Definition at line 94 of file D\+B.\+java.
+Definition at line 160 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a1c471589284782e7ff1190f2b6c2369e}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a1c471589284782e7ff1190f2b6c2369e}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!get\+User\+Games@{get\+User\+Games}}
@@ -301,7 +251,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_ac5ef9780a
 
 
 
-Definition at line 62 of file D\+B.\+java.
+Definition at line 130 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a53a59425c7690f07861fd5d006f83cbc}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a53a59425c7690f07861fd5d006f83cbc}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!is\+Super\+User@{is\+Super\+User}}
@@ -326,7 +276,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a279d8a594
 
 
 
-Definition at line 255 of file D\+B.\+java.
+Definition at line 240 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8e5744311b5924e740d190673abee104}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a8e5744311b5924e740d190673abee104}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!login\+User@{login\+User}}
@@ -351,7 +301,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a6e6196e58
 
 
 
-Definition at line 135 of file D\+B.\+java.
+Definition at line 58 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a888f468b3fc2a05520fca9ac135823e3}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a888f468b3fc2a05520fca9ac135823e3}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!register\+User@{register\+User}}
@@ -376,7 +326,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_ad9ecf628c
 
 
 
-Definition at line 156 of file D\+B.\+java.
+Definition at line 79 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ab5edf3ae158bb0501a882b1d724cc2a8}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ab5edf3ae158bb0501a882b1d724cc2a8}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!show\+Company@{show\+Company}}
@@ -401,7 +351,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a1681e29b5
 
 
 
-Definition at line 380 of file D\+B.\+java.
+Definition at line 271 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_adba76c20f2fc7ed01d486564d881a718}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_adba76c20f2fc7ed01d486564d881a718}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!show\+Game@{show\+Game}}
@@ -423,7 +373,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a572028cc6
 
 
 
-Definition at line 357 of file D\+B.\+java.
+Definition at line 259 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a207ddeb183db925dc20f095033aa4d94}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_a207ddeb183db925dc20f095033aa4d94}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!show\+Genre@{show\+Genre}}
@@ -448,7 +398,7 @@ Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_a9023bdad7
 
 
 
-Definition at line 369 of file D\+B.\+java.
+Definition at line 283 of file D\+B.\+java.
 
 \mbox{\Hypertarget{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ac85523faea523033439a932bbcab2c7e}\label{classes_1_1deusto_1_1server_1_1db_1_1_d_b_ac85523faea523033439a932bbcab2c7e}} 
 \index{es\+::deusto\+::server\+::db\+::\+DB@{es\+::deusto\+::server\+::db\+::\+DB}!show\+User@{show\+User}}
@@ -456,38 +406,16 @@ Definition at line 369 of file D\+B.\+java.
 \subsubsection{\texorpdfstring{show\+User()}{showUser()}}
 {\footnotesize\ttfamily \hyperlink{classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user}{User} es.\+deusto.\+server.\+db.\+D\+B.\+show\+User (\begin{DoxyParamCaption}\item[{String}]{login }\end{DoxyParamCaption})}
 
-This method shows the license of a game 
-\begin{DoxyParams}{Parameters}
-{\em game\+Key} & This is the key of a game \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-License Returns the license of a game 
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-es.\+deusto.\+server.\+db.\+I\+D\+B\+::show\+License(java.\+lang.\+String) This method shows a user 
-\end{DoxySeeAlso}
-
-\begin{DoxyParams}{Parameters}
-{\em login} & This is the login name of a user \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-User Returns a user 
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-\hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_aa2f6a5291fa8aa78d5a73b5878d17986}{es.\+deusto.\+server.\+db.\+I\+D\+B\+::show\+User}(java.\+lang.\+String) 
-\end{DoxySeeAlso}
 
 
 Implements \hyperlink{interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b_aa2f6a5291fa8aa78d5a73b5878d17986}{es.\+deusto.\+server.\+db.\+I\+DB}.
 
 
 
-Definition at line 405 of file D\+B.\+java.
+Definition at line 247 of file D\+B.\+java.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Marta/\+S\+P\+Q09/\+Lurrun/src/main/java/es/deusto/server/db/\hyperlink{_d_b_8java}{D\+B.\+java}\end{DoxyCompactItemize}
+src/main/java/es/deusto/server/db/\hyperlink{_d_b_8java}{D\+B.\+java}\end{DoxyCompactItemize}
