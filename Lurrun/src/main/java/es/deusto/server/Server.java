@@ -70,7 +70,7 @@ public class Server{
 			Naming.rebind(name, objServer);
 			
 			//DB testing
-//			basicData();
+			basicData();
 			
 			logger.info("[S] Server '" + name + "' active and waiting...");
 			java.io.InputStreamReader inputStreamReader = new java.io.InputStreamReader ( System.in );

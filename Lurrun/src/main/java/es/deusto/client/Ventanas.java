@@ -41,6 +41,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableModel;
 import java.awt.TextField;
+import javax.swing.JComboBox;
 
 public class Ventanas extends JFrame {
 	 int counter = 15;
@@ -54,8 +55,6 @@ public class Ventanas extends JFrame {
 	private JTable table;
 	private JTextField password;
 	private JList list;
-	private JList list_1;
-	private JList list_2;
 	private JTextField txtSearchGame;
 	private JTextField txtPrice;
 	private JTextField txtDiscount;
@@ -66,23 +65,22 @@ public class Ventanas extends JFrame {
 	static User u1 = new User("ainhoa", "ainhoa", true);
 	static User u2 = new User("Joel", "qwerty", false);
 	static User u3 = new User("Cabezali", "qwerty", false);
-	static Company c1 = new Company("Tracer");
-	static Company c2 = new Company("Zenyata");
-	static Genre gem1 = new Genre("hanzo");
-	static Genre gem2 = new Genre("wajkekajeh");
-	
+	static Company c1 = new Company("drop1");
+	static Company c2 = new Company("drop2");
+	static Genre gem1 = new Genre("pene");
+	static Genre gem2 = new Genre("gordo");
+	static JComboBox comboBox_1;
+	static JComboBox comboBox;
 	
 	private static List<Game> games = new ArrayList<Game>();
 	private static List<Game> gameUsers = new ArrayList<Game>();
-	private static List<Genre> genres= new ArrayList<Genre>();
-	private static List<Company> companies = new ArrayList<Company>();
+	private static List<String> genres= new ArrayList<String>();
+	private static List<String> companies = new ArrayList<String>();
 	
 	private JTable tableMyGames;
 	private JTable allGamesTable;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JScrollPane scrollPane;
-	private JScrollPane scrollPane_1;
 	private JList list_3;
 	private JList list_4;
 
@@ -101,11 +99,11 @@ public class Ventanas extends JFrame {
 					g2.setGenre(gem2);
 					u1.setMoney(11811);
 					
-					companies.add(c1);
-					companies.add(c2);
+					companies.add("drop1");
+					companies.add("drop2");
 					
-					genres.add(gem1);
-					genres.add(gem2);
+					genres.add("pene");
+					genres.add("gordo");
 					
 					games.add(g);
 					games.add(g1);
@@ -117,168 +115,226 @@ public class Ventanas extends JFrame {
 			
 		
 	}
+	/**
+	 * This method shows an array
+	 * @param list This is a list
+	 * @return String[] Returns an array
+	 */
+	private String[] toArray(List<String> list){
+		int length = list.size();
+		String[] array = new String [length];
+		for(int i = 0; i<length; i++){
+			array[i] = list.get(i);
+		}
+		return array;
+	}
 	
 	/**
 	 * Create the frame.
 	 */
 	public Ventanas() {
 		
-
-		DefaultListModel modelcomp =new DefaultListModel();
-		DefaultListModel modelgen =new DefaultListModel();
 		setResizable(false);
-		setTitle("Add Game");
+		DefaultListModel modelgam = new DefaultListModel();
+		
+		setTitle("Buy Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 607, 249);
+		setBounds(100, 100, 656, 342);
 		addGame = new JPanel();
 		addGame.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(addGame);
 		addGame.setName("User");
 		addGame.setLayout(null);
 		
-		JButton btnAddGame = new JButton("Add Game");
-		btnAddGame.addActionListener(new ActionListener() {
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String gnName = txtSearchGame.getText();
-				String priceStr=txtPrice.getText();
-				String discStr= txtDiscount.getText();
 				
-				String gg = (String) list_1.getSelectedValue();
-				String c= (String) list_2.getSelectedValue();
-				if(gnName.length()==0||priceStr.length()==0||discStr.length()==0||gg==null||c==null)
+//				normalUserWindow();
+			}
+		});
+		btnCancel.setBounds(335, 253, 113, 37);
+		addGame.add(btnCancel);
+		
+		JButton btnBuyGame_1 = new JButton("Buy Game");
+		btnBuyGame_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String selected = (String) list.getSelectedValue();				
+				
+			
+				if(selected!=null){
+				
+				String[] parts = selected.split("//");
+				selected=parts[1].trim();
+				
+				boolean puedePagar=false;
+				int r=0;
+				for( r=0;r<games.size();r++)
 				{
+					System.out.println("entra");
+				if(games.get(r).getName().equals(selected))
+				{
+					System.out.println("encuentra");
 					
+					try {
+						if(games.get(r).getPrice() <=server.getUserWallet(loggedUser) )
+						{
+							
+							puedePagar=true;
+							
+						}
+					} catch (RemoteException e1) {
+						// TODO Auto-generated catch block
+						System.out.println("coge mal la wallet");
+						e1.printStackTrace();
+					}
 					
+					break;
+				}
+				}
+				if(puedePagar)
+				try {	
+					System.out.println("pop up");				
+					int selectedOption = JOptionPane.showConfirmDialog(addGame, 
+                            "Are you sure you want to buy this game", 
+                            "Confirm", 
+                            JOptionPane.YES_NO_OPTION); 
+							if (selectedOption == JOptionPane.YES_OPTION) 
+							{
+								
+								server.buyGame(loggedUser, selected);						
+								normalUserWindow();				
+								server.setUserWallet(server.getUserWallet(loggedUser)-games.get(r).getPrice(), loggedUser);
+							}													
 					
-					JOptionPane.showMessageDialog(addGame,
-						    "Fill all fields please.",
-						    "",
-						    JOptionPane.ERROR_MESSAGE);				
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				}
 				else
 				{
-				try{
-				double price =  Double.parseDouble(txtPrice.getText());
-				
-				double disc = Double.parseDouble(txtDiscount.getText());
-				if(disc<=100 || disc >0){
-					if(price>=0){
-//				try {			
-//					server.addGame(gnName, price, disc, gg, c);
-//				} catch (RemoteException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-					}
-					else
-					{
-						JOptionPane.showMessageDialog(addGame,
-								  "Insert a price value that's 0 or higher",
-								 "Invalid Price",
-									    JOptionPane.ERROR_MESSAGE);	
-					}
-				}
-				else{
 					JOptionPane.showMessageDialog(addGame,
-							  "Insert a discount from 0 to 100",
-							 "Invalid Discount",
-								    JOptionPane.ERROR_MESSAGE);		
-				}
-				}catch(NumberFormatException e3)
-				{
-				JOptionPane.showMessageDialog(addGame,
-							  "Price or Discount not numbers.",
-							 "",
-								    JOptionPane.ERROR_MESSAGE);				
-//				
-				}
-				
+						    "No game selected.",
+						    "",
+						    JOptionPane.ERROR_MESSAGE);
 				}
 			}
+			
 		});
-		btnAddGame.setBounds(120, 186, 119, 23);
-		addGame.add(btnAddGame);
+		btnBuyGame_1.setBounds(130, 253, 140, 37);
+		addGame.add(btnBuyGame_1);
 		
 		txtSearchGame = new JTextField();
-		txtSearchGame.setBounds(80, 24, 75, 20);
+		txtSearchGame.setBounds(92, 42, 75, 20);
 		addGame.add(txtSearchGame);
 		txtSearchGame.setColumns(10);
 		
-		JTextPane txtpnSearch1 = new JTextPane();
-		txtpnSearch1.setEditable(false);
-		txtpnSearch1.setEnabled(false);
-		txtpnSearch1.setText("Name");
-		txtpnSearch1.setBounds(20, 24, 50, 20);
-		addGame.add(txtpnSearch1);
+		JTextPane txtpnSearch = new JTextPane();
+		txtpnSearch.setEditable(false);
+		txtpnSearch.setEnabled(false);
+		txtpnSearch.setText("Name");
+		txtpnSearch.setBounds(29, 11, 42, 20);
+		addGame.add(txtpnSearch);
 		
-		JTextPane txtpnGenre1 = new JTextPane();
-		txtpnGenre1.setText("Genre");
-		txtpnGenre1.setEnabled(false);
-		txtpnGenre1.setEditable(false);
-		txtpnGenre1.setBounds(354, 24, 75, 20);
-		addGame.add(txtpnGenre1);
+		JTextPane txtpnGenre = new JTextPane();
+		txtpnGenre.setText("Genre");
+		txtpnGenre.setEnabled(false);
+		txtpnGenre.setEditable(false);
+		txtpnGenre.setBounds(215, 11, 66, 20);
+		addGame.add(txtpnGenre);
 		
-		JTextPane txtpnCompany1 = new JTextPane();
-		txtpnCompany1.setText("Company");
-		txtpnCompany1.setEnabled(false);
-		txtpnCompany1.setEditable(false);
-		txtpnCompany1.setBounds(173, 24, 57, 20);
-		addGame.add(txtpnCompany1);
+		JTextPane txtpnCompany = new JTextPane();
+		txtpnCompany.setText("Company");
+		txtpnCompany.setEnabled(false);
+		txtpnCompany.setEditable(false);		
+		txtpnCompany.setBounds(373, 11, 66, 20);
+		addGame.add(txtpnCompany);
 		
-		btnNewButton = new JButton("Cancel");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				superUserWindow();
+		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String gamename= txtSearchGame.getText();
+				String genre =(String) comboBox.getSelectedItem().toString();
+				String companyname=(String) comboBox_1.getSelectedItem().toString();
+				boolean valido=true;
+				modelgam.removeAllElements();
+				for(int i = 0; i < games.size(); i++)
+				{
+					
+					if(gamename.length()!=0)
+					{
+						System.out.println("primera con");
+						valido=games.get(i).getName().contains(gamename);
+						
+					}
+					if(genre!=null && valido==true && genre!="All"){
+						
+						System.out.println("segudna con " + i);
+						valido=games.get(i).getGenre().getName().contains(genre);
+					
+						
+					}
+					if(companyname!=null &&valido==true && companyname!="All")
+					{
+						
+						valido=games.get(i).getCompany().getName().contains(companyname);
+						System.out.println("tercera con");
+						
+					}
+					else if((companyname=="All" &&gamename.length()==0&& genre=="All"))
+					{
+						System.out.println("Cuarta con" + i);
+						valido=true;	
+						
+					}									
+					if(valido)
+					{
+						modelgam.addElement("//  " +games.get(i).getName() + "  // Price ->" + games.get(i).getPrice()+ "  Discount ->  " + games.get(i).getDiscount() );
+					}
+					valido=true;
+				}
+				if(list.getModel().getSize()==0)
+				{
+					JOptionPane.showMessageDialog(addGame,
+						    "No Game found try, search is case sensitive.",
+						    "",
+						    JOptionPane.OK_OPTION);
+				}
+				
 			}
 		});
-		btnNewButton.setBounds(337, 186, 125, 23);
-		addGame.add(btnNewButton);
-		
-		txtPrice = new JTextField();
-		txtPrice.setColumns(10);
-		txtPrice.setBounds(80, 55, 75, 20);
-		addGame.add(txtPrice);
-		
-		txtDiscount = new JTextField();
-		txtDiscount.setColumns(10);
-		txtDiscount.setBounds(80, 86, 75, 20);
-		addGame.add(txtDiscount);
-		
-		JTextPane Price = new JTextPane();
-		Price.setEditable(false);
-		Price.setEnabled(false);
-		Price.setText("Price");
-		Price.setBounds(20, 55, 50, 20);
-		addGame.add(Price);
-		
-		JTextPane txtpnDiscount = new JTextPane();
-		txtpnDiscount.setText("Discount");
-		txtpnDiscount.setEnabled(false);
-		txtpnDiscount.setEditable(false);
-		txtpnDiscount.setBounds(20, 86, 50, 20);
-		addGame.add(txtpnDiscount);
+		btnSearch.setBounds(551, 41, 89, 23);
+		addGame.add(btnSearch);
 		
 		
-		scrollPane = new JScrollPane(list_1);
-		scrollPane.setBounds(238, 26, 111, 137);
-		addGame.add(scrollPane);
 		
-		list_1 = new JList(modelgen);
-		scrollPane.setViewportView(list_1);
-		for(int i = 0; i < genres.size(); i++)
-	    {
-	    	modelgen.addElement(genres.get(i).getName());
+	    list = new JList(modelgam);   
+	    for (int i = 0; i < games.size(); i++)
+	    {	    
+	    	modelgam.addElement("//  "+games.get(i).getName() + "  // Price ->" + games.get(i).getPrice()+ "// Discount ->  " + games.get(i).getDiscount() );
 	    }
-		scrollPane_1 = new JScrollPane(list_2);
-		scrollPane_1.setBounds(439, 24, 105, 139);
-		addGame.add(scrollPane_1);
+	    
+	    
+	    JScrollPane scrollPane = new JScrollPane(list);
+		scrollPane.setBounds(82, 104, 439, 138);	   
+		 	List<String> genresStat = genres;
+		 	genresStat.add(0, "All");
+		 	comboBox = new JComboBox(genresStat.toArray());	
+			comboBox.setBounds(215, 41, 113, 23);
+			addGame.add(comboBox);
+			List<String>companiesStat = companies;
+			companiesStat.add(0, "All");
+			comboBox_1 = new JComboBox(companiesStat.toArray());
+			comboBox_1.setBounds(383, 42, 119, 20);
+			addGame.add(comboBox_1);
+	    
+	    
+	    addGame.add(scrollPane);
+	    
+	  	
 		
-		list_2 = new JList(modelcomp);
-		for(int i = 0; i < companies.size(); i++)
-	    {
-	    	modelcomp.addElement(companies.get(i).getName());
-	    }
-		scrollPane_1.setViewportView(list_2);
-			
 	}
 }

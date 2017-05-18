@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -68,8 +69,13 @@ public class Client extends JFrame{
 	private JList list_2;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
+
+
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	
 	private static List<Game> games = new ArrayList<Game>();
-	private static List<Game> gameUsers;
+	private static List<Game> gameUsers = new ArrayList<Game>();
 	private static List<String> genres= new ArrayList<String>();
 	private static List<String> companies = new ArrayList<String>();
 	
@@ -259,7 +265,7 @@ public class Client extends JFrame{
 		{
 				
 			   String name1 = games.get(i).getName();
-			   System.out.println(" Juegos en games "+games.get(i).getName());
+			 
 			   double price = games.get(i).getPrice();
 			   double discount = games.get(i).getDiscount();
 			   String companyname = games.get(i).getCompany().getName();
@@ -289,9 +295,6 @@ public class Client extends JFrame{
 			
 		for (int i = 0; i < gameUsers.size(); i++){
 			   String name1 = gameUsers.get(i).getName();
-			   System.out.println(" Juegos en games "+gameUsers.get(i).getName());
-//			   double price = gameUsers.get(i).getPrice();
-//			   double discount = gameUsers.get(i).getDiscount();
 
 			   String companyname = gameUsers.get(i).getCompany().getName();
 			   String genre = gameUsers.get(i).getGenre().getName();
@@ -302,7 +305,7 @@ public class Client extends JFrame{
 			}
 		}catch(NullPointerException e)
 		{
-//			System.out.println("NullPointer por algo games user");
+
 //			e.printStackTrace();
 		}
 	
@@ -342,7 +345,6 @@ public class Client extends JFrame{
 		JButton btnLogOut = new JButton("Log out");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			System.out.println("Performs log out");
 			loginWindow();
 			}
 		});
@@ -352,13 +354,14 @@ public class Client extends JFrame{
 }
 	public void buyGameWindow()
 	{
+		
+
 		setResizable(false);
 		DefaultListModel modelgam = new DefaultListModel();
-		DefaultListModel modelcomp =new DefaultListModel();
-		DefaultListModel modelgen =new DefaultListModel();
+		
 		setTitle("Buy Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 656, 410);
+		setBounds(100, 100, 656, 342);
 		addGame = new JPanel();
 		addGame.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(addGame);
@@ -372,7 +375,7 @@ public class Client extends JFrame{
 				normalUserWindow();
 			}
 		});
-		btnCancel.setBounds(350, 310, 89, 23);
+		btnCancel.setBounds(335, 253, 113, 37);
 		addGame.add(btnCancel);
 		
 		JButton btnBuyGame_1 = new JButton("Buy Game");
@@ -386,7 +389,7 @@ public class Client extends JFrame{
 				
 				String[] parts = selected.split("//");
 				selected=parts[1].trim();
-				System.out.println("Selected"+ selected);
+				
 				boolean puedePagar=false;
 				int r=0;
 				for( r=0;r<games.size();r++)
@@ -442,11 +445,11 @@ public class Client extends JFrame{
 			}
 			
 		});
-		btnBuyGame_1.setBounds(141, 310, 89, 23);
+		btnBuyGame_1.setBounds(130, 253, 140, 37);
 		addGame.add(btnBuyGame_1);
 		
 		txtSearchGame = new JTextField();
-		txtSearchGame.setBounds(92, 11, 75, 20);
+		txtSearchGame.setBounds(92, 42, 75, 20);
 		addGame.add(txtSearchGame);
 		txtSearchGame.setColumns(10);
 		
@@ -461,14 +464,14 @@ public class Client extends JFrame{
 		txtpnGenre.setText("Genre");
 		txtpnGenre.setEnabled(false);
 		txtpnGenre.setEditable(false);
-		txtpnGenre.setBounds(350, 11, 33, 20);
+		txtpnGenre.setBounds(215, 11, 66, 20);
 		addGame.add(txtpnGenre);
 		
 		JTextPane txtpnCompany = new JTextPane();
 		txtpnCompany.setText("Company");
 		txtpnCompany.setEnabled(false);
-		txtpnCompany.setEditable(false);
-		txtpnCompany.setBounds(184, 11, 66, 20);
+		txtpnCompany.setEditable(false);		
+		txtpnCompany.setBounds(373, 11, 66, 20);
 		addGame.add(txtpnCompany);
 		
 		JButton btnSearch = new JButton("Search");
@@ -476,8 +479,8 @@ public class Client extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String gamename= txtSearchGame.getText();
-				String genre =(String) list_1.getSelectedValue();
-				String companyname=(String) list_2.getSelectedValue();
+				String genre =(String) comboBox.getSelectedItem().toString();
+				String companyname=(String) comboBox_1.getSelectedItem().toString();
 				boolean valido=true;
 				modelgam.removeAllElements();
 				for(int i = 0; i < games.size(); i++)
@@ -485,11 +488,11 @@ public class Client extends JFrame{
 					
 					if(gamename.length()!=0)
 					{
+						
 						valido=games.get(i).getName().contains(gamename);
 						
 					}
 					if(genre!=null && valido==true && genre!="All"){
-						
 						
 						valido=games.get(i).getGenre().getName().contains(genre);
 					
@@ -497,12 +500,11 @@ public class Client extends JFrame{
 					}
 					if(companyname!=null &&valido==true && companyname!="All")
 					{
-					
+						
 						valido=games.get(i).getCompany().getName().contains(companyname);
 						
-						
 					}
-					if((companyname==null||companyname=="All")&&gamename.length()==0&& (genre==null||companyname=="All"))
+					else if((companyname=="All" &&gamename.length()==0&& genre=="All"))
 					{
 						valido=true;	
 						
@@ -523,7 +525,7 @@ public class Client extends JFrame{
 				
 			}
 		});
-		btnSearch.setBounds(525, 10, 89, 23);
+		btnSearch.setBounds(551, 41, 89, 23);
 		addGame.add(btnSearch);
 		
 		
@@ -536,39 +538,21 @@ public class Client extends JFrame{
 	    
 	    
 	    JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setBounds(72, 161, 439, 138);	   
-	   
-		
+		scrollPane.setBounds(82, 104, 439, 138);	   
+		 	List<String> genresStat = genres;
+		 	genresStat.add(0, "All");
+		 	comboBox = new JComboBox(genresStat.toArray());	
+			comboBox.setBounds(215, 41, 113, 23);
+			addGame.add(comboBox);
+			List<String>companiesStat = companies;
+			companiesStat.add(0, "All");
+			comboBox_1 = new JComboBox(companiesStat.toArray());
+			comboBox_1.setBounds(383, 42, 119, 20);
+			addGame.add(comboBox_1);
 	    
 	    
 	    addGame.add(scrollPane);
 	    
-	    JScrollPane scrollPane_1 = new JScrollPane(list_1);
-	    scrollPane_1.setBounds(260, 12, 75, 96);
-	    addGame.add(scrollPane_1);
-	    
-	    list_1 = new JList(modelgen);
-	    modelgen.addElement("All");
-	    
-	    for(int i = 0; i < genres.size(); i++)
-	    {
-	    	modelgen.addElement(genres.get(i));
-	    }
-	    scrollPane_1.setColumnHeaderView(list_1);
-	    
-	    JScrollPane scrollPane_2 = new JScrollPane(list_2);
-	    scrollPane_2.setBounds(418, 11, 75, 102);
-	    addGame.add(scrollPane_2);
-	    
-	    modelcomp.addElement("All");
-	    list_2 = new JList(modelcomp);
-	    for(int i = 0; i < companies.size(); i++)
-	    {
-	    	modelcomp.addElement(companies.get(i));
-	    }
-	    scrollPane_2.setViewportView(list_2);		
-		
-		
 	}
 	public void superUserWindow()
 	{
@@ -631,9 +615,7 @@ public class Client extends JFrame{
 	}
 	public void addGameWindow()	
 	{
-		loadAllArrayList();
-		DefaultListModel modelcomp =new DefaultListModel();
-		DefaultListModel modelgen =new DefaultListModel();
+		loadAllArrayList();		
 		setResizable(false);
 		setTitle("Add Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -651,9 +633,9 @@ public class Client extends JFrame{
 				String priceStr=txtPrice.getText();
 				String discStr= txtDiscount.getText();
 				
-				String gg = (String) list_1.getSelectedValue();
-				String c= (String) list_2.getSelectedValue();
-				if(gnName.length()==0||priceStr.length()==0||discStr.length()==0||gg==null||c==null)
+				String gg = (String) comboBox.getSelectedItem().toString();
+				String c= (String) comboBox_1.getSelectedItem().toString();
+				if(gnName.length()==0||priceStr.length()==0||discStr.length()==0)//gg==null||c==null
 				{
 					
 					
@@ -770,27 +752,13 @@ public class Client extends JFrame{
 		txtpnDiscount.setBounds(20, 86, 50, 20);
 		addGame.add(txtpnDiscount);
 		
+		 comboBox = new JComboBox(genres.toArray());
+		comboBox.setBounds(231, 24, 113, 23);
+		addGame.add(comboBox);
+		comboBox_1 = new JComboBox(companies.toArray());
+		comboBox_1.setBounds(455, 24, 119, 20);
+		addGame.add(comboBox_1);
 		
-		scrollPane = new JScrollPane(list_1);
-		scrollPane.setBounds(238, 26, 111, 137);
-		addGame.add(scrollPane);
-		
-		list_1 = new JList(modelgen);
-		scrollPane.setViewportView(list_1);
-		for(int i = 0; i < genres.size(); i++)
-	    {
-	    	modelgen.addElement(genres.get(i));
-	    }
-		scrollPane_1 = new JScrollPane(list_2);
-		scrollPane_1.setBounds(439, 24, 105, 139);
-		addGame.add(scrollPane_1);
-		
-		list_2 = new JList(modelcomp);
-		for(int i = 0; i < companies.size(); i++)
-	    {
-	    	modelcomp.addElement(companies.get(i));
-	    }
-		scrollPane_1.setViewportView(list_2);	
 	}		
 	public Client() 
 	{			

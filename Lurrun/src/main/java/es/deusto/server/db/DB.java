@@ -73,8 +73,8 @@ public class DB implements IDB {
 		
 		logger.info("Updating DB");
 		dao.updateLicense(l);
-		dao.updateGame(g);
-	
+	//	dao.updateGame(g);
+		
 		logger.info("Adding license to user");
 		addLicenseToUser(u, l);
 		return true;
@@ -214,9 +214,10 @@ public class DB implements IDB {
 		boolean ret=true;
 		double price;
 		try {
-
+			
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
+			System.out.println("llamada de añadir licencia 1");
 
 		} catch (Exception  e) {
 					logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
@@ -226,16 +227,15 @@ public class DB implements IDB {
 		
 		if (user != null && license != null   ) {
 
-			license.setUser(user);
-			user.addLicense(license);
 			
+			System.out.println("entra añade");
 			price=license.getGame().getPrice()*(1-(license.getGame().getDiscount()));
 			
 		if(price<user.getMoney())	{
 			user.setMoney(user.getMoney()-price);
 			license.setUser(user);
 			user.addLicense(license);
-
+			System.out.println("entra añade 2");
 			dao.updateUser(user);
 		}
 		else{
