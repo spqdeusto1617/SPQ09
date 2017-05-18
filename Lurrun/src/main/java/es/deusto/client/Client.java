@@ -243,7 +243,7 @@ public class Client extends JFrame{
 		
 		//TABLA
 		String col[] = {"Name","Company","Gernre" ,"Price" ,"Discount"};
-		String col1[] = {"Name","Gernre" };
+		String col1[] = {"Name","Gernre","Company" };
 		DefaultTableModel storeTable = new DefaultTableModel(col, 0);
 		DefaultTableModel mygamesTable = new DefaultTableModel(col1, 0) ;
 		try {
@@ -253,7 +253,8 @@ public class Client extends JFrame{
 			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 		}
-		
+		Object[] header={"Name","Genre","Company","Price","Discount"};
+		storeTable.addRow(header);
 		for (int i = 0; i < games.size(); i++)
 		{
 				
@@ -282,16 +283,19 @@ public class Client extends JFrame{
 		}
 		
 		try{
+			Object[] header1={"Name","Genre","Company"};
+			mygamesTable.addRow(header1);
 		if(!gameUsers.isEmpty())
+			
 		for (int i = 0; i < gameUsers.size(); i++){
 			   String name1 = gameUsers.get(i).getName();
 			   System.out.println(" Juegos en games "+gameUsers.get(i).getName());
-			   double price = gameUsers.get(i).getPrice();
-			   double discount = gameUsers.get(i).getDiscount();
-// descomentar peta
-//			   String companyname = gameUsers.get(i).getCompany().getName();
-//			   String genre = gameUsers.get(i).getGenre().getName();
-			   Object[] data = { name1  }; //,companyname, genre
+//			   double price = gameUsers.get(i).getPrice();
+//			   double discount = gameUsers.get(i).getDiscount();
+
+			   String companyname = gameUsers.get(i).getCompany().getName();
+			   String genre = gameUsers.get(i).getGenre().getName();
+			   Object[] data = { name1,genre ,companyname }; //, genre
 			  
 			   mygamesTable.addRow(data);
 
@@ -789,14 +793,8 @@ public class Client extends JFrame{
 		scrollPane_1.setViewportView(list_2);	
 	}		
 	public Client() 
-	{
-					
-
-			loginWindow();		
-
-		
-		
-			
+	{			
+			loginWindow();				
 	}
 
 	private static void displayMenu(String[] options, String info){
