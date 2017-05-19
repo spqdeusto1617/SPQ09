@@ -138,26 +138,5 @@ public class DAOMockTest {
 				
 		
 	}	
-//	// Test del juego añadiendose a la db
-//	@Test
-//	public void addGameToDBTest() {
-//		Game g = new Game("Game 1", 200, 0.2);
-//		Genre gg = new Genre("Genre 1");
-//		Company c = new Company("Company 1");
-//
-//		when(dao.retrieveGame("Game 1")).thenReturn(null);
-//		db.addGameToDb(g, gg, c);
-//
-//		ArgumentCaptor<Game> gameCaptor = ArgumentCaptor.forClass(Game.class);
-//
-//		verify(dao).storeGame(gameCaptor.capture());
-//		Game gtest = gameCaptor.getValue();
-//		logger.info("Adding Game " + gtest.getName());
-//
-//		assertEquals("Game 1", gtest.getName());
-//
-//	}
 
-//
-//
 }

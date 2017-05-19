@@ -102,27 +102,27 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 			return(games);
 		}
 	}
-	/**
-	 * This method changes the amount of money in the wallet
-	 * @param k This is the amount of money
-	 * @param login  This is the login name of a user
-	 * @return nothing
-	 * @exception RemoteException
-	 */
-	public void setUserWallet(double k, String login) throws RemoteException
-	{
-		IDB db = new DB();
-		User u  = db.showUser(login);
-
-		if(u == null){
-			logger.error("Remote exception getUser");
-			throw new RemoteException();
-		}
-		else{
-		u.setMoney(k);
-		}
-		
-	}
+//	/**
+//	 * This method changes the amount of money in the wallet
+//	 * @param k This is the amount of money
+//	 * @param login  This is the login name of a user
+//	 * @return nothing
+//	 * @exception RemoteException
+//	 */
+//	public void setUserWallet(double k, String login) throws RemoteException
+//	{
+//		IDB db = new DB();
+//		User u  = db.showUser(login);
+//
+//		if(u == null){
+//			logger.error("Remote exception getUser");
+//			throw new RemoteException();
+//		}
+//		else{
+//		u.setMoney(k);
+//		}
+//		
+//	}
 	/**
 	 * This method shows the wallet of a user
 	 * @param login This is the user login name
