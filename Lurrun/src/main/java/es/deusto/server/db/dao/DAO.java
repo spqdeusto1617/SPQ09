@@ -12,7 +12,12 @@ import es.deusto.server.db.data.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/**
+ * This class is the link between the database and the server
+ * @author 
+ * @version 1.0
+ * @since 24/03/2017
+ */
 public class DAO implements IDAO {
 
 	private PersistenceManagerFactory pmf;
@@ -21,7 +26,12 @@ public class DAO implements IDAO {
 	public DAO(){
 		pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 	}
-
+	/**
+	 * This method stores a user
+	 * @param u This is a user
+	 * @return boolean Returns true or false depending on whether the user exists or not
+	 * @see es.deusto.server.db.dao.IDAO#storeUser(es.deusto.server.db.data.User)
+	 */
 	@Override
 	public boolean storeUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -35,7 +45,6 @@ public class DAO implements IDAO {
 		    } catch (Exception ex) {
 //		    	logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret=false;
-		    
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();
@@ -45,12 +54,17 @@ public class DAO implements IDAO {
 		    }
 	    return ret;
 	}
-
+	/**
+	 * This method retrieves a user
+	 * @param login This is the login name of a user
+	 * @return User Returns a user 
+	 * @see es.deusto.server.db.dao.IDAO#retrieveUser(java.lang.String)
+	 */
 	@Override
 	public User retrieveUser(String login) {
 		User user = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
+		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -71,7 +85,12 @@ public class DAO implements IDAO {
 
 		return user;
 	}
-	
+	/**
+	 * This method updates a user
+	 * @param u This is a user
+	 * @return boolean Returns true or false depending on whether the user exists or not
+	 * @see es.deusto.server.db.dao.IDAO#updateUser(es.deusto.server.db.data.User)
+	 */
 	@Override
 	public boolean updateUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -94,12 +113,17 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-
+	/**
+	 * This method retrieves a license
+	 * @param gameKey This is the key of a license
+	 * @return License Returns a license
+	 * @see es.deusto.server.db.dao.IDAO#retrieveLicense(java.lang.String)
+	 */
 	@Override
 	public License retrieveLicense(String gameKey) {
 		License license = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
+		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -120,7 +144,12 @@ public class DAO implements IDAO {
 
 		return license;
 	}
-	
+	/** 
+	 * This method updates a license
+	 * @param g This is a license
+	 * @return boolean Returns true or false depending on whether the license exists or not
+	 * @see es.deusto.server.db.dao.IDAO#updateLicense(es.deusto.server.db.data.License)
+	 */
 	@Override
 	public boolean updateLicense(License g){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -143,7 +172,12 @@ public class DAO implements IDAO {
 	    return ret;
 	}
 
-	
+	/**
+	 * This method stores a game
+	 * @param g This is a game
+	 * @return boolean Returns true or false depending on whether the game exists or not
+	 * @see es.deusto.server.db.dao.IDAO#storeGame(es.deusto.server.db.data.Game)
+	 */
 	@Override
 	public	boolean storeGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -166,12 +200,17 @@ public class DAO implements IDAO {
 		    }
 	    return r;
 		}
-
+	/**
+	 * This method retrieves a game
+	 * @param name This is the name of a game
+	 * @return Game Returns a game
+	 * @see es.deusto.server.db.dao.IDAO#retrieveGame(java.lang.String)
+	 */
 	@Override
 	public Game retrieveGame(String name) {
 		Game game = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
+		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -192,7 +231,12 @@ public class DAO implements IDAO {
 
 		return game;
 	}
-	
+	/**
+	 * This method updates a game
+	 * @param g This is a game
+	 * @return boolean Returns true or false depending on whether the game exists or not
+	 * @see es.deusto.server.db.dao.IDAO#updateGame(es.deusto.server.db.data.Game)
+	 */
 	@Override
 	public boolean updateGame(Game g){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -215,12 +259,17 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-	
+	/**
+	 * This method retrieves a company
+	 * @param name This is the name of a company
+	 * @return Company Returns a company
+	 * @see es.deusto.server.db.dao.IDAO#retrieveCompany(java.lang.String)
+	 */
 	@Override
 	public Company retrieveCompany(String name) {
 		Company company = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
+		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -241,7 +290,12 @@ public class DAO implements IDAO {
 
 		return company;
 	}
-	
+	/**
+	 * This method updates a company 
+	 * @param c This is a company
+	 * @return boolean Returns true or false depending on whether the company exists or not
+	 * @see es.deusto.server.db.dao.IDAO#updateCompany(es.deusto.server.db.data.Company)
+	 */
 	@Override
 	public boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -264,12 +318,17 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-	
+	/**
+	 * This methos retrieves a genre
+	 * @param name This is the name of a genre
+	 * @return Genre Returns a genre
+	 * @see es.deusto.server.db.dao.IDAO#retrieveGenre(java.lang.String)
+	 */
 	@Override
 	public Genre retrieveGenre(String name) {
 		Genre genre = null;
 		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(2);
+		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
 		try {
 			tx.begin();
@@ -290,7 +349,12 @@ public class DAO implements IDAO {
 
 		return genre;
 	}
-	
+	/**
+	 * This method updates a genre
+	 * @param g This is a genre
+	 * @return boolean Returns true or false depending on whether the genre exists or not
+	 * @see es.deusto.server.db.dao.IDAO#updateGenre(es.deusto.server.db.data.Genre)
+	 */
 	@Override
 	public boolean updateGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -313,12 +377,17 @@ public class DAO implements IDAO {
 	    return r;
 	}
 
-	
+	/**
+	 * This method shows a list of games
+	 * @param unused
+	 * @return List Returns a list of games
+	 * @see es.deusto.server.db.dao.IDAO#getAllGames()
+	 */
 	@Override
 	public List<Game> getAllGames() {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
+        pm.getFetchPlan().setMaxFetchDepth(5);
 
         List<Game> games=new ArrayList<>();
         try {
@@ -344,12 +413,17 @@ public class DAO implements IDAO {
         }
         return games;
 	}
-	
+	/**
+	 * This method shows all the companies
+	 * @param unused
+	 * @return List Returns a list of companies
+	 * @see es.deusto.server.db.dao.IDAO#getAllCompanies()
+	 */
 	@Override
 	public List<Company> getAllCompanies() {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
+        pm.getFetchPlan().setMaxFetchDepth(5);
 
         List<Company> companies = new ArrayList<>();
         try {
@@ -375,12 +449,17 @@ public class DAO implements IDAO {
         }
         return companies;
 	}
-	
+	/**
+	 * This method shows all the genres
+	 * @param unused
+	 * @return List Returns a list of genres
+	 * @see es.deusto.server.db.dao.IDAO#getAllGenres()
+	 */
 	@Override
 	public List<Genre> getAllGenres() {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
+        pm.getFetchPlan().setMaxFetchDepth(5);
 
         List<Genre> genres = new ArrayList<>();
         try {
@@ -406,12 +485,17 @@ public class DAO implements IDAO {
         }
         return genres;
 	}
-	
+	/**
+	 * This method returns the first license stored in the database
+	 * @param name This is the name of a license
+	 * @return License Returns a license
+	 * @see es.deusto.server.db.dao.IDAO#getFirstLicense(java.lang.String)
+	 */
 	@Override
 	public License getFirstLicense(String name) {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(3);
+        pm.getFetchPlan().setMaxFetchDepth(5);
         License u = null;
   
         try {
@@ -438,95 +522,6 @@ public class DAO implements IDAO {
         }
         return u;
 	}
-	
 
-//	public Genre retrieveGenreByParameter(String name){
-//	//		////////////logger.error("Get Genre from db "+name);
-//    PersistenceManager pm = pmf.getPersistenceManager();
-//    Transaction tx = pm.currentTransaction();
-//    pm.getFetchPlan().setMaxFetchDepth(3);
-//    Genre u = null;
-//    try {
-//        tx.begin();
-//        Extent<Genre> extentP = pm.getExtent(Genre.class);
-//
-//        for (Genre p : extentP) {
-//
-//            if (p.getName().equals(name)) {
-//                u = p;
-//
-//            }
-//        }
-//        tx.commit();
-//    } catch (Exception ex) {
-//    	       ////////////logger.error("# Error getting Extent: " + ex.getMessage());
-//    } finally {
-//        if (tx.isActive()) {
-//            tx.rollback();
-//        }
-//        pm.close();
-//    }
-//    //   ////////////logger.error(u);
-//    return u;
-//}
-//	
-//	public Company retrieveCompanyByParameter(String name){
-//	
-//	        PersistenceManager pm = pmf.getPersistenceManager();
-//	        Transaction tx = pm.currentTransaction();
-//	        pm.getFetchPlan().setMaxFetchDepth(3);
-//	        Company u = null;
-//	        try {
-//	            tx.begin();
-//	            Extent<Company> extentP = pm.getExtent(Company.class);
-//
-//	            for (Company p : extentP) {
-//
-//	                if (p.getName().equals(name)) {
-//	                    u = p;
-//	                }
-//	            }
-//	            tx.commit();
-//	        } catch (Exception ex) {
-//	        	      ////////////logger.error("# Error getting Extent: " + ex.getMessage());
-//	        } finally {
-//	            if (tx.isActive()) {
-//	                tx.rollback();
-//	            }
-//	            pm.close();
-//	        }
-//	        //     ////////////logger.error(u);
-//	        return u;
-//	    }
-//	
-//	public	Game retrieveGameByParameter(String name){
-//
-//        PersistenceManager pm = pmf.getPersistenceManager();
-//        Transaction tx = pm.currentTransaction();
-//        pm.getFetchPlan().setMaxFetchDepth(3);
-//        Game g = null;
-//        try {
-//            tx.begin();
-//            Extent<Game> extentP = pm.getExtent(Game.class);
-//
-//            for (Game p : extentP) {
-//
-//                if (p.getName().equals(name)) {
-//                    g= p;
-//           
-//                }
-//            }
-//            tx.commit();
-//        } catch (Exception ex) {
-////        	   ////////////logger.error("# Error getting Extent Game: " + ex.getMessage());
-//        } finally {
-//            if (tx.isActive()) {
-//                tx.rollback();
-//            }
-//            pm.close();
-//        }
-//        //      ////////////logger.error(u);
-//        return g;
-//	}
 	
 }

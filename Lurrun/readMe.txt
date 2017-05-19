@@ -4,17 +4,10 @@ Change datanucleus properties username/pass with mysql username and pass
 
 mvn clean compile
 mvn datanucleus:schema-delete
-mvn clean compile
 mvn datanucleus:schema-create
-mvn compile
 mvn exec:java -Pserver
 
 mvn exec:java -Pclient
-
-mvn clean compile
-mvn datanucleus:schema-delete
-mvn datanucleus:schema-create
-mvn exec:java -Pserver
 
 To test (do not forget to stop the RMIRegistry) 
 - mvn test

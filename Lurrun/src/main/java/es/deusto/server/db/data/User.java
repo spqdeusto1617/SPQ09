@@ -27,7 +27,13 @@ public class User implements Serializable {
 		this.login = login;
 		this.password = password;
 		this.isSuperuser = isSuperuser;
-		this.money=100;
+		this.money=1000;
+	}
+	
+	public User(String login, String password) {
+		this.login = login;
+		this.password = password;
+		this.money=1000;
 	}
 
 	public boolean getSuperuser() {
@@ -36,11 +42,6 @@ public class User implements Serializable {
 
 	public void setSuperuser(boolean isSuperuser) {
 		this.isSuperuser = isSuperuser;
-	}
-
-	public User(String login, String password) {
-		this.login = login;
-		this.password = password;
 	}
 
 	public void addLicense(License license) {

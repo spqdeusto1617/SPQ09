@@ -26,8 +26,8 @@ public class Server{
 		Game g3= new Game("Undertale",10,0.2);
 		
 		Genre gg1 = new Genre ("Vampire");
-		Genre gg2 = new Genre ("RPG");
-		Genre gg3 = new Genre ("JRPG");
+		Genre gg2 = new Genre ("JRPG");
+		Genre gg3 = new Genre ("RPG");
 		Genre gg4 = new Genre ("Puzzle");
 		
 		Company c1 = new Company ("White Wolf");
