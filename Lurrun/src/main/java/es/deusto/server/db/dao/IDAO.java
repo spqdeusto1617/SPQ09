@@ -27,7 +27,4 @@ public interface IDAO {
 	List<Genre> getAllGenres();
 	License getFirstLicense(String name);
 
-//	Genre retrieveGenreByParameter(String name);
-//	Company retrieveCompanyByParameter(String name);
-//	Game retrieveGameByParameter(String name);
 }

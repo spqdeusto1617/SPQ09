@@ -77,9 +77,7 @@ public class DAOMockTest {
 	//@Ignore
 	public void testRegisterUserCorrectly() {
 		logger.info("Starting testRegisterUserCorrectly() ");
-		
-		// Stubbing - return a given value when a specific method is called
-	//	when( dao.retrieveUser("cortazar") ).thenReturn( null );
+	
 		User u = new User ("cortazar", "cortazar",false);
 		db.registerUser(u);
 		
@@ -99,8 +97,6 @@ public class DAOMockTest {
 	@Test
 	public void testRegisterUserAlreadyExists() {
 		User u = new User("cortazar","cortazar",false);
-			
-		//when( dao.retrieveUser("cortazar") ).thenReturn(u);
 		u.setMoney(80);
 		// When the user exist, we update the password
 		dao.updateUser(u);

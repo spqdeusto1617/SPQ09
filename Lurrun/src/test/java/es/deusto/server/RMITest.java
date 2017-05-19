@@ -8,12 +8,15 @@ import static org.mockito.Mockito.when;
 import junit.framework.JUnit4TestAdapter;
 
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.After;
 //import org.junit.Ignore;
 
@@ -29,8 +32,6 @@ import java.net.MalformedURLException;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
-
-//@PerfTest
 public class RMITest {
 	// Properties are hard-coded because we want the test to be executed without external interaction
 
@@ -326,25 +327,7 @@ public class RMITest {
 
 		assertFalse(a);
 	}
-//	@Test(expected = RemoteException.class)
-//	public void nullUser()
-//	{
-//		boolean a =true;
-//
-//		logger.error("Test  - NullUserTest");
-//		try {
-//			remote.showOwnedGames("Paco");
-//		
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			a =false;
-//	
-//		}
-//
-//		assertTrue(a);
-//	}
-
+	
 
 	@AfterClass static public void tearDown() {
 		try	{
