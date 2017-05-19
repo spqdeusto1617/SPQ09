@@ -1,17 +1,15 @@
 package es.deusto.server.db.dao;
 
-
 import javax.jdo.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import es.deusto.server.db.data.*;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /**
  * This class is the link between the database and the server
  * @author 
@@ -36,14 +34,13 @@ public class DAO implements IDAO {
 	public boolean storeUser(User u) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-	    boolean ret=true;
+	    	boolean ret=true;
 		try {
-	       tx.begin();
+	       		tx.begin();
 	      
-		       pm.makePersistent(u);
-		       tx.commit();
+		       	pm.makePersistent(u);
+		       	tx.commit();
 		    } catch (Exception ex) {
-//		    	logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret=false;
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
@@ -54,6 +51,7 @@ public class DAO implements IDAO {
 		    }
 	    return ret;
 	}
+	
 	/**
 	 * This method retrieves a user
 	 * @param login This is the login name of a user
@@ -66,25 +64,22 @@ public class DAO implements IDAO {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(5);
 		Transaction tx = pm.currentTransaction();
+		
 		try {
 			tx.begin();
 			user = pm.getObjectById(User.class, login);
 			tx.commit();
-		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
-		{
-			////////////logger.warn("User does not exist: " + jonfe.getMessage());
+		} catch (javax.jdo.JDOObjectNotFoundException jonfe) {
 		}
-
 		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
+	    		if (tx != null && tx.isActive()) {
+	    			tx.rollback();
+	    		}
+    			pm.close();
+		}
 		return user;
 	}
+	
 	/**
 	 * This method updates a user
 	 * @param u This is a user
@@ -93,24 +88,22 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public boolean updateUser(User u) {
-		PersistenceManager pm = pmf.getPersistenceManager();
-	    Transaction tx = pm.currentTransaction();
-	    boolean r =true;
-	    try {
-	    	tx.begin();
-	    	pm.makePersistent(u);
-	    	tx.commit();
-	     } catch (Exception ex) {
-	    	   	////////////logger.error("Error updating a user: " + ex.getMessage());
-		   	r=false;
-	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
-
-	   		pm.close();
-	     }
-	    return r;
+	PersistenceManager pm = pmf.getPersistenceManager();
+	Transaction tx = pm.currentTransaction();
+	boolean r =true;
+	try {
+		tx.begin();
+		pm.makePersistent(u);
+		tx.commit();
+	} catch (Exception ex) {
+		r=false;
+	} finally {
+		if (tx != null && tx.isActive()) {
+		tx.rollback();
+	}
+		pm.close();
+	}
+		return r;
 	}
 
 	/**
@@ -131,19 +124,17 @@ public class DAO implements IDAO {
 			tx.commit();
 		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
 		{
-			//logger.warn("User does not exist: " + jonfe.getMessage());
 		}
 
 		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+    			pm.close();
+	   	}
 		return license;
 	}
+	
 	/** 
 	 * This method updates a license
 	 * @param g This is a license
@@ -153,23 +144,21 @@ public class DAO implements IDAO {
 	@Override
 	public boolean updateLicense(License g){
 		PersistenceManager pm = pmf.getPersistenceManager();
-	    Transaction tx = pm.currentTransaction();
-	    boolean ret=true;
-	    try {
-	    	tx.begin();
-	    	pm.makePersistent(g);
-	    	tx.commit();
-	     } catch (Exception ex) {
-//	    	logger.error("Error updating a License: " + ex.getMessage());
-		   	ret = false;
-	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
-
-	   		pm.close();
-	     }
-	    return ret;
+		Transaction tx = pm.currentTransaction();
+		boolean ret=true;
+		try {
+			tx.begin();
+			pm.makePersistent(g);
+			tx.commit();
+		} catch (Exception ex) {
+			ret = false;
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return ret;
 	}
 
 	/**
@@ -183,23 +172,21 @@ public class DAO implements IDAO {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
 		boolean r=true;
-	    try {
-	       tx.begin();
-	 
-		       pm.makePersistent(g);
-		       tx.commit();
-		    } catch (Exception ex) {
-		    	 	////////////logger.error("   $ Error storing an object: " + ex.getMessage());
-		    	r=false;
-		    } finally {
-		    	if (tx != null && tx.isActive()) {
-		    		tx.rollback();
-		    	}
-
-	    		pm.close();
-		    }
-	    return r;
+	    	try {
+		    	tx.begin();
+			pm.makePersistent(g);
+			tx.commit();
+		} catch (Exception ex) {
+			r=false;
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
 		}
+	    	return r;
+	}
+	
 	/**
 	 * This method retrieves a game
 	 * @param name This is the name of a game
@@ -218,19 +205,17 @@ public class DAO implements IDAO {
 			tx.commit();
 		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
 		{
-					//logger.warn("Game does not exist: " + jonfe.getMessage());
 		}
 
 		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+    			pm.close();
 	    	}
-
-    		pm.close();
-	    }
-
 		return game;
 	}
+	
 	/**
 	 * This method updates a game
 	 * @param g This is a game
@@ -247,14 +232,13 @@ public class DAO implements IDAO {
 	    	pm.makePersistent(g);
 	    	tx.commit();
 	     } catch (Exception ex) {
-//	    	   	////////////logger.error("Error updating a game: " + ex.getMessage());
-		   	r=false;
+		   r=false;
 	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
+		if (tx != null && tx.isActive()) {
+		tx.rollback();
+		}
 
-	   		pm.close();
+		pm.close();
 	     }
 	    return r;
 	}
@@ -277,19 +261,18 @@ public class DAO implements IDAO {
 			tx.commit();
 		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
 		{
-			//logger.warn("Company does not exist: " + jonfe.getMessage());
 		}
 
 		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 
 		return company;
 	}
+	
 	/**
 	 * This method updates a company 
 	 * @param c This is a company
@@ -299,23 +282,21 @@ public class DAO implements IDAO {
 	@Override
 	public boolean updateCompany(Company c){
 		PersistenceManager pm = pmf.getPersistenceManager();
-	    Transaction tx = pm.currentTransaction();
-	    boolean r= true;
-	    try {
-	    	tx.begin();
-	    	pm.makePersistent(c);
-	    	tx.commit();
-	     } catch (Exception ex) {
-	    	    	////////////logger.error("Error updating a company: " + ex.getMessage());
-		   	r=false;
-	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
-
-	   		pm.close();
-	     }
-	    return r;
+		Transaction tx = pm.currentTransaction();
+		boolean r= true;
+		try {
+			tx.begin();
+			pm.makePersistent(c);
+			tx.commit();
+		} catch (Exception ex) {
+			r=false;
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return r;
 	}
 
 	/**
@@ -336,19 +317,16 @@ public class DAO implements IDAO {
 			tx.commit();
 		} catch (javax.jdo.JDOObjectNotFoundException jonfe)
 		{
-					//logger.warn("Genre does not exist: " + jonfe.getMessage());
 		}
-
 		finally {
-	    	if (tx != null && tx.isActive()) {
-	    		tx.rollback();
-	    	}
-
-    		pm.close();
-	    }
-
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
 		return genre;
 	}
+	
 	/**
 	 * This method updates a genre
 	 * @param g This is a genre
@@ -358,23 +336,21 @@ public class DAO implements IDAO {
 	@Override
 	public boolean updateGenre(Genre g){
 		PersistenceManager pm = pmf.getPersistenceManager();
-	    Transaction tx = pm.currentTransaction();
-	    boolean r=true;
-	    try {
-	    	tx.begin();
-	    	pm.makePersistent(g);
-	    	tx.commit();
-	     } catch (Exception ex) {
-	    	 	   	////////////logger.error("Error updating a genre: " + ex.getMessage());
-		   	r=false;
-	     } finally {
-		   	if (tx != null && tx.isActive()) {
-		   		tx.rollback();
-		   	}
-
-	   		pm.close();
-	     }
-	    return r;
+		Transaction tx = pm.currentTransaction();
+		boolean r=true;
+		try {
+		tx.begin();
+		pm.makePersistent(g);
+		tx.commit();
+		} catch (Exception ex) {
+		    r=false;
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return r;
 	}
 
 	/**
@@ -385,34 +361,33 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public List<Game> getAllGames() {
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(5);
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		pm.getFetchPlan().setMaxFetchDepth(5);
 
-        List<Game> games=new ArrayList<>();
-        try {
-            tx.begin();
-            Extent<Game> extentP = pm.getExtent(Game.class);
+		List<Game> games=new ArrayList<>();
+		try {
+		    tx.begin();
+		    Extent<Game> extentP = pm.getExtent(Game.class);
 
-            for (Game p : extentP) {
+		    for (Game p : extentP) {
+		       games.add(p);
+		       p.getName();
+		       p.getCompany();
+		       p.getGenre();
+		    }
 
-               games.add(p);
-               p.getName();
-               p.getCompany();
-               p.getGenre();
-                }
-
-            tx.commit();
-        } catch (Exception ex) {
-        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-        return games;
+		    tx.commit();
+		} catch (Exception ex) {
+		} finally {
+		    if (tx.isActive()) {
+			tx.rollback();
+		    }
+		    pm.close();
+		}
+		return games;
 	}
+	
 	/**
 	 * This method shows all the companies
 	 * @param unused
@@ -421,34 +396,30 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public List<Company> getAllCompanies() {
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(5);
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		pm.getFetchPlan().setMaxFetchDepth(5);
 
-        List<Company> companies = new ArrayList<>();
-        try {
-            tx.begin();
-            Extent<Company> extentP = pm.getExtent(Company.class);
+		List<Company> companies = new ArrayList<>();
+		try {
+			tx.begin();
+			Extent<Company> extentP = pm.getExtent(Company.class);
 
-            for (Company p : extentP) {
-
-               companies.add(p);
-               p.getName();
-//               p.getCompany();
-//               p.getGenre();
-                }
-
-            tx.commit();
-        } catch (Exception ex) {
-        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-        return companies;
+			for (Company p : extentP) {
+				companies.add(p);
+				p.getName();
+			}
+			tx.commit();
+		} catch (Exception ex) {
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return companies;
 	}
+	
 	/**
 	 * This method shows all the genres
 	 * @param unused
@@ -457,34 +428,30 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public List<Genre> getAllGenres() {
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(5);
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		pm.getFetchPlan().setMaxFetchDepth(5);
 
-        List<Genre> genres = new ArrayList<>();
-        try {
-            tx.begin();
-            Extent<Genre> extentP = pm.getExtent(Genre.class);
+		List<Genre> genres = new ArrayList<>();
+		try {
+			tx.begin();
+			Extent<Genre> extentP = pm.getExtent(Genre.class);
 
-            for (Genre p : extentP) {
-
-               genres.add(p);
-               p.getName();
-//               p.getCompany();
-//               p.getGenre();
-                }
-
-            tx.commit();
-        } catch (Exception ex) {
-        	   //logger.error("# Error getting Extent getAllGames: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
-        return genres;
+			for (Genre p : extentP) {
+				genres.add(p);
+				p.getName();
+			}
+			tx.commit();
+		} catch (Exception ex) {
+		} finally {
+		    if (tx.isActive()) {
+			tx.rollback();
+		    }
+		    pm.close();
+		}
+		return genres;
 	}
+	
 	/**
 	 * This method returns the first license stored in the database
 	 * @param name This is the name of a license
@@ -493,33 +460,31 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public License getFirstLicense(String name) {
-        PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx = pm.currentTransaction();
-        pm.getFetchPlan().setMaxFetchDepth(5);
-        License u = null;
-  
-        try {
-            tx.begin();
-           
-            Extent<License> extentP = pm.getExtent(License.class);
- 
-            for (License l : extentP) {
-            	if(l.getGame().getName().equals(name) && !l.isUsed() ){            		
-            		u = l;
-            		break;
-            	}
-            	
-                }
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
+		pm.getFetchPlan().setMaxFetchDepth(5);
+		License u = null;
 
-            tx.commit();
-        } catch (Exception ex) {
-        	   //logger.error("# Error getting Extent getLicenses: " + ex.getMessage());
-        } finally {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            pm.close();
-        }
+		try {
+		    tx.begin();
+
+		    Extent<License> extentP = pm.getExtent(License.class);
+
+		    for (License l : extentP) {
+			if(l.getGame().getName().equals(name) && !l.isUsed() ){            		
+				u = l;
+				break;
+			}
+		    }
+
+		    tx.commit();
+		} catch (Exception ex) {
+		} finally {
+		    if (tx.isActive()) {
+			tx.rollback();
+		    }
+		    pm.close();
+		}
         return u;
 	}
 
