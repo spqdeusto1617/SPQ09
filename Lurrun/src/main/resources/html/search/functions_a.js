@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['registernewusertest',['registerNewUserTest',['../classes_1_1deusto_1_1server_1_1_r_m_i_test.html#a54c5099976b8a10b94d97e9ca5b56887',1,'es::deusto::server::RMITest']]],
   ['registeruser',['registerUser',['../classes_1_1deusto_1_1server_1_1db_1_1_d_b.html#a888f468b3fc2a05520fca9ac135823e3',1,'es.deusto.server.db.DB.registerUser()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.html#ad9ecf628cb97ade7cb1b10fd1b3a18c4',1,'es.deusto.server.db.IDB.registerUser()'],['../interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#aea9a185d69da02d134443a3802a20b32',1,'es.deusto.server.remote.IRemote.registerUser()'],['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a4b013f75d23e2c9f0dbca2d3bb467f6a',1,'es.deusto.server.remote.Remote.registerUser()']]],
   ['remote',['Remote',['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a39055ae30196c2afe97a621b80e43374',1,'es::deusto::server::remote::Remote']]],
   ['removelicense',['removeLicense',['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_game.html#a4ca6c0283ef51e95fbed8f52fd76d985',1,'es.deusto.server.db.data.Game.removeLicense()'],['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.html#a5ee17c4a3ab4eceb028a087f96527375',1,'es.deusto.server.db.data.User.removeLicense()']]],

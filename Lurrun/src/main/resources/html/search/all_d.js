@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['teardown',['tearDown',['../classes_1_1deusto_1_1server_1_1_r_m_i_test.html#a069a29652068120e6807a325863d09aa',1,'es::deusto::server::RMITest']]],
   ['testgamevalid',['testGameValid',['../classes_1_1deusto_1_1server_1_1_d_a_o_mock_test.html#a54ba8b12cdb1c6e74fdabb8f6341ced5',1,'es::deusto::server::DAOMockTest']]],
   ['testregisteruseralreadyexists',['testRegisterUserAlreadyExists',['../classes_1_1deusto_1_1server_1_1_d_a_o_mock_test.html#ad1bc82a076c6efbe4119405df120e9f7',1,'es::deusto::server::DAOMockTest']]],
   ['testregisterusercorrectly',['testRegisterUserCorrectly',['../classes_1_1deusto_1_1server_1_1_d_a_o_mock_test.html#a130e22cffc04eaf64f676f3bd990842e',1,'es::deusto::server::DAOMockTest']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['registernewusertest',['registerNewUserTest',['../classes_1_1deusto_1_1server_1_1_r_m_i_test.html#a54c5099976b8a10b94d97e9ca5b56887',1,'es::deusto::server::RMITest']]],
   ['registeruser',['registerUser',['../classes_1_1deusto_1_1server_1_1db_1_1_d_b.html#a888f468b3fc2a05520fca9ac135823e3',1,'es.deusto.server.db.DB.registerUser()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.html#ad9ecf628cb97ade7cb1b10fd1b3a18c4',1,'es.deusto.server.db.IDB.registerUser()'],['../interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#aea9a185d69da02d134443a3802a20b32',1,'es.deusto.server.remote.IRemote.registerUser()'],['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a4b013f75d23e2c9f0dbca2d3bb467f6a',1,'es.deusto.server.remote.Remote.registerUser()']]],
   ['remote',['Remote',['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html',1,'es.deusto.server.remote.Remote'],['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#a39055ae30196c2afe97a621b80e43374',1,'es.deusto.server.remote.Remote.Remote()']]],
   ['remote_2ejava',['Remote.java',['../_remote_8java.html',1,'']]],
@@ -9,6 +10,6 @@ var searchData=
   ['retrievegenre',['retrieveGenre',['../classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#a16b0af798fbb00cd29a505491c57e2cd',1,'es.deusto.server.db.dao.DAO.retrieveGenre()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.html#a8b15955637f9b81c57900761c6d03571',1,'es.deusto.server.db.dao.IDAO.retrieveGenre()']]],
   ['retrievelicense',['retrieveLicense',['../classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#a02fd634e6bd7a087b1476ab161af646f',1,'es.deusto.server.db.dao.DAO.retrieveLicense()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.html#a6a3e25055d4a81c738d1bd73de6ef7da',1,'es.deusto.server.db.dao.IDAO.retrieveLicense()']]],
   ['retrieveuser',['retrieveUser',['../classes_1_1deusto_1_1server_1_1db_1_1dao_1_1_d_a_o.html#a8c316b4c3bf246d00fb2b423a603ebe6',1,'es.deusto.server.db.dao.DAO.retrieveUser()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1dao_1_1_i_d_a_o.html#a19f9b0d0b6f5f80730d6d197deca7dfc',1,'es.deusto.server.db.dao.IDAO.retrieveUser()']]],
-  ['rmitest_2ejava',['RMITest.java',['../_r_m_i_test_8java.html',1,'']]],
-  ['rule',['rule',['../classes_1_1deusto_1_1server_1_1_conti_perf_test.html#a36643de9d25126a2f4d24e6b61987c31',1,'es::deusto::server::ContiPerfTest']]]
+  ['rmitest',['RMITest',['../classes_1_1deusto_1_1server_1_1_r_m_i_test.html',1,'es::deusto::server']]],
+  ['rmitest_2ejava',['RMITest.java',['../_r_m_i_test_8java.html',1,'']]]
 ];

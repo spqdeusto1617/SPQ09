@@ -22,7 +22,5 @@ var searchData=
   ['getsuperuser',['getSuperuser',['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_user.html#a3b6d6d064ccfe7e0dc2a7c6c132cdfc0',1,'es::deusto::server::db::data::User']]],
   ['getuser',['getUser',['../classes_1_1deusto_1_1server_1_1db_1_1data_1_1_license.html#aa7a9c7a2a5c6b4663746ed3e8ccaf0a1',1,'es::deusto::server::db::data::License']]],
   ['getusergames',['getUserGames',['../classes_1_1deusto_1_1server_1_1db_1_1_d_b.html#a1c471589284782e7ff1190f2b6c2369e',1,'es.deusto.server.db.DB.getUserGames()'],['../interfacees_1_1deusto_1_1server_1_1db_1_1_i_d_b.html#ac5ef9780a640140576f9373f8b57631c',1,'es.deusto.server.db.IDB.getUserGames()']]],
-  ['getuserwallet',['getUserWallet',['../interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a53305dbc72d910c932e66e2c27c5e1bb',1,'es.deusto.server.remote.IRemote.getUserWallet()'],['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#af7cc190cccf69cda838a6d9805c5c2f5',1,'es.deusto.server.remote.Remote.getUserWallet()']]],
-  ['gui',['GUI',['../classes_1_1deusto_1_1client_1_1_g_u_i.html',1,'es::deusto::client']]],
-  ['gui_2ejava',['GUI.java',['../_g_u_i_8java.html',1,'']]]
+  ['getuserwallet',['getUserWallet',['../interfacees_1_1deusto_1_1server_1_1remote_1_1_i_remote.html#a53305dbc72d910c932e66e2c27c5e1bb',1,'es.deusto.server.remote.IRemote.getUserWallet()'],['../classes_1_1deusto_1_1server_1_1remote_1_1_remote.html#af7cc190cccf69cda838a6d9805c5c2f5',1,'es.deusto.server.remote.Remote.getUserWallet()']]]
 ];
