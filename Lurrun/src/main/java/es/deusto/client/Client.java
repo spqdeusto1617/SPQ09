@@ -1,6 +1,5 @@
 package es.deusto.client;
 
-
 import java.awt.HeadlessException;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
@@ -31,7 +30,6 @@ import javax.swing.table.DefaultTableModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import es.deusto.server.db.data.*;
 import es.deusto.server.remote.*;
 
@@ -40,15 +38,12 @@ public class Client extends JFrame{
 
 	private static String[] mainMenu = {"Show games on store", "Show owned games", "Buy game", "Add game"};
 
-
 	final static Logger logger = LoggerFactory.getLogger(Client.class);
 	private static boolean superuser = false;
 	private static String defInfo = "Insert the option number to select an action. If you want to exit the application, input 'quit'.";
 	private static String name;
 	private static IRemote server;
-
-
-
+	
 	private String loggedUser;
 	private JList list;
 	private JPanel addGame;
@@ -69,7 +64,6 @@ public class Client extends JFrame{
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
 
-
 	private JComboBox comboBox;
 	private JComboBox comboBox_1;
 
@@ -80,23 +74,19 @@ public class Client extends JFrame{
 
 	public void loadAllArrayList()
 	{
-
 		try {
 			companies=server.getAllCompanies();
 		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
 			genres=server.getAllGenres();
 		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
 			games=server.showGamesInStore();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -118,51 +108,44 @@ public class Client extends JFrame{
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-			String user = userTextField.getText().toString();
+				String user = userTextField.getText().toString();
 
-			String pass = passwordField.getText().toString();
-			boolean k=true;
-			//if(user y pass bien y normal user)
-			if(user.length()!=0 && pass.length()!=0){
-			try {
-				k=server.loginUser(user, pass);
-				superuser=server.isSuperUser(user);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			catch (NullPointerException e1)
-			{
-				JOptionPane.showMessageDialog(addGame,
-					    "Invalid User or password.",
-					    "",
-					    JOptionPane.ERROR_MESSAGE);
-
-			}
-			if(k && !superuser)
-			{
-			loggedUser= user;
-			normalUserWindow();
-			}
-			else if(k && superuser)
-			{
-			superUserWindow();
-			}
-
-
-			}else
-			{
-				JOptionPane.showMessageDialog(addGame,
-					    "Empty User or password.",
-					    "",
-					    JOptionPane.ERROR_MESSAGE);
-
-			}
-
-			}
-
-		});
-
+				String pass = passwordField.getText().toString();
+				boolean k=true;
+				//if(user y pass bien y normal user)
+				if(user.length()!=0 && pass.length()!=0){
+					try {
+						k=server.loginUser(user, pass);
+						superuser=server.isSuperUser(user);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+					catch (NullPointerException e1)
+					{
+						JOptionPane.showMessageDialog(addGame,
+							    "Invalid User or password.",
+							    "",
+							    JOptionPane.ERROR_MESSAGE);
+					}
+					
+					if(k && !superuser)
+					{
+						loggedUser= user;
+						normalUserWindow();
+					}
+					else if(k && superuser)
+					{
+						superUserWindow();
+					}
+					}else
+					{
+						JOptionPane.showMessageDialog(addGame,
+							    "Empty User or password.",
+							    "",
+							    JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			});
 
 		btnLogin.setBounds(236, 33, 110, 23);
 		addGame.add(btnLogin);
@@ -219,6 +202,7 @@ public class Client extends JFrame{
 			}
 		});
 	}
+	
 	public void normalUserWindow()
 	{
 		setResizable(false);
@@ -350,7 +334,8 @@ public class Client extends JFrame{
 		btnLogOut.setBounds(472, 296, 89, 23);
 		addGame.add(btnLogOut);
 
-}
+	}
+	
 	public void buyGameWindow()
 	{
 
@@ -444,6 +429,7 @@ public class Client extends JFrame{
 			}
 
 		});
+		
 		btnBuyGame_1.setBounds(130, 253, 140, 37);
 		addGame.add(btnBuyGame_1);
 
@@ -553,6 +539,7 @@ public class Client extends JFrame{
 	    addGame.add(scrollPane);
 
 	}
+	
 	public void superUserWindow()
 	{
 		loadAllArrayList();
@@ -614,6 +601,7 @@ public class Client extends JFrame{
 		table.setEnabled(false);
 		shopPanel.add(table);
 	}
+	
 	public void addGameWindow()
 	{
 		loadAllArrayList();
@@ -761,9 +749,9 @@ public class Client extends JFrame{
 		addGame.add(comboBox_1);
 
 	}
-	public Client()
-	{
-			loginWindow();
+	
+	public Client(){
+		loginWindow();
 	}
 
 	private static void displayMenu(String[] options, String info){
@@ -791,7 +779,6 @@ public class Client extends JFrame{
 			}
 
 		} catch (RemoteException e) {
-//			logger.info(e.getMessage());
 			games = null;
 		}
 
@@ -820,10 +807,6 @@ public class Client extends JFrame{
 	}
 
 	public static void main(String[] args) {
-
-
-
-
 		if (args.length != 3) {
 			logger.info("Use: java [policy] [codebase] Client.Client [host] [port] [server]");
 			System.exit(0);
@@ -834,145 +817,13 @@ public class Client extends JFrame{
 		}
 
 		try {
-			 name = "//" + args[0] + ":" + args[1] + "/" + args[2];
-			 server = (IRemote) java.rmi.Naming.lookup(name);
+			name = "//" + args[0] + ":" + args[1] + "/" + args[2];
+			server = (IRemote) java.rmi.Naming.lookup(name);
 
-
-				Client frame = new Client();
-				frame.setVisible(true);
-
-
-//
-//			boolean log = true;
-//			while(log){
-//				logger.info("To log in press '1'; for registering press '2'");
-//				int logreg = Integer.parseInt(System.console().readLine());
-//				boolean pass = false;
-//				logger.info("Insert username:");
-//				String login = System.console().readLine();
-//				logger.info("Insert password:");
-//				String password = String.valueOf(System.console().readPassword());
-//
-//				try{
-//					if(logreg == 1){
-//						pass = server.loginUser(login, password);
-//						superuser = server.isSuperUser(login);
-//					}
-//					else if (logreg == 2){
-//						pass = server.registerUser(login, password);
-//					}
-//					else{
-//						logger.error("Non valid input");
-//					}
-//				} catch (RemoteException e){
-//					logger.error("Remote exception when trying to log in");
-//					pass = false;
-//
-//				}
-//				if(pass){
-//					if(superuser){
-//						logger.info("Hello superuser!");
-//					}
-//					log = false;
-//					String input = "";
-//					do{
-//						displayMenu(mainMenu, defInfo);
-//						input = System.console().readLine();
-//						switch(input){
-//						case("1"):
-//							//Show games
-//							showGames(server, null);
-//							break;
-//						case("2"):
-//							//Show current user's games
-//							showGames(server, login);
-//							break;
-//						case("3"):
-//							//Buy game
-//							logger.info("Insert a game's Id to select it. If you want to go back, input 'b'.");
-//							logger.info("Available money: " + server.getUserWallet(login));
-//							showGames(server, null);
-//							input = System.console().readLine();
-//							if(input.equals("b")){
-//								break;
-//							}
-//							int id = Integer.parseInt(input)-1;
-//							String gameName = "";
-//							try{
-//								gameName = games.get(id).getName();
-//							} catch (Exception e){
-//								logger.error("Invalid input");
-//								break;
-//							}
-//							try{
-//								if(server.buyGame(login, gameName)){
-//									logger.info("Game bought successfully");
-//								}
-//							} catch (RemoteException e){
-//								logger.error("Remote exception when trying to buy a game");
-//							}
-//							break;
-//						case("4"):
-//							//Add new game only if superUser
-//							if(superuser){
-//								String gName = "";
-//								double gPrice = 0.0;
-//								double gDisc = 0.0;
-//								//Input name, price and discount
-//								logger.info("Input new game name:");
-//								gName = System.console().readLine();
-//								try{
-//									logger.info("Input new game price:");
-//									gPrice = Double.parseDouble(System.console().readLine());
-//									logger.info("Input new game discount:");
-//									gDisc = Double.parseDouble(System.console().readLine());
-//								} catch (Exception e){
-//									logger.info("Invalid input");
-//									break;
-//								}
-//
-//								try{
-//									//Choose Company
-//									int choose = 0;
-//									String[] chooseList = server.getAllCompanies();
-//									displayMenu(chooseList, "Select a company");
-//									choose = Integer.parseInt(System.console().readLine())-1;
-//									String cName = chooseList[choose];
-//
-//									//Coose Genre
-//									chooseList = server.getAllGenres();
-//									displayMenu(chooseList, "Select a Genre");
-//									choose = Integer.parseInt(System.console().readLine())-1;
-//									String ggName = chooseList[choose];
-//									if(server.addGame(gName, gPrice, gDisc, ggName, cName)){
-//										logger.info("New game added successfully");
-//									}
-//								} catch (RemoteException e){
-//									logger.error("Remote exception on the process of adding a game to the DB");
-//								}
-//
-//								break;
-//							}
-//						case("quit"):
-//							break;
-//						default:
-//							logger.info("Invalid input");
-//							break;
-//						}
-//
-//					} while(!(input.equals("quit")));
-//					logger.info("See you soon! :D");
-//				}
-//				else{
-//					logger.info("Incorrect login. Try again? Y|N");
-//					String input = System.console().readLine();
-//					if(input.equals("N")){
-//						log = false;
-//					}
-//				}
-//			}
-//
-		} catch (Exception e) {		logger.error("[GenericException] Unexpected exception caught on the code: " + e.getMessage());
+			Client frame = new Client();
+			frame.setVisible(true);
+		} catch (Exception e) {		
+			logger.error("[GenericException] Unexpected exception caught on the code: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
