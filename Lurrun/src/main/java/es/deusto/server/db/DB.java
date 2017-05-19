@@ -28,7 +28,7 @@ public class DB implements IDB {
 	private int cont = 0;
 	IDAO dao;
 	final Logger logger = LoggerFactory.getLogger(DB.class);
-	private final int DEFAULT_LICENSES = 3;
+	private final int DEFAULT_LICENSES = 10;
 	/**
 	 * This is the first constructor for the database
 	 * @param unused

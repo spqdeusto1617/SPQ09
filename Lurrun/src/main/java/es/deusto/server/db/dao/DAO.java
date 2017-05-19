@@ -45,7 +45,6 @@ public class DAO implements IDAO {
 		    } catch (Exception ex) {
 //		    	logger.error("   $ Error storing an object: " + ex.getMessage());
 		    	ret=false;
-		    
 		    } finally {
 		    	if (tx != null && tx.isActive()) {
 		    		tx.rollback();

@@ -64,8 +64,7 @@ public class Client extends JFrame{
 
 	private JButton btnNewButton;
 	private JTable table;
-	private JTable table_1;
-	private JList list_1;
+	private  JList list_1;
 	private JList list_2;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
@@ -259,7 +258,7 @@ public class Client extends JFrame{
 			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 		}
-		Object[] header={"Name","Genre","Company","Price","Discount"};
+		Object[] header={"Name","Company","Genre","Price","Discount"};
 		storeTable.addRow(header);
 		for (int i = 0; i < games.size(); i++)
 		{
@@ -312,7 +311,7 @@ public class Client extends JFrame{
 		tableMyGames = new JTable(mygamesTable);
 		tableMyGames.setBounds(0, 0, 428, 291);
 		myGamesPanel.add(tableMyGames);
-
+		tableMyGames.setEnabled(false);
 		Panel allGamesPanel = new Panel();
 		allGamesPanel.setLayout(null);
 		userTab.addTab("All Games", null, allGamesPanel, null);
@@ -320,7 +319,7 @@ public class Client extends JFrame{
 		tableAllGames = new JTable(storeTable);
 		tableAllGames.setBounds(0, 0, 428, 291);
 		allGamesPanel.add(tableAllGames);
-
+		tableAllGames.setEnabled(false);
 		JButton btnMyWallet = new JButton("My Wallet");
 		btnMyWallet.setBounds(473, 127, 89, 23);
 		addGame.add(btnMyWallet);
@@ -328,8 +327,8 @@ public class Client extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 					try {
 					JOptionPane.showMessageDialog(addGame,
-						    "You have"
-						    + server.getUserWallet(loggedUser) + "lelreles",    		//
+						    "You have "
+						    + server.getUserWallet(loggedUser) + " €",    		//
 						    "Wallet",
 						    JOptionPane.PLAIN_MESSAGE);
 				} catch (HeadlessException e1) {
@@ -358,7 +357,7 @@ public class Client extends JFrame{
 
 		setResizable(false);
 		DefaultListModel modelgam = new DefaultListModel();
-
+		
 		setTitle("Buy Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 656, 342);
@@ -427,7 +426,7 @@ public class Client extends JFrame{
 
 								server.buyGame(loggedUser, selected);
 								normalUserWindow();
-								server.setUserWallet(server.getUserWallet(loggedUser)-games.get(r).getPrice(), loggedUser);
+								
 							}
 
 				} catch (RemoteException e1) {
@@ -558,7 +557,7 @@ public class Client extends JFrame{
 	{
 		loadAllArrayList();
 		setResizable(false);
-		String col[] = {"Name","Company","Gernre" ,"Price" ,"Discount"};
+		String col[] = {"Name","Genre","Company" ,"Price" ,"Discount"};
 		DefaultTableModel tableModel = new DefaultTableModel(col, 0);
 
 
@@ -570,6 +569,7 @@ public class Client extends JFrame{
 			   String companyname = games.get(i).getCompany().getName();
 			   String genre = games.get(i).getGenre().getName();
 			   Object[] data = { name , genre , companyname ,price, discount};
+			   
 			   tableModel.addRow(data);
 
 		}
@@ -611,6 +611,7 @@ public class Client extends JFrame{
 
 		table = new JTable(tableModel);
 		table.setBounds(0, 0, 647, 303);
+		table.setEnabled(false);
 		shopPanel.add(table);
 	}
 	public void addGameWindow()

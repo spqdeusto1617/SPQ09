@@ -1,156 +1,156 @@
-//package es.deusto.server;
-//
-//
-//import static org.junit.Assert.*;
-//import static org.mockito.Mockito.verify;
-//import static org.mockito.Mockito.when;
-//
-//import junit.framework.JUnit4TestAdapter;
-//
-//import org.junit.BeforeClass;
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.mockito.ArgumentCaptor;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.junit.AfterClass;
-//import org.junit.After;
-////import org.junit.Ignore;
-//
-//import es.deusto.server.db.*;
-//import es.deusto.server.db.data.*;
-//import es.deusto.server.remote.IRemote;
-//import es.deusto.server.remote.Remote;
-//
-//import java.rmi.Naming;
-//import java.rmi.RemoteException;
-//import java.net.MalformedURLException;
-//
-//
-//import javax.swing.plaf.synth.SynthSeparatorUI;
-//
-//
-////@PerfTest
-//public class RMITest {
-//	// Properties are hard-coded because we want the test to be executed without external interaction
-//
-//	private static String cwd = RMITest.class.getProtectionDomain().getCodeSource().getLocation().getFile();
-//	private static Thread rmiRegistryThread = null;
-//	private static Thread rmiServerThread = null;
-//	int count = 0;
-//	private IRemote remote;
-//	final static Logger logger = LoggerFactory.getLogger(RMITest.class);
-//
-//	
-//	public static junit.framework.Test suite() {
-//		return new JUnit4TestAdapter(RMITest.class);
-//	}
-//
-//	@BeforeClass static public void setUp() {
-//		// Launch the RMI registry
-//		class RMIRegistryRunnable implements Runnable {
-//
-//			public void run() {
-//				try {
-//					java.rmi.registry.LocateRegistry.createRegistry(1099);
-//					logger.info("BeforeClass: RMI registry ready.");
-//				} catch (Exception e) {
-//					logger.info("Exception starting RMI registry:");
-//					e.printStackTrace();
-//				}	
-//			}
-//		}
-//
-//		rmiRegistryThread = new Thread(new RMIRegistryRunnable());
-//		rmiRegistryThread.start();
-//		try {
-//			Thread.sleep(4000);
-//		} catch (InterruptedException ie) {
-//			ie.printStackTrace();
-//
-//		}
-//
-//		class RMIServerRunnable implements Runnable {
-//
-//			public void run() {
-//				logger.info("This is a test to check how mvn test executes this test without external interaction; JVM properties by program");
-//				logger.info("**************: " + cwd);
-//				System.setProperty("java.rmi.server.codebase", "file:" + cwd);
-//				System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
-//
-//				if (System.getSecurityManager() == null) {
-//					System.setSecurityManager(new SecurityManager());
-//				}
-//
-//				String name = "//127.0.0.1:1099/MessengerRMIDAO";
-//				logger.info("BeforeClass - Setting the server ready TestServer name: " + name);
-//
-//				try {
-//
-//					IRemote remote = new Remote();
-//					Naming.rebind(name, remote);
-//				} catch (RemoteException re) {
-//					logger.error(" # Messenger RemoteException: " + re.getMessage());
-//					re.printStackTrace();
-//					System.exit(-1);
-//				} catch (MalformedURLException murle) {
-//					logger.error(" # Messenger MalformedURLException: " + murle.getMessage());
-//					murle.printStackTrace();
-//					System.exit(-1);
-//				}
-//			}
-//		}
-//		rmiServerThread = new Thread(new RMIServerRunnable());
-//		rmiServerThread.start();
-//		try {
-//			Thread.sleep(4000);
-//		} catch (InterruptedException ie) {
-//			ie.printStackTrace();
-//		}
-//
-//	}
-//
-//	@Before public void setUpClient() {
-//
-//		try {
-//			System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
-//
-//			if (System.getSecurityManager() == null) {
-//				System.setSecurityManager(new SecurityManager());
-//			}
-//
-//			String name = "//127.0.0.1:1099/MessengerRMIDAO";
-//			logger.info("BeforeTest - Setting the client ready for calling TestServer name: " + name);
-//			remote = (IRemote) java.rmi.Naming.lookup(name);
-//		}
-//		catch (Exception re) {
-//			logger.error(" # Messenger RemoteException: " + re.getMessage());
-//			System.exit(-1);
-//		} 
-//
-//	}
-//
-//	@Test public void registerNewUserTest() {
-//		boolean a =true;
-//		try{
-//			logger.info("Test 1 - Register new user");
-//			remote.registerUser("Carazo", "Carazo",false);
-//		}
-//		catch (Exception re) {
-//			logger.error(" # Messenger RemoteException: " + re.getMessage());
-//			a =false;
-//		} 
-//
-//		assertTrue( a );
-//	}
+package es.deusto.server;
+
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import junit.framework.JUnit4TestAdapter;
+
+import org.junit.BeforeClass;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.junit.AfterClass;
+import org.junit.After;
+//import org.junit.Ignore;
+
+import es.deusto.server.db.*;
+import es.deusto.server.db.data.*;
+import es.deusto.server.remote.IRemote;
+import es.deusto.server.remote.Remote;
+
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.net.MalformedURLException;
+
+
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
+
+//@PerfTest
+public class RMITest {
+	// Properties are hard-coded because we want the test to be executed without external interaction
+
+	private static String cwd = RMITest.class.getProtectionDomain().getCodeSource().getLocation().getFile();
+	private static Thread rmiRegistryThread = null;
+	private static Thread rmiServerThread = null;
+	int count = 0;
+	private IRemote remote;
+	final static Logger logger = LoggerFactory.getLogger(RMITest.class);
+
+	
+	public static junit.framework.Test suite() {
+		return new JUnit4TestAdapter(RMITest.class);
+	}
+
+	@BeforeClass static public void setUp() {
+		// Launch the RMI registry
+		class RMIRegistryRunnable implements Runnable {
+
+			public void run() {
+				try {
+					java.rmi.registry.LocateRegistry.createRegistry(1099);
+					logger.info("BeforeClass: RMI registry ready.");
+				} catch (Exception e) {
+					logger.info("Exception starting RMI registry:");
+					e.printStackTrace();
+				}	
+			}
+		}
+
+		rmiRegistryThread = new Thread(new RMIRegistryRunnable());
+		rmiRegistryThread.start();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+
+		}
+
+		class RMIServerRunnable implements Runnable {
+
+			public void run() {
+				logger.info("This is a test to check how mvn test executes this test without external interaction; JVM properties by program");
+				logger.info("**************: " + cwd);
+				System.setProperty("java.rmi.server.codebase", "file:" + cwd);
+				System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
+
+				if (System.getSecurityManager() == null) {
+					System.setSecurityManager(new SecurityManager());
+				}
+
+				String name = "//127.0.0.1:1099/MessengerRMIDAO";
+				logger.info("BeforeClass - Setting the server ready TestServer name: " + name);
+
+				try {
+
+					IRemote remote = new Remote();
+					Naming.rebind(name, remote);
+				} catch (RemoteException re) {
+					logger.error(" # Messenger RemoteException: " + re.getMessage());
+					re.printStackTrace();
+					System.exit(-1);
+				} catch (MalformedURLException murle) {
+					logger.error(" # Messenger MalformedURLException: " + murle.getMessage());
+					murle.printStackTrace();
+					System.exit(-1);
+				}
+			}
+		}
+		rmiServerThread = new Thread(new RMIServerRunnable());
+		rmiServerThread.start();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+		}
+
+	}
+
+	@Before public void setUpClient() {
+
+		try {
+			System.setProperty("java.security.policy", "target\\test-classes\\security\\java.policy");
+
+			if (System.getSecurityManager() == null) {
+				System.setSecurityManager(new SecurityManager());
+			}
+
+			String name = "//127.0.0.1:1099/MessengerRMIDAO";
+			logger.info("BeforeTest - Setting the client ready for calling TestServer name: " + name);
+			remote = (IRemote) java.rmi.Naming.lookup(name);
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			System.exit(-1);
+		} 
+
+	}
+
+	@Test public void registerNewUserTest() {
+		boolean a =true;
+		try{
+			logger.info("Test 1 - Register new user");
+			remote.registerUser("Carazo", "Carazo");
+		}
+		catch (Exception re) {
+			logger.error(" # Messenger RemoteException: " + re.getMessage());
+			a =false;
+		} 
+
+		assertTrue( a );
+	}
 //
 //	@Test public void registerExistingUserTest() {
 //		boolean a =true;
 //		try{
 //			logger.info("Test 2 - Register existing user. Change password");
-//			remote.registerUser("smith", "smith",false);
+//			remote.registerUser("smith", "smith");
 //			// Silly way of testing the password testing
-//			remote.registerUser("smith", "doe",false);
+//			remote.registerUser("smith", "doe");
 //
 //		}
 //		catch (Exception re) {
@@ -185,41 +185,21 @@
 //
 //	}
 //
-//	@Test public void showUsersTest() {
-//		boolean a=true;
-//		try{
-//			logger.info("Test 4 - showUsersTest()");
-//
-//			remote.registerUser("Javier","Carazo",false);
-//			remote.getAllUsers();
-//
-//		}
-//		catch (Exception re){
-//			logger.error(" RemoteException: " );
-//			logger.trace(re.getMessage());
-//			re.printStackTrace();
-//			a=false;
-//		}
-//
-//		assertTrue( a );
-//
-//
-//
-//	}
-//
-//	@Test(expected=RemoteException.class)
-//	public void testAddInvalidRemote() throws RemoteException {
-//		// Setting up the test data
-//		Company c = null;
-//		Genre gr = null;
-//		Game g = null;
-//
-//		logger.error("Test 5 - testAddInvalidRemote()");							
-//		remote.addGame(g, gr, c);
-//
-//
-//	}
 //	
+//
+////	@Test(expected=RemoteException.class)
+////	public void testAddInvalidRemote() throws RemoteException {
+////		// Setting up the test data
+////		Company c = null;
+////		Genre gr = null;
+////		Game g = null;
+////
+////		logger.error("Test 5 - testAddInvalidRemote()");							
+////		remote.addGame(null, null, null,null, null);
+////
+////
+////	}
+////	
 //	
 //	@Test
 //	public void testRetrieveByParameters() throws Exception  {
@@ -452,14 +432,14 @@
 //	//	}
 //
 //
-//	@AfterClass static public void tearDown() {
-//		try	{
-//			rmiServerThread.join();
-//			rmiRegistryThread.join();
-//		} catch (InterruptedException ie) {
-//			ie.printStackTrace();
-//		}
-//	}
+	@AfterClass static public void tearDown() {
+		try	{
+			rmiServerThread.join();
+			rmiRegistryThread.join();
+		} catch (InterruptedException ie) {
+			ie.printStackTrace();
+		}
+	}
 //	public Game gameTest() throws RemoteException{
 //		Company c = new Company("White Wolf");
 //		Genre gr = new Genre("Vampire");
@@ -520,7 +500,7 @@
 //		} catch (Exception e) {logger.error("Exception License Test");e.printStackTrace();
 //		a=false;
 //		}
-//		
+		
 //		return(a);
 //	}
-//}
+}

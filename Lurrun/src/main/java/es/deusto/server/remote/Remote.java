@@ -54,7 +54,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		if(login != null || password != null){
 			IDB db = new DB();
 			//change to objetc the parameters
-			User u = new User(login,  password, false);
+			User u = new User(login,  password);
 			return db.loginUser(u);
 		} else {
 			logger.error("Remote Exception Register User");
@@ -74,7 +74,7 @@ public class Remote extends UnicastRemoteObject implements IRemote {
 		if(login != null || password != null){
 			IDB db = new DB();
 			//change to objetc the parameters
-			User u = new User(login,  password, false);
+			User u = new User(login,  password);
 			return db.registerUser(u);
 		} else {
 			logger.error("Remote Exception Register User");
