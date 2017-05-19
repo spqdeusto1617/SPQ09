@@ -14,6 +14,7 @@ import es.deusto.server.db.dao.IDAO;
 
 import es.deusto.server.db.dao.DAO;
 import es.deusto.server.db.data.*;
+
 /**
  * This class executes all the basic functions of the database,
  * such as buying a game, registering a user or adding a game for example
@@ -29,6 +30,7 @@ public class DB implements IDB {
 	IDAO dao;
 	final Logger logger = LoggerFactory.getLogger(DB.class);
 	private final int DEFAULT_LICENSES = 10;
+	
 	/**
 	 * This is the first constructor for the database
 	 * @param unused
@@ -38,6 +40,7 @@ public class DB implements IDB {
 		super();
 		dao = new DAO();
 	}
+	
 	/**
 	 * This is the second constructor for the database
 	 * @param udao This is the parameter to the constructor
@@ -69,6 +72,7 @@ public class DB implements IDB {
 		}
 		return false;
 	}
+	
 	/**
 	 * This method saves a new user
 	 * @param u This is a user
@@ -85,6 +89,7 @@ public class DB implements IDB {
 		}
 		return true;
 	}
+	
 	/**
 	 * Method that gives the user a license when buying a game
 	 * @param username This is the login username of a user
@@ -97,19 +102,19 @@ public class DB implements IDB {
 		logger.info("Buying game");
 		User u = showUser(username);
 		Game g = showGame(name);
-		License l =	dao.getFirstLicense(name);
+		License l = dao.getFirstLicense(name);
 
 		logger.info("Setting license used");
 		l.setUsed(true);
 
 		logger.info("Updating DB");
 		dao.updateLicense(l);
-	//	dao.updateGame(g);
 
 		logger.info("Adding license to user");
 		addLicenseToUser(u, l);
 		return true;
 	}
+	
 	/**
 	 * This method shows a list of games
 	 * @param unused
@@ -120,6 +125,7 @@ public class DB implements IDB {
 	public List<Game> getAllGames() {
 		return dao.getAllGames();
 	}
+	
 	/**
 	 * Method that returns the list of games of a user
 	 * @param username This is the login username of a user
@@ -135,6 +141,7 @@ public class DB implements IDB {
         }
 		return gameList;
 	}
+	
 	/**
 	 * This method shows a list of companies
 	 * @param unused
@@ -150,6 +157,7 @@ public class DB implements IDB {
 		}
 		return compNames;
 	}
+	
 	/**
 	 * This method shows a list of genres
 	 * @param unused
@@ -165,6 +173,7 @@ public class DB implements IDB {
 		}
 		return genNames;
 	}
+	
 	/**
 	 * This method adds a new game or updates a existing one into the database
 	 * @param g This is a game
@@ -230,6 +239,7 @@ public class DB implements IDB {
 
 		return ret;
 	}
+	
 	/**
 	 * This method shows if a user is also superuser or not
 	 * @param login This is the login name of a user
@@ -242,13 +252,19 @@ public class DB implements IDB {
 		return u.getSuperuser();
 	}
 
-
+	/**
+	 * This method shows a user
+	 * @param name This is the name of a user
+	 * return User Returns a user
+	 * @see es.deusto.server.db.IDB#showUser(java.lang.String)
+	 */
 	@Override
 	public User showUser(String login){
 		 User u=dao.retrieveUser(login);
 		return u;
 
 	}
+	
 	/**
 	 * This method shows a game
 	 * @param name This is the name of a game
@@ -261,6 +277,7 @@ public class DB implements IDB {
 
 		return g;
 	}
+	
 	/**
 	 * This method shows the company of a game
 	 * @param name This is the name of a company
@@ -273,6 +290,7 @@ public class DB implements IDB {
 		return c;
 
 	}
+	
 	/**
 	 * This method shows the genre of a game
 	 * @param name This is the name of a genre
@@ -285,6 +303,7 @@ public class DB implements IDB {
 		return genr;
 
 	}
+	
 	/** This method adds a license to a user
 	 * @param u This is a user
 	 * @param l This is a license
@@ -297,51 +316,47 @@ public class DB implements IDB {
 		boolean ret=true;
 		double price;
 		try {
-
 			user = dao.retrieveUser(u.getLogin());
 			license = dao.retrieveLicense(l.getGameKey());
-
 		} catch (Exception  e) {
-					logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
+			logger.info("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
-
 		if (user != null && license != null   ) {
-
-
-
 			price=license.getGame().getPrice()*(1-(license.getGame().getDiscount()));
 
-		if(price<user.getMoney())	{
-			user.setMoney(user.getMoney()-price);
-			license.setUser(user);
-			user.addLicense(license);
-			dao.updateUser(user);
-		}
-		else{
-			logger.error("Not enough money");
-		}
+			if(price<user.getMoney()) {
+				user.setMoney(user.getMoney()-price);
+				license.setUser(user);
+				user.addLicense(license);
+				dao.updateUser(user);
+			}
+			else{
+				logger.error("Not enough money");
+			}
 		}
 		return ret;
 	}
+	
 	/**
 	 * This method creates license keys
 	 * @param unused
 	 * @return String Returns the license key
 	 */
 	private String createLicenseKey() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 18) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr;
+		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		StringBuilder salt = new StringBuilder();
+		Random rnd = new Random();
+		while (salt.length() < 18) { // length of the random string.
+		    int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+		    salt.append(SALTCHARS.charAt(index));
+		}
+		String saltStr = salt.toString();
+		return saltStr;
 
-    }
+    	}
+	
 	/**
 	 * This method adds a license to a game
 	 * @param g This is a game
@@ -357,12 +372,11 @@ public class DB implements IDB {
 			game  = dao.retrieveGame(g.getName());
 			license = dao.retrieveLicense(l.getGameKey());
 		} catch (Exception  e) {
-					logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
+			logger.error("Exception launched in checking if the data already exist: " + e.getMessage());
 			ret=false;
 		}
 
 		if (game !=null && license == null){
-
 			l.setGame(game);
 			game.addLicense(l);
 
@@ -371,6 +385,4 @@ public class DB implements IDB {
 		}
 		return ret;
 	}
-
-
 }
